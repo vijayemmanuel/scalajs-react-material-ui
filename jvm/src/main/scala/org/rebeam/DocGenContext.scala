@@ -152,7 +152,10 @@ object DocGenContext {
       "onCompositionEnd", "onCompositionStart", "onCompositionUpdate"
     )
 
-    def sanitiseDescription(s: String): String = s.replaceAllLiterally("@ignore", "Property spread to root element").replaceAllLiterally("@param", "parameter")
+    def sanitiseDescription(s: String): String = s
+      .replaceAllLiterally("@ignore", "Property spread to root element")
+      .replaceAllLiterally("@param", "parameter")
+      .replaceAllLiterally("@returns", "returns")
 
     def sanitiseProp(c: Component, name: String, prop: Prop): (String, Prop) = {
       name -> prop.copy(description = sanitiseDescription(prop.description))

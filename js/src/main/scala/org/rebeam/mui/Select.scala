@@ -197,7 +197,7 @@ object Select {
    *        You can only use it when the `native` property is `false` (default).
    *        
    *        parameter {*} value The `value` provided to the component.
-   *        @returns {ReactElement}
+   *        returns {ReactElement}
    * @param required
    *        If `true`, the input will be required.
    *        Passed to Input
