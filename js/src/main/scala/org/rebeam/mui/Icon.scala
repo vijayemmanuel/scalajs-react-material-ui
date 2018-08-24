@@ -1,0 +1,37 @@
+
+package org.rebeam.mui
+
+import japgolly.scalajs.react._
+import scalajs.js
+import scalajs.js.annotation.JSImport
+
+import japgolly.scalajs.react.vdom.html_<^._
+
+object Icon {
+  
+  @js.native
+  trait Props extends js.Object {
+    
+  }
+
+  @JSImport("@material-ui/core/Icon", JSImport.Default)
+  @js.native
+  object IconJS extends js.Object
+
+  val jsFnComponent = JsFnComponent[Props, Children.Varargs](IconJS)
+  
+  /**
+   * 
+   */
+  def apply(
+    
+  )(children: VdomNode *) = {
+
+    val p = (new js.Object).asInstanceOf[Props]
+    
+
+    jsFnComponent(p)(children: _*)
+  }
+
+}
+    
