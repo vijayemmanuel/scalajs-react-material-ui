@@ -62,7 +62,7 @@ object BottomNavigationAction {
    *        This is useful when you want to trigger an action programmatically.
    *        It currently only supports `focusVisible()` action.
    *        
-   *        @param {object} actions This object contains all possible actions
+   *        parameter {object} actions This object contains all possible actions
    *        that can be triggered programmatically.
    *        Passed to ButtonBase
    * @param buttonRef
@@ -73,7 +73,7 @@ object BottomNavigationAction {
    *        They won't start at the cursor interaction position.
    *        Passed to ButtonBase
    * @param className
-   *        @ignore
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
@@ -105,54 +105,54 @@ object BottomNavigationAction {
    * @param label
    *        The label element.
    * @param onBlur
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onChange
-   *        @ignore
+   *        Property spread to root element
    * @param onClick
-   *        @ignore
+   *        Property spread to root element
    * @param onFocus
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onFocusVisible
    *        Callback fired when the component is focused with a keyboard.
    *        We trigger a `onFocus` callback too.
    *        Passed to ButtonBase
    * @param onKeyDown
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onKeyUp
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onMouseDown
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onMouseLeave
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onMouseUp
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onTouchEnd
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onTouchMove
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onTouchStart
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param role
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param selected
-   *        @ignore
+   *        Property spread to root element
    * @param showLabel
    *        If `true`, the `BottomNavigationAction` will show its label.
    *        By default, only the selected `BottomNavigationAction`
    *        inside `BottomNavigation` will show its label.
    * @param tabIndex
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param `type`
    *        Used to control the button's purpose.
@@ -237,4 +237,4 @@ object BottomNavigationAction {
   }
 
 }
-    
+        

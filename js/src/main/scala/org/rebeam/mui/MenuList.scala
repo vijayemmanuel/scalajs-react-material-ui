@@ -30,7 +30,7 @@ object MenuList {
   /**
    * 
    * @param className
-   *        @ignore
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
@@ -48,9 +48,9 @@ object MenuList {
    *        If `true`, vertical padding will be removed from the list.
    *        Passed to List
    * @param onBlur
-   *        @ignore
+   *        Property spread to root element
    * @param onKeyDown
-   *        @ignore
+   *        Property spread to root element
    * @param subheader
    *        The content of the subheader, normally `ListSubheader`.
    *        Passed to List
@@ -80,4 +80,4 @@ object MenuList {
   }
 
 }
-    
+        

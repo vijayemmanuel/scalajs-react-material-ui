@@ -34,7 +34,7 @@ object ExpansionPanel {
    * @param CollapseProps
    *        Properties applied to the [`Collapse`](/api/collapse) element.
    * @param className
-   *        @ignore
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
@@ -56,8 +56,8 @@ object ExpansionPanel {
    * @param onChange
    *        Callback fired when the expand/collapse state is changed.
    *        
-   *        @param {object} event The event source of the callback
-   *        @param {boolean} expanded The `expanded` state of the panel
+   *        parameter {object} event The event source of the callback
+   *        parameter {boolean} expanded The `expanded` state of the panel
    * @param square
    *        If `true`, rounded corners are disabled.
    *        Passed to Paper
@@ -91,4 +91,4 @@ object ExpansionPanel {
   }
 
 }
-    
+        

@@ -3,7 +3,7 @@ package org.rebeam
 import ComponentModel._
 
 trait DocGenContext {
-  def processComponent(all: Map[String, Component], c: Component): Component
+  def processComponent(all: Map[String, Component], c: Component): Option[Component]
 }
 
 object DocGenContext {
@@ -19,15 +19,24 @@ object DocGenContext {
 
   object MaterialUI extends DocGenContext {
 
-    def processComponent(all: Map[String, Component], c: Component): Component = 
-      c.copy(
-        props = propsIncludingInheritance(all, c)
-          .map {
-            case (name, prop) => transformProp(c, name, prop)
-          }.filter {
-            case (name, prop) => useProp(c, name, prop)
-          } 
-      )
+    def processComponent(all: Map[String, Component], c: Component): Option[Component] =
+      if(c.description.contains("@ignore")) {
+        println("Ignoring " + c.displayName)
+        None
+      } else {
+        Some(
+          c.copy(
+            props = propsIncludingInheritance(all, c)
+              .map {
+                case (name, prop) => transformProp(c, name, prop)
+              }.map {
+                case (name, prop) => sanitiseProp(c, name, prop)
+              }.filter {
+                case (name, prop) => useProp(c, name, prop)
+              } 
+          )
+        )
+      }
 
     def propsIncludingInheritance(all: Map[String, Component], c: Component): List[(String, Prop)] = {
 
@@ -142,6 +151,12 @@ object DocGenContext {
     val compositionEventNames: Set[String] = Set(
       "onCompositionEnd", "onCompositionStart", "onCompositionUpdate"
     )
+
+    def sanitiseDescription(s: String): String = s.replaceAllLiterally("@ignore", "Property spread to root element").replaceAllLiterally("@param", "parameter")
+
+    def sanitiseProp(c: Component, name: String, prop: Prop): (String, Prop) = {
+      name -> prop.copy(description = sanitiseDescription(prop.description))
+    }
 
     def transformProp(c: Component, name: String, prop: Prop): (String, Prop) = {
 

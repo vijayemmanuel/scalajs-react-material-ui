@@ -74,7 +74,7 @@ object Dialog {
    *        A backdrop component. This property enables custom backdrop rendering.
    *        Passed to Modal
    * @param BackdropProps
-   *        @ignore
+   *        Property spread to root element
    * @param PaperProps
    *        Properties applied to the [`Paper`](/api/paper) element.
    * @param TransitionComponent
@@ -82,7 +82,7 @@ object Dialog {
    * @param TransitionProps
    *        Properties applied to the `Transition` element.
    * @param className
-   *        @ignore
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
@@ -142,7 +142,7 @@ object Dialog {
    * @param onClose
    *        Callback fired when the component requests to be closed.
    *        
-   *        @param {object} event The event source of the callback
+   *        parameter {object} event The event source of the callback
    * @param onEnter
    *        Callback fired before the dialog enters.
    * @param onEntered
@@ -245,4 +245,4 @@ object Dialog {
   }
 
 }
-    
+        

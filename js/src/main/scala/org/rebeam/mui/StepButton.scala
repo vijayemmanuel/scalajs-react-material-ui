@@ -70,14 +70,14 @@ object StepButton {
    *        This is useful when you want to trigger an action programmatically.
    *        It currently only supports `focusVisible()` action.
    *        
-   *        @param {object} actions This object contains all possible actions
+   *        parameter {object} actions This object contains all possible actions
    *        that can be triggered programmatically.
    *        Passed to ButtonBase
    * @param active
-   *        @ignore
+   *        Property spread to root element
    *        Passed in via `Step` - passed through to `StepLabel`.
    * @param alternativeLabel
-   *        @ignore
+   *        Property spread to root element
    *        Set internally by Stepper when it's supplied with the alternativeLabel property.
    * @param buttonRef
    *        Use that property to pass a ref callback to the native button component.
@@ -87,12 +87,12 @@ object StepButton {
    *        They won't start at the cursor interaction position.
    *        Passed to ButtonBase
    * @param className
-   *        @ignore
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
    * @param completed
-   *        @ignore
+   *        Property spread to root element
    *        Sets completed styling. Is passed to StepLabel.
    * @param component
    *        The component used for the root node.
@@ -105,7 +105,7 @@ object StepButton {
    *        If `true`, the touch ripple effect will be disabled.
    *        Passed to ButtonBase
    * @param disabled
-   *        @ignore
+   *        Property spread to root element
    *        Disables the button and sets disabled styling. Is passed to StepLabel.
    * @param focusRipple
    *        If `true`, the base button will have a keyboard focus ripple.
@@ -120,53 +120,53 @@ object StepButton {
    * @param icon
    *        The icon displayed by the step label.
    * @param last
-   *        @ignore
+   *        Property spread to root element
    * @param onBlur
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onClick
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onFocus
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onFocusVisible
    *        Callback fired when the component is focused with a keyboard.
    *        We trigger a `onFocus` callback too.
    *        Passed to ButtonBase
    * @param onKeyDown
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onKeyUp
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onMouseDown
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onMouseLeave
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onMouseUp
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onTouchEnd
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onTouchMove
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onTouchStart
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param optional
    *        The optional node to display.
    * @param orientation
-   *        @ignore
+   *        Property spread to root element
    * @param role
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param tabIndex
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param `type`
    *        Used to control the button's purpose.
@@ -251,4 +251,4 @@ object StepButton {
   }
 
 }
-    
+        

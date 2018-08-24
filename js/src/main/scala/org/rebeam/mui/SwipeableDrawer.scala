@@ -56,16 +56,16 @@ object SwipeableDrawer {
   /**
    * 
    * @param ModalProps
-   *        @ignore
+   *        Property spread to root element
    * @param PaperProps
-   *        @ignore
+   *        Property spread to root element
    * @param SlideProps
    *        Properties applied to the [`Slide`](/api/slide) element.
    *        Passed to Drawer
    * @param anchor
-   *        @ignore
+   *        Property spread to root element
    * @param className
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Drawer
    * @param classes
    *        Override or extend the styles applied to the component.
@@ -86,23 +86,23 @@ object SwipeableDrawer {
    * @param onClose
    *        Callback fired when the component requests to be closed.
    *        
-   *        @param {object} event The event source of the callback
+   *        parameter {object} event The event source of the callback
    * @param onOpen
    *        Callback fired when the component requests to be opened.
    *        
-   *        @param {object} event The event source of the callback
+   *        parameter {object} event The event source of the callback
    * @param open
    *        If `true`, the drawer is open.
    * @param swipeAreaWidth
    *        The width of the left most (or right most) area in pixels where the
    *        drawer can be swiped open from.
    * @param theme
-   *        @ignore
+   *        Property spread to root element
    * @param transitionDuration
    *        The duration for the transition, in milliseconds.
    *        You may specify a single timeout for all transitions, or individually with an object.
    * @param variant
-   *        @ignore
+   *        Property spread to root element
    */
   def apply(
     ModalProps: js.UndefOr[js.Any] = js.undefined,
@@ -147,4 +147,4 @@ object SwipeableDrawer {
   }
 
 }
-    
+        

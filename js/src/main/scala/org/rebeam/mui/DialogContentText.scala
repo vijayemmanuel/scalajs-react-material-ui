@@ -73,7 +73,7 @@ object DialogContentText {
    *        Set the text-align on the component.
    *        Passed to Typography
    * @param className
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Typography
    * @param classes
    *        Override or extend the styles applied to the component.
@@ -133,4 +133,4 @@ object DialogContentText {
   }
 
 }
-    
+        

@@ -75,13 +75,13 @@ object TablePagination {
    * @param backIconButtonProps
    *        Properties applied to the back arrow [`IconButton`](/api/icon-button) component.
    * @param className
-   *        @ignore
+   *        Property spread to root element
    *        Passed to TableCell
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
    * @param colSpan
-   *        @ignore
+   *        Property spread to root element
    * @param component
    *        The component used for the root node.
    *        Either a string to use a DOM element or a component.
@@ -100,12 +100,12 @@ object TablePagination {
    * @param onChangePage
    *        Callback fired when the page is changed.
    *        
-   *        @param {object} event The event source of the callback
-   *        @param {number} page The page selected
+   *        parameter {object} event The event source of the callback
+   *        parameter {number} page The page selected
    * @param onChangeRowsPerPage
    *        Callback fired when the number of rows per page is changed.
    *        
-   *        @param {object} event The event source of the callback
+   *        parameter {object} event The event source of the callback
    * @param padding
    *        Sets the padding applied to the cell.
    *        By default, the Table parent component set the value.
@@ -179,4 +179,4 @@ object TablePagination {
   }
 
 }
-    
+        

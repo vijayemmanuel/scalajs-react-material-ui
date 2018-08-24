@@ -101,7 +101,7 @@ object TextField {
    * @param autoFocus
    *        If `true`, the input will be focused during the first mount.
    * @param className
-   *        @ignore
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
@@ -140,7 +140,7 @@ object TextField {
    * @param onChange
    *        Callback fired when the value is changed.
    *        
-   *        @param {object} event The event source of the callback.
+   *        parameter {object} event The event source of the callback.
    *        You can pull out the new value by accessing `event.target.value`.
    * @param onFocus
    *        Passed to underlying input element
@@ -231,4 +231,4 @@ object TextField {
   }
 
 }
-    
+        

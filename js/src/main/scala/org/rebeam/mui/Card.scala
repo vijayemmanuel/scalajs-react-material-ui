@@ -28,7 +28,7 @@ object Card {
   /**
    * 
    * @param className
-   *        @ignore
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
@@ -67,4 +67,4 @@ object Card {
   }
 
 }
-    
+        

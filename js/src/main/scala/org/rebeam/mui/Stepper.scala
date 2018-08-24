@@ -44,7 +44,7 @@ object Stepper {
    *        If set to 'true' and orientation is horizontal,
    *        then the step label will be positioned under the icon.
    * @param className
-   *        @ignore
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
@@ -95,4 +95,4 @@ object Stepper {
   }
 
 }
-    
+        

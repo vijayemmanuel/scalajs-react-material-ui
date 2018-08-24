@@ -88,7 +88,7 @@ object Popover {
    *        This is useful when you want to trigger an action programmatically.
    *        It currently only supports updatePosition() action.
    *        
-   *        @param {object} actions This object contains all posible actions
+   *        parameter {object} actions This object contains all posible actions
    *        that can be triggered programmatically.
    * @param anchorEl
    *        This is the DOM element, or a function that returns the DOM element,
@@ -109,7 +109,7 @@ object Popover {
    * @param anchorReference
    *        
    * @param className
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Modal
    * @param classes
    *        Override or extend the styles applied to the component.
@@ -176,7 +176,7 @@ object Popover {
    * @param onClose
    *        Callback fired when the component requests to be closed.
    *        
-   *        @param {object} event The event source of the callback.
+   *        parameter {object} event The event source of the callback.
    * @param onEnter
    *        Callback fired before the component is entering.
    * @param onEntered
@@ -200,7 +200,7 @@ object Popover {
    * @param open
    *        If `true`, the popover is visible.
    * @param role
-   *        @ignore
+   *        Property spread to root element
    * @param transformOrigin
    *        This is the point on the popover which
    *        will attach to the anchor's origin.
@@ -300,4 +300,4 @@ object Popover {
   }
 
 }
-    
+        

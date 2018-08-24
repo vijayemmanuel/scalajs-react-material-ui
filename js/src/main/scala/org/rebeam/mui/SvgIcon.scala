@@ -34,4 +34,4 @@ object SvgIcon {
   }
 
 }
-    
+        

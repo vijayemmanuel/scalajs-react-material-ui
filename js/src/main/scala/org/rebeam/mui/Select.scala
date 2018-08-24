@@ -149,39 +149,39 @@ object Select {
    * @param native
    *        If `true`, the component will be using a native `select` element.
    * @param onBlur
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Input
    * @param onChange
    *        Callback function fired when a menu item is selected.
    *        
-   *        @param {object} event The event source of the callback.
+   *        parameter {object} event The event source of the callback.
    *        You can pull out the new value by accessing `event.target.value`.
-   *        @param {object} [child] The react element that was selected when `native` is `false` (default).
+   *        parameter {object} [child] The react element that was selected when `native` is `false` (default).
    * @param onClose
    *        Callback fired when the component requests to be closed.
    *        Use in controlled mode (see open).
    *        
-   *        @param {object} event The event source of the callback
+   *        parameter {object} event The event source of the callback
    * @param onEmpty
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Input
    * @param onFilled
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Input
    * @param onFocus
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Input
    * @param onKeyDown
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Input
    * @param onKeyUp
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Input
    * @param onOpen
    *        Callback fired when the component requests to be opened.
    *        Use in controlled mode (see open).
    *        
-   *        @param {object} event The event source of the callback
+   *        parameter {object} event The event source of the callback
    * @param open
    *        Control `select` open state.
    *        You can only use it when the `native` property is `false` (default).
@@ -196,7 +196,7 @@ object Select {
    *        Render the selected value.
    *        You can only use it when the `native` property is `false` (default).
    *        
-   *        @param {*} value The `value` provided to the component.
+   *        parameter {*} value The `value` provided to the component.
    *        @returns {ReactElement}
    * @param required
    *        If `true`, the input will be required.
@@ -314,4 +314,4 @@ object Select {
   }
 
 }
-    
+        

@@ -42,7 +42,7 @@ object InputLabel {
    * @param FormLabelClasses
    *        `classes` property applied to the [`FormLabel`](/api/form-label) element.
    * @param className
-   *        @ignore
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
@@ -102,4 +102,4 @@ object InputLabel {
   }
 
 }
-    
+        

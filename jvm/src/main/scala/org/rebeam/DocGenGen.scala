@@ -113,7 +113,7 @@ object DocGenGen {
       case NodeType => "VdomNode"
       case EnumType(values) => enumNameString(name)
       case UnionType(types) => {
-        println(name + " " + UnionType(types))
+        // println(name + " " + UnionType(types))
         "js.Any"
       }
       case ArrayOfType(elementType) => s"Seq[${propTypeScala(name, Prop(elementType, false, "", None))}]" //Not yet tested
@@ -252,74 +252,77 @@ object DocGenGen {
     }.mkString("  ")
   }
 
-  def genComponent(all: Map[String, Component], cRaw: Component)(implicit context: DocGenContext): String = {
+  def genComponent(all: Map[String, Component], cRaw: Component)(implicit context: DocGenContext): Option[String] = {
 
-    val c = context.processComponent(all, cRaw)
+    context.processComponent(all, cRaw).map(
+      c => {
+        val componentName = c.displayName
 
-    val componentName = c.displayName
+        val usedProps = c.props
 
-    val usedProps = c.props
+        val propFields = usedProps.map { 
+          case (name, prop) =>
+            s"var $name: ${propTypeJS(name, prop)} = js.native"
+        }.mkString("\n    ")
 
-    val propFields = usedProps.map { 
-      case (name, prop) =>
-        s"var $name: ${propTypeJS(name, prop)} = js.native"
-    }.mkString("\n    ")
+        val propParams = usedProps.map { 
+          case (name, prop) =>
+            s"$name: ${propTypeScala(name, prop)}${defaultValue(prop)}"
+        }.mkString(",\n    ")
 
-    val propParams = usedProps.map { 
-      case (name, prop) =>
-        s"$name: ${propTypeScala(name, prop)}${defaultValue(prop)}"
-    }.mkString(",\n    ")
+        val propAssignments = usedProps.map { 
+          case (name, prop) =>
+            s"p.$name = ${propAssignment(name, prop)}"
+        }.mkString("\n    ")
 
-    val propAssignments = usedProps.map { 
-      case (name, prop) =>
-        s"p.$name = ${propAssignment(name, prop)}"
-    }.mkString("\n    ")
+        val docs = applyDocs(c)
 
-    val docs = applyDocs(c)
+        val hc = hasChildren(cRaw)
 
-    val hc = hasChildren(cRaw)
+        val childrenType = if (hc) "Children.Varargs" else "Children.None"
+        val childrenParamGroup = if (hc) "(children: VdomNode *)" else ""
+        val childrenArgumentGroup = if (hc) "(children: _*)" else "()"
 
-    val childrenType = if (hc) "Children.Varargs" else "Children.None"
-    val childrenParamGroup = if (hc) "(children: VdomNode *)" else ""
-    val childrenArgumentGroup = if (hc) "(children: _*)" else "()"
+        s"""
+        |package org.rebeam.mui
+        |
+        |import japgolly.scalajs.react._
+        |import scalajs.js
+        |import scalajs.js.annotation.JSImport
+        |
+        |import japgolly.scalajs.react.vdom.html_<^._
+        |
+        |object $componentName {
+        |  ${enumDefinition(c)}
+        |  @js.native
+        |  trait Props extends js.Object {
+        |    $propFields
+        |  }
+        |
+        |  @JSImport("@material-ui/core/$componentName", JSImport.Default)
+        |  @js.native
+        |  object ${componentName}JS extends js.Object
+        |
+        |  val jsFnComponent = JsFnComponent[Props, $childrenType](${componentName}JS)
+        |  
+        |  /**
+        |   * $docs
+        |   */
+        |  def apply(
+        |    $propParams
+        |  )$childrenParamGroup = {
+        |
+        |    val p = (new js.Object).asInstanceOf[Props]
+        |    $propAssignments
+        |
+        |    jsFnComponent(p)$childrenArgumentGroup
+        |  }
+        |
+        |}
+        """.stripMargin('|')
+      }
+    )
 
-    s"""
-    |package org.rebeam.mui
-    |
-    |import japgolly.scalajs.react._
-    |import scalajs.js
-    |import scalajs.js.annotation.JSImport
-    |
-    |import japgolly.scalajs.react.vdom.html_<^._
-    |
-    |object $componentName {
-    |  ${enumDefinition(c)}
-    |  @js.native
-    |  trait Props extends js.Object {
-    |    $propFields
-    |  }
-    |
-    |  @JSImport("@material-ui/core/$componentName", JSImport.Default)
-    |  @js.native
-    |  object ${componentName}JS extends js.Object
-    |
-    |  val jsFnComponent = JsFnComponent[Props, $childrenType](${componentName}JS)
-    |  
-    |  /**
-    |   * $docs
-    |   */
-    |  def apply(
-    |    $propParams
-    |  )$childrenParamGroup = {
-    |
-    |    val p = (new js.Object).asInstanceOf[Props]
-    |    $propAssignments
-    |
-    |    jsFnComponent(p)$childrenArgumentGroup
-    |  }
-    |
-    |}
-    """.stripMargin('|')
   }
 
 }

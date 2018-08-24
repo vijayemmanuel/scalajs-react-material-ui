@@ -92,7 +92,7 @@ object Button {
    *        This is useful when you want to trigger an action programmatically.
    *        It currently only supports `focusVisible()` action.
    *        
-   *        @param {object} actions This object contains all possible actions
+   *        parameter {object} actions This object contains all possible actions
    *        that can be triggered programmatically.
    *        Passed to ButtonBase
    * @param buttonRef
@@ -103,7 +103,7 @@ object Button {
    *        They won't start at the cursor interaction position.
    *        Passed to ButtonBase
    * @param className
-   *        @ignore
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
@@ -127,7 +127,7 @@ object Button {
    *        `disableRipple` must also be `false`.
    *        Passed to ButtonBase
    * @param focusVisibleClassName
-   *        @ignore
+   *        Property spread to root element
    * @param fullWidth
    *        If `true`, the button will take up the full width of its container.
    * @param href
@@ -136,53 +136,53 @@ object Button {
    * @param mini
    *        If `true`, and `variant` is `'fab'`, will use mini floating action button styling.
    * @param onBlur
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onClick
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onFocus
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onFocusVisible
    *        Callback fired when the component is focused with a keyboard.
    *        We trigger a `onFocus` callback too.
    *        Passed to ButtonBase
    * @param onKeyDown
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onKeyUp
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onMouseDown
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onMouseLeave
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onMouseUp
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onTouchEnd
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onTouchMove
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onTouchStart
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param role
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param size
    *        The size of the button.
    *        `small` is equivalent to the dense button styling.
    * @param tabIndex
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param `type`
-   *        @ignore
+   *        Property spread to root element
    * @param variant
    *        The variant to use.
    */
@@ -263,4 +263,4 @@ object Button {
   }
 
 }
-    
+        

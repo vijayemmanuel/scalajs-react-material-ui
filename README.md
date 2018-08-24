@@ -19,4 +19,5 @@ Project is in a very early state:
 3. Colors
 4. Icons
 5. More testing/demos
-6. CHeck all components are included
+6. Check all components are included
+7. ExpansionPanel onChange parameters

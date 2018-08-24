@@ -30,7 +30,7 @@ object RadioGroup {
   /**
    * 
    * @param className
-   *        @ignore
+   *        Property spread to root element
    *        Passed to FormGroup
    * @param classes
    *        Override or extend the styles applied to the component.
@@ -39,15 +39,15 @@ object RadioGroup {
    * @param name
    *        The name used to reference the value of the control.
    * @param onBlur
-   *        @ignore
+   *        Property spread to root element
    * @param onChange
    *        Callback fired when a radio button is selected.
    *        
-   *        @param {object} event The event source of the callback.
+   *        parameter {object} event The event source of the callback.
    *        You can pull out the new value by accessing `event.target.value`.
-   *        @param {string} value The `value` of the selected radio button
+   *        parameter {string} value The `value` of the selected radio button
    * @param onKeyDown
-   *        @ignore
+   *        Property spread to root element
    * @param row
    *        Display group of elements in a compact row.
    *        Passed to FormGroup
@@ -79,4 +79,4 @@ object RadioGroup {
   }
 
 }
-    
+        

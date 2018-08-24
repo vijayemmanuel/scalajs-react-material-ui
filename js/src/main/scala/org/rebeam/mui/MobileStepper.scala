@@ -57,7 +57,7 @@ object MobileStepper {
    * @param backButton
    *        A back button element. For instance, it can be be a `Button` or a `IconButton`.
    * @param className
-   *        @ignore
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
@@ -114,4 +114,4 @@ object MobileStepper {
   }
 
 }
-    
+        

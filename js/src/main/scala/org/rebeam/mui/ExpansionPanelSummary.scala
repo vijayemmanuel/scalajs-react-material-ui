@@ -62,7 +62,7 @@ object ExpansionPanelSummary {
    *        This is useful when you want to trigger an action programmatically.
    *        It currently only supports `focusVisible()` action.
    *        
-   *        @param {object} actions This object contains all possible actions
+   *        parameter {object} actions This object contains all possible actions
    *        that can be triggered programmatically.
    *        Passed to ButtonBase
    * @param buttonRef
@@ -73,7 +73,7 @@ object ExpansionPanelSummary {
    *        They won't start at the cursor interaction position.
    *        Passed to ButtonBase
    * @param className
-   *        @ignore
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
@@ -88,12 +88,12 @@ object ExpansionPanelSummary {
    *        If `true`, the touch ripple effect will be disabled.
    *        Passed to ButtonBase
    * @param disabled
-   *        @ignore
+   *        Property spread to root element
    *        If `true`, the summary will be displayed in a disabled state.
    * @param expandIcon
    *        The icon to display as the expand indicator.
    * @param expanded
-   *        @ignore
+   *        Property spread to root element
    *        If `true`, expands the summary, otherwise collapse it.
    * @param focusRipple
    *        If `true`, the base button will have a keyboard focus ripple.
@@ -106,48 +106,48 @@ object ExpansionPanelSummary {
    *        The rational for using this feature [is explain here](https://github.com/WICG/focus-visible/blob/master/explainer.md).
    *        Passed to ButtonBase
    * @param onBlur
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onChange
-   *        @ignore
+   *        Property spread to root element
    * @param onClick
-   *        @ignore
+   *        Property spread to root element
    * @param onFocus
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onFocusVisible
    *        Callback fired when the component is focused with a keyboard.
    *        We trigger a `onFocus` callback too.
    *        Passed to ButtonBase
    * @param onKeyDown
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onKeyUp
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onMouseDown
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onMouseLeave
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onMouseUp
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onTouchEnd
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onTouchMove
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param onTouchStart
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param role
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param tabIndex
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ButtonBase
    * @param `type`
    *        Used to control the button's purpose.
@@ -226,4 +226,4 @@ object ExpansionPanelSummary {
   }
 
 }
-    
+        

@@ -24,7 +24,7 @@ object Generate {
       // val c = all(s"packages\\material-ui\\src\\$name\\$name.js")
       val code = genComponent(all, c)
       val name = c.displayName
-      writeToFile(s"./js/src/main/scala/org/rebeam/mui/$name.scala", code)
+      code.foreach(s => writeToFile(s"./js/src/main/scala/org/rebeam/mui/$name.scala", s))
     }
 
 

@@ -123,27 +123,27 @@ object NativeSelect {
    *        Name attribute of the `input` element.
    *        Passed to Input
    * @param onBlur
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Input
    * @param onChange
    *        Callback function fired when a menu item is selected.
    *        
-   *        @param {object} event The event source of the callback.
+   *        parameter {object} event The event source of the callback.
    *        You can pull out the new value by accessing `event.target.value`.
    * @param onEmpty
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Input
    * @param onFilled
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Input
    * @param onFocus
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Input
    * @param onKeyDown
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Input
    * @param onKeyUp
-   *        @ignore
+   *        Property spread to root element
    *        Passed to Input
    * @param placeholder
    *        The short hint displayed in the input before the user enters a value.
@@ -247,4 +247,4 @@ object NativeSelect {
   }
 
 }
-    
+        

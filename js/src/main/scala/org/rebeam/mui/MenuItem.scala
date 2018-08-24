@@ -45,7 +45,7 @@ object MenuItem {
    *        If `true`, the list item will be a button (using `ButtonBase`).
    *        Passed to ListItem
    * @param className
-   *        @ignore
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
@@ -65,10 +65,10 @@ object MenuItem {
    *        If `true`, a 1px light border is added to the bottom of the list item.
    *        Passed to ListItem
    * @param focusVisibleClassName
-   *        @ignore
+   *        Property spread to root element
    *        Passed to ListItem
    * @param role
-   *        @ignore
+   *        Property spread to root element
    * @param selected
    *        Use to apply selected styling.
    */
@@ -107,4 +107,4 @@ object MenuItem {
   }
 
 }
-    
+        
