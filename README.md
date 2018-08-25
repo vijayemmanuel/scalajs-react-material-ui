@@ -12,6 +12,19 @@ Project is in a very early state:
 2. Some types are approximate, in particular `PropTypes.oneOfType` is just presented as `js.Any`.
 3. Common React events are presented with correct event types, other event props just expect a Callback and will therefore discard event parameters (if any).
 
+## Building
+
+Code generation is not done the right way - .scala files are just generated directly into the js src folder, under org.rebeam.mui, by 
+
+To regenerate the muiapi.json describing the components, check out the material-ui project, then in the root, run react-docgen:
+```
+npx react-docgen .\packages\material-ui\src\ -o muiapi.json --pretty
+```
+
+You may need to trim some non-component data, for 1.5.0 this was just a `reactHelpers.js` at the end of the file.
+
+Then copy the `muiapi.json` file to resources. 
+
 ## Todo
 
 1. Support `PropTypes.oneOfType`
