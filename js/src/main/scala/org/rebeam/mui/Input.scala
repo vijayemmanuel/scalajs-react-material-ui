@@ -9,9 +9,47 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object Input {
   
+  sealed trait Margin{ val value: String }
+
+  object Margin {
+    case object Dense extends Margin { val value: String = "dense" }
+    case object None extends Margin { val value: String = "none" }
+  }
+          
   @js.native
   trait Props extends js.Object {
-    
+    var autoComplete: js.UndefOr[String] = js.native
+    var autoFocus: js.UndefOr[Boolean] = js.native
+    var className: js.UndefOr[String] = js.native
+    var classes: js.UndefOr[js.Any] = js.native
+    var defaultValue: js.UndefOr[js.Any] = js.native
+    var disableUnderline: js.UndefOr[Boolean] = js.native
+    var disabled: js.UndefOr[Boolean] = js.native
+    var endAdornment: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
+    var error: js.UndefOr[Boolean] = js.native
+    var fullWidth: js.UndefOr[Boolean] = js.native
+    var id: js.UndefOr[String] = js.native
+    var inputComponent: js.UndefOr[js.Any] = js.native
+    var inputProps: js.UndefOr[js.Any] = js.native
+    var inputRef: js.UndefOr[js.Any] = js.native
+    var margin: js.UndefOr[String] = js.native
+    var multiline: js.UndefOr[Boolean] = js.native
+    var name: js.UndefOr[String] = js.native
+    var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
+    var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
+    var onEmpty: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
+    var onFilled: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
+    var onFocus: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
+    var onKeyDown: js.UndefOr[scalajs.js.Function1[ReactKeyboardEvent, Unit]] = js.native
+    var onKeyUp: js.UndefOr[scalajs.js.Function1[ReactKeyboardEvent, Unit]] = js.native
+    var placeholder: js.UndefOr[String] = js.native
+    var readOnly: js.UndefOr[Boolean] = js.native
+    var required: js.UndefOr[Boolean] = js.native
+    var rows: js.UndefOr[js.Any] = js.native
+    var rowsMax: js.UndefOr[js.Any] = js.native
+    var startAdornment: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
+    var `type`: js.UndefOr[String] = js.native
+    var value: js.UndefOr[js.Any] = js.native
   }
 
   @JSImport("@material-ui/core/Input", JSImport.Default)
@@ -22,13 +60,150 @@ object Input {
   
   /**
    * 
+   * @param autoComplete
+   *        This property helps users to fill forms faster, especially on mobile devices.
+   *        The name can be confusing, as it's more like an autofill.
+   *        You can learn more about it here:
+   *        https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill
+   * @param autoFocus
+   *        If `true`, the input will be focused during the first mount.
+   * @param className
+   *        The CSS class name of the wrapper element.
+   * @param classes
+   *        Override or extend the styles applied to the component.
+   *        See [CSS API](#css-api) below for more details.
+   * @param defaultValue
+   *        The default input value, useful when not controlling the component.
+   * @param disableUnderline
+   *        If `true`, the input will not have an underline.
+   * @param disabled
+   *        If `true`, the input will be disabled.
+   * @param endAdornment
+   *        End `InputAdornment` for this component.
+   * @param error
+   *        If `true`, the input will indicate an error. This is normally obtained via context from
+   *        FormControl.
+   * @param fullWidth
+   *        If `true`, the input will take up the full width of its container.
+   * @param id
+   *        The id of the `input` element.
+   * @param inputComponent
+   *        The component used for the native input.
+   *        Either a string to use a DOM element or a component.
+   * @param inputProps
+   *        Attributes applied to the `input` element.
+   * @param inputRef
+   *        Use that property to pass a ref callback to the native input component.
+   * @param margin
+   *        If `dense`, will adjust vertical spacing. This is normally obtained via context from
+   *        FormControl.
+   * @param multiline
+   *        If `true`, a textarea element will be rendered.
+   * @param name
+   *        Name attribute of the `input` element.
+   * @param onBlur
+   *        Property spread to root element
+   * @param onChange
+   *        Callback fired when the value is changed.
+   *        
+   *        parameter {object} event The event source of the callback.
+   *        You can pull out the new value by accessing `event.target.value`.
+   * @param onEmpty
+   *        Property spread to root element
+   * @param onFilled
+   *        Property spread to root element
+   * @param onFocus
+   *        Property spread to root element
+   * @param onKeyDown
+   *        Property spread to root element
+   * @param onKeyUp
+   *        Property spread to root element
+   * @param placeholder
+   *        The short hint displayed in the input before the user enters a value.
+   * @param readOnly
+   *        It prevents the user from changing the value of the field
+   *        (not from interacting with the field).
+   * @param required
+   *        If `true`, the input will be required.
+   * @param rows
+   *        Number of rows to display when multiline option is set to true.
+   * @param rowsMax
+   *        Maximum number of rows to display when multiline option is set to true.
+   * @param startAdornment
+   *        Start `InputAdornment` for this component.
+   * @param `type`
+   *        Type of the input element. It should be a valid HTML5 input type.
+   * @param value
+   *        The input value, required for a controlled component.
    */
   def apply(
-    
+    autoComplete: js.UndefOr[String] = js.undefined,
+    autoFocus: js.UndefOr[Boolean] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    classes: js.UndefOr[js.Any] = js.undefined,
+    defaultValue: js.UndefOr[js.Any] = js.undefined,
+    disableUnderline: js.UndefOr[Boolean] = js.undefined,
+    disabled: js.UndefOr[Boolean] = js.undefined,
+    endAdornment: js.UndefOr[VdomNode] = js.undefined,
+    error: js.UndefOr[Boolean] = js.undefined,
+    fullWidth: js.UndefOr[Boolean] = js.undefined,
+    id: js.UndefOr[String] = js.undefined,
+    inputComponent: js.UndefOr[js.Any] = js.undefined,
+    inputProps: js.UndefOr[js.Any] = js.undefined,
+    inputRef: js.UndefOr[js.Any] = js.undefined,
+    margin: js.UndefOr[Margin] = js.undefined,
+    multiline: js.UndefOr[Boolean] = js.undefined,
+    name: js.UndefOr[String] = js.undefined,
+    onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
+    onChange: js.UndefOr[Callback] = js.undefined,
+    onEmpty: js.UndefOr[Callback] = js.undefined,
+    onFilled: js.UndefOr[Callback] = js.undefined,
+    onFocus: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
+    onKeyDown: js.UndefOr[ReactKeyboardEvent => Callback] = js.undefined,
+    onKeyUp: js.UndefOr[ReactKeyboardEvent => Callback] = js.undefined,
+    placeholder: js.UndefOr[String] = js.undefined,
+    readOnly: js.UndefOr[Boolean] = js.undefined,
+    required: js.UndefOr[Boolean] = js.undefined,
+    rows: js.UndefOr[js.Any] = js.undefined,
+    rowsMax: js.UndefOr[js.Any] = js.undefined,
+    startAdornment: js.UndefOr[VdomNode] = js.undefined,
+    `type`: js.UndefOr[String] = js.undefined,
+    value: js.UndefOr[js.Any] = js.undefined
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    
+    p.autoComplete = autoComplete
+    p.autoFocus = autoFocus
+    p.className = className
+    p.classes = classes
+    p.defaultValue = defaultValue
+    p.disableUnderline = disableUnderline
+    p.disabled = disabled
+    p.endAdornment = endAdornment.map(v => v.rawNode)
+    p.error = error
+    p.fullWidth = fullWidth
+    p.id = id
+    p.inputComponent = inputComponent
+    p.inputProps = inputProps
+    p.inputRef = inputRef
+    p.margin = margin.map(v => v.value)
+    p.multiline = multiline
+    p.name = name
+    p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())
+    p.onChange = onChange.map(v => v.toJsFn)
+    p.onEmpty = onEmpty.map(v => v.toJsFn)
+    p.onFilled = onFilled.map(v => v.toJsFn)
+    p.onFocus = onFocus.map(v => (e: ReactFocusEvent) => v(e).runNow())
+    p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())
+    p.onKeyUp = onKeyUp.map(v => (e: ReactKeyboardEvent) => v(e).runNow())
+    p.placeholder = placeholder
+    p.readOnly = readOnly
+    p.required = required
+    p.rows = rows
+    p.rowsMax = rowsMax
+    p.startAdornment = startAdornment.map(v => v.rawNode)
+    p.`type` = `type`
+    p.value = value
 
     jsFnComponent(p)()
   }

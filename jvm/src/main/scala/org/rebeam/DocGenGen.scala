@@ -254,8 +254,13 @@ object DocGenGen {
 
   def genComponent(all: Map[String, Component], cRaw: Component)(implicit context: DocGenContext): Option[String] = {
 
+    // println(cRaw.props.map(_._1))
+
     context.processComponent(all, cRaw).map(
       c => {
+
+        // println(c.props.map(_._1))
+
         val componentName = c.displayName
 
         val usedProps = c.props

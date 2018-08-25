@@ -21,17 +21,18 @@ object Generate {
     implicit val context = DocGenContext.MaterialUI
 
     def component(all: Map[String, Component], c: Component): Unit = {
-      // val c = all(s"packages\\material-ui\\src\\$name\\$name.js")
       val code = genComponent(all, c)
       val name = c.displayName
       code.foreach(s => writeToFile(s"./js/src/main/scala/org/rebeam/mui/$name.scala", s))
     }
 
-
-    // println(decode[Map[String, Component]](avatar).map(genComponent))
     val s = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/muiapi.json")).mkString
 
     val d = decode[Map[String, Component]](s).toOption.get
+
+    // d.find(_._2.displayName == "Typography").foreach{
+    //   c => component(d, c._2)
+    // }
 
     d.map(_._2).foreach{
       c => component(d, c)

@@ -11,7 +11,8 @@ object NoSsr {
   
   @js.native
   trait Props extends js.Object {
-    
+    var defer: js.UndefOr[Boolean] = js.native
+    var fallback: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
   }
 
   @JSImport("@material-ui/core/NoSsr", JSImport.Default)
@@ -28,13 +29,20 @@ object NoSsr {
    * - Improve the time-to-first paint on the client by only rendering above the fold.
    * - Reduce the rendering time on the server.
    * - Under too heavy server load, you can turn on service degradation.
+   * @param defer
+   *        If `true`, the component will not only prevent server side rendering.
+   *        It will also defer the rendering of the children into a different screen frame.
+   * @param fallback
+   *        The fallback content to display.
    */
   def apply(
-    
+    defer: js.UndefOr[Boolean] = js.undefined,
+    fallback: js.UndefOr[VdomNode] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    
+    p.defer = defer
+    p.fallback = fallback.map(v => v.rawNode)
 
     jsFnComponent(p)(children: _*)
   }

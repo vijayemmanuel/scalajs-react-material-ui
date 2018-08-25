@@ -11,7 +11,11 @@ object GridListTile {
   
   @js.native
   trait Props extends js.Object {
-    
+    var className: js.UndefOr[String] = js.native
+    var classes: js.UndefOr[js.Any] = js.native
+    var cols: js.UndefOr[Double] = js.native
+    var component: js.UndefOr[js.Any] = js.native
+    var rows: js.UndefOr[Double] = js.native
   }
 
   @JSImport("@material-ui/core/GridListTile", JSImport.Default)
@@ -22,13 +26,33 @@ object GridListTile {
   
   /**
    * 
+   * @param className
+   *        Property spread to root element
+   * @param classes
+   *        Override or extend the styles applied to the component.
+   *        See [CSS API](#css-api) below for more details.
+   * @param cols
+   *        Width of the tile in number of grid cells.
+   * @param component
+   *        The component used for the root node.
+   *        Either a string to use a DOM element or a component.
+   * @param rows
+   *        Height of the tile in number of grid cells.
    */
   def apply(
-    
+    className: js.UndefOr[String] = js.undefined,
+    classes: js.UndefOr[js.Any] = js.undefined,
+    cols: js.UndefOr[Double] = js.undefined,
+    component: js.UndefOr[js.Any] = js.undefined,
+    rows: js.UndefOr[Double] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    
+    p.className = className
+    p.classes = classes
+    p.cols = cols
+    p.component = component
+    p.rows = rows
 
     jsFnComponent(p)(children: _*)
   }

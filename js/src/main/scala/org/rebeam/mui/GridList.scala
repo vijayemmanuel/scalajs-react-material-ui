@@ -11,7 +11,13 @@ object GridList {
   
   @js.native
   trait Props extends js.Object {
-    
+    var cellHeight: js.UndefOr[js.Any] = js.native
+    var className: js.UndefOr[String] = js.native
+    var classes: js.UndefOr[js.Any] = js.native
+    var cols: js.UndefOr[Double] = js.native
+    var component: js.UndefOr[js.Any] = js.native
+    var spacing: js.UndefOr[Double] = js.native
+    var style: js.UndefOr[js.Any] = js.native
   }
 
   @JSImport("@material-ui/core/GridList", JSImport.Default)
@@ -22,13 +28,42 @@ object GridList {
   
   /**
    * 
+   * @param cellHeight
+   *        Number of px for one cell height.
+   *        You can set `'auto'` if you want to let the children determine the height.
+   * @param className
+   *        Property spread to root element
+   * @param classes
+   *        Override or extend the styles applied to the component.
+   *        See [CSS API](#css-api) below for more details.
+   * @param cols
+   *        Number of columns.
+   * @param component
+   *        The component used for the root node.
+   *        Either a string to use a DOM element or a component.
+   * @param spacing
+   *        Number of px for the spacing between tiles.
+   * @param style
+   *        Property spread to root element
    */
   def apply(
-    
+    cellHeight: js.UndefOr[js.Any] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    classes: js.UndefOr[js.Any] = js.undefined,
+    cols: js.UndefOr[Double] = js.undefined,
+    component: js.UndefOr[js.Any] = js.undefined,
+    spacing: js.UndefOr[Double] = js.undefined,
+    style: js.UndefOr[js.Any] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    
+    p.cellHeight = cellHeight
+    p.className = className
+    p.classes = classes
+    p.cols = cols
+    p.component = component
+    p.spacing = spacing
+    p.style = style
 
     jsFnComponent(p)(children: _*)
   }

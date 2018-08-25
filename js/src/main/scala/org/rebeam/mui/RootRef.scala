@@ -11,7 +11,7 @@ object RootRef {
   
   @js.native
   trait Props extends js.Object {
-    
+    var rootRef: js.Any = js.native
   }
 
   @JSImport("@material-ui/core/RootRef", JSImport.Default)
@@ -49,13 +49,16 @@ object RootRef {
    *   }
    * }
    * ```
+   * @param rootRef
+   *        Provide a way to access the DOM node of the wrapped element.
+   *        You can provide a callback ref or a `React.createRef()` ref.
    */
   def apply(
-    
+    rootRef: js.Any
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    
+    p.rootRef = rootRef
 
     jsFnComponent(p)(children: _*)
   }

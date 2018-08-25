@@ -11,7 +11,12 @@ object CardMedia {
   
   @js.native
   trait Props extends js.Object {
-    
+    var className: js.UndefOr[String] = js.native
+    var classes: js.UndefOr[js.Any] = js.native
+    var component: js.UndefOr[js.Any] = js.native
+    var image: js.UndefOr[String] = js.native
+    var src: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Any] = js.native
   }
 
   @JSImport("@material-ui/core/CardMedia", JSImport.Default)
@@ -22,13 +27,41 @@ object CardMedia {
   
   /**
    * 
+   * @param className
+   *        Property spread to root element
+   * @param classes
+   *        Override or extend the styles applied to the component.
+   *        See [CSS API](#css-api) below for more details.
+   * @param component
+   *        Component for rendering image.
+   *        Either a string to use a DOM element or a component.
+   * @param image
+   *        Image to be displayed as a background image.
+   *        Either `image` or `src` prop must be specified.
+   *        Note that caller must specify height otherwise the image will not be visible.
+   * @param src
+   *        An alias for `image` property.
+   *        Available only with media components.
+   *        Media components: `video`, `audio`, `picture`, `iframe`, `img`.
+   * @param style
+   *        Property spread to root element
    */
   def apply(
-    
+    className: js.UndefOr[String] = js.undefined,
+    classes: js.UndefOr[js.Any] = js.undefined,
+    component: js.UndefOr[js.Any] = js.undefined,
+    image: js.UndefOr[String] = js.undefined,
+    src: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[js.Any] = js.undefined
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    
+    p.className = className
+    p.classes = classes
+    p.component = component
+    p.image = image
+    p.src = src
+    p.style = style
 
     jsFnComponent(p)()
   }

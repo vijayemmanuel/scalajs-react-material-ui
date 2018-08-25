@@ -9,9 +9,32 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object CircularProgress {
   
+  sealed trait Color{ val value: String }
+
+  object Color {
+    case object Primary extends Color { val value: String = "primary" }
+    case object Secondary extends Color { val value: String = "secondary" }
+    case object Inherit extends Color { val value: String = "inherit" }
+  }
+            
+  sealed trait Variant{ val value: String }
+
+  object Variant {
+    case object Determinate extends Variant { val value: String = "determinate" }
+    case object Indeterminate extends Variant { val value: String = "indeterminate" }
+    case object Static extends Variant { val value: String = "static" }
+  }
+          
   @js.native
   trait Props extends js.Object {
-    
+    var className: js.UndefOr[String] = js.native
+    var classes: js.UndefOr[js.Any] = js.native
+    var color: js.UndefOr[String] = js.native
+    var size: js.UndefOr[js.Any] = js.native
+    var style: js.UndefOr[js.Any] = js.native
+    var thickness: js.UndefOr[Double] = js.native
+    var value: js.UndefOr[Double] = js.native
+    var variant: js.UndefOr[String] = js.native
   }
 
   @JSImport("@material-ui/core/CircularProgress", JSImport.Default)
@@ -26,13 +49,46 @@ object CircularProgress {
    * If the progress bar is describing the loading progress of a particular region of a page,
    * you should use `aria-describedby` to point to the progress bar, and set the `aria-busy`
    * attribute to `true` on that region until it has finished loading.
+   * @param className
+   *        Property spread to root element
+   * @param classes
+   *        Override or extend the styles applied to the component.
+   *        See [CSS API](#css-api) below for more details.
+   * @param color
+   *        The color of the component. It supports those theme colors that make sense for this component.
+   * @param size
+   *        The size of the circle.
+   * @param style
+   *        Property spread to root element
+   * @param thickness
+   *        The thickness of the circle.
+   * @param value
+   *        The value of the progress indicator for the determinate and static variants.
+   *        Value between 0 and 100.
+   * @param variant
+   *        The variant to use.
+   *        Use indeterminate when there is no progress value.
    */
   def apply(
-    
+    className: js.UndefOr[String] = js.undefined,
+    classes: js.UndefOr[js.Any] = js.undefined,
+    color: js.UndefOr[Color] = js.undefined,
+    size: js.UndefOr[js.Any] = js.undefined,
+    style: js.UndefOr[js.Any] = js.undefined,
+    thickness: js.UndefOr[Double] = js.undefined,
+    value: js.UndefOr[Double] = js.undefined,
+    variant: js.UndefOr[Variant] = js.undefined
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    
+    p.className = className
+    p.classes = classes
+    p.color = color.map(v => v.value)
+    p.size = size
+    p.style = style
+    p.thickness = thickness
+    p.value = value
+    p.variant = variant.map(v => v.value)
 
     jsFnComponent(p)()
   }

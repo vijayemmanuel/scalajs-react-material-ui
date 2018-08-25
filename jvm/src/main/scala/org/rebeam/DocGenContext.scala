@@ -33,7 +33,7 @@ object DocGenContext {
                 case (name, prop) => sanitiseProp(c, name, prop)
               }.filter {
                 case (name, prop) => useProp(c, name, prop)
-              } 
+              }
           )
         )
       }
@@ -111,9 +111,7 @@ object DocGenContext {
 
         case Component(_, "TextField", _) => additionalPropsFrom("FormControl")
 
-
-
-        case _ => Nil
+        case Component(_, _, props) => props
       } 
     }
 

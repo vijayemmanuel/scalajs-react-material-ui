@@ -9,9 +9,24 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object FormControl {
   
+  sealed trait Margin{ val value: String }
+
+  object Margin {
+    case object None extends Margin { val value: String = "none" }
+    case object Dense extends Margin { val value: String = "dense" }
+    case object Normal extends Margin { val value: String = "normal" }
+  }
+          
   @js.native
   trait Props extends js.Object {
-    
+    var className: js.UndefOr[String] = js.native
+    var classes: js.UndefOr[js.Any] = js.native
+    var component: js.UndefOr[js.Any] = js.native
+    var disabled: js.UndefOr[Boolean] = js.native
+    var error: js.UndefOr[Boolean] = js.native
+    var fullWidth: js.UndefOr[Boolean] = js.native
+    var margin: js.UndefOr[String] = js.native
+    var required: js.UndefOr[Boolean] = js.native
   }
 
   @JSImport("@material-ui/core/FormControl", JSImport.Default)
@@ -29,13 +44,45 @@ object FormControl {
    *  - FormHelperText
    *  - Input
    *  - InputLabel
+   * @param className
+   *        Property spread to root element
+   * @param classes
+   *        Override or extend the styles applied to the component.
+   *        See [CSS API](#css-api) below for more details.
+   * @param component
+   *        The component used for the root node.
+   *        Either a string to use a DOM element or a component.
+   * @param disabled
+   *        If `true`, the label, input and helper text should be displayed in a disabled state.
+   * @param error
+   *        If `true`, the label should be displayed in an error state.
+   * @param fullWidth
+   *        If `true`, the component will take up the full width of its container.
+   * @param margin
+   *        If `dense` or `normal`, will adjust vertical spacing of this and contained components.
+   * @param required
+   *        If `true`, the label will indicate that the input is required.
    */
   def apply(
-    
+    className: js.UndefOr[String] = js.undefined,
+    classes: js.UndefOr[js.Any] = js.undefined,
+    component: js.UndefOr[js.Any] = js.undefined,
+    disabled: js.UndefOr[Boolean] = js.undefined,
+    error: js.UndefOr[Boolean] = js.undefined,
+    fullWidth: js.UndefOr[Boolean] = js.undefined,
+    margin: js.UndefOr[Margin] = js.undefined,
+    required: js.UndefOr[Boolean] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    
+    p.className = className
+    p.classes = classes
+    p.component = component
+    p.disabled = disabled
+    p.error = error
+    p.fullWidth = fullWidth
+    p.margin = margin.map(v => v.value)
+    p.required = required
 
     jsFnComponent(p)(children: _*)
   }
