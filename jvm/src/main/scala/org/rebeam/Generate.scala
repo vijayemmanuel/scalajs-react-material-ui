@@ -38,15 +38,5 @@ object Generate {
       c => component(d, c)
     }
 
-    val icons: List[String] = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/muiicons.csv")).getLines.toList
-    val normalIcons = icons.filter(i => !i.endsWith("Rounded") && !i.endsWith("Outlined") && !i.endsWith("Sharp") && !i.endsWith("TwoTone"))
-
-    // val iconsCode = IconGen.genIcons(normalIcons)
-    // writeToFile(s"./js/src/main/scala/org/rebeam/mui/Icons.scala", iconsCode) 
-
-    normalIcons.map(icon => (icon, IconGen.genIcon(icon))).foreach {
-      case (icon, code) => writeToFile(s"./js/src/main/scala/org/rebeam/icons/$icon.scala", code) 
-    }
-
   }
 }
