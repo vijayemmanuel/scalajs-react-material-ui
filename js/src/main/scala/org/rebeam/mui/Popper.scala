@@ -28,11 +28,11 @@ object Popper {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var anchorEl: js.UndefOr[js.Any] = js.native
     var container: js.UndefOr[js.Any] = js.native
     var disablePortal: js.UndefOr[Boolean] = js.native
     var keepMounted: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var modifiers: js.UndefOr[js.Any] = js.native
     var open: Boolean = js.native
     var placement: js.UndefOr[String] = js.native
@@ -49,8 +49,6 @@ object Popper {
   
   /**
    * Poppers rely on the 3rd party library [Popper.js](https://github.com/FezVrasta/popper.js) for positioning.
-   * @param key
-   *        React key
    * @param anchorEl
    *        This is the DOM element, or a function that returns the DOM element,
    *        that may be used to set the position of the popover.
@@ -68,6 +66,8 @@ object Popper {
    *        Always keep the children in the DOM.
    *        This property can be useful in SEO situation or
    *        when you want to maximize the responsiveness of the Popper.
+   * @param key
+   *        React key
    * @param modifiers
    *        Popper.js is based on a "plugin-like" architecture,
    *        most of its features are fully encapsulated "modifiers".
@@ -88,11 +88,11 @@ object Popper {
    *        Help supporting a react-transition-group/Transition component.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     anchorEl: js.UndefOr[js.Any] = js.undefined,
     container: js.UndefOr[js.Any] = js.undefined,
     disablePortal: js.UndefOr[Boolean] = js.undefined,
     keepMounted: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     modifiers: js.UndefOr[js.Any] = js.undefined,
     open: Boolean,
     placement: js.UndefOr[Placement] = js.undefined,
@@ -102,11 +102,11 @@ object Popper {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (anchorEl.isDefined) {p.anchorEl = anchorEl}
     if (container.isDefined) {p.container = container}
     if (disablePortal.isDefined) {p.disablePortal = disablePortal}
     if (keepMounted.isDefined) {p.keepMounted = keepMounted}
+    if (key.isDefined) {p.key = key}
     if (modifiers.isDefined) {p.modifiers = modifiers}
     p.open = open
     if (placement.isDefined) {p.placement = placement.map(v => v.value)}

@@ -19,7 +19,6 @@ object Tab {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var TouchRippleProps: js.UndefOr[js.Any] = js.native
     var action: js.UndefOr[js.Any] = js.native
     var buttonRef: js.UndefOr[js.Any] = js.native
@@ -35,6 +34,7 @@ object Tab {
     var fullWidth: js.UndefOr[Boolean] = js.native
     var icon: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var indicator: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
+    var key: js.UndefOr[String] = js.native
     var label: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
     var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -65,8 +65,6 @@ object Tab {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param TouchRippleProps
    *        Properties applied to the `TouchRipple` element.
    *        Passed to ButtonBase
@@ -120,6 +118,8 @@ object Tab {
    *        Property spread to root element
    *        For server side rendering consideration, we let the selected tab
    *        render the indicator.
+   * @param key
+   *        React key
    * @param label
    *        The label element.
    * @param onBlur
@@ -179,7 +179,6 @@ object Tab {
    *        You can provide your own value. Otherwise, we fallback to the child position index.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Any] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
     buttonRef: js.UndefOr[js.Any] = js.undefined,
@@ -195,6 +194,7 @@ object Tab {
     fullWidth: js.UndefOr[Boolean] = js.undefined,
     icon: js.UndefOr[VdomNode] = js.undefined,
     indicator: js.UndefOr[VdomNode] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     label: js.UndefOr[VdomNode] = js.undefined,
     onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
     onChange: js.UndefOr[Callback] = js.undefined,
@@ -218,7 +218,6 @@ object Tab {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (TouchRippleProps.isDefined) {p.TouchRippleProps = TouchRippleProps}
     if (action.isDefined) {p.action = action}
     if (buttonRef.isDefined) {p.buttonRef = buttonRef}
@@ -234,6 +233,7 @@ object Tab {
     if (fullWidth.isDefined) {p.fullWidth = fullWidth}
     if (icon.isDefined) {p.icon = icon.map(v => v.rawNode)}
     if (indicator.isDefined) {p.indicator = indicator.map(v => v.rawNode)}
+    if (key.isDefined) {p.key = key}
     if (label.isDefined) {p.label = label.map(v => v.rawNode)}
     if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
     if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}

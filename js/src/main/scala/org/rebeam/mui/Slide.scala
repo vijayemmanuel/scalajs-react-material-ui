@@ -20,9 +20,9 @@ object Slide {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var direction: js.UndefOr[String] = js.native
     var in: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var onEnter: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onEntering: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onExit: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -41,12 +41,12 @@ object Slide {
   /**
    * The Slide transition is used by the [Snackbar](/demos/snackbars) component.
    * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
-   * @param key
-   *        React key
    * @param direction
    *        Direction the child node will enter from.
    * @param in
    *        If `true`, show the component; triggers the enter or exit animation.
+   * @param key
+   *        React key
    * @param onEnter
    *        Property spread to root element
    * @param onEntering
@@ -64,9 +64,9 @@ object Slide {
    *        You may specify a single timeout for all transitions, or individually with an object.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     direction: js.UndefOr[Direction] = js.undefined,
     in: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     onEnter: js.UndefOr[Callback] = js.undefined,
     onEntering: js.UndefOr[Callback] = js.undefined,
     onExit: js.UndefOr[Callback] = js.undefined,
@@ -77,9 +77,9 @@ object Slide {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (direction.isDefined) {p.direction = direction.map(v => v.value)}
     if (in.isDefined) {p.in = in}
+    if (key.isDefined) {p.key = key}
     if (onEnter.isDefined) {p.onEnter = onEnter.map(v => v.toJsFn)}
     if (onEntering.isDefined) {p.onEntering = onEntering.map(v => v.toJsFn)}
     if (onExit.isDefined) {p.onExit = onExit.map(v => v.toJsFn)}

@@ -28,10 +28,10 @@ object Hidden {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var implementation: js.UndefOr[String] = js.native
     var initialWidth: js.UndefOr[String] = js.native
+    var key: js.UndefOr[String] = js.native
     var lgDown: js.UndefOr[Boolean] = js.native
     var lgUp: js.UndefOr[Boolean] = js.native
     var mdDown: js.UndefOr[Boolean] = js.native
@@ -53,8 +53,6 @@ object Hidden {
   
   /**
    * Responsively hides children based on the selected implementation.
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param implementation
@@ -70,6 +68,8 @@ object Hidden {
    *        
    *        For instance, you could be using the user-agent or the client-hints.
    *        http://caniuse.com/#search=client%20hint
+   * @param key
+   *        React key
    * @param lgDown
    *        If true, screens this size and down will be hidden.
    * @param lgUp
@@ -94,10 +94,10 @@ object Hidden {
    *        If true, screens this size and up will be hidden.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     implementation: js.UndefOr[Implementation] = js.undefined,
     initialWidth: js.UndefOr[InitialWidth] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     lgDown: js.UndefOr[Boolean] = js.undefined,
     lgUp: js.UndefOr[Boolean] = js.undefined,
     mdDown: js.UndefOr[Boolean] = js.undefined,
@@ -112,10 +112,10 @@ object Hidden {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (implementation.isDefined) {p.implementation = implementation.map(v => v.value)}
     if (initialWidth.isDefined) {p.initialWidth = initialWidth.map(v => v.value)}
+    if (key.isDefined) {p.key = key}
     if (lgDown.isDefined) {p.lgDown = lgDown}
     if (lgUp.isDefined) {p.lgUp = lgUp}
     if (mdDown.isDefined) {p.mdDown = mdDown}

@@ -11,11 +11,11 @@ object GridListTile {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var cols: js.UndefOr[Double] = js.native
     var component: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
     var rows: js.UndefOr[Double] = js.native
   }
 
@@ -27,8 +27,6 @@ object GridListTile {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -39,24 +37,26 @@ object GridListTile {
    * @param component
    *        The component used for the root node.
    *        Either a string to use a DOM element or a component.
+   * @param key
+   *        React key
    * @param rows
    *        Height of the tile in number of grid cells.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     cols: js.UndefOr[Double] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     rows: js.UndefOr[Double] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (cols.isDefined) {p.cols = cols}
     if (component.isDefined) {p.component = component}
+    if (key.isDefined) {p.key = key}
     if (rows.isDefined) {p.rows = rows}
 
     jsFnComponent(p)(children: _*)

@@ -49,7 +49,6 @@ object DialogContentText {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var align: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -57,6 +56,7 @@ object DialogContentText {
     var component: js.UndefOr[js.Any] = js.native
     var gutterBottom: js.UndefOr[Boolean] = js.native
     var headlineMapping: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
     var noWrap: js.UndefOr[Boolean] = js.native
     var paragraph: js.UndefOr[Boolean] = js.native
     var variant: js.UndefOr[String] = js.native
@@ -70,8 +70,6 @@ object DialogContentText {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param align
    *        Set the text-align on the component.
    *        Passed to Typography
@@ -97,6 +95,8 @@ object DialogContentText {
    *        For instance, h1 to h6. If you wish to change that mapping, you can provide your own.
    *        Alternatively, you can use the `component` property.
    *        Passed to Typography
+   * @param key
+   *        React key
    * @param noWrap
    *        If `true`, the text will not wrap, but instead will truncate with an ellipsis.
    *        Passed to Typography
@@ -108,7 +108,6 @@ object DialogContentText {
    *        Passed to Typography
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     align: js.UndefOr[Align] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -116,13 +115,13 @@ object DialogContentText {
     component: js.UndefOr[js.Any] = js.undefined,
     gutterBottom: js.UndefOr[Boolean] = js.undefined,
     headlineMapping: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     noWrap: js.UndefOr[Boolean] = js.undefined,
     paragraph: js.UndefOr[Boolean] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (align.isDefined) {p.align = align.map(v => v.value)}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
@@ -130,6 +129,7 @@ object DialogContentText {
     if (component.isDefined) {p.component = component}
     if (gutterBottom.isDefined) {p.gutterBottom = gutterBottom}
     if (headlineMapping.isDefined) {p.headlineMapping = headlineMapping}
+    if (key.isDefined) {p.key = key}
     if (noWrap.isDefined) {p.noWrap = noWrap}
     if (paragraph.isDefined) {p.paragraph = paragraph}
     if (variant.isDefined) {p.variant = variant.map(v => v.value)}

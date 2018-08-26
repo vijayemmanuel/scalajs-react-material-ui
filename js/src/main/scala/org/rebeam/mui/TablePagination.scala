@@ -36,7 +36,6 @@ object TablePagination {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var ActionsComponent: js.UndefOr[js.Any] = js.native
     var SelectProps: js.UndefOr[js.Any] = js.native
     var backIconButtonProps: js.UndefOr[js.Any] = js.native
@@ -45,6 +44,7 @@ object TablePagination {
     var colSpan: js.UndefOr[Double] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var count: Double = js.native
+    var key: js.UndefOr[String] = js.native
     var labelDisplayedRows: js.UndefOr[js.Any] = js.native
     var labelRowsPerPage: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var nextIconButtonProps: js.UndefOr[js.Any] = js.native
@@ -68,8 +68,6 @@ object TablePagination {
   
   /**
    * A `TableCell` based component for placing inside `TableFooter` for pagination.
-   * @param key
-   *        React key
    * @param ActionsComponent
    *        The component used for displaying the actions.
    *        Either a string to use a DOM element or a component.
@@ -90,6 +88,8 @@ object TablePagination {
    *        Either a string to use a DOM element or a component.
    * @param count
    *        The total number of rows.
+   * @param key
+   *        React key
    * @param labelDisplayedRows
    *        Customize the displayed rows label.
    * @param labelRowsPerPage
@@ -132,7 +132,6 @@ object TablePagination {
    *        Passed to TableCell
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     ActionsComponent: js.UndefOr[js.Any] = js.undefined,
     SelectProps: js.UndefOr[js.Any] = js.undefined,
     backIconButtonProps: js.UndefOr[js.Any] = js.undefined,
@@ -141,6 +140,7 @@ object TablePagination {
     colSpan: js.UndefOr[Double] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     count: Double,
+    key: js.UndefOr[String] = js.undefined,
     labelDisplayedRows: js.UndefOr[js.Any] = js.undefined,
     labelRowsPerPage: js.UndefOr[VdomNode] = js.undefined,
     nextIconButtonProps: js.UndefOr[js.Any] = js.undefined,
@@ -157,7 +157,6 @@ object TablePagination {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (ActionsComponent.isDefined) {p.ActionsComponent = ActionsComponent}
     if (SelectProps.isDefined) {p.SelectProps = SelectProps}
     if (backIconButtonProps.isDefined) {p.backIconButtonProps = backIconButtonProps}
@@ -166,6 +165,7 @@ object TablePagination {
     if (colSpan.isDefined) {p.colSpan = colSpan}
     if (component.isDefined) {p.component = component}
     p.count = count
+    if (key.isDefined) {p.key = key}
     if (labelDisplayedRows.isDefined) {p.labelDisplayedRows = labelDisplayedRows}
     if (labelRowsPerPage.isDefined) {p.labelRowsPerPage = labelRowsPerPage.map(v => v.rawNode)}
     if (nextIconButtonProps.isDefined) {p.nextIconButtonProps = nextIconButtonProps}

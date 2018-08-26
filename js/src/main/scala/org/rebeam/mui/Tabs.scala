@@ -34,7 +34,6 @@ object Tabs {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var ScrollButtonComponent: js.UndefOr[js.Any] = js.native
     var TabIndicatorProps: js.UndefOr[js.Any] = js.native
     var action: js.UndefOr[js.Any] = js.native
@@ -44,6 +43,7 @@ object Tabs {
     var component: js.UndefOr[js.Any] = js.native
     var fullWidth: js.UndefOr[Boolean] = js.native
     var indicatorColor: js.UndefOr[String] = js.native
+    var key: js.UndefOr[String] = js.native
     var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var scrollButtons: js.UndefOr[String] = js.native
     var scrollable: js.UndefOr[Boolean] = js.native
@@ -60,8 +60,6 @@ object Tabs {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param ScrollButtonComponent
    *        The component used to render the scroll buttons.
    * @param TabIndicatorProps
@@ -89,6 +87,8 @@ object Tabs {
    *        This property is intended for small views, like on mobile.
    * @param indicatorColor
    *        Determines the color of the indicator.
+   * @param key
+   *        React key
    * @param onChange
    *        Callback fired when the value changes.
    *        
@@ -111,7 +111,6 @@ object Tabs {
    *        If you don't want any selected `Tab`, you can set this property to `false`.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     ScrollButtonComponent: js.UndefOr[js.Any] = js.undefined,
     TabIndicatorProps: js.UndefOr[js.Any] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
@@ -121,6 +120,7 @@ object Tabs {
     component: js.UndefOr[js.Any] = js.undefined,
     fullWidth: js.UndefOr[Boolean] = js.undefined,
     indicatorColor: js.UndefOr[IndicatorColor] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     onChange: js.UndefOr[Callback] = js.undefined,
     scrollButtons: js.UndefOr[ScrollButtons] = js.undefined,
     scrollable: js.UndefOr[Boolean] = js.undefined,
@@ -130,7 +130,6 @@ object Tabs {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (ScrollButtonComponent.isDefined) {p.ScrollButtonComponent = ScrollButtonComponent}
     if (TabIndicatorProps.isDefined) {p.TabIndicatorProps = TabIndicatorProps}
     if (action.isDefined) {p.action = action}
@@ -140,6 +139,7 @@ object Tabs {
     if (component.isDefined) {p.component = component}
     if (fullWidth.isDefined) {p.fullWidth = fullWidth}
     if (indicatorColor.isDefined) {p.indicatorColor = indicatorColor.map(v => v.value)}
+    if (key.isDefined) {p.key = key}
     if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
     if (scrollButtons.isDefined) {p.scrollButtons = scrollButtons.map(v => v.value)}
     if (scrollable.isDefined) {p.scrollable = scrollable}

@@ -11,11 +11,11 @@ object CardMedia {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var image: js.UndefOr[String] = js.native
+    var key: js.UndefOr[String] = js.native
     var src: js.UndefOr[String] = js.native
     var style: js.UndefOr[js.Any] = js.native
   }
@@ -28,8 +28,6 @@ object CardMedia {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -42,6 +40,8 @@ object CardMedia {
    *        Image to be displayed as a background image.
    *        Either `image` or `src` prop must be specified.
    *        Note that caller must specify height otherwise the image will not be visible.
+   * @param key
+   *        React key
    * @param src
    *        An alias for `image` property.
    *        Available only with media components.
@@ -50,21 +50,21 @@ object CardMedia {
    *        Property spread to root element
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     image: js.UndefOr[String] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     src: js.UndefOr[String] = js.undefined,
     style: js.UndefOr[js.Any] = js.undefined
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (component.isDefined) {p.component = component}
     if (image.isDefined) {p.image = image}
+    if (key.isDefined) {p.key = key}
     if (src.isDefined) {p.src = src}
     if (style.isDefined) {p.style = style}
 

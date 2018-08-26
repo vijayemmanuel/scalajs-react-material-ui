@@ -28,7 +28,6 @@ object Drawer {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var ModalProps: js.UndefOr[js.Any] = js.native
     var PaperProps: js.UndefOr[js.Any] = js.native
     var SlideProps: js.UndefOr[js.Any] = js.native
@@ -36,6 +35,7 @@ object Drawer {
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var elevation: js.UndefOr[Double] = js.native
+    var key: js.UndefOr[String] = js.native
     var onClose: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var open: js.UndefOr[Boolean] = js.native
     var theme: js.Any = js.native
@@ -52,8 +52,6 @@ object Drawer {
   /**
    * The properties of the [Modal](/api/modal) component are available
    * when `variant="temporary"` is set.
-   * @param key
-   *        React key
    * @param ModalProps
    *        Properties applied to the [`Modal`](/api/modal) element.
    * @param PaperProps
@@ -69,6 +67,8 @@ object Drawer {
    *        See [CSS API](#css-api) below for more details.
    * @param elevation
    *        The elevation of the drawer.
+   * @param key
+   *        React key
    * @param onClose
    *        Callback fired when the component requests to be closed.
    *        
@@ -84,7 +84,6 @@ object Drawer {
    *        The variant to use.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     ModalProps: js.UndefOr[js.Any] = js.undefined,
     PaperProps: js.UndefOr[js.Any] = js.undefined,
     SlideProps: js.UndefOr[js.Any] = js.undefined,
@@ -92,6 +91,7 @@ object Drawer {
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     elevation: js.UndefOr[Double] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     onClose: js.UndefOr[Callback] = js.undefined,
     open: js.UndefOr[Boolean] = js.undefined,
     theme: js.Any,
@@ -100,7 +100,6 @@ object Drawer {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (ModalProps.isDefined) {p.ModalProps = ModalProps}
     if (PaperProps.isDefined) {p.PaperProps = PaperProps}
     if (SlideProps.isDefined) {p.SlideProps = SlideProps}
@@ -108,6 +107,7 @@ object Drawer {
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (elevation.isDefined) {p.elevation = elevation}
+    if (key.isDefined) {p.key = key}
     if (onClose.isDefined) {p.onClose = onClose.map(v => v.toJsFn)}
     if (open.isDefined) {p.open = open}
     p.theme = theme

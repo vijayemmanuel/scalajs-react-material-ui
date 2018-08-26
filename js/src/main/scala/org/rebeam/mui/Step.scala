@@ -18,7 +18,6 @@ object Step {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var active: js.UndefOr[Boolean] = js.native
     var alternativeLabel: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
@@ -27,6 +26,7 @@ object Step {
     var connector: js.UndefOr[japgolly.scalajs.react.raw.React.Element] = js.native
     var disabled: js.UndefOr[Boolean] = js.native
     var index: js.UndefOr[Double] = js.native
+    var key: js.UndefOr[String] = js.native
     var last: js.UndefOr[Boolean] = js.native
     var orientation: js.UndefOr[String] = js.native
   }
@@ -39,8 +39,6 @@ object Step {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param active
    *        Sets the step as active. Is passed to child components.
    * @param alternativeLabel
@@ -62,13 +60,14 @@ object Step {
    * @param index
    *        Property spread to root element
    *        Used internally for numbering.
+   * @param key
+   *        React key
    * @param last
    *        Property spread to root element
    * @param orientation
    *        Property spread to root element
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     active: js.UndefOr[Boolean] = js.undefined,
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
@@ -77,12 +76,12 @@ object Step {
     connector: js.UndefOr[VdomElement] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
     index: js.UndefOr[Double] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     last: js.UndefOr[Boolean] = js.undefined,
     orientation: js.UndefOr[Orientation] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (active.isDefined) {p.active = active}
     if (alternativeLabel.isDefined) {p.alternativeLabel = alternativeLabel}
     if (className.isDefined) {p.className = className}
@@ -91,6 +90,7 @@ object Step {
     if (connector.isDefined) {p.connector = connector.map(v => v.rawElement)}
     if (disabled.isDefined) {p.disabled = disabled}
     if (index.isDefined) {p.index = index}
+    if (key.isDefined) {p.key = key}
     if (last.isDefined) {p.last = last}
     if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
 

@@ -11,10 +11,10 @@ object CardActions {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var disableActionSpacing: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
   }
 
   @JSImport("@material-ui/core/CardActions", JSImport.Default)
@@ -25,8 +25,6 @@ object CardActions {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -34,19 +32,21 @@ object CardActions {
    *        See [CSS API](#css-api) below for more details.
    * @param disableActionSpacing
    *        If `true`, the card actions do not have additional margin.
+   * @param key
+   *        React key
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
-    disableActionSpacing: js.UndefOr[Boolean] = js.undefined
+    disableActionSpacing: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (disableActionSpacing.isDefined) {p.disableActionSpacing = disableActionSpacing}
+    if (key.isDefined) {p.key = key}
 
     jsFnComponent(p)(children: _*)
   }

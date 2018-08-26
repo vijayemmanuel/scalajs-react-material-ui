@@ -27,10 +27,10 @@ object LinearProgress {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var color: js.UndefOr[String] = js.native
+    var key: js.UndefOr[String] = js.native
     var value: js.UndefOr[Double] = js.native
     var valueBuffer: js.UndefOr[Double] = js.native
     var variant: js.UndefOr[String] = js.native
@@ -48,8 +48,6 @@ object LinearProgress {
    * If the progress bar is describing the loading progress of a particular region of a page,
    * you should use `aria-describedby` to point to the progress bar, and set the `aria-busy`
    * attribute to `true` on that region until it has finished loading.
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -57,6 +55,8 @@ object LinearProgress {
    *        See [CSS API](#css-api) below for more details.
    * @param color
    *        The color of the component. It supports those theme colors that make sense for this component.
+   * @param key
+   *        React key
    * @param value
    *        The value of the progress indicator for the determinate and buffer variants.
    *        Value between 0 and 100.
@@ -68,20 +68,20 @@ object LinearProgress {
    *        Use indeterminate or query when there is no progress value.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     value: js.UndefOr[Double] = js.undefined,
     valueBuffer: js.UndefOr[Double] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (color.isDefined) {p.color = color.map(v => v.value)}
+    if (key.isDefined) {p.key = key}
     if (value.isDefined) {p.value = value}
     if (valueBuffer.isDefined) {p.valueBuffer = valueBuffer}
     if (variant.isDefined) {p.variant = variant.map(v => v.value)}

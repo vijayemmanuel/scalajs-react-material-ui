@@ -11,12 +11,12 @@ object SnackbarContent {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var action: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var elevation: js.UndefOr[Double] = js.native
+    var key: js.UndefOr[String] = js.native
     var message: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var square: js.UndefOr[Boolean] = js.native
   }
@@ -29,8 +29,6 @@ object SnackbarContent {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param action
    *        The action to display.
    * @param className
@@ -46,6 +44,8 @@ object SnackbarContent {
    *        Shadow depth, corresponds to `dp` in the spec.
    *        It's accepting values between 0 and 24 inclusive.
    *        Passed to Paper
+   * @param key
+   *        React key
    * @param message
    *        The message to display.
    * @param square
@@ -53,23 +53,23 @@ object SnackbarContent {
    *        Passed to Paper
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     action: js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     elevation: js.UndefOr[Double] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     message: js.UndefOr[VdomNode] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (action.isDefined) {p.action = action.map(v => v.rawNode)}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (component.isDefined) {p.component = component}
     if (elevation.isDefined) {p.elevation = elevation}
+    if (key.isDefined) {p.key = key}
     if (message.isDefined) {p.message = message.map(v => v.rawNode)}
     if (square.isDefined) {p.square = square}
 

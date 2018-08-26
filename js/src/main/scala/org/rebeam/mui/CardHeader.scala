@@ -11,13 +11,13 @@ object CardHeader {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var action: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var avatar: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var disableTypography: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var subheader: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var subheaderTypographyProps: js.UndefOr[js.Any] = js.native
     var title: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
@@ -32,8 +32,6 @@ object CardHeader {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param action
    *        The action to display in the card header.
    * @param avatar
@@ -51,6 +49,8 @@ object CardHeader {
    *        This can be useful to render an alternative Typography variant by wrapping
    *        the `title` text, and optional `subheader` text
    *        with the Typography component.
+   * @param key
+   *        React key
    * @param subheader
    *        The content of the component.
    * @param subheaderTypographyProps
@@ -63,13 +63,13 @@ object CardHeader {
    *        (as long as disableTypography is not `true`).
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     action: js.UndefOr[VdomNode] = js.undefined,
     avatar: js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     disableTypography: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     subheader: js.UndefOr[VdomNode] = js.undefined,
     subheaderTypographyProps: js.UndefOr[js.Any] = js.undefined,
     title: js.UndefOr[VdomNode] = js.undefined,
@@ -77,13 +77,13 @@ object CardHeader {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (action.isDefined) {p.action = action.map(v => v.rawNode)}
     if (avatar.isDefined) {p.avatar = avatar.map(v => v.rawNode)}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (component.isDefined) {p.component = component}
     if (disableTypography.isDefined) {p.disableTypography = disableTypography}
+    if (key.isDefined) {p.key = key}
     if (subheader.isDefined) {p.subheader = subheader.map(v => v.rawNode)}
     if (subheaderTypographyProps.isDefined) {p.subheaderTypographyProps = subheaderTypographyProps}
     if (title.isDefined) {p.title = title.map(v => v.rawNode)}

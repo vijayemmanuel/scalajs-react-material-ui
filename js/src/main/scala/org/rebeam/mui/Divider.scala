@@ -11,12 +11,12 @@ object Divider {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var absolute: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var inset: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var light: js.UndefOr[Boolean] = js.native
   }
 
@@ -28,8 +28,6 @@ object Divider {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param absolute
    *        
    * @param className
@@ -42,26 +40,28 @@ object Divider {
    *        Either a string to use a DOM element or a component.
    * @param inset
    *        If `true`, the divider will be indented.
+   * @param key
+   *        React key
    * @param light
    *        If `true`, the divider will have a lighter color.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     absolute: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     inset: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     light: js.UndefOr[Boolean] = js.undefined
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (absolute.isDefined) {p.absolute = absolute}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (component.isDefined) {p.component = component}
     if (inset.isDefined) {p.inset = inset}
+    if (key.isDefined) {p.key = key}
     if (light.isDefined) {p.light = light}
 
     jsFnComponent(p)()

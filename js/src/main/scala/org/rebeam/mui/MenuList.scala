@@ -11,12 +11,12 @@ object MenuList {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var dense: js.UndefOr[Boolean] = js.native
     var disablePadding: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
     var onKeyDown: js.UndefOr[scalajs.js.Function1[ReactKeyboardEvent, Unit]] = js.native
     var subheader: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
@@ -30,8 +30,6 @@ object MenuList {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -50,6 +48,8 @@ object MenuList {
    * @param disablePadding
    *        If `true`, vertical padding will be removed from the list.
    *        Passed to List
+   * @param key
+   *        React key
    * @param onBlur
    *        Property spread to root element
    * @param onKeyDown
@@ -59,24 +59,24 @@ object MenuList {
    *        Passed to List
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     dense: js.UndefOr[Boolean] = js.undefined,
     disablePadding: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
     onKeyDown: js.UndefOr[ReactKeyboardEvent => Callback] = js.undefined,
     subheader: js.UndefOr[VdomNode] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (component.isDefined) {p.component = component}
     if (dense.isDefined) {p.dense = dense}
     if (disablePadding.isDefined) {p.disablePadding = disablePadding}
+    if (key.isDefined) {p.key = key}
     if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
     if (onKeyDown.isDefined) {p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
     if (subheader.isDefined) {p.subheader = subheader.map(v => v.rawNode)}

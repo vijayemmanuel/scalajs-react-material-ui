@@ -18,7 +18,6 @@ object Input {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var autoComplete: js.UndefOr[String] = js.native
     var autoFocus: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
@@ -33,6 +32,7 @@ object Input {
     var inputComponent: js.UndefOr[js.Any] = js.native
     var inputProps: js.UndefOr[js.Any] = js.native
     var inputRef: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
     var margin: js.UndefOr[String] = js.native
     var multiline: js.UndefOr[Boolean] = js.native
     var name: js.UndefOr[String] = js.native
@@ -61,8 +61,6 @@ object Input {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param autoComplete
    *        This property helps users to fill forms faster, especially on mobile devices.
    *        The name can be confusing, as it's more like an autofill.
@@ -97,6 +95,8 @@ object Input {
    *        Attributes applied to the `input` element.
    * @param inputRef
    *        Use that property to pass a ref callback to the native input component.
+   * @param key
+   *        React key
    * @param margin
    *        If `dense`, will adjust vertical spacing. This is normally obtained via context from
    *        FormControl.
@@ -140,7 +140,6 @@ object Input {
    *        The input value, required for a controlled component.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     autoComplete: js.UndefOr[String] = js.undefined,
     autoFocus: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
@@ -155,6 +154,7 @@ object Input {
     inputComponent: js.UndefOr[js.Any] = js.undefined,
     inputProps: js.UndefOr[js.Any] = js.undefined,
     inputRef: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     margin: js.UndefOr[Margin] = js.undefined,
     multiline: js.UndefOr[Boolean] = js.undefined,
     name: js.UndefOr[String] = js.undefined,
@@ -176,7 +176,6 @@ object Input {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (autoComplete.isDefined) {p.autoComplete = autoComplete}
     if (autoFocus.isDefined) {p.autoFocus = autoFocus}
     if (className.isDefined) {p.className = className}
@@ -191,6 +190,7 @@ object Input {
     if (inputComponent.isDefined) {p.inputComponent = inputComponent}
     if (inputProps.isDefined) {p.inputProps = inputProps}
     if (inputRef.isDefined) {p.inputRef = inputRef}
+    if (key.isDefined) {p.key = key}
     if (margin.isDefined) {p.margin = margin.map(v => v.value)}
     if (multiline.isDefined) {p.multiline = multiline}
     if (name.isDefined) {p.name = name}

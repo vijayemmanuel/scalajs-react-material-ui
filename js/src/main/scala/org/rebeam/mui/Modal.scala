@@ -11,7 +11,6 @@ object Modal {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var BackdropComponent: js.UndefOr[js.Any] = js.native
     var BackdropProps: js.UndefOr[js.Any] = js.native
     var className: js.UndefOr[String] = js.native
@@ -25,6 +24,7 @@ object Modal {
     var disableRestoreFocus: js.UndefOr[Boolean] = js.native
     var hideBackdrop: js.UndefOr[Boolean] = js.native
     var keepMounted: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var manager: js.UndefOr[js.Any] = js.native
     var onBackdropClick: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onClose: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -41,8 +41,6 @@ object Modal {
   
   /**
    * This component shares many concepts with [react-overlays](https://react-bootstrap.github.io/react-overlays/#modals).
-   * @param key
-   *        React key
    * @param BackdropComponent
    *        A backdrop component. This property enables custom backdrop rendering.
    * @param BackdropProps
@@ -83,6 +81,8 @@ object Modal {
    *        Always keep the children in the DOM.
    *        This property can be useful in SEO situation or
    *        when you want to maximize the responsiveness of the Modal.
+   * @param key
+   *        React key
    * @param manager
    *        A modal manager used to track and manage the state of open
    *        Modals. This enables customizing how modals interact within a container.
@@ -104,7 +104,6 @@ object Modal {
    *        If `true`, the modal is open.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     BackdropComponent: js.UndefOr[js.Any] = js.undefined,
     BackdropProps: js.UndefOr[js.Any] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
@@ -118,6 +117,7 @@ object Modal {
     disableRestoreFocus: js.UndefOr[Boolean] = js.undefined,
     hideBackdrop: js.UndefOr[Boolean] = js.undefined,
     keepMounted: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     manager: js.UndefOr[js.Any] = js.undefined,
     onBackdropClick: js.UndefOr[Callback] = js.undefined,
     onClose: js.UndefOr[Callback] = js.undefined,
@@ -127,7 +127,6 @@ object Modal {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (BackdropComponent.isDefined) {p.BackdropComponent = BackdropComponent}
     if (BackdropProps.isDefined) {p.BackdropProps = BackdropProps}
     if (className.isDefined) {p.className = className}
@@ -141,6 +140,7 @@ object Modal {
     if (disableRestoreFocus.isDefined) {p.disableRestoreFocus = disableRestoreFocus}
     if (hideBackdrop.isDefined) {p.hideBackdrop = hideBackdrop}
     if (keepMounted.isDefined) {p.keepMounted = keepMounted}
+    if (key.isDefined) {p.key = key}
     if (manager.isDefined) {p.manager = manager}
     if (onBackdropClick.isDefined) {p.onBackdropClick = onBackdropClick.map(v => v.toJsFn)}
     if (onClose.isDefined) {p.onClose = onClose.map(v => v.toJsFn)}

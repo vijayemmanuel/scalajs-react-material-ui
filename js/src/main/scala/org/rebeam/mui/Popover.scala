@@ -19,7 +19,6 @@ object Popover {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var BackdropComponent: js.UndefOr[js.Any] = js.native
     var BackdropProps: js.UndefOr[js.Any] = js.native
     var ModalClasses: js.UndefOr[js.Any] = js.native
@@ -44,6 +43,7 @@ object Popover {
     var getContentAnchorEl: js.UndefOr[js.Any] = js.native
     var hideBackdrop: js.UndefOr[Boolean] = js.native
     var keepMounted: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var manager: js.UndefOr[js.Any] = js.native
     var marginThreshold: js.UndefOr[Double] = js.native
     var onBackdropClick: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -70,8 +70,6 @@ object Popover {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param BackdropComponent
    *        A backdrop component. This property enables custom backdrop rendering.
    *        Passed to Modal
@@ -167,6 +165,8 @@ object Popover {
    *        This property can be useful in SEO situation or
    *        when you want to maximize the responsiveness of the Modal.
    *        Passed to Modal
+   * @param key
+   *        React key
    * @param manager
    *        A modal manager used to track and manage the state of open
    *        Modals. This enables customizing how modals interact within a container.
@@ -215,7 +215,6 @@ object Popover {
    *        Set to 'auto' to automatically calculate transition time based on height.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     BackdropComponent: js.UndefOr[js.Any] = js.undefined,
     BackdropProps: js.UndefOr[js.Any] = js.undefined,
     ModalClasses: js.UndefOr[js.Any] = js.undefined,
@@ -240,6 +239,7 @@ object Popover {
     getContentAnchorEl: js.UndefOr[js.Any] = js.undefined,
     hideBackdrop: js.UndefOr[Boolean] = js.undefined,
     keepMounted: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     manager: js.UndefOr[js.Any] = js.undefined,
     marginThreshold: js.UndefOr[Double] = js.undefined,
     onBackdropClick: js.UndefOr[Callback] = js.undefined,
@@ -259,7 +259,6 @@ object Popover {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (BackdropComponent.isDefined) {p.BackdropComponent = BackdropComponent}
     if (BackdropProps.isDefined) {p.BackdropProps = BackdropProps}
     if (ModalClasses.isDefined) {p.ModalClasses = ModalClasses}
@@ -284,6 +283,7 @@ object Popover {
     if (getContentAnchorEl.isDefined) {p.getContentAnchorEl = getContentAnchorEl}
     if (hideBackdrop.isDefined) {p.hideBackdrop = hideBackdrop}
     if (keepMounted.isDefined) {p.keepMounted = keepMounted}
+    if (key.isDefined) {p.key = key}
     if (manager.isDefined) {p.manager = manager}
     if (marginThreshold.isDefined) {p.marginThreshold = marginThreshold}
     if (onBackdropClick.isDefined) {p.onBackdropClick = onBackdropClick.map(v => v.toJsFn)}

@@ -19,13 +19,13 @@ object FormControl {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var disabled: js.UndefOr[Boolean] = js.native
     var error: js.UndefOr[Boolean] = js.native
     var fullWidth: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var margin: js.UndefOr[String] = js.native
     var required: js.UndefOr[Boolean] = js.native
   }
@@ -45,8 +45,6 @@ object FormControl {
    *  - FormHelperText
    *  - Input
    *  - InputLabel
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -61,31 +59,33 @@ object FormControl {
    *        If `true`, the label should be displayed in an error state.
    * @param fullWidth
    *        If `true`, the component will take up the full width of its container.
+   * @param key
+   *        React key
    * @param margin
    *        If `dense` or `normal`, will adjust vertical spacing of this and contained components.
    * @param required
    *        If `true`, the label will indicate that the input is required.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
     error: js.UndefOr[Boolean] = js.undefined,
     fullWidth: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     margin: js.UndefOr[Margin] = js.undefined,
     required: js.UndefOr[Boolean] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (component.isDefined) {p.component = component}
     if (disabled.isDefined) {p.disabled = disabled}
     if (error.isDefined) {p.error = error}
     if (fullWidth.isDefined) {p.fullWidth = fullWidth}
+    if (key.isDefined) {p.key = key}
     if (margin.isDefined) {p.margin = margin.map(v => v.value)}
     if (required.isDefined) {p.required = required}
 

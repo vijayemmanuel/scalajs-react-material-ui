@@ -19,7 +19,6 @@ object TextField {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var FormHelperTextProps: js.UndefOr[js.Any] = js.native
     var InputLabelProps: js.UndefOr[js.Any] = js.native
     var InputProps: js.UndefOr[js.Any] = js.native
@@ -37,6 +36,7 @@ object TextField {
     var id: js.UndefOr[String] = js.native
     var inputProps: js.UndefOr[js.Any] = js.native
     var inputRef: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
     var label: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var margin: js.UndefOr[String] = js.native
     var multiline: js.UndefOr[Boolean] = js.native
@@ -86,8 +86,6 @@ object TextField {
    * "Edit this page" button above. Consider either:
    * - using the upper case props for passing values directly to the components
    * - using the underlying components directly as shown in the demos
-   * @param key
-   *        React key
    * @param FormHelperTextProps
    *        Properties applied to the [`FormHelperText`](/api/form-helper-text) element.
    * @param InputLabelProps
@@ -130,6 +128,8 @@ object TextField {
    *        Attributes applied to the native `input` element.
    * @param inputRef
    *        Use that property to pass a ref callback to the native input component.
+   * @param key
+   *        React key
    * @param label
    *        The label content.
    * @param margin
@@ -164,7 +164,6 @@ object TextField {
    *        The value of the `Input` element, required for a controlled component.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     FormHelperTextProps: js.UndefOr[js.Any] = js.undefined,
     InputLabelProps: js.UndefOr[js.Any] = js.undefined,
     InputProps: js.UndefOr[js.Any] = js.undefined,
@@ -182,6 +181,7 @@ object TextField {
     id: js.UndefOr[String] = js.undefined,
     inputProps: js.UndefOr[js.Any] = js.undefined,
     inputRef: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     label: js.UndefOr[VdomNode] = js.undefined,
     margin: js.UndefOr[Margin] = js.undefined,
     multiline: js.UndefOr[Boolean] = js.undefined,
@@ -199,7 +199,6 @@ object TextField {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (FormHelperTextProps.isDefined) {p.FormHelperTextProps = FormHelperTextProps}
     if (InputLabelProps.isDefined) {p.InputLabelProps = InputLabelProps}
     if (InputProps.isDefined) {p.InputProps = InputProps}
@@ -217,6 +216,7 @@ object TextField {
     if (id.isDefined) {p.id = id}
     if (inputProps.isDefined) {p.inputProps = inputProps}
     if (inputRef.isDefined) {p.inputRef = inputRef}
+    if (key.isDefined) {p.key = key}
     if (label.isDefined) {p.label = label.map(v => v.rawNode)}
     if (margin.isDefined) {p.margin = margin.map(v => v.value)}
     if (multiline.isDefined) {p.multiline = multiline}

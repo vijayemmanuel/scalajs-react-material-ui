@@ -11,8 +11,8 @@ object CssBaseline {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
   }
 
   @JSImport("@material-ui/core/CssBaseline", JSImport.Default)
@@ -23,19 +23,19 @@ object CssBaseline {
   
   /**
    * Kickstart an elegant, consistent, and simple baseline to build upon.
-   * @param key
-   *        React key
    * @param classes
    *        Property spread to root element
+   * @param key
+   *        React key
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined
+    classes: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (classes.isDefined) {p.classes = classes}
+    if (key.isDefined) {p.key = key}
 
     jsFnComponent(p)(children: _*)
   }

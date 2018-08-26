@@ -40,7 +40,6 @@ object Button {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var TouchRippleProps: js.UndefOr[js.Any] = js.native
     var action: js.UndefOr[js.Any] = js.native
     var buttonRef: js.UndefOr[js.Any] = js.native
@@ -57,6 +56,7 @@ object Button {
     var focusVisibleClassName: js.UndefOr[String] = js.native
     var fullWidth: js.UndefOr[Boolean] = js.native
     var href: js.UndefOr[String] = js.native
+    var key: js.UndefOr[String] = js.native
     var mini: js.UndefOr[Boolean] = js.native
     var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
     var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
@@ -85,8 +85,6 @@ object Button {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param TouchRippleProps
    *        Properties applied to the `TouchRipple` element.
    *        Passed to ButtonBase
@@ -136,6 +134,8 @@ object Button {
    * @param href
    *        The URL to link to when the button is clicked.
    *        If defined, an `a` element will be used as the root node.
+   * @param key
+   *        React key
    * @param mini
    *        If `true`, and `variant` is `'fab'`, will use mini floating action button styling.
    * @param onBlur
@@ -190,7 +190,6 @@ object Button {
    *        The variant to use.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Any] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
     buttonRef: js.UndefOr[js.Any] = js.undefined,
@@ -207,6 +206,7 @@ object Button {
     focusVisibleClassName: js.UndefOr[String] = js.undefined,
     fullWidth: js.UndefOr[Boolean] = js.undefined,
     href: js.UndefOr[String] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     mini: js.UndefOr[Boolean] = js.undefined,
     onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
     onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
@@ -228,7 +228,6 @@ object Button {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (TouchRippleProps.isDefined) {p.TouchRippleProps = TouchRippleProps}
     if (action.isDefined) {p.action = action}
     if (buttonRef.isDefined) {p.buttonRef = buttonRef}
@@ -245,6 +244,7 @@ object Button {
     if (focusVisibleClassName.isDefined) {p.focusVisibleClassName = focusVisibleClassName}
     if (fullWidth.isDefined) {p.fullWidth = fullWidth}
     if (href.isDefined) {p.href = href}
+    if (key.isDefined) {p.key = key}
     if (mini.isDefined) {p.mini = mini}
     if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
     if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}

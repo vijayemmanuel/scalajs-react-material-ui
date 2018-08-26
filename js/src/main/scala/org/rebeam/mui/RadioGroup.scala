@@ -11,9 +11,9 @@ object RadioGroup {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
     var name: js.UndefOr[String] = js.native
     var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
     var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -30,8 +30,6 @@ object RadioGroup {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    *        Passed to FormGroup
@@ -39,6 +37,8 @@ object RadioGroup {
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
    *        Passed to FormGroup
+   * @param key
+   *        React key
    * @param name
    *        The name used to reference the value of the control.
    * @param onBlur
@@ -58,9 +58,9 @@ object RadioGroup {
    *        Value of the selected radio button.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     name: js.UndefOr[String] = js.undefined,
     onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
     onChange: js.UndefOr[Callback] = js.undefined,
@@ -70,9 +70,9 @@ object RadioGroup {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
+    if (key.isDefined) {p.key = key}
     if (name.isDefined) {p.name = name}
     if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
     if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}

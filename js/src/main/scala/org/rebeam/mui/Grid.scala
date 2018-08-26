@@ -171,7 +171,6 @@ object Grid {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var alignContent: js.UndefOr[String] = js.native
     var alignItems: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
@@ -181,6 +180,7 @@ object Grid {
     var direction: js.UndefOr[String] = js.native
     var item: js.UndefOr[Boolean] = js.native
     var justify: js.UndefOr[String] = js.native
+    var key: js.UndefOr[String] = js.native
     var lg: js.UndefOr[String] = js.native
     var md: js.UndefOr[String] = js.native
     var sm: js.UndefOr[String] = js.native
@@ -199,8 +199,6 @@ object Grid {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param alignContent
    *        Defines the `align-content` style property.
    *        It's applied for all screen sizes.
@@ -227,6 +225,8 @@ object Grid {
    * @param justify
    *        Defines the `justify-content` style property.
    *        It is applied for all screen sizes.
+   * @param key
+   *        React key
    * @param lg
    *        Defines the number of grids the component is going to use.
    *        It's applied for the `lg` breakpoint and wider screens if not overridden.
@@ -253,7 +253,6 @@ object Grid {
    *        Refer to the limitations section of the documentation to better understand the use case.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     alignContent: js.UndefOr[AlignContent] = js.undefined,
     alignItems: js.UndefOr[AlignItems] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
@@ -263,6 +262,7 @@ object Grid {
     direction: js.UndefOr[Direction] = js.undefined,
     item: js.UndefOr[Boolean] = js.undefined,
     justify: js.UndefOr[Justify] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     lg: js.UndefOr[Lg] = js.undefined,
     md: js.UndefOr[Md] = js.undefined,
     sm: js.UndefOr[Sm] = js.undefined,
@@ -274,7 +274,6 @@ object Grid {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (alignContent.isDefined) {p.alignContent = alignContent.map(v => v.value)}
     if (alignItems.isDefined) {p.alignItems = alignItems.map(v => v.value)}
     if (className.isDefined) {p.className = className}
@@ -284,6 +283,7 @@ object Grid {
     if (direction.isDefined) {p.direction = direction.map(v => v.value)}
     if (item.isDefined) {p.item = item}
     if (justify.isDefined) {p.justify = justify.map(v => v.value)}
+    if (key.isDefined) {p.key = key}
     if (lg.isDefined) {p.lg = lg.map(v => v.value)}
     if (md.isDefined) {p.md = md.map(v => v.value)}
     if (sm.isDefined) {p.sm = sm.map(v => v.value)}

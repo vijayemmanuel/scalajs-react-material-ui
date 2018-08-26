@@ -29,11 +29,11 @@ object Icon {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var color: js.UndefOr[String] = js.native
     var fontSize: js.UndefOr[String] = js.native
+    var key: js.UndefOr[String] = js.native
   }
 
   @JSImport("@material-ui/core/Icon", JSImport.Default)
@@ -44,8 +44,6 @@ object Icon {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -55,21 +53,23 @@ object Icon {
    *        The color of the component. It supports those theme colors that make sense for this component.
    * @param fontSize
    *        The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size.
+   * @param key
+   *        React key
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
-    fontSize: js.UndefOr[FontSize] = js.undefined
+    fontSize: js.UndefOr[FontSize] = js.undefined,
+    key: js.UndefOr[String] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (color.isDefined) {p.color = color.map(v => v.value)}
     if (fontSize.isDefined) {p.fontSize = fontSize.map(v => v.value)}
+    if (key.isDefined) {p.key = key}
 
     jsFnComponent(p)(children: _*)
   }

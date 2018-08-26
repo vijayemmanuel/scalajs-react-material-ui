@@ -11,7 +11,6 @@ object ExpansionPanel {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var CollapseProps: js.UndefOr[js.Any] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -20,6 +19,7 @@ object ExpansionPanel {
     var disabled: js.UndefOr[Boolean] = js.native
     var elevation: js.UndefOr[Double] = js.native
     var expanded: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var square: js.UndefOr[Boolean] = js.native
   }
@@ -32,8 +32,6 @@ object ExpansionPanel {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param CollapseProps
    *        Properties applied to the [`Collapse`](/api/collapse) element.
    * @param className
@@ -56,6 +54,8 @@ object ExpansionPanel {
    * @param expanded
    *        If `true`, expands the panel, otherwise collapse it.
    *        Setting this prop enables control over the panel.
+   * @param key
+   *        React key
    * @param onChange
    *        Callback fired when the expand/collapse state is changed.
    *        
@@ -66,7 +66,6 @@ object ExpansionPanel {
    *        Passed to Paper
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     CollapseProps: js.UndefOr[js.Any] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -75,12 +74,12 @@ object ExpansionPanel {
     disabled: js.UndefOr[Boolean] = js.undefined,
     elevation: js.UndefOr[Double] = js.undefined,
     expanded: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     onChange: js.UndefOr[Callback] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (CollapseProps.isDefined) {p.CollapseProps = CollapseProps}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
@@ -89,6 +88,7 @@ object ExpansionPanel {
     if (disabled.isDefined) {p.disabled = disabled}
     if (elevation.isDefined) {p.elevation = elevation}
     if (expanded.isDefined) {p.expanded = expanded}
+    if (key.isDefined) {p.key = key}
     if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
     if (square.isDefined) {p.square = square}
 

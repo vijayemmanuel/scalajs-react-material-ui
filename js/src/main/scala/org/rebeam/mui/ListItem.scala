@@ -11,7 +11,6 @@ object ListItem {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var ContainerComponent: js.UndefOr[js.Any] = js.native
     var ContainerProps: js.UndefOr[js.Any] = js.native
     var button: js.UndefOr[Boolean] = js.native
@@ -23,6 +22,7 @@ object ListItem {
     var disabled: js.UndefOr[Boolean] = js.native
     var divider: js.UndefOr[Boolean] = js.native
     var focusVisibleClassName: js.UndefOr[String] = js.native
+    var key: js.UndefOr[String] = js.native
     var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
   }
 
@@ -34,8 +34,6 @@ object ListItem {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param ContainerComponent
    *        The container component used when a `ListItemSecondaryAction` is rendered.
    * @param ContainerProps
@@ -62,12 +60,13 @@ object ListItem {
    *        If `true`, a 1px light border is added to the bottom of the list item.
    * @param focusVisibleClassName
    *        Property spread to root element
+   * @param key
+   *        React key
    * @param onClick
    *        ReactMouseEvent on click
    *        Passed to DOCGEN_OnClickBase
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     ContainerComponent: js.UndefOr[js.Any] = js.undefined,
     ContainerProps: js.UndefOr[js.Any] = js.undefined,
     button: js.UndefOr[Boolean] = js.undefined,
@@ -79,11 +78,11 @@ object ListItem {
     disabled: js.UndefOr[Boolean] = js.undefined,
     divider: js.UndefOr[Boolean] = js.undefined,
     focusVisibleClassName: js.UndefOr[String] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (ContainerComponent.isDefined) {p.ContainerComponent = ContainerComponent}
     if (ContainerProps.isDefined) {p.ContainerProps = ContainerProps}
     if (button.isDefined) {p.button = button}
@@ -95,6 +94,7 @@ object ListItem {
     if (disabled.isDefined) {p.disabled = disabled}
     if (divider.isDefined) {p.divider = divider}
     if (focusVisibleClassName.isDefined) {p.focusVisibleClassName = focusVisibleClassName}
+    if (key.isDefined) {p.key = key}
     if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}
 
     jsFnComponent(p)(children: _*)

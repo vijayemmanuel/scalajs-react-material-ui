@@ -11,11 +11,11 @@ object ListItemText {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var disableTypography: js.UndefOr[Boolean] = js.native
     var inset: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var primary: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var primaryTypographyProps: js.UndefOr[js.Any] = js.native
     var secondary: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
@@ -30,8 +30,6 @@ object ListItemText {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -45,6 +43,8 @@ object ListItemText {
    * @param inset
    *        If `true`, the children will be indented.
    *        This should be used if there is no left avatar or left icon.
+   * @param key
+   *        React key
    * @param primary
    *        The main content element.
    * @param primaryTypographyProps
@@ -57,11 +57,11 @@ object ListItemText {
    *        (as long as disableTypography is not `true`).
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     disableTypography: js.UndefOr[Boolean] = js.undefined,
     inset: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     primary: js.UndefOr[VdomNode] = js.undefined,
     primaryTypographyProps: js.UndefOr[js.Any] = js.undefined,
     secondary: js.UndefOr[VdomNode] = js.undefined,
@@ -69,11 +69,11 @@ object ListItemText {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (disableTypography.isDefined) {p.disableTypography = disableTypography}
     if (inset.isDefined) {p.inset = inset}
+    if (key.isDefined) {p.key = key}
     if (primary.isDefined) {p.primary = primary.map(v => v.rawNode)}
     if (primaryTypographyProps.isDefined) {p.primaryTypographyProps = primaryTypographyProps}
     if (secondary.isDefined) {p.secondary = secondary.map(v => v.rawNode)}

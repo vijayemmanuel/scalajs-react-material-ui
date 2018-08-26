@@ -11,9 +11,9 @@ object BottomNavigation {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
     var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var showLabels: js.UndefOr[Boolean] = js.native
     var value: js.UndefOr[js.Any] = js.native
@@ -27,13 +27,13 @@ object BottomNavigation {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
+   * @param key
+   *        React key
    * @param onChange
    *        Callback fired when the value changes.
    *        
@@ -46,18 +46,18 @@ object BottomNavigation {
    *        The value of the currently selected `BottomNavigationAction`.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     onChange: js.UndefOr[Callback] = js.undefined,
     showLabels: js.UndefOr[Boolean] = js.undefined,
     value: js.UndefOr[js.Any] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
+    if (key.isDefined) {p.key = key}
     if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
     if (showLabels.isDefined) {p.showLabels = showLabels}
     if (value.isDefined) {p.value = value}

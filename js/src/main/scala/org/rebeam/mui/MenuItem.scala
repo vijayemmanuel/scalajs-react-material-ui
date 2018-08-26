@@ -11,7 +11,6 @@ object MenuItem {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var ContainerComponent: js.UndefOr[js.Any] = js.native
     var ContainerProps: js.UndefOr[js.Any] = js.native
     var button: js.UndefOr[Boolean] = js.native
@@ -23,6 +22,7 @@ object MenuItem {
     var disabled: js.UndefOr[Boolean] = js.native
     var divider: js.UndefOr[Boolean] = js.native
     var focusVisibleClassName: js.UndefOr[String] = js.native
+    var key: js.UndefOr[String] = js.native
     var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
     var role: js.UndefOr[String] = js.native
     var selected: js.UndefOr[Boolean] = js.native
@@ -36,8 +36,6 @@ object MenuItem {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param ContainerComponent
    *        The container component used when a `ListItemSecondaryAction` is rendered.
    *        Passed to ListItem
@@ -71,6 +69,8 @@ object MenuItem {
    * @param focusVisibleClassName
    *        Property spread to root element
    *        Passed to ListItem
+   * @param key
+   *        React key
    * @param onClick
    *        ReactMouseEvent on click
    *        Passed to DOCGEN_OnClickBase
@@ -80,7 +80,6 @@ object MenuItem {
    *        Use to apply selected styling.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     ContainerComponent: js.UndefOr[js.Any] = js.undefined,
     ContainerProps: js.UndefOr[js.Any] = js.undefined,
     button: js.UndefOr[Boolean] = js.undefined,
@@ -92,13 +91,13 @@ object MenuItem {
     disabled: js.UndefOr[Boolean] = js.undefined,
     divider: js.UndefOr[Boolean] = js.undefined,
     focusVisibleClassName: js.UndefOr[String] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
     role: js.UndefOr[String] = js.undefined,
     selected: js.UndefOr[Boolean] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (ContainerComponent.isDefined) {p.ContainerComponent = ContainerComponent}
     if (ContainerProps.isDefined) {p.ContainerProps = ContainerProps}
     if (button.isDefined) {p.button = button}
@@ -110,6 +109,7 @@ object MenuItem {
     if (disabled.isDefined) {p.disabled = disabled}
     if (divider.isDefined) {p.divider = divider}
     if (focusVisibleClassName.isDefined) {p.focusVisibleClassName = focusVisibleClassName}
+    if (key.isDefined) {p.key = key}
     if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}
     if (role.isDefined) {p.role = role}
     if (selected.isDefined) {p.selected = selected}

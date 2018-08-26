@@ -27,10 +27,10 @@ object CircularProgress {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var color: js.UndefOr[String] = js.native
+    var key: js.UndefOr[String] = js.native
     var size: js.UndefOr[js.Any] = js.native
     var style: js.UndefOr[js.Any] = js.native
     var thickness: js.UndefOr[Double] = js.native
@@ -50,8 +50,6 @@ object CircularProgress {
    * If the progress bar is describing the loading progress of a particular region of a page,
    * you should use `aria-describedby` to point to the progress bar, and set the `aria-busy`
    * attribute to `true` on that region until it has finished loading.
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -59,6 +57,8 @@ object CircularProgress {
    *        See [CSS API](#css-api) below for more details.
    * @param color
    *        The color of the component. It supports those theme colors that make sense for this component.
+   * @param key
+   *        React key
    * @param size
    *        The size of the circle.
    * @param style
@@ -73,10 +73,10 @@ object CircularProgress {
    *        Use indeterminate when there is no progress value.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     size: js.UndefOr[js.Any] = js.undefined,
     style: js.UndefOr[js.Any] = js.undefined,
     thickness: js.UndefOr[Double] = js.undefined,
@@ -85,10 +85,10 @@ object CircularProgress {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (color.isDefined) {p.color = color.map(v => v.value)}
+    if (key.isDefined) {p.key = key}
     if (size.isDefined) {p.size = size}
     if (style.isDefined) {p.style = style}
     if (thickness.isDefined) {p.thickness = thickness}

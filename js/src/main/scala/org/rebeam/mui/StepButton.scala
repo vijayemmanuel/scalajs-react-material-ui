@@ -18,7 +18,6 @@ object StepButton {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var TouchRippleProps: js.UndefOr[js.Any] = js.native
     var action: js.UndefOr[js.Any] = js.native
     var active: js.UndefOr[Boolean] = js.native
@@ -35,6 +34,7 @@ object StepButton {
     var focusRipple: js.UndefOr[Boolean] = js.native
     var focusVisibleClassName: js.UndefOr[String] = js.native
     var icon: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
+    var key: js.UndefOr[String] = js.native
     var last: js.UndefOr[Boolean] = js.native
     var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
     var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
@@ -63,8 +63,6 @@ object StepButton {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param TouchRippleProps
    *        Properties applied to the `TouchRipple` element.
    *        Passed to ButtonBase
@@ -122,6 +120,8 @@ object StepButton {
    *        Passed to ButtonBase
    * @param icon
    *        The icon displayed by the step label.
+   * @param key
+   *        React key
    * @param last
    *        Property spread to root element
    * @param onBlur
@@ -178,7 +178,6 @@ object StepButton {
    *        Passed to ButtonBase
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Any] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
     active: js.UndefOr[Boolean] = js.undefined,
@@ -195,6 +194,7 @@ object StepButton {
     focusRipple: js.UndefOr[Boolean] = js.undefined,
     focusVisibleClassName: js.UndefOr[String] = js.undefined,
     icon: js.UndefOr[VdomNode] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     last: js.UndefOr[Boolean] = js.undefined,
     onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
     onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
@@ -216,7 +216,6 @@ object StepButton {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (TouchRippleProps.isDefined) {p.TouchRippleProps = TouchRippleProps}
     if (action.isDefined) {p.action = action}
     if (active.isDefined) {p.active = active}
@@ -233,6 +232,7 @@ object StepButton {
     if (focusRipple.isDefined) {p.focusRipple = focusRipple}
     if (focusVisibleClassName.isDefined) {p.focusVisibleClassName = focusVisibleClassName}
     if (icon.isDefined) {p.icon = icon.map(v => v.rawNode)}
+    if (key.isDefined) {p.key = key}
     if (last.isDefined) {p.last = last}
     if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
     if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}

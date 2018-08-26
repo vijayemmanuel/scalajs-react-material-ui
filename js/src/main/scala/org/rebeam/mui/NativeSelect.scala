@@ -18,7 +18,6 @@ object NativeSelect {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var IconComponent: js.UndefOr[js.Any] = js.native
     var autoComplete: js.UndefOr[String] = js.native
     var autoFocus: js.UndefOr[Boolean] = js.native
@@ -35,6 +34,7 @@ object NativeSelect {
     var inputComponent: js.UndefOr[js.Any] = js.native
     var inputProps: js.UndefOr[js.Any] = js.native
     var inputRef: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
     var margin: js.UndefOr[String] = js.native
     var multiline: js.UndefOr[Boolean] = js.native
     var name: js.UndefOr[String] = js.native
@@ -63,8 +63,6 @@ object NativeSelect {
   
   /**
    * An alternative to `<Select native />` with a much smaller dependency graph.
-   * @param key
-   *        React key
    * @param IconComponent
    *        The icon that displays the arrow.
    * @param autoComplete
@@ -115,6 +113,8 @@ object NativeSelect {
    * @param inputRef
    *        Use that property to pass a ref callback to the native input component.
    *        Passed to Input
+   * @param key
+   *        React key
    * @param margin
    *        If `dense`, will adjust vertical spacing. This is normally obtained via context from
    *        FormControl.
@@ -174,7 +174,6 @@ object NativeSelect {
    *        The input value.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     IconComponent: js.UndefOr[js.Any] = js.undefined,
     autoComplete: js.UndefOr[String] = js.undefined,
     autoFocus: js.UndefOr[Boolean] = js.undefined,
@@ -191,6 +190,7 @@ object NativeSelect {
     inputComponent: js.UndefOr[js.Any] = js.undefined,
     inputProps: js.UndefOr[js.Any] = js.undefined,
     inputRef: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     margin: js.UndefOr[Margin] = js.undefined,
     multiline: js.UndefOr[Boolean] = js.undefined,
     name: js.UndefOr[String] = js.undefined,
@@ -212,7 +212,6 @@ object NativeSelect {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (IconComponent.isDefined) {p.IconComponent = IconComponent}
     if (autoComplete.isDefined) {p.autoComplete = autoComplete}
     if (autoFocus.isDefined) {p.autoFocus = autoFocus}
@@ -229,6 +228,7 @@ object NativeSelect {
     if (inputComponent.isDefined) {p.inputComponent = inputComponent}
     if (inputProps.isDefined) {p.inputProps = inputProps}
     if (inputRef.isDefined) {p.inputRef = inputRef}
+    if (key.isDefined) {p.key = key}
     if (margin.isDefined) {p.margin = margin.map(v => v.value)}
     if (multiline.isDefined) {p.multiline = multiline}
     if (name.isDefined) {p.name = name}

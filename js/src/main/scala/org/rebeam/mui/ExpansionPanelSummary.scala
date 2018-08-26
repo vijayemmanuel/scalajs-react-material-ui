@@ -11,7 +11,6 @@ object ExpansionPanelSummary {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var IconButtonProps: js.UndefOr[js.Any] = js.native
     var TouchRippleProps: js.UndefOr[js.Any] = js.native
     var action: js.UndefOr[js.Any] = js.native
@@ -27,6 +26,7 @@ object ExpansionPanelSummary {
     var expanded: js.UndefOr[Boolean] = js.native
     var focusRipple: js.UndefOr[Boolean] = js.native
     var focusVisibleClassName: js.UndefOr[String] = js.native
+    var key: js.UndefOr[String] = js.native
     var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
     var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
@@ -53,8 +53,6 @@ object ExpansionPanelSummary {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param IconButtonProps
    *        Properties applied to the `TouchRipple` element wrapping the expand icon.
    * @param TouchRippleProps
@@ -108,6 +106,8 @@ object ExpansionPanelSummary {
    *        It's a polyfill for the [CSS :focus-visible feature](https://drafts.csswg.org/selectors-4/#the-focus-visible-pseudo).
    *        The rational for using this feature [is explain here](https://github.com/WICG/focus-visible/blob/master/explainer.md).
    *        Passed to ButtonBase
+   * @param key
+   *        React key
    * @param onBlur
    *        Property spread to root element
    *        Passed to ButtonBase
@@ -159,7 +159,6 @@ object ExpansionPanelSummary {
    *        Passed to ButtonBase
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     IconButtonProps: js.UndefOr[js.Any] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Any] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
@@ -175,6 +174,7 @@ object ExpansionPanelSummary {
     expanded: js.UndefOr[Boolean] = js.undefined,
     focusRipple: js.UndefOr[Boolean] = js.undefined,
     focusVisibleClassName: js.UndefOr[String] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
     onChange: js.UndefOr[Callback] = js.undefined,
     onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
@@ -194,7 +194,6 @@ object ExpansionPanelSummary {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (IconButtonProps.isDefined) {p.IconButtonProps = IconButtonProps}
     if (TouchRippleProps.isDefined) {p.TouchRippleProps = TouchRippleProps}
     if (action.isDefined) {p.action = action}
@@ -210,6 +209,7 @@ object ExpansionPanelSummary {
     if (expanded.isDefined) {p.expanded = expanded}
     if (focusRipple.isDefined) {p.focusRipple = focusRipple}
     if (focusVisibleClassName.isDefined) {p.focusVisibleClassName = focusVisibleClassName}
+    if (key.isDefined) {p.key = key}
     if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
     if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
     if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}

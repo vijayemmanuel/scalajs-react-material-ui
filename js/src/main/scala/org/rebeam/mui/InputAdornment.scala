@@ -18,11 +18,11 @@ object InputAdornment {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var disableTypography: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var position: js.UndefOr[String] = js.native
   }
 
@@ -34,8 +34,6 @@ object InputAdornment {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -46,24 +44,26 @@ object InputAdornment {
    *        Either a string to use a DOM element or a component.
    * @param disableTypography
    *        If children is a string then disable wrapping in a Typography component.
+   * @param key
+   *        React key
    * @param position
    *        The position this adornment should appear relative to the `Input`.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     disableTypography: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     position: js.UndefOr[Position] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (component.isDefined) {p.component = component}
     if (disableTypography.isDefined) {p.disableTypography = disableTypography}
+    if (key.isDefined) {p.key = key}
     if (position.isDefined) {p.position = position.map(v => v.value)}
 
     jsFnComponent(p)(children: _*)

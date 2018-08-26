@@ -11,12 +11,12 @@ object Collapse {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var collapsedHeight: js.UndefOr[String] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var in: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var onEnter: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onEntered: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onEntering: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -37,8 +37,6 @@ object Collapse {
    * The Collapse transition is used by the
    * [Vertical Stepper](/demos/steppers#vertical-stepper) StepContent component.
    * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -51,6 +49,8 @@ object Collapse {
    *        Either a string to use a DOM element or a component.
    * @param in
    *        If `true`, the component will transition in.
+   * @param key
+   *        React key
    * @param onEnter
    *        Property spread to root element
    * @param onEntered
@@ -72,12 +72,12 @@ object Collapse {
    *        Set to 'auto' to automatically calculate transition time based on height.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     collapsedHeight: js.UndefOr[String] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     in: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     onEnter: js.UndefOr[Callback] = js.undefined,
     onEntered: js.UndefOr[Callback] = js.undefined,
     onEntering: js.UndefOr[Callback] = js.undefined,
@@ -89,12 +89,12 @@ object Collapse {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (collapsedHeight.isDefined) {p.collapsedHeight = collapsedHeight}
     if (component.isDefined) {p.component = component}
     if (in.isDefined) {p.in = in}
+    if (key.isDefined) {p.key = key}
     if (onEnter.isDefined) {p.onEnter = onEnter.map(v => v.toJsFn)}
     if (onEntered.isDefined) {p.onEntered = onEntered.map(v => v.toJsFn)}
     if (onEntering.isDefined) {p.onEntering = onEntering.map(v => v.toJsFn)}

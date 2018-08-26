@@ -11,8 +11,8 @@ object Grow {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var in: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var onEnter: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onExit: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var style: js.UndefOr[js.Any] = js.native
@@ -30,10 +30,10 @@ object Grow {
    * The Grow transition is used by the [Tooltip](/demos/tooltips) and
    * [Popover](/utils/popover) components.
    * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
-   * @param key
-   *        React key
    * @param in
    *        If `true`, show the component; triggers the enter or exit animation.
+   * @param key
+   *        React key
    * @param onEnter
    *        Property spread to root element
    * @param onExit
@@ -49,8 +49,8 @@ object Grow {
    *        Set to 'auto' to automatically calculate transition time based on height.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     in: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     onEnter: js.UndefOr[Callback] = js.undefined,
     onExit: js.UndefOr[Callback] = js.undefined,
     style: js.UndefOr[js.Any] = js.undefined,
@@ -59,8 +59,8 @@ object Grow {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (in.isDefined) {p.in = in}
+    if (key.isDefined) {p.key = key}
     if (onEnter.isDefined) {p.onEnter = onEnter.map(v => v.toJsFn)}
     if (onExit.isDefined) {p.onExit = onExit.map(v => v.toJsFn)}
     if (style.isDefined) {p.style = style}

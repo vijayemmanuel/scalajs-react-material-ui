@@ -29,12 +29,12 @@ object SvgIcon {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var color: js.UndefOr[String] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var fontSize: js.UndefOr[String] = js.native
+    var key: js.UndefOr[String] = js.native
     var nativeColor: js.UndefOr[String] = js.native
     var titleAccess: js.UndefOr[String] = js.native
     var viewBox: js.UndefOr[String] = js.native
@@ -48,8 +48,6 @@ object SvgIcon {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -63,6 +61,8 @@ object SvgIcon {
    *        Either a string to use a DOM element or a component.
    * @param fontSize
    *        The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size.
+   * @param key
+   *        React key
    * @param nativeColor
    *        Applies a color attribute to the SVG element.
    * @param titleAccess
@@ -76,24 +76,24 @@ object SvgIcon {
    *        to bottom right (50,20) and each unit will be worth 10px.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     fontSize: js.UndefOr[FontSize] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     nativeColor: js.UndefOr[String] = js.undefined,
     titleAccess: js.UndefOr[String] = js.undefined,
     viewBox: js.UndefOr[String] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (color.isDefined) {p.color = color.map(v => v.value)}
     if (component.isDefined) {p.component = component}
     if (fontSize.isDefined) {p.fontSize = fontSize.map(v => v.value)}
+    if (key.isDefined) {p.key = key}
     if (nativeColor.isDefined) {p.nativeColor = nativeColor}
     if (titleAccess.isDefined) {p.titleAccess = titleAccess}
     if (viewBox.isDefined) {p.viewBox = viewBox}

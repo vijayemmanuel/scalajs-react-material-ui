@@ -28,7 +28,6 @@ object Tooltip {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var PopperProps: js.UndefOr[js.Any] = js.native
     var TransitionComponent: js.UndefOr[js.Any] = js.native
     var TransitionProps: js.UndefOr[js.Any] = js.native
@@ -39,6 +38,7 @@ object Tooltip {
     var enterDelay: js.UndefOr[Double] = js.native
     var enterTouchDelay: js.UndefOr[Double] = js.native
     var id: js.UndefOr[String] = js.native
+    var key: js.UndefOr[String] = js.native
     var leaveDelay: js.UndefOr[Double] = js.native
     var leaveTouchDelay: js.UndefOr[Double] = js.native
     var onClose: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -57,8 +57,6 @@ object Tooltip {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param PopperProps
    *        Properties applied to the [`Popper`](/api/popper) element.
    * @param TransitionComponent
@@ -83,6 +81,8 @@ object Tooltip {
    *        The relationship between the tooltip and the wrapper component is not clear from the DOM.
    *        This property is used with aria-describedby to solve the accessibility issue.
    *        If you don't provide this property. It fallback to a random generated id.
+   * @param key
+   *        React key
    * @param leaveDelay
    *        The number of milliseconds to wait before hiding the tooltip.
    *        This property won't impact the leave touch delay (`leaveTouchDelay`).
@@ -106,7 +106,6 @@ object Tooltip {
    *        Tooltip title. Zero-length titles string are never displayed.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     PopperProps: js.UndefOr[js.Any] = js.undefined,
     TransitionComponent: js.UndefOr[js.Any] = js.undefined,
     TransitionProps: js.UndefOr[js.Any] = js.undefined,
@@ -117,6 +116,7 @@ object Tooltip {
     enterDelay: js.UndefOr[Double] = js.undefined,
     enterTouchDelay: js.UndefOr[Double] = js.undefined,
     id: js.UndefOr[String] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     leaveDelay: js.UndefOr[Double] = js.undefined,
     leaveTouchDelay: js.UndefOr[Double] = js.undefined,
     onClose: js.UndefOr[Callback] = js.undefined,
@@ -128,7 +128,6 @@ object Tooltip {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (PopperProps.isDefined) {p.PopperProps = PopperProps}
     if (TransitionComponent.isDefined) {p.TransitionComponent = TransitionComponent}
     if (TransitionProps.isDefined) {p.TransitionProps = TransitionProps}
@@ -139,6 +138,7 @@ object Tooltip {
     if (enterDelay.isDefined) {p.enterDelay = enterDelay}
     if (enterTouchDelay.isDefined) {p.enterTouchDelay = enterTouchDelay}
     if (id.isDefined) {p.id = id}
+    if (key.isDefined) {p.key = key}
     if (leaveDelay.isDefined) {p.leaveDelay = leaveDelay}
     if (leaveTouchDelay.isDefined) {p.leaveTouchDelay = leaveTouchDelay}
     if (onClose.isDefined) {p.onClose = onClose.map(v => v.toJsFn)}

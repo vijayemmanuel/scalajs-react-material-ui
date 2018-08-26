@@ -19,7 +19,6 @@ object ListSubheader {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var color: js.UndefOr[String] = js.native
@@ -27,6 +26,7 @@ object ListSubheader {
     var disableGutters: js.UndefOr[Boolean] = js.native
     var disableSticky: js.UndefOr[Boolean] = js.native
     var inset: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
   }
 
   @JSImport("@material-ui/core/ListSubheader", JSImport.Default)
@@ -37,8 +37,6 @@ object ListSubheader {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -55,20 +53,21 @@ object ListSubheader {
    *        If `true`, the List Subheader will not stick to the top during scroll.
    * @param inset
    *        If `true`, the List Subheader will be indented.
+   * @param key
+   *        React key
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     disableGutters: js.UndefOr[Boolean] = js.undefined,
     disableSticky: js.UndefOr[Boolean] = js.undefined,
-    inset: js.UndefOr[Boolean] = js.undefined
+    inset: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (color.isDefined) {p.color = color.map(v => v.value)}
@@ -76,6 +75,7 @@ object ListSubheader {
     if (disableGutters.isDefined) {p.disableGutters = disableGutters}
     if (disableSticky.isDefined) {p.disableSticky = disableSticky}
     if (inset.isDefined) {p.inset = inset}
+    if (key.isDefined) {p.key = key}
 
     jsFnComponent(p)(children: _*)
   }

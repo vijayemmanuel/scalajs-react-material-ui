@@ -25,11 +25,11 @@ object GridListTileBar {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var actionIcon: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var actionPosition: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
     var subtitle: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var title: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var titlePosition: js.UndefOr[String] = js.native
@@ -43,8 +43,6 @@ object GridListTileBar {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param actionIcon
    *        An IconButton element to be used as secondary action target
    *        (primary action target is the tile itself).
@@ -55,6 +53,8 @@ object GridListTileBar {
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
+   * @param key
+   *        React key
    * @param subtitle
    *        String or element serving as subtitle (support text).
    * @param title
@@ -63,22 +63,22 @@ object GridListTileBar {
    *        Position of the title bar.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     actionIcon: js.UndefOr[VdomNode] = js.undefined,
     actionPosition: js.UndefOr[ActionPosition] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     subtitle: js.UndefOr[VdomNode] = js.undefined,
     title: js.UndefOr[VdomNode] = js.undefined,
     titlePosition: js.UndefOr[TitlePosition] = js.undefined
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (actionIcon.isDefined) {p.actionIcon = actionIcon.map(v => v.rawNode)}
     if (actionPosition.isDefined) {p.actionPosition = actionPosition.map(v => v.value)}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
+    if (key.isDefined) {p.key = key}
     if (subtitle.isDefined) {p.subtitle = subtitle.map(v => v.rawNode)}
     if (title.isDefined) {p.title = title.map(v => v.rawNode)}
     if (titlePosition.isDefined) {p.titlePosition = titlePosition.map(v => v.value)}

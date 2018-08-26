@@ -17,7 +17,6 @@ object InputLabel {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var FormLabelClasses: js.UndefOr[js.Any] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -27,6 +26,7 @@ object InputLabel {
     var error: js.UndefOr[Boolean] = js.native
     var filled: js.UndefOr[Boolean] = js.native
     var focused: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var margin: js.UndefOr[String] = js.native
     var required: js.UndefOr[Boolean] = js.native
     var shrink: js.UndefOr[Boolean] = js.native
@@ -40,8 +40,6 @@ object InputLabel {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param FormLabelClasses
    *        `classes` property applied to the [`FormLabel`](/api/form-label) element.
    * @param className
@@ -64,6 +62,8 @@ object InputLabel {
    *        Passed to FormLabel
    * @param focused
    *        If `true`, the input of this label is focused.
+   * @param key
+   *        React key
    * @param margin
    *        If `dense`, will adjust vertical spacing. This is normally obtained via context from
    *        FormControl.
@@ -73,7 +73,6 @@ object InputLabel {
    *        If `true`, the label is shrunk.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     FormLabelClasses: js.UndefOr[js.Any] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -83,13 +82,13 @@ object InputLabel {
     error: js.UndefOr[Boolean] = js.undefined,
     filled: js.UndefOr[Boolean] = js.undefined,
     focused: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     margin: js.UndefOr[Margin] = js.undefined,
     required: js.UndefOr[Boolean] = js.undefined,
     shrink: js.UndefOr[Boolean] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (FormLabelClasses.isDefined) {p.FormLabelClasses = FormLabelClasses}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
@@ -99,6 +98,7 @@ object InputLabel {
     if (error.isDefined) {p.error = error}
     if (filled.isDefined) {p.filled = filled}
     if (focused.isDefined) {p.focused = focused}
+    if (key.isDefined) {p.key = key}
     if (margin.isDefined) {p.margin = margin.map(v => v.value)}
     if (required.isDefined) {p.required = required}
     if (shrink.isDefined) {p.shrink = shrink}

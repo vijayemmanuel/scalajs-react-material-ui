@@ -20,12 +20,12 @@ object Badge {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var badgeContent: japgolly.scalajs.react.raw.React.Node = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var color: js.UndefOr[String] = js.native
     var component: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
   }
 
   @JSImport("@material-ui/core/Badge", JSImport.Default)
@@ -36,8 +36,6 @@ object Badge {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param badgeContent
    *        The content rendered within the badge.
    * @param className
@@ -50,23 +48,25 @@ object Badge {
    * @param component
    *        The component used for the root node.
    *        Either a string to use a DOM element or a component.
+   * @param key
+   *        React key
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     badgeContent: VdomNode,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
-    component: js.UndefOr[js.Any] = js.undefined
+    component: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     p.badgeContent = badgeContent.rawNode
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (color.isDefined) {p.color = color.map(v => v.value)}
     if (component.isDefined) {p.component = component}
+    if (key.isDefined) {p.key = key}
 
     jsFnComponent(p)(children: _*)
   }

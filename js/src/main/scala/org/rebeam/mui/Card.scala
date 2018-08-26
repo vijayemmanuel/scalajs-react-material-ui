@@ -11,11 +11,11 @@ object Card {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var elevation: js.UndefOr[Double] = js.native
+    var key: js.UndefOr[String] = js.native
     var raised: js.UndefOr[Boolean] = js.native
     var square: js.UndefOr[Boolean] = js.native
   }
@@ -28,8 +28,6 @@ object Card {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -43,6 +41,8 @@ object Card {
    *        Shadow depth, corresponds to `dp` in the spec.
    *        It's accepting values between 0 and 24 inclusive.
    *        Passed to Paper
+   * @param key
+   *        React key
    * @param raised
    *        If `true`, the card will use raised styling.
    * @param square
@@ -50,21 +50,21 @@ object Card {
    *        Passed to Paper
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     elevation: js.UndefOr[Double] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     raised: js.UndefOr[Boolean] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (component.isDefined) {p.component = component}
     if (elevation.isDefined) {p.elevation = elevation}
+    if (key.isDefined) {p.key = key}
     if (raised.isDefined) {p.raised = raised}
     if (square.isDefined) {p.square = square}
 

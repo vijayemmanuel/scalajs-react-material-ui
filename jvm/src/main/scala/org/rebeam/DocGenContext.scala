@@ -58,7 +58,19 @@ object DocGenContext {
       def additionalPropsFrom(components: String *): List[(String, Prop)] = {
         val existingProps = Map(c.props: _*)
 
-        val additionalProps = components.toList.flatMap(component => allPlusDocgen.values.find(_.displayName == component).map(_.props.map{case (n, p) => (component, n, p)}).getOrElse(Nil))
+        val additionalProps = 
+          components.toList.flatMap(
+            component => 
+              allPlusDocgen.values.find(_.displayName == component)
+                .map(
+                  _.props.map {
+                    case (n, p) => (component, n, p)
+                  }
+                )
+                .getOrElse(Nil)
+          )
+
+        // TODO - refactor so that we add actual inherited props first, then DOCGEN ones without modifying description, then universal props (currently key).
 
         val updatedProps = additionalProps
           .foldLeft(existingProps){
@@ -70,7 +82,14 @@ object DocGenContext {
               } 
           }
 
-        ("key" -> Prop(StringType, false, "React key", None)) :: updatedProps.toList.sortBy(_._1)
+        val updatedPropsWithKey = 
+          if (updatedProps.isDefinedAt("key")) {
+            updatedProps 
+          } else {
+            updatedProps.updated("key", Prop(StringType, false, "React key", None))
+          }
+
+        updatedPropsWithKey.toList.sortBy(_._1)
       }
 
       c match {

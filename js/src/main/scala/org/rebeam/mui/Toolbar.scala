@@ -18,10 +18,10 @@ object Toolbar {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var disableGutters: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var variant: js.UndefOr[String] = js.native
   }
 
@@ -33,8 +33,6 @@ object Toolbar {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -42,22 +40,24 @@ object Toolbar {
    *        See [CSS API](#css-api) below for more details.
    * @param disableGutters
    *        If `true`, disables gutter padding.
+   * @param key
+   *        React key
    * @param variant
    *        The variant to use.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     disableGutters: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (disableGutters.isDefined) {p.disableGutters = disableGutters}
+    if (key.isDefined) {p.key = key}
     if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     jsFnComponent(p)(children: _*)

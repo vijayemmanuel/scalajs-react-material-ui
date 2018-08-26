@@ -36,10 +36,10 @@ object TableCell {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var component: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
     var numeric: js.UndefOr[Boolean] = js.native
     var padding: js.UndefOr[String] = js.native
     var scope: js.UndefOr[String] = js.native
@@ -55,8 +55,6 @@ object TableCell {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -65,6 +63,8 @@ object TableCell {
    * @param component
    *        The component used for the root node.
    *        Either a string to use a DOM element or a component.
+   * @param key
+   *        React key
    * @param numeric
    *        If `true`, content will align to the right.
    * @param padding
@@ -79,10 +79,10 @@ object TableCell {
    *        By default, the TableHead, TableBody or TableFooter parent component set the value.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     numeric: js.UndefOr[Boolean] = js.undefined,
     padding: js.UndefOr[Padding] = js.undefined,
     scope: js.UndefOr[String] = js.undefined,
@@ -91,10 +91,10 @@ object TableCell {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (component.isDefined) {p.component = component}
+    if (key.isDefined) {p.key = key}
     if (numeric.isDefined) {p.numeric = numeric}
     if (padding.isDefined) {p.padding = padding.map(v => v.value)}
     if (scope.isDefined) {p.scope = scope}

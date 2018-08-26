@@ -11,7 +11,6 @@ object FormLabel {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var component: js.UndefOr[js.Any] = js.native
@@ -19,6 +18,7 @@ object FormLabel {
     var error: js.UndefOr[Boolean] = js.native
     var filled: js.UndefOr[Boolean] = js.native
     var focused: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var required: js.UndefOr[Boolean] = js.native
   }
 
@@ -30,8 +30,6 @@ object FormLabel {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -48,11 +46,12 @@ object FormLabel {
    *        If `true`, the label should use filled classes key.
    * @param focused
    *        If `true`, the input of this label is focused (used by `FormGroup` components).
+   * @param key
+   *        React key
    * @param required
    *        If `true`, the label will indicate that the input is required.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
@@ -60,11 +59,11 @@ object FormLabel {
     error: js.UndefOr[Boolean] = js.undefined,
     filled: js.UndefOr[Boolean] = js.undefined,
     focused: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     required: js.UndefOr[Boolean] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (component.isDefined) {p.component = component}
@@ -72,6 +71,7 @@ object FormLabel {
     if (error.isDefined) {p.error = error}
     if (filled.isDefined) {p.filled = filled}
     if (focused.isDefined) {p.focused = focused}
+    if (key.isDefined) {p.key = key}
     if (required.isDefined) {p.required = required}
 
     jsFnComponent(p)(children: _*)

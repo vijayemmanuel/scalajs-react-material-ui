@@ -18,13 +18,13 @@ object FormControlLabel {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var checked: js.UndefOr[js.Any] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var control: js.UndefOr[japgolly.scalajs.react.raw.React.Element] = js.native
     var disabled: js.UndefOr[Boolean] = js.native
     var inputRef: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
     var label: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var labelPlacement: js.UndefOr[String] = js.native
     var name: js.UndefOr[String] = js.native
@@ -41,8 +41,6 @@ object FormControlLabel {
   /**
    * Drop in replacement of the `Radio`, `Switch` and `Checkbox` component.
    * Use this component if you want to display an extra label.
-   * @param key
-   *        React key
    * @param checked
    *        If `true`, the component appears selected.
    * @param className
@@ -56,6 +54,8 @@ object FormControlLabel {
    *        If `true`, the control will be disabled.
    * @param inputRef
    *        Use that property to pass a ref callback to the native input component.
+   * @param key
+   *        React key
    * @param label
    *        The text to be used in an enclosing label element.
    * @param labelPlacement
@@ -72,13 +72,13 @@ object FormControlLabel {
    *        The value of the component.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     checked: js.UndefOr[js.Any] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     control: js.UndefOr[VdomElement] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
     inputRef: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     label: js.UndefOr[VdomNode] = js.undefined,
     labelPlacement: js.UndefOr[LabelPlacement] = js.undefined,
     name: js.UndefOr[String] = js.undefined,
@@ -87,13 +87,13 @@ object FormControlLabel {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (checked.isDefined) {p.checked = checked}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (control.isDefined) {p.control = control.map(v => v.rawElement)}
     if (disabled.isDefined) {p.disabled = disabled}
     if (inputRef.isDefined) {p.inputRef = inputRef}
+    if (key.isDefined) {p.key = key}
     if (label.isDefined) {p.label = label.map(v => v.rawNode)}
     if (labelPlacement.isDefined) {p.labelPlacement = labelPlacement.map(v => v.value)}
     if (name.isDefined) {p.name = name}

@@ -19,7 +19,6 @@ object Chip {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var avatar: js.UndefOr[japgolly.scalajs.react.raw.React.Element] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -27,6 +26,7 @@ object Chip {
     var color: js.UndefOr[String] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var deleteIcon: js.UndefOr[japgolly.scalajs.react.raw.React.Element] = js.native
+    var key: js.UndefOr[String] = js.native
     var label: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
     var onDelete: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -42,8 +42,6 @@ object Chip {
   
   /**
    * Chips represent complex entities in small blocks, such as a contact.
-   * @param key
-   *        React key
    * @param avatar
    *        Avatar element.
    * @param className
@@ -62,6 +60,8 @@ object Chip {
    *        Either a string to use a DOM element or a component.
    * @param deleteIcon
    *        Override the default delete icon element. Shown only if `onDelete` is set.
+   * @param key
+   *        React key
    * @param label
    *        The content of the label.
    * @param onClick
@@ -75,7 +75,6 @@ object Chip {
    *        Property spread to root element
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     avatar: js.UndefOr[VdomElement] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -83,6 +82,7 @@ object Chip {
     color: js.UndefOr[Color] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     deleteIcon: js.UndefOr[VdomElement] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     label: js.UndefOr[VdomNode] = js.undefined,
     onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
     onDelete: js.UndefOr[Callback] = js.undefined,
@@ -91,7 +91,6 @@ object Chip {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (avatar.isDefined) {p.avatar = avatar.map(v => v.rawElement)}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
@@ -99,6 +98,7 @@ object Chip {
     if (color.isDefined) {p.color = color.map(v => v.value)}
     if (component.isDefined) {p.component = component}
     if (deleteIcon.isDefined) {p.deleteIcon = deleteIcon.map(v => v.rawElement)}
+    if (key.isDefined) {p.key = key}
     if (label.isDefined) {p.label = label.map(v => v.rawNode)}
     if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}
     if (onDelete.isDefined) {p.onDelete = onDelete.map(v => v.toJsFn)}

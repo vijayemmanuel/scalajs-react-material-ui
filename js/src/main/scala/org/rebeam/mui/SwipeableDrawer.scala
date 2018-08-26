@@ -28,7 +28,6 @@ object SwipeableDrawer {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var ModalProps: js.UndefOr[js.Any] = js.native
     var PaperProps: js.UndefOr[js.Any] = js.native
     var SlideProps: js.UndefOr[js.Any] = js.native
@@ -39,6 +38,7 @@ object SwipeableDrawer {
     var disableDiscovery: js.UndefOr[Boolean] = js.native
     var disableSwipeToOpen: js.UndefOr[Boolean] = js.native
     var elevation: js.UndefOr[Double] = js.native
+    var key: js.UndefOr[String] = js.native
     var onClose: scalajs.js.Function0[Unit] = js.native
     var onOpen: scalajs.js.Function0[Unit] = js.native
     var open: Boolean = js.native
@@ -56,8 +56,6 @@ object SwipeableDrawer {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param ModalProps
    *        Property spread to root element
    * @param PaperProps
@@ -86,6 +84,8 @@ object SwipeableDrawer {
    * @param elevation
    *        The elevation of the drawer.
    *        Passed to Drawer
+   * @param key
+   *        React key
    * @param onClose
    *        Callback fired when the component requests to be closed.
    *        
@@ -108,7 +108,6 @@ object SwipeableDrawer {
    *        Property spread to root element
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     ModalProps: js.UndefOr[js.Any] = js.undefined,
     PaperProps: js.UndefOr[js.Any] = js.undefined,
     SlideProps: js.UndefOr[js.Any] = js.undefined,
@@ -119,6 +118,7 @@ object SwipeableDrawer {
     disableDiscovery: js.UndefOr[Boolean] = js.undefined,
     disableSwipeToOpen: js.UndefOr[Boolean] = js.undefined,
     elevation: js.UndefOr[Double] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     onClose: Callback,
     onOpen: Callback,
     open: Boolean,
@@ -129,7 +129,6 @@ object SwipeableDrawer {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (ModalProps.isDefined) {p.ModalProps = ModalProps}
     if (PaperProps.isDefined) {p.PaperProps = PaperProps}
     if (SlideProps.isDefined) {p.SlideProps = SlideProps}
@@ -140,6 +139,7 @@ object SwipeableDrawer {
     if (disableDiscovery.isDefined) {p.disableDiscovery = disableDiscovery}
     if (disableSwipeToOpen.isDefined) {p.disableSwipeToOpen = disableSwipeToOpen}
     if (elevation.isDefined) {p.elevation = elevation}
+    if (key.isDefined) {p.key = key}
     p.onClose = onClose.toJsFn
     p.onOpen = onOpen.toJsFn
     p.open = open

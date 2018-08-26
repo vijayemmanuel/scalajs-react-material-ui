@@ -11,10 +11,10 @@ object Backdrop {
   
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var invisible: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var open: Boolean = js.native
     var transitionDuration: js.UndefOr[js.Any] = js.native
   }
@@ -27,8 +27,6 @@ object Backdrop {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -37,6 +35,8 @@ object Backdrop {
    * @param invisible
    *        If `true`, the backdrop is invisible.
    *        It can be used when rendering a popover or a custom select component.
+   * @param key
+   *        React key
    * @param open
    *        If `true`, the backdrop is open.
    * @param transitionDuration
@@ -44,19 +44,19 @@ object Backdrop {
    *        You may specify a single timeout for all transitions, or individually with an object.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     invisible: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     open: Boolean,
     transitionDuration: js.UndefOr[js.Any] = js.undefined
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (invisible.isDefined) {p.invisible = invisible}
+    if (key.isDefined) {p.key = key}
     p.open = open
     if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
 

@@ -27,7 +27,6 @@ object Dialog {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var BackdropComponent: js.UndefOr[js.Any] = js.native
     var BackdropProps: js.UndefOr[js.Any] = js.native
     var PaperProps: js.UndefOr[js.Any] = js.native
@@ -46,6 +45,7 @@ object Dialog {
     var fullWidth: js.UndefOr[Boolean] = js.native
     var hideBackdrop: js.UndefOr[Boolean] = js.native
     var keepMounted: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var manager: js.UndefOr[js.Any] = js.native
     var maxWidth: js.UndefOr[String] = js.native
     var onBackdropClick: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -71,8 +71,6 @@ object Dialog {
   
   /**
    * Dialogs are overlaid modal paper based components with a backdrop.
-   * @param key
-   *        React key
    * @param BackdropComponent
    *        A backdrop component. This property enables custom backdrop rendering.
    *        Passed to Modal
@@ -131,6 +129,8 @@ object Dialog {
    *        This property can be useful in SEO situation or
    *        when you want to maximize the responsiveness of the Modal.
    *        Passed to Modal
+   * @param key
+   *        React key
    * @param manager
    *        A modal manager used to track and manage the state of open
    *        Modals. This enables customizing how modals interact within a container.
@@ -174,7 +174,6 @@ object Dialog {
    *        You may specify a single timeout for all transitions, or individually with an object.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     BackdropComponent: js.UndefOr[js.Any] = js.undefined,
     BackdropProps: js.UndefOr[js.Any] = js.undefined,
     PaperProps: js.UndefOr[js.Any] = js.undefined,
@@ -193,6 +192,7 @@ object Dialog {
     fullWidth: js.UndefOr[Boolean] = js.undefined,
     hideBackdrop: js.UndefOr[Boolean] = js.undefined,
     keepMounted: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     manager: js.UndefOr[js.Any] = js.undefined,
     maxWidth: js.UndefOr[MaxWidth] = js.undefined,
     onBackdropClick: js.UndefOr[Callback] = js.undefined,
@@ -211,7 +211,6 @@ object Dialog {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (BackdropComponent.isDefined) {p.BackdropComponent = BackdropComponent}
     if (BackdropProps.isDefined) {p.BackdropProps = BackdropProps}
     if (PaperProps.isDefined) {p.PaperProps = PaperProps}
@@ -230,6 +229,7 @@ object Dialog {
     if (fullWidth.isDefined) {p.fullWidth = fullWidth}
     if (hideBackdrop.isDefined) {p.hideBackdrop = hideBackdrop}
     if (keepMounted.isDefined) {p.keepMounted = keepMounted}
+    if (key.isDefined) {p.key = key}
     if (manager.isDefined) {p.manager = manager}
     if (maxWidth.isDefined) {p.maxWidth = maxWidth.map(v => v.value)}
     if (onBackdropClick.isDefined) {p.onBackdropClick = onBackdropClick.map(v => v.toJsFn)}

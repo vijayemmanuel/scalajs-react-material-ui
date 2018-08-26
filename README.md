@@ -38,3 +38,4 @@ Then copy the `muiapi.json` file to resources.
 9. Aria properties
 10. id, ref, etc.
 11. Detect classes prop and accept a Map[String, String]?
+12. Investigate PascalCase props - should these be in the facade, if so should the case be fixed?

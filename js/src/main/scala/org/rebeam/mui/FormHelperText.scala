@@ -17,7 +17,6 @@ object FormHelperText {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var component: js.UndefOr[js.Any] = js.native
@@ -25,6 +24,7 @@ object FormHelperText {
     var error: js.UndefOr[Boolean] = js.native
     var filled: js.UndefOr[Boolean] = js.native
     var focused: js.UndefOr[Boolean] = js.native
+    var key: js.UndefOr[String] = js.native
     var margin: js.UndefOr[String] = js.native
     var required: js.UndefOr[Boolean] = js.native
   }
@@ -37,8 +37,6 @@ object FormHelperText {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -55,6 +53,8 @@ object FormHelperText {
    *        If `true`, the helper text should use filled classes key.
    * @param focused
    *        If `true`, the helper text should use focused classes key.
+   * @param key
+   *        React key
    * @param margin
    *        If `dense`, will adjust vertical spacing. This is normally obtained via context from
    *        FormControl.
@@ -62,7 +62,6 @@ object FormHelperText {
    *        If `true`, the helper text should use required classes key.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
@@ -70,12 +69,12 @@ object FormHelperText {
     error: js.UndefOr[Boolean] = js.undefined,
     filled: js.UndefOr[Boolean] = js.undefined,
     focused: js.UndefOr[Boolean] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     margin: js.UndefOr[Margin] = js.undefined,
     required: js.UndefOr[Boolean] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (component.isDefined) {p.component = component}
@@ -83,6 +82,7 @@ object FormHelperText {
     if (error.isDefined) {p.error = error}
     if (filled.isDefined) {p.filled = filled}
     if (focused.isDefined) {p.focused = focused}
+    if (key.isDefined) {p.key = key}
     if (margin.isDefined) {p.margin = margin.map(v => v.value)}
     if (required.isDefined) {p.required = required}
 

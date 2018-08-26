@@ -29,12 +29,12 @@ object AppBar {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var color: js.UndefOr[String] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var elevation: js.UndefOr[Double] = js.native
+    var key: js.UndefOr[String] = js.native
     var position: js.UndefOr[String] = js.native
     var square: js.UndefOr[Boolean] = js.native
   }
@@ -47,8 +47,6 @@ object AppBar {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -64,6 +62,8 @@ object AppBar {
    *        Shadow depth, corresponds to `dp` in the spec.
    *        It's accepting values between 0 and 24 inclusive.
    *        Passed to Paper
+   * @param key
+   *        React key
    * @param position
    *        The positioning type. The behavior of the different options is described
    *        [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning).
@@ -73,23 +73,23 @@ object AppBar {
    *        Passed to Paper
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     elevation: js.UndefOr[Double] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     position: js.UndefOr[Position] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (color.isDefined) {p.color = color.map(v => v.value)}
     if (component.isDefined) {p.component = component}
     if (elevation.isDefined) {p.elevation = elevation}
+    if (key.isDefined) {p.key = key}
     if (position.isDefined) {p.position = position.map(v => v.value)}
     if (square.isDefined) {p.square = square}
 

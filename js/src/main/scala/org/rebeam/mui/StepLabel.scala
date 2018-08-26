@@ -18,7 +18,6 @@ object StepLabel {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var StepIconProps: js.UndefOr[js.Any] = js.native
     var active: js.UndefOr[Boolean] = js.native
     var alternativeLabel: js.UndefOr[Boolean] = js.native
@@ -28,6 +27,7 @@ object StepLabel {
     var disabled: js.UndefOr[Boolean] = js.native
     var error: js.UndefOr[Boolean] = js.native
     var icon: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
+    var key: js.UndefOr[String] = js.native
     var last: js.UndefOr[Boolean] = js.native
     var optional: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var orientation: js.UndefOr[String] = js.native
@@ -41,8 +41,6 @@ object StepLabel {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param StepIconProps
    *        Properties applied to the [`StepIcon`](/api/step-icon) element.
    * @param active
@@ -66,6 +64,8 @@ object StepLabel {
    *        Mark the step as failed.
    * @param icon
    *        Override the default icon.
+   * @param key
+   *        React key
    * @param last
    *        Property spread to root element
    * @param optional
@@ -74,7 +74,6 @@ object StepLabel {
    *        Property spread to root element
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     StepIconProps: js.UndefOr[js.Any] = js.undefined,
     active: js.UndefOr[Boolean] = js.undefined,
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
@@ -84,13 +83,13 @@ object StepLabel {
     disabled: js.UndefOr[Boolean] = js.undefined,
     error: js.UndefOr[Boolean] = js.undefined,
     icon: js.UndefOr[VdomNode] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     last: js.UndefOr[Boolean] = js.undefined,
     optional: js.UndefOr[VdomNode] = js.undefined,
     orientation: js.UndefOr[Orientation] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (StepIconProps.isDefined) {p.StepIconProps = StepIconProps}
     if (active.isDefined) {p.active = active}
     if (alternativeLabel.isDefined) {p.alternativeLabel = alternativeLabel}
@@ -100,6 +99,7 @@ object StepLabel {
     if (disabled.isDefined) {p.disabled = disabled}
     if (error.isDefined) {p.error = error}
     if (icon.isDefined) {p.icon = icon.map(v => v.rawNode)}
+    if (key.isDefined) {p.key = key}
     if (last.isDefined) {p.last = last}
     if (optional.isDefined) {p.optional = optional.map(v => v.rawNode)}
     if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}

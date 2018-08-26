@@ -19,7 +19,6 @@ object Radio {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var checked: js.UndefOr[js.Any] = js.native
     var checkedIcon: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -30,6 +29,7 @@ object Radio {
     var id: js.UndefOr[String] = js.native
     var inputProps: js.UndefOr[js.Any] = js.native
     var inputRef: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
     var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var `type`: js.UndefOr[String] = js.native
     var value: js.UndefOr[String] = js.native
@@ -43,8 +43,6 @@ object Radio {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param checked
    *        If `true`, the component is checked.
    * @param checkedIcon
@@ -66,6 +64,8 @@ object Radio {
    *        Attributes applied to the `input` element.
    * @param inputRef
    *        Use that property to pass a ref callback to the native input component.
+   * @param key
+   *        React key
    * @param onChange
    *        Callback fired when the state is changed.
    *        
@@ -78,7 +78,6 @@ object Radio {
    *        The value of the component.
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     checked: js.UndefOr[js.Any] = js.undefined,
     checkedIcon: js.UndefOr[VdomNode] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -89,13 +88,13 @@ object Radio {
     id: js.UndefOr[String] = js.undefined,
     inputProps: js.UndefOr[js.Any] = js.undefined,
     inputRef: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     onChange: js.UndefOr[Callback] = js.undefined,
     `type`: js.UndefOr[String] = js.undefined,
     value: js.UndefOr[String] = js.undefined
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (checked.isDefined) {p.checked = checked}
     if (checkedIcon.isDefined) {p.checkedIcon = checkedIcon.map(v => v.rawNode)}
     if (classes.isDefined) {p.classes = classes}
@@ -106,6 +105,7 @@ object Radio {
     if (id.isDefined) {p.id = id}
     if (inputProps.isDefined) {p.inputProps = inputProps}
     if (inputRef.isDefined) {p.inputRef = inputRef}
+    if (key.isDefined) {p.key = key}
     if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
     if (`type`.isDefined) {p.`type` = `type`}
     if (value.isDefined) {p.value = value}

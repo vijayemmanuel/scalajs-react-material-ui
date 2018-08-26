@@ -18,7 +18,6 @@ object Stepper {
           
   @js.native
   trait Props extends js.Object {
-    var key: js.UndefOr[String] = js.native
     var activeStep: js.UndefOr[Double] = js.native
     var alternativeLabel: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
@@ -26,6 +25,7 @@ object Stepper {
     var component: js.UndefOr[js.Any] = js.native
     var connector: js.UndefOr[japgolly.scalajs.react.raw.React.Element] = js.native
     var elevation: js.UndefOr[Double] = js.native
+    var key: js.UndefOr[String] = js.native
     var nonLinear: js.UndefOr[Boolean] = js.native
     var orientation: js.UndefOr[String] = js.native
     var square: js.UndefOr[Boolean] = js.native
@@ -39,8 +39,6 @@ object Stepper {
   
   /**
    * 
-   * @param key
-   *        React key
    * @param activeStep
    *        Set the active step (zero based index).
    * @param alternativeLabel
@@ -61,6 +59,8 @@ object Stepper {
    *        Shadow depth, corresponds to `dp` in the spec.
    *        It's accepting values between 0 and 24 inclusive.
    *        Passed to Paper
+   * @param key
+   *        React key
    * @param nonLinear
    *        If set the `Stepper` will not assist in controlling steps for linear flow.
    * @param orientation
@@ -70,7 +70,6 @@ object Stepper {
    *        Passed to Paper
    */
   def apply(
-    key: js.UndefOr[String] = js.undefined,
     activeStep: js.UndefOr[Double] = js.undefined,
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
@@ -78,13 +77,13 @@ object Stepper {
     component: js.UndefOr[js.Any] = js.undefined,
     connector: js.UndefOr[VdomElement] = js.undefined,
     elevation: js.UndefOr[Double] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     nonLinear: js.UndefOr[Boolean] = js.undefined,
     orientation: js.UndefOr[Orientation] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    if (key.isDefined) {p.key = key}
     if (activeStep.isDefined) {p.activeStep = activeStep}
     if (alternativeLabel.isDefined) {p.alternativeLabel = alternativeLabel}
     if (className.isDefined) {p.className = className}
@@ -92,6 +91,7 @@ object Stepper {
     if (component.isDefined) {p.component = component}
     if (connector.isDefined) {p.connector = connector.map(v => v.rawElement)}
     if (elevation.isDefined) {p.elevation = elevation}
+    if (key.isDefined) {p.key = key}
     if (nonLinear.isDefined) {p.nonLinear = nonLinear}
     if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
     if (square.isDefined) {p.square = square}
