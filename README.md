@@ -34,3 +34,7 @@ Then copy the `muiapi.json` file to resources.
 5. More testing/demos
 6. Check all components are included
 7. ExpansionPanel onChange parameters
+8. Any other missing events from native elements? E.g. onClick on MenuItem is not documented.
+9. Aria properties
+10. id, ref, etc.
+11. Detect classes prop and accept a Map[String, String]?
