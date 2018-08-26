@@ -11,6 +11,7 @@ object Modal {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var BackdropComponent: js.UndefOr[js.Any] = js.native
     var BackdropProps: js.UndefOr[js.Any] = js.native
     var className: js.UndefOr[String] = js.native
@@ -40,6 +41,8 @@ object Modal {
   
   /**
    * This component shares many concepts with [react-overlays](https://react-bootstrap.github.io/react-overlays/#modals).
+   * @param key
+   *        React key
    * @param BackdropComponent
    *        A backdrop component. This property enables custom backdrop rendering.
    * @param BackdropProps
@@ -101,6 +104,7 @@ object Modal {
    *        If `true`, the modal is open.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     BackdropComponent: js.UndefOr[js.Any] = js.undefined,
     BackdropProps: js.UndefOr[js.Any] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
@@ -123,6 +127,7 @@ object Modal {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (BackdropComponent.isDefined) {p.BackdropComponent = BackdropComponent}
     if (BackdropProps.isDefined) {p.BackdropProps = BackdropProps}
     if (className.isDefined) {p.className = className}

@@ -11,6 +11,7 @@ object GridListTile {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var cols: js.UndefOr[Double] = js.native
@@ -26,6 +27,8 @@ object GridListTile {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -40,6 +43,7 @@ object GridListTile {
    *        Height of the tile in number of grid cells.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     cols: js.UndefOr[Double] = js.undefined,
@@ -48,6 +52,7 @@ object GridListTile {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (cols.isDefined) {p.cols = cols}

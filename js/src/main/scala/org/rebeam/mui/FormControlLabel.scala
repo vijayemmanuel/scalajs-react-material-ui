@@ -18,6 +18,7 @@ object FormControlLabel {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var checked: js.UndefOr[js.Any] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -40,6 +41,8 @@ object FormControlLabel {
   /**
    * Drop in replacement of the `Radio`, `Switch` and `Checkbox` component.
    * Use this component if you want to display an extra label.
+   * @param key
+   *        React key
    * @param checked
    *        If `true`, the component appears selected.
    * @param className
@@ -69,6 +72,7 @@ object FormControlLabel {
    *        The value of the component.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     checked: js.UndefOr[js.Any] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -83,6 +87,7 @@ object FormControlLabel {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (checked.isDefined) {p.checked = checked}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}

@@ -171,6 +171,7 @@ object Grid {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var alignContent: js.UndefOr[String] = js.native
     var alignItems: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
@@ -198,6 +199,8 @@ object Grid {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param alignContent
    *        Defines the `align-content` style property.
    *        It's applied for all screen sizes.
@@ -250,6 +253,7 @@ object Grid {
    *        Refer to the limitations section of the documentation to better understand the use case.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     alignContent: js.UndefOr[AlignContent] = js.undefined,
     alignItems: js.UndefOr[AlignItems] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
@@ -270,6 +274,7 @@ object Grid {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (alignContent.isDefined) {p.alignContent = alignContent.map(v => v.value)}
     if (alignItems.isDefined) {p.alignItems = alignItems.map(v => v.value)}
     if (className.isDefined) {p.className = className}

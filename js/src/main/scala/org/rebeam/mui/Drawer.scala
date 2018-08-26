@@ -28,6 +28,7 @@ object Drawer {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var ModalProps: js.UndefOr[js.Any] = js.native
     var PaperProps: js.UndefOr[js.Any] = js.native
     var SlideProps: js.UndefOr[js.Any] = js.native
@@ -51,6 +52,8 @@ object Drawer {
   /**
    * The properties of the [Modal](/api/modal) component are available
    * when `variant="temporary"` is set.
+   * @param key
+   *        React key
    * @param ModalProps
    *        Properties applied to the [`Modal`](/api/modal) element.
    * @param PaperProps
@@ -81,6 +84,7 @@ object Drawer {
    *        The variant to use.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     ModalProps: js.UndefOr[js.Any] = js.undefined,
     PaperProps: js.UndefOr[js.Any] = js.undefined,
     SlideProps: js.UndefOr[js.Any] = js.undefined,
@@ -96,6 +100,7 @@ object Drawer {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (ModalProps.isDefined) {p.ModalProps = ModalProps}
     if (PaperProps.isDefined) {p.PaperProps = PaperProps}
     if (SlideProps.isDefined) {p.SlideProps = SlideProps}

@@ -11,6 +11,7 @@ object Collapse {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var collapsedHeight: js.UndefOr[String] = js.native
@@ -36,6 +37,8 @@ object Collapse {
    * The Collapse transition is used by the
    * [Vertical Stepper](/demos/steppers#vertical-stepper) StepContent component.
    * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
+   * @param key
+   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -69,6 +72,7 @@ object Collapse {
    *        Set to 'auto' to automatically calculate transition time based on height.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     collapsedHeight: js.UndefOr[String] = js.undefined,
@@ -85,6 +89,7 @@ object Collapse {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (collapsedHeight.isDefined) {p.collapsedHeight = collapsedHeight}

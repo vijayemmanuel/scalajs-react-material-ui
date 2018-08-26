@@ -18,6 +18,7 @@ object Input {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var autoComplete: js.UndefOr[String] = js.native
     var autoFocus: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
@@ -60,6 +61,8 @@ object Input {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param autoComplete
    *        This property helps users to fill forms faster, especially on mobile devices.
    *        The name can be confusing, as it's more like an autofill.
@@ -137,6 +140,7 @@ object Input {
    *        The input value, required for a controlled component.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     autoComplete: js.UndefOr[String] = js.undefined,
     autoFocus: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
@@ -172,6 +176,7 @@ object Input {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (autoComplete.isDefined) {p.autoComplete = autoComplete}
     if (autoFocus.isDefined) {p.autoFocus = autoFocus}
     if (className.isDefined) {p.className = className}

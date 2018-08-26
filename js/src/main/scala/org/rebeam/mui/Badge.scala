@@ -20,6 +20,7 @@ object Badge {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var badgeContent: japgolly.scalajs.react.raw.React.Node = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -35,6 +36,8 @@ object Badge {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param badgeContent
    *        The content rendered within the badge.
    * @param className
@@ -49,6 +52,7 @@ object Badge {
    *        Either a string to use a DOM element or a component.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     badgeContent: VdomNode,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -57,6 +61,7 @@ object Badge {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     p.badgeContent = badgeContent.rawNode
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}

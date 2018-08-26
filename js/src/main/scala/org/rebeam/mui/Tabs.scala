@@ -34,6 +34,7 @@ object Tabs {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var ScrollButtonComponent: js.UndefOr[js.Any] = js.native
     var TabIndicatorProps: js.UndefOr[js.Any] = js.native
     var action: js.UndefOr[js.Any] = js.native
@@ -59,6 +60,8 @@ object Tabs {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param ScrollButtonComponent
    *        The component used to render the scroll buttons.
    * @param TabIndicatorProps
@@ -108,6 +111,7 @@ object Tabs {
    *        If you don't want any selected `Tab`, you can set this property to `false`.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     ScrollButtonComponent: js.UndefOr[js.Any] = js.undefined,
     TabIndicatorProps: js.UndefOr[js.Any] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
@@ -126,6 +130,7 @@ object Tabs {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (ScrollButtonComponent.isDefined) {p.ScrollButtonComponent = ScrollButtonComponent}
     if (TabIndicatorProps.isDefined) {p.TabIndicatorProps = TabIndicatorProps}
     if (action.isDefined) {p.action = action}

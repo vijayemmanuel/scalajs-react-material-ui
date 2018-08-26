@@ -27,6 +27,7 @@ object MobileStepper {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var LinearProgressProps: js.UndefOr[js.Any] = js.native
     var activeStep: js.UndefOr[Double] = js.native
     var backButton: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
@@ -49,6 +50,8 @@ object MobileStepper {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param LinearProgressProps
    *        Properties applied to the `LinearProgress` element.
    * @param activeStep
@@ -82,6 +85,7 @@ object MobileStepper {
    *        The variant to use.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     LinearProgressProps: js.UndefOr[js.Any] = js.undefined,
     activeStep: js.UndefOr[Double] = js.undefined,
     backButton: js.UndefOr[VdomNode] = js.undefined,
@@ -97,6 +101,7 @@ object MobileStepper {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (LinearProgressProps.isDefined) {p.LinearProgressProps = LinearProgressProps}
     if (activeStep.isDefined) {p.activeStep = activeStep}
     if (backButton.isDefined) {p.backButton = backButton.map(v => v.rawNode)}

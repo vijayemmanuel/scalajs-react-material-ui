@@ -70,7 +70,7 @@ object DocGenContext {
               } 
           }
 
-        updatedProps.toList.sortBy(_._1)
+        ("key" -> Prop(StringType, false, "React key", None)) :: updatedProps.toList.sortBy(_._1)
       }
 
       c match {
@@ -129,7 +129,7 @@ object DocGenContext {
 
         case Component(_, "TextField", _) => additionalPropsFrom("FormControl")
 
-        case Component(_, _, props) => props
+        case Component(_, _, props) => additionalPropsFrom()
       } 
     }
 

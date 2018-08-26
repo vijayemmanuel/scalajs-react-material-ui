@@ -19,6 +19,7 @@ object Menu {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var BackdropComponent: js.UndefOr[js.Any] = js.native
     var BackdropProps: js.UndefOr[js.Any] = js.native
     var MenuListProps: js.UndefOr[js.Any] = js.native
@@ -72,6 +73,8 @@ object Menu {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param BackdropComponent
    *        A backdrop component. This property enables custom backdrop rendering.
    *        Passed to Modal
@@ -233,6 +236,7 @@ object Menu {
    *        The length of the transition in `ms`, or 'auto'
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     BackdropComponent: js.UndefOr[js.Any] = js.undefined,
     BackdropProps: js.UndefOr[js.Any] = js.undefined,
     MenuListProps: js.UndefOr[js.Any] = js.undefined,
@@ -279,6 +283,7 @@ object Menu {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (BackdropComponent.isDefined) {p.BackdropComponent = BackdropComponent}
     if (BackdropProps.isDefined) {p.BackdropProps = BackdropProps}
     if (MenuListProps.isDefined) {p.MenuListProps = MenuListProps}

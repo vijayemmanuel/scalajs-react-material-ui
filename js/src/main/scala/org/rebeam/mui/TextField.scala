@@ -19,6 +19,7 @@ object TextField {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var FormHelperTextProps: js.UndefOr[js.Any] = js.native
     var InputLabelProps: js.UndefOr[js.Any] = js.native
     var InputProps: js.UndefOr[js.Any] = js.native
@@ -85,6 +86,8 @@ object TextField {
    * "Edit this page" button above. Consider either:
    * - using the upper case props for passing values directly to the components
    * - using the underlying components directly as shown in the demos
+   * @param key
+   *        React key
    * @param FormHelperTextProps
    *        Properties applied to the [`FormHelperText`](/api/form-helper-text) element.
    * @param InputLabelProps
@@ -161,6 +164,7 @@ object TextField {
    *        The value of the `Input` element, required for a controlled component.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     FormHelperTextProps: js.UndefOr[js.Any] = js.undefined,
     InputLabelProps: js.UndefOr[js.Any] = js.undefined,
     InputProps: js.UndefOr[js.Any] = js.undefined,
@@ -195,6 +199,7 @@ object TextField {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (FormHelperTextProps.isDefined) {p.FormHelperTextProps = FormHelperTextProps}
     if (InputLabelProps.isDefined) {p.InputLabelProps = InputLabelProps}
     if (InputProps.isDefined) {p.InputProps = InputProps}

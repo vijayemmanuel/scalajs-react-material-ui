@@ -36,6 +36,7 @@ object TablePagination {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var ActionsComponent: js.UndefOr[js.Any] = js.native
     var SelectProps: js.UndefOr[js.Any] = js.native
     var backIconButtonProps: js.UndefOr[js.Any] = js.native
@@ -67,6 +68,8 @@ object TablePagination {
   
   /**
    * A `TableCell` based component for placing inside `TableFooter` for pagination.
+   * @param key
+   *        React key
    * @param ActionsComponent
    *        The component used for displaying the actions.
    *        Either a string to use a DOM element or a component.
@@ -129,6 +132,7 @@ object TablePagination {
    *        Passed to TableCell
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     ActionsComponent: js.UndefOr[js.Any] = js.undefined,
     SelectProps: js.UndefOr[js.Any] = js.undefined,
     backIconButtonProps: js.UndefOr[js.Any] = js.undefined,
@@ -153,6 +157,7 @@ object TablePagination {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (ActionsComponent.isDefined) {p.ActionsComponent = ActionsComponent}
     if (SelectProps.isDefined) {p.SelectProps = SelectProps}
     if (backIconButtonProps.isDefined) {p.backIconButtonProps = backIconButtonProps}

@@ -17,6 +17,7 @@ object InputLabel {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var FormLabelClasses: js.UndefOr[js.Any] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -39,6 +40,8 @@ object InputLabel {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param FormLabelClasses
    *        `classes` property applied to the [`FormLabel`](/api/form-label) element.
    * @param className
@@ -70,6 +73,7 @@ object InputLabel {
    *        If `true`, the label is shrunk.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     FormLabelClasses: js.UndefOr[js.Any] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -85,6 +89,7 @@ object InputLabel {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (FormLabelClasses.isDefined) {p.FormLabelClasses = FormLabelClasses}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}

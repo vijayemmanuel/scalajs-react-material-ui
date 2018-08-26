@@ -11,6 +11,7 @@ object ButtonBase {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var TouchRippleProps: js.UndefOr[js.Any] = js.native
     var action: js.UndefOr[js.Any] = js.native
     var buttonRef: js.UndefOr[js.Any] = js.native
@@ -50,6 +51,8 @@ object ButtonBase {
    * `ButtonBase` contains as few styles as possible.
    * It aims to be a simple building block for creating a button.
    * It contains a load of style reset and some focus/ripple logic.
+   * @param key
+   *        React key
    * @param TouchRippleProps
    *        Properties applied to the `TouchRipple` element.
    * @param action
@@ -121,6 +124,7 @@ object ButtonBase {
    *        Valid property values include `button`, `submit`, and `reset`.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Any] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
     buttonRef: js.UndefOr[js.Any] = js.undefined,
@@ -151,6 +155,7 @@ object ButtonBase {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (TouchRippleProps.isDefined) {p.TouchRippleProps = TouchRippleProps}
     if (action.isDefined) {p.action = action}
     if (buttonRef.isDefined) {p.buttonRef = buttonRef}

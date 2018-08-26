@@ -11,6 +11,7 @@ object CardHeader {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var action: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var avatar: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var className: js.UndefOr[String] = js.native
@@ -31,6 +32,8 @@ object CardHeader {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param action
    *        The action to display in the card header.
    * @param avatar
@@ -60,6 +63,7 @@ object CardHeader {
    *        (as long as disableTypography is not `true`).
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     action: js.UndefOr[VdomNode] = js.undefined,
     avatar: js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
@@ -73,6 +77,7 @@ object CardHeader {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (action.isDefined) {p.action = action.map(v => v.rawNode)}
     if (avatar.isDefined) {p.avatar = avatar.map(v => v.rawNode)}
     if (className.isDefined) {p.className = className}

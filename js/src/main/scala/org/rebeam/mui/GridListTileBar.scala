@@ -25,6 +25,7 @@ object GridListTileBar {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var actionIcon: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var actionPosition: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
@@ -42,6 +43,8 @@ object GridListTileBar {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param actionIcon
    *        An IconButton element to be used as secondary action target
    *        (primary action target is the tile itself).
@@ -60,6 +63,7 @@ object GridListTileBar {
    *        Position of the title bar.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     actionIcon: js.UndefOr[VdomNode] = js.undefined,
     actionPosition: js.UndefOr[ActionPosition] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
@@ -70,6 +74,7 @@ object GridListTileBar {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (actionIcon.isDefined) {p.actionIcon = actionIcon.map(v => v.rawNode)}
     if (actionPosition.isDefined) {p.actionPosition = actionPosition.map(v => v.value)}
     if (className.isDefined) {p.className = className}

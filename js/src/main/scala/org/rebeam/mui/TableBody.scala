@@ -11,6 +11,7 @@ object TableBody {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var component: js.UndefOr[js.Any] = js.native
@@ -24,6 +25,8 @@ object TableBody {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -34,12 +37,14 @@ object TableBody {
    *        Either a string to use a DOM element or a component.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (component.isDefined) {p.component = component}

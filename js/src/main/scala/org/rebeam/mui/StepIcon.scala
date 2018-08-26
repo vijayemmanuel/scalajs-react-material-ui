@@ -11,6 +11,7 @@ object StepIcon {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var active: js.UndefOr[Boolean] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var completed: js.UndefOr[Boolean] = js.native
@@ -26,6 +27,8 @@ object StepIcon {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param active
    *        Whether this step is active.
    * @param classes
@@ -39,6 +42,7 @@ object StepIcon {
    *        The icon displayed by the step label.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     active: js.UndefOr[Boolean] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     completed: js.UndefOr[Boolean] = js.undefined,
@@ -47,6 +51,7 @@ object StepIcon {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (active.isDefined) {p.active = active}
     if (classes.isDefined) {p.classes = classes}
     if (completed.isDefined) {p.completed = completed}

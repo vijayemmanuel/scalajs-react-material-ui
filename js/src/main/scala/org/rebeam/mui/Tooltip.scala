@@ -28,6 +28,7 @@ object Tooltip {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var PopperProps: js.UndefOr[js.Any] = js.native
     var TransitionComponent: js.UndefOr[js.Any] = js.native
     var TransitionProps: js.UndefOr[js.Any] = js.native
@@ -56,6 +57,8 @@ object Tooltip {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param PopperProps
    *        Properties applied to the [`Popper`](/api/popper) element.
    * @param TransitionComponent
@@ -103,6 +106,7 @@ object Tooltip {
    *        Tooltip title. Zero-length titles string are never displayed.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     PopperProps: js.UndefOr[js.Any] = js.undefined,
     TransitionComponent: js.UndefOr[js.Any] = js.undefined,
     TransitionProps: js.UndefOr[js.Any] = js.undefined,
@@ -124,6 +128,7 @@ object Tooltip {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (PopperProps.isDefined) {p.PopperProps = PopperProps}
     if (TransitionComponent.isDefined) {p.TransitionComponent = TransitionComponent}
     if (TransitionProps.isDefined) {p.TransitionProps = TransitionProps}

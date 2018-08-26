@@ -19,6 +19,7 @@ object ListSubheader {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var color: js.UndefOr[String] = js.native
@@ -36,6 +37,8 @@ object ListSubheader {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -54,6 +57,7 @@ object ListSubheader {
    *        If `true`, the List Subheader will be indented.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
@@ -64,6 +68,7 @@ object ListSubheader {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (color.isDefined) {p.color = color.map(v => v.value)}

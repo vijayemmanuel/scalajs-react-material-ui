@@ -11,6 +11,7 @@ object MenuItem {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var ContainerComponent: js.UndefOr[js.Any] = js.native
     var ContainerProps: js.UndefOr[js.Any] = js.native
     var button: js.UndefOr[Boolean] = js.native
@@ -35,6 +36,8 @@ object MenuItem {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param ContainerComponent
    *        The container component used when a `ListItemSecondaryAction` is rendered.
    *        Passed to ListItem
@@ -77,6 +80,7 @@ object MenuItem {
    *        Use to apply selected styling.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     ContainerComponent: js.UndefOr[js.Any] = js.undefined,
     ContainerProps: js.UndefOr[js.Any] = js.undefined,
     button: js.UndefOr[Boolean] = js.undefined,
@@ -94,6 +98,7 @@ object MenuItem {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (ContainerComponent.isDefined) {p.ContainerComponent = ContainerComponent}
     if (ContainerProps.isDefined) {p.ContainerProps = ContainerProps}
     if (button.isDefined) {p.button = button}

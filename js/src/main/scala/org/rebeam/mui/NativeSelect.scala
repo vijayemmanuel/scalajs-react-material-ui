@@ -18,6 +18,7 @@ object NativeSelect {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var IconComponent: js.UndefOr[js.Any] = js.native
     var autoComplete: js.UndefOr[String] = js.native
     var autoFocus: js.UndefOr[Boolean] = js.native
@@ -62,6 +63,8 @@ object NativeSelect {
   
   /**
    * An alternative to `<Select native />` with a much smaller dependency graph.
+   * @param key
+   *        React key
    * @param IconComponent
    *        The icon that displays the arrow.
    * @param autoComplete
@@ -171,6 +174,7 @@ object NativeSelect {
    *        The input value.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     IconComponent: js.UndefOr[js.Any] = js.undefined,
     autoComplete: js.UndefOr[String] = js.undefined,
     autoFocus: js.UndefOr[Boolean] = js.undefined,
@@ -208,6 +212,7 @@ object NativeSelect {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (IconComponent.isDefined) {p.IconComponent = IconComponent}
     if (autoComplete.isDefined) {p.autoComplete = autoComplete}
     if (autoFocus.isDefined) {p.autoFocus = autoFocus}

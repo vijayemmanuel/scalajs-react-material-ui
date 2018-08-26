@@ -18,6 +18,7 @@ object Step {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var active: js.UndefOr[Boolean] = js.native
     var alternativeLabel: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
@@ -38,6 +39,8 @@ object Step {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param active
    *        Sets the step as active. Is passed to child components.
    * @param alternativeLabel
@@ -65,6 +68,7 @@ object Step {
    *        Property spread to root element
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     active: js.UndefOr[Boolean] = js.undefined,
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
@@ -78,6 +82,7 @@ object Step {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (active.isDefined) {p.active = active}
     if (alternativeLabel.isDefined) {p.alternativeLabel = alternativeLabel}
     if (className.isDefined) {p.className = className}

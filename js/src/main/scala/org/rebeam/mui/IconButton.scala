@@ -20,6 +20,7 @@ object IconButton {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var TouchRippleProps: js.UndefOr[js.Any] = js.native
     var action: js.UndefOr[js.Any] = js.native
     var buttonRef: js.UndefOr[js.Any] = js.native
@@ -59,6 +60,8 @@ object IconButton {
   /**
    * Refer to the [Icons](/style/icons) section of the documentation
    * regarding the available icon options.
+   * @param key
+   *        React key
    * @param TouchRippleProps
    *        Properties applied to the `TouchRipple` element.
    *        Passed to ButtonBase
@@ -155,6 +158,7 @@ object IconButton {
    *        Passed to ButtonBase
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Any] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
     buttonRef: js.UndefOr[js.Any] = js.undefined,
@@ -186,6 +190,7 @@ object IconButton {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (TouchRippleProps.isDefined) {p.TouchRippleProps = TouchRippleProps}
     if (action.isDefined) {p.action = action}
     if (buttonRef.isDefined) {p.buttonRef = buttonRef}

@@ -19,6 +19,7 @@ object Popover {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var BackdropComponent: js.UndefOr[js.Any] = js.native
     var BackdropProps: js.UndefOr[js.Any] = js.native
     var ModalClasses: js.UndefOr[js.Any] = js.native
@@ -69,6 +70,8 @@ object Popover {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param BackdropComponent
    *        A backdrop component. This property enables custom backdrop rendering.
    *        Passed to Modal
@@ -212,6 +215,7 @@ object Popover {
    *        Set to 'auto' to automatically calculate transition time based on height.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     BackdropComponent: js.UndefOr[js.Any] = js.undefined,
     BackdropProps: js.UndefOr[js.Any] = js.undefined,
     ModalClasses: js.UndefOr[js.Any] = js.undefined,
@@ -255,6 +259,7 @@ object Popover {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (BackdropComponent.isDefined) {p.BackdropComponent = BackdropComponent}
     if (BackdropProps.isDefined) {p.BackdropProps = BackdropProps}
     if (ModalClasses.isDefined) {p.ModalClasses = ModalClasses}

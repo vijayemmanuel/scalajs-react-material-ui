@@ -11,6 +11,7 @@ object Divider {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var absolute: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -27,6 +28,8 @@ object Divider {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param absolute
    *        
    * @param className
@@ -43,6 +46,7 @@ object Divider {
    *        If `true`, the divider will have a lighter color.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     absolute: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -52,6 +56,7 @@ object Divider {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (absolute.isDefined) {p.absolute = absolute}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}

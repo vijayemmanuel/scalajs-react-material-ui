@@ -11,6 +11,7 @@ object Zoom {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var in: js.UndefOr[Boolean] = js.native
     var onEnter: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onExit: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -29,6 +30,8 @@ object Zoom {
    * The Zoom transition can be used for the floating variant of the
    * [Button](https://material-ui.com/demos/buttons/#floating-action-buttons) component.
    * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
+   * @param key
+   *        React key
    * @param in
    *        If `true`, the component will transition in.
    * @param onEnter
@@ -44,6 +47,7 @@ object Zoom {
    *        You may specify a single timeout for all transitions, or individually with an object.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     in: js.UndefOr[Boolean] = js.undefined,
     onEnter: js.UndefOr[Callback] = js.undefined,
     onExit: js.UndefOr[Callback] = js.undefined,
@@ -53,6 +57,7 @@ object Zoom {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (in.isDefined) {p.in = in}
     if (onEnter.isDefined) {p.onEnter = onEnter.map(v => v.toJsFn)}
     if (onExit.isDefined) {p.onExit = onExit.map(v => v.toJsFn)}

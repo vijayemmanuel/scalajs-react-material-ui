@@ -11,6 +11,7 @@ object ListItemText {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var disableTypography: js.UndefOr[Boolean] = js.native
@@ -29,6 +30,8 @@ object ListItemText {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -54,6 +57,7 @@ object ListItemText {
    *        (as long as disableTypography is not `true`).
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     disableTypography: js.UndefOr[Boolean] = js.undefined,
@@ -65,6 +69,7 @@ object ListItemText {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (disableTypography.isDefined) {p.disableTypography = disableTypography}

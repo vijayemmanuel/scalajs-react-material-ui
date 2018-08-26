@@ -18,6 +18,7 @@ object Select {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var IconComponent: js.UndefOr[js.Any] = js.native
     var MenuProps: js.UndefOr[js.Any] = js.native
     var SelectDisplayProps: js.UndefOr[js.Any] = js.native
@@ -72,6 +73,8 @@ object Select {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param IconComponent
    *        The icon that displays the arrow.
    * @param MenuProps
@@ -218,6 +221,7 @@ object Select {
    *        This property is required when the `native` property is `false` (default).
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     IconComponent: js.UndefOr[js.Any] = js.undefined,
     MenuProps: js.UndefOr[js.Any] = js.undefined,
     SelectDisplayProps: js.UndefOr[js.Any] = js.undefined,
@@ -265,6 +269,7 @@ object Select {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (IconComponent.isDefined) {p.IconComponent = IconComponent}
     if (MenuProps.isDefined) {p.MenuProps = MenuProps}
     if (SelectDisplayProps.isDefined) {p.SelectDisplayProps = SelectDisplayProps}

@@ -11,6 +11,7 @@ object ListItemSecondaryAction {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
   }
@@ -23,6 +24,8 @@ object ListItemSecondaryAction {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -30,11 +33,13 @@ object ListItemSecondaryAction {
    *        See [CSS API](#css-api) below for more details.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
 

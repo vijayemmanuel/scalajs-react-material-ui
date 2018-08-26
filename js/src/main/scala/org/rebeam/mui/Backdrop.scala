@@ -11,6 +11,7 @@ object Backdrop {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var invisible: js.UndefOr[Boolean] = js.native
@@ -26,6 +27,8 @@ object Backdrop {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -41,6 +44,7 @@ object Backdrop {
    *        You may specify a single timeout for all transitions, or individually with an object.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     invisible: js.UndefOr[Boolean] = js.undefined,
@@ -49,6 +53,7 @@ object Backdrop {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (invisible.isDefined) {p.invisible = invisible}

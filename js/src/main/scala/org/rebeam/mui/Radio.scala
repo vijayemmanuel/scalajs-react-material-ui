@@ -19,6 +19,7 @@ object Radio {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var checked: js.UndefOr[js.Any] = js.native
     var checkedIcon: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -42,6 +43,8 @@ object Radio {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param checked
    *        If `true`, the component is checked.
    * @param checkedIcon
@@ -75,6 +78,7 @@ object Radio {
    *        The value of the component.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     checked: js.UndefOr[js.Any] = js.undefined,
     checkedIcon: js.UndefOr[VdomNode] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -91,6 +95,7 @@ object Radio {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (checked.isDefined) {p.checked = checked}
     if (checkedIcon.isDefined) {p.checkedIcon = checkedIcon.map(v => v.rawNode)}
     if (classes.isDefined) {p.classes = classes}

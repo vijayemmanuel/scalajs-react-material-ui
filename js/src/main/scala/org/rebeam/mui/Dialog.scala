@@ -27,6 +27,7 @@ object Dialog {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var BackdropComponent: js.UndefOr[js.Any] = js.native
     var BackdropProps: js.UndefOr[js.Any] = js.native
     var PaperProps: js.UndefOr[js.Any] = js.native
@@ -70,6 +71,8 @@ object Dialog {
   
   /**
    * Dialogs are overlaid modal paper based components with a backdrop.
+   * @param key
+   *        React key
    * @param BackdropComponent
    *        A backdrop component. This property enables custom backdrop rendering.
    *        Passed to Modal
@@ -171,6 +174,7 @@ object Dialog {
    *        You may specify a single timeout for all transitions, or individually with an object.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     BackdropComponent: js.UndefOr[js.Any] = js.undefined,
     BackdropProps: js.UndefOr[js.Any] = js.undefined,
     PaperProps: js.UndefOr[js.Any] = js.undefined,
@@ -207,6 +211,7 @@ object Dialog {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (BackdropComponent.isDefined) {p.BackdropComponent = BackdropComponent}
     if (BackdropProps.isDefined) {p.BackdropProps = BackdropProps}
     if (PaperProps.isDefined) {p.PaperProps = PaperProps}

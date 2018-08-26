@@ -11,6 +11,7 @@ object RootRef {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var rootRef: js.Any = js.native
   }
 
@@ -49,15 +50,19 @@ object RootRef {
    *   }
    * }
    * ```
+   * @param key
+   *        React key
    * @param rootRef
    *        Provide a way to access the DOM node of the wrapped element.
    *        You can provide a callback ref or a `React.createRef()` ref.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     rootRef: js.Any
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     p.rootRef = rootRef
 
     jsFnComponent(p)(children: _*)

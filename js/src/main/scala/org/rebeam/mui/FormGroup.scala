@@ -11,6 +11,7 @@ object FormGroup {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var row: js.UndefOr[Boolean] = js.native
@@ -26,6 +27,8 @@ object FormGroup {
    * `FormGroup` wraps controls such as `Checkbox` and `Switch`.
    * It provides compact row layout.
    * For the `Radio`, you should be using the `RadioGroup` component instead of this one.
+   * @param key
+   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -35,12 +38,14 @@ object FormGroup {
    *        Display group of elements in a compact row.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     row: js.UndefOr[Boolean] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (row.isDefined) {p.row = row}

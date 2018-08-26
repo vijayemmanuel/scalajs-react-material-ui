@@ -11,6 +11,7 @@ object GridList {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var cellHeight: js.UndefOr[js.Any] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -28,6 +29,8 @@ object GridList {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param cellHeight
    *        Number of px for one cell height.
    *        You can set `'auto'` if you want to let the children determine the height.
@@ -47,6 +50,7 @@ object GridList {
    *        Property spread to root element
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     cellHeight: js.UndefOr[js.Any] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -57,6 +61,7 @@ object GridList {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (cellHeight.isDefined) {p.cellHeight = cellHeight}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}

@@ -27,6 +27,7 @@ object LinearProgress {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var color: js.UndefOr[String] = js.native
@@ -47,6 +48,8 @@ object LinearProgress {
    * If the progress bar is describing the loading progress of a particular region of a page,
    * you should use `aria-describedby` to point to the progress bar, and set the `aria-busy`
    * attribute to `true` on that region until it has finished loading.
+   * @param key
+   *        React key
    * @param className
    *        Property spread to root element
    * @param classes
@@ -65,6 +68,7 @@ object LinearProgress {
    *        Use indeterminate or query when there is no progress value.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
@@ -74,6 +78,7 @@ object LinearProgress {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (color.isDefined) {p.color = color.map(v => v.value)}

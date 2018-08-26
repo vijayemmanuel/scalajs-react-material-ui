@@ -28,6 +28,7 @@ object SwipeableDrawer {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var ModalProps: js.UndefOr[js.Any] = js.native
     var PaperProps: js.UndefOr[js.Any] = js.native
     var SlideProps: js.UndefOr[js.Any] = js.native
@@ -55,6 +56,8 @@ object SwipeableDrawer {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param ModalProps
    *        Property spread to root element
    * @param PaperProps
@@ -105,6 +108,7 @@ object SwipeableDrawer {
    *        Property spread to root element
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     ModalProps: js.UndefOr[js.Any] = js.undefined,
     PaperProps: js.UndefOr[js.Any] = js.undefined,
     SlideProps: js.UndefOr[js.Any] = js.undefined,
@@ -125,6 +129,7 @@ object SwipeableDrawer {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (ModalProps.isDefined) {p.ModalProps = ModalProps}
     if (PaperProps.isDefined) {p.PaperProps = PaperProps}
     if (SlideProps.isDefined) {p.SlideProps = SlideProps}

@@ -11,6 +11,7 @@ object RadioGroup {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
     var name: js.UndefOr[String] = js.native
@@ -29,6 +30,8 @@ object RadioGroup {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param className
    *        Property spread to root element
    *        Passed to FormGroup
@@ -55,6 +58,7 @@ object RadioGroup {
    *        Value of the selected radio button.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
     name: js.UndefOr[String] = js.undefined,
@@ -66,6 +70,7 @@ object RadioGroup {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (name.isDefined) {p.name = name}

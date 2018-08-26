@@ -11,6 +11,7 @@ object Snackbar {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var ContentProps: js.UndefOr[js.Any] = js.native
     var TransitionComponent: js.UndefOr[js.Any] = js.native
     var TransitionProps: js.UndefOr[js.Any] = js.native
@@ -44,6 +45,8 @@ object Snackbar {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param ContentProps
    *        Properties applied to the [`SnackbarContent`](/api/snackbar-content) element.
    * @param TransitionComponent
@@ -110,6 +113,7 @@ object Snackbar {
    *        You may specify a single timeout for all transitions, or individually with an object.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     ContentProps: js.UndefOr[js.Any] = js.undefined,
     TransitionComponent: js.UndefOr[js.Any] = js.undefined,
     TransitionProps: js.UndefOr[js.Any] = js.undefined,
@@ -136,6 +140,7 @@ object Snackbar {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (ContentProps.isDefined) {p.ContentProps = ContentProps}
     if (TransitionComponent.isDefined) {p.TransitionComponent = TransitionComponent}
     if (TransitionProps.isDefined) {p.TransitionProps = TransitionProps}

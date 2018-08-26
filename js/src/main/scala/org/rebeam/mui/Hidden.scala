@@ -28,6 +28,7 @@ object Hidden {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
     var implementation: js.UndefOr[String] = js.native
     var initialWidth: js.UndefOr[String] = js.native
@@ -52,6 +53,8 @@ object Hidden {
   
   /**
    * Responsively hides children based on the selected implementation.
+   * @param key
+   *        React key
    * @param className
    *        Property spread to root element
    * @param implementation
@@ -91,6 +94,7 @@ object Hidden {
    *        If true, screens this size and up will be hidden.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     implementation: js.UndefOr[Implementation] = js.undefined,
     initialWidth: js.UndefOr[InitialWidth] = js.undefined,
@@ -108,6 +112,7 @@ object Hidden {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (className.isDefined) {p.className = className}
     if (implementation.isDefined) {p.implementation = implementation.map(v => v.value)}
     if (initialWidth.isDefined) {p.initialWidth = initialWidth.map(v => v.value)}

@@ -18,6 +18,7 @@ object StepContent {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var TransitionComponent: js.UndefOr[js.Any] = js.native
     var TransitionProps: js.UndefOr[js.Any] = js.native
     var active: js.UndefOr[Boolean] = js.native
@@ -39,6 +40,8 @@ object StepContent {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param TransitionComponent
    *        Collapse component.
    * @param TransitionProps
@@ -70,6 +73,7 @@ object StepContent {
    *        Set to 'auto' to automatically calculate transition time based on height.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     TransitionComponent: js.UndefOr[js.Any] = js.undefined,
     TransitionProps: js.UndefOr[js.Any] = js.undefined,
     active: js.UndefOr[Boolean] = js.undefined,
@@ -84,6 +88,7 @@ object StepContent {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (TransitionComponent.isDefined) {p.TransitionComponent = TransitionComponent}
     if (TransitionProps.isDefined) {p.TransitionProps = TransitionProps}
     if (active.isDefined) {p.active = active}

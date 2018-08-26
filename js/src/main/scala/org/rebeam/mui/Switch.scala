@@ -19,6 +19,7 @@ object Switch {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var checked: js.UndefOr[js.Any] = js.native
     var checkedIcon: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var className: js.UndefOr[String] = js.native
@@ -44,6 +45,8 @@ object Switch {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param checked
    *        If `true`, the component is checked.
    * @param checkedIcon
@@ -81,6 +84,7 @@ object Switch {
    *        The value of the component.
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     checked: js.UndefOr[js.Any] = js.undefined,
     checkedIcon: js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
@@ -99,6 +103,7 @@ object Switch {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (checked.isDefined) {p.checked = checked}
     if (checkedIcon.isDefined) {p.checkedIcon = checkedIcon.map(v => v.rawNode)}
     if (className.isDefined) {p.className = className}

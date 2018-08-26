@@ -11,6 +11,7 @@ object ExpansionPanel {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var CollapseProps: js.UndefOr[js.Any] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -31,6 +32,8 @@ object ExpansionPanel {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param CollapseProps
    *        Properties applied to the [`Collapse`](/api/collapse) element.
    * @param className
@@ -63,6 +66,7 @@ object ExpansionPanel {
    *        Passed to Paper
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     CollapseProps: js.UndefOr[js.Any] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -76,6 +80,7 @@ object ExpansionPanel {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (CollapseProps.isDefined) {p.CollapseProps = CollapseProps}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}

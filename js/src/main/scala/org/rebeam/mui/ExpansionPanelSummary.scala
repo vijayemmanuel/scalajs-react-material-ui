@@ -11,6 +11,7 @@ object ExpansionPanelSummary {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var IconButtonProps: js.UndefOr[js.Any] = js.native
     var TouchRippleProps: js.UndefOr[js.Any] = js.native
     var action: js.UndefOr[js.Any] = js.native
@@ -52,6 +53,8 @@ object ExpansionPanelSummary {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param IconButtonProps
    *        Properties applied to the `TouchRipple` element wrapping the expand icon.
    * @param TouchRippleProps
@@ -156,6 +159,7 @@ object ExpansionPanelSummary {
    *        Passed to ButtonBase
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     IconButtonProps: js.UndefOr[js.Any] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Any] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
@@ -190,6 +194,7 @@ object ExpansionPanelSummary {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (IconButtonProps.isDefined) {p.IconButtonProps = IconButtonProps}
     if (TouchRippleProps.isDefined) {p.TouchRippleProps = TouchRippleProps}
     if (action.isDefined) {p.action = action}

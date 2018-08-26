@@ -18,6 +18,7 @@ object Stepper {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var activeStep: js.UndefOr[Double] = js.native
     var alternativeLabel: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
@@ -38,6 +39,8 @@ object Stepper {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param activeStep
    *        Set the active step (zero based index).
    * @param alternativeLabel
@@ -67,6 +70,7 @@ object Stepper {
    *        Passed to Paper
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     activeStep: js.UndefOr[Double] = js.undefined,
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
@@ -80,6 +84,7 @@ object Stepper {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (activeStep.isDefined) {p.activeStep = activeStep}
     if (alternativeLabel.isDefined) {p.alternativeLabel = alternativeLabel}
     if (className.isDefined) {p.className = className}

@@ -18,6 +18,7 @@ object StepConnector {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var alternativeLabel: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -32,6 +33,8 @@ object StepConnector {
   
   /**
    * 
+   * @param key
+   *        React key
    * @param alternativeLabel
    *        Property spread to root element
    *        Set internally by Step when it's supplied with the alternativeLabel property.
@@ -44,6 +47,7 @@ object StepConnector {
    *        Property spread to root element
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -51,6 +55,7 @@ object StepConnector {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (alternativeLabel.isDefined) {p.alternativeLabel = alternativeLabel}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}

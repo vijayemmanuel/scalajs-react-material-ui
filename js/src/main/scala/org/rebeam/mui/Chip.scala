@@ -19,6 +19,7 @@ object Chip {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var avatar: js.UndefOr[japgolly.scalajs.react.raw.React.Element] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
@@ -41,6 +42,8 @@ object Chip {
   
   /**
    * Chips represent complex entities in small blocks, such as a contact.
+   * @param key
+   *        React key
    * @param avatar
    *        Avatar element.
    * @param className
@@ -72,6 +75,7 @@ object Chip {
    *        Property spread to root element
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     avatar: js.UndefOr[VdomElement] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined,
@@ -87,6 +91,7 @@ object Chip {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (avatar.isDefined) {p.avatar = avatar.map(v => v.rawElement)}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}

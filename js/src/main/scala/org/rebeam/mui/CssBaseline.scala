@@ -11,6 +11,7 @@ object CssBaseline {
   
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Any] = js.native
   }
 
@@ -22,14 +23,18 @@ object CssBaseline {
   
   /**
    * Kickstart an elegant, consistent, and simple baseline to build upon.
+   * @param key
+   *        React key
    * @param classes
    *        Property spread to root element
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Any] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (classes.isDefined) {p.classes = classes}
 
     jsFnComponent(p)(children: _*)

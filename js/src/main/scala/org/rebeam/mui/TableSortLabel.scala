@@ -18,6 +18,7 @@ object TableSortLabel {
           
   @js.native
   trait Props extends js.Object {
+    var key: js.UndefOr[String] = js.native
     var TouchRippleProps: js.UndefOr[js.Any] = js.native
     var action: js.UndefOr[js.Any] = js.native
     var active: js.UndefOr[Boolean] = js.native
@@ -57,6 +58,8 @@ object TableSortLabel {
   
   /**
    * A button based label for placing inside `TableCell` for column sorting.
+   * @param key
+   *        React key
    * @param TouchRippleProps
    *        Properties applied to the `TouchRipple` element.
    *        Passed to ButtonBase
@@ -157,6 +160,7 @@ object TableSortLabel {
    *        Passed to ButtonBase
    */
   def apply(
+    key: js.UndefOr[String] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Any] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
     active: js.UndefOr[Boolean] = js.undefined,
@@ -189,6 +193,7 @@ object TableSortLabel {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (key.isDefined) {p.key = key}
     if (TouchRippleProps.isDefined) {p.TouchRippleProps = TouchRippleProps}
     if (action.isDefined) {p.action = action}
     if (active.isDefined) {p.active = active}
