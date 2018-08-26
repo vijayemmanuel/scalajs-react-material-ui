@@ -85,18 +85,18 @@ object InputLabel {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.FormLabelClasses = FormLabelClasses
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.disableAnimation = disableAnimation
-    p.disabled = disabled
-    p.error = error
-    p.filled = filled
-    p.focused = focused
-    p.margin = margin.map(v => v.value)
-    p.required = required
-    p.shrink = shrink
+    if (FormLabelClasses.isDefined) {p.FormLabelClasses = FormLabelClasses}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (disableAnimation.isDefined) {p.disableAnimation = disableAnimation}
+    if (disabled.isDefined) {p.disabled = disabled}
+    if (error.isDefined) {p.error = error}
+    if (filled.isDefined) {p.filled = filled}
+    if (focused.isDefined) {p.focused = focused}
+    if (margin.isDefined) {p.margin = margin.map(v => v.value)}
+    if (required.isDefined) {p.required = required}
+    if (shrink.isDefined) {p.shrink = shrink}
 
     jsFnComponent(p)(children: _*)
   }

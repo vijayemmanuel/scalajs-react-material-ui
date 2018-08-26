@@ -47,8 +47,8 @@ object MuiThemeProvider {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.disableStylesGeneration = disableStylesGeneration
-    p.sheetsManager = sheetsManager
+    if (disableStylesGeneration.isDefined) {p.disableStylesGeneration = disableStylesGeneration}
+    if (sheetsManager.isDefined) {p.sheetsManager = sheetsManager}
     p.theme = theme
 
     jsFnComponent(p)(children: _*)

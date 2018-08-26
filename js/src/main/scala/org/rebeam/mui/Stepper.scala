@@ -80,16 +80,16 @@ object Stepper {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.activeStep = activeStep
-    p.alternativeLabel = alternativeLabel
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.connector = connector.map(v => v.rawElement)
-    p.elevation = elevation
-    p.nonLinear = nonLinear
-    p.orientation = orientation.map(v => v.value)
-    p.square = square
+    if (activeStep.isDefined) {p.activeStep = activeStep}
+    if (alternativeLabel.isDefined) {p.alternativeLabel = alternativeLabel}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (connector.isDefined) {p.connector = connector.map(v => v.rawElement)}
+    if (elevation.isDefined) {p.elevation = elevation}
+    if (nonLinear.isDefined) {p.nonLinear = nonLinear}
+    if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
+    if (square.isDefined) {p.square = square}
 
     jsFnComponent(p)(children: _*)
   }

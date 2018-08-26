@@ -58,10 +58,10 @@ object Badge {
 
     val p = (new js.Object).asInstanceOf[Props]
     p.badgeContent = badgeContent.rawNode
-    p.className = className
-    p.classes = classes
-    p.color = color.map(v => v.value)
-    p.component = component
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (color.isDefined) {p.color = color.map(v => v.value)}
+    if (component.isDefined) {p.component = component}
 
     jsFnComponent(p)(children: _*)
   }

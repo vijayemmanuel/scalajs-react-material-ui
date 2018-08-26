@@ -84,14 +84,14 @@ object SvgIcon {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.color = color.map(v => v.value)
-    p.component = component
-    p.fontSize = fontSize.map(v => v.value)
-    p.nativeColor = nativeColor
-    p.titleAccess = titleAccess
-    p.viewBox = viewBox
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (color.isDefined) {p.color = color.map(v => v.value)}
+    if (component.isDefined) {p.component = component}
+    if (fontSize.isDefined) {p.fontSize = fontSize.map(v => v.value)}
+    if (nativeColor.isDefined) {p.nativeColor = nativeColor}
+    if (titleAccess.isDefined) {p.titleAccess = titleAccess}
+    if (viewBox.isDefined) {p.viewBox = viewBox}
 
     jsFnComponent(p)(children: _*)
   }

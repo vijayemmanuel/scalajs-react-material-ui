@@ -81,14 +81,14 @@ object CircularProgress {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.color = color.map(v => v.value)
-    p.size = size
-    p.style = style
-    p.thickness = thickness
-    p.value = value
-    p.variant = variant.map(v => v.value)
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (color.isDefined) {p.color = color.map(v => v.value)}
+    if (size.isDefined) {p.size = size}
+    if (style.isDefined) {p.style = style}
+    if (thickness.isDefined) {p.thickness = thickness}
+    if (value.isDefined) {p.value = value}
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     jsFnComponent(p)()
   }

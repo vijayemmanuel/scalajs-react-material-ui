@@ -149,6 +149,7 @@ object DocGenGen {
   }
 
   def propAssignment(name: String, p: Prop): String = {
+    
     val a: Option[String => String] = p.propType match {
       // case AnyType =>
       // case ArrayType =>
@@ -173,15 +174,16 @@ object DocGenGen {
 
     if (p.required) {
       a.fold(
-        name
+        s"p.$name = $name"
       )(
-        f => f(name)
+        f => s"p.$name = ${f(name)}"
       )
     } else {
       a.fold(
-        name
+        s"if ($name.isDefined) {p.$name = $name}"
       )(
-        f => s"$name.map(v => ${f("v")})"
+        f => s"if ($name.isDefined) {p.$name = $name.map(v => ${f("v")})}"
+        // f => s"$name.map(v => ${f("v")})"
       )
     }
   }
@@ -277,7 +279,7 @@ object DocGenGen {
 
         val propAssignments = usedProps.map { 
           case (name, prop) =>
-            s"p.$name = ${propAssignment(name, prop)}"
+            propAssignment(name, prop)
         }.mkString("\n    ")
 
         val docs = applyDocs(c)

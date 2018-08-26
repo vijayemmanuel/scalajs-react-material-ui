@@ -126,21 +126,21 @@ object Tabs {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.ScrollButtonComponent = ScrollButtonComponent
-    p.TabIndicatorProps = TabIndicatorProps
-    p.action = action
-    p.centered = centered
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.fullWidth = fullWidth
-    p.indicatorColor = indicatorColor.map(v => v.value)
-    p.onChange = onChange.map(v => v.toJsFn)
-    p.scrollButtons = scrollButtons.map(v => v.value)
-    p.scrollable = scrollable
-    p.textColor = textColor.map(v => v.value)
+    if (ScrollButtonComponent.isDefined) {p.ScrollButtonComponent = ScrollButtonComponent}
+    if (TabIndicatorProps.isDefined) {p.TabIndicatorProps = TabIndicatorProps}
+    if (action.isDefined) {p.action = action}
+    if (centered.isDefined) {p.centered = centered}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (fullWidth.isDefined) {p.fullWidth = fullWidth}
+    if (indicatorColor.isDefined) {p.indicatorColor = indicatorColor.map(v => v.value)}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (scrollButtons.isDefined) {p.scrollButtons = scrollButtons.map(v => v.value)}
+    if (scrollable.isDefined) {p.scrollable = scrollable}
+    if (textColor.isDefined) {p.textColor = textColor.map(v => v.value)}
     p.theme = theme
-    p.value = value
+    if (value.isDefined) {p.value = value}
 
     jsFnComponent(p)(children: _*)
   }

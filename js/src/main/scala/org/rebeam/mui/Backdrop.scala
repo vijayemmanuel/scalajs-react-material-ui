@@ -49,11 +49,11 @@ object Backdrop {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.invisible = invisible
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (invisible.isDefined) {p.invisible = invisible}
     p.open = open
-    p.transitionDuration = transitionDuration
+    if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
 
     jsFnComponent(p)()
   }

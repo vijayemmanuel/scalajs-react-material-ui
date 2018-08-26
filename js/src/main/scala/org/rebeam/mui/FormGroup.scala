@@ -41,9 +41,9 @@ object FormGroup {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.row = row
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (row.isDefined) {p.row = row}
 
     jsFnComponent(p)(children: _*)
   }

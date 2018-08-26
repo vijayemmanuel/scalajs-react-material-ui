@@ -87,14 +87,14 @@ object TableCell {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.numeric = numeric
-    p.padding = padding.map(v => v.value)
-    p.scope = scope
-    p.sortDirection = sortDirection.map(v => v.value)
-    p.variant = variant.map(v => v.value)
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (numeric.isDefined) {p.numeric = numeric}
+    if (padding.isDefined) {p.padding = padding.map(v => v.value)}
+    if (scope.isDefined) {p.scope = scope}
+    if (sortDirection.isDefined) {p.sortDirection = sortDirection.map(v => v.value)}
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     jsFnComponent(p)(children: _*)
   }

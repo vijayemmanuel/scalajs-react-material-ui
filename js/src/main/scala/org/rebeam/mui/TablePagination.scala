@@ -153,27 +153,27 @@ object TablePagination {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.ActionsComponent = ActionsComponent
-    p.SelectProps = SelectProps
-    p.backIconButtonProps = backIconButtonProps
-    p.className = className
-    p.classes = classes
-    p.colSpan = colSpan
-    p.component = component
+    if (ActionsComponent.isDefined) {p.ActionsComponent = ActionsComponent}
+    if (SelectProps.isDefined) {p.SelectProps = SelectProps}
+    if (backIconButtonProps.isDefined) {p.backIconButtonProps = backIconButtonProps}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (colSpan.isDefined) {p.colSpan = colSpan}
+    if (component.isDefined) {p.component = component}
     p.count = count
-    p.labelDisplayedRows = labelDisplayedRows
-    p.labelRowsPerPage = labelRowsPerPage.map(v => v.rawNode)
-    p.nextIconButtonProps = nextIconButtonProps
-    p.numeric = numeric
+    if (labelDisplayedRows.isDefined) {p.labelDisplayedRows = labelDisplayedRows}
+    if (labelRowsPerPage.isDefined) {p.labelRowsPerPage = labelRowsPerPage.map(v => v.rawNode)}
+    if (nextIconButtonProps.isDefined) {p.nextIconButtonProps = nextIconButtonProps}
+    if (numeric.isDefined) {p.numeric = numeric}
     p.onChangePage = onChangePage.toJsFn
-    p.onChangeRowsPerPage = onChangeRowsPerPage.map(v => v.toJsFn)
-    p.padding = padding.map(v => v.value)
+    if (onChangeRowsPerPage.isDefined) {p.onChangeRowsPerPage = onChangeRowsPerPage.map(v => v.toJsFn)}
+    if (padding.isDefined) {p.padding = padding.map(v => v.value)}
     p.page = page
     p.rowsPerPage = rowsPerPage
-    p.rowsPerPageOptions = rowsPerPageOptions
-    p.scope = scope
-    p.sortDirection = sortDirection.map(v => v.value)
-    p.variant = variant.map(v => v.value)
+    if (rowsPerPageOptions.isDefined) {p.rowsPerPageOptions = rowsPerPageOptions}
+    if (scope.isDefined) {p.scope = scope}
+    if (sortDirection.isDefined) {p.sortDirection = sortDirection.map(v => v.value)}
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     jsFnComponent(p)()
   }

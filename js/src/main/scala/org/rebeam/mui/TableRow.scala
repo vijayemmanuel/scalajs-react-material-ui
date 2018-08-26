@@ -49,11 +49,11 @@ object TableRow {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.hover = hover
-    p.selected = selected
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (hover.isDefined) {p.hover = hover}
+    if (selected.isDefined) {p.selected = selected}
 
     jsFnComponent(p)(children: _*)
   }

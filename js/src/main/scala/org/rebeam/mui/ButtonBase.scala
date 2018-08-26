@@ -151,33 +151,33 @@ object ButtonBase {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.TouchRippleProps = TouchRippleProps
-    p.action = action
-    p.buttonRef = buttonRef
-    p.centerRipple = centerRipple
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.disableRipple = disableRipple
-    p.disableTouchRipple = disableTouchRipple
-    p.disabled = disabled
-    p.focusRipple = focusRipple
-    p.focusVisibleClassName = focusVisibleClassName
-    p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())
-    p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())
-    p.onFocus = onFocus.map(v => (e: ReactFocusEvent) => v(e).runNow())
-    p.onFocusVisible = onFocusVisible.map(v => v.toJsFn)
-    p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())
-    p.onKeyUp = onKeyUp.map(v => (e: ReactKeyboardEvent) => v(e).runNow())
-    p.onMouseDown = onMouseDown.map(v => (e: ReactMouseEvent) => v(e).runNow())
-    p.onMouseLeave = onMouseLeave.map(v => (e: ReactMouseEvent) => v(e).runNow())
-    p.onMouseUp = onMouseUp.map(v => (e: ReactMouseEvent) => v(e).runNow())
-    p.onTouchEnd = onTouchEnd.map(v => (e: ReactTouchEvent) => v(e).runNow())
-    p.onTouchMove = onTouchMove.map(v => (e: ReactTouchEvent) => v(e).runNow())
-    p.onTouchStart = onTouchStart.map(v => (e: ReactTouchEvent) => v(e).runNow())
-    p.role = role
-    p.tabIndex = tabIndex
-    p.`type` = `type`
+    if (TouchRippleProps.isDefined) {p.TouchRippleProps = TouchRippleProps}
+    if (action.isDefined) {p.action = action}
+    if (buttonRef.isDefined) {p.buttonRef = buttonRef}
+    if (centerRipple.isDefined) {p.centerRipple = centerRipple}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (disableRipple.isDefined) {p.disableRipple = disableRipple}
+    if (disableTouchRipple.isDefined) {p.disableTouchRipple = disableTouchRipple}
+    if (disabled.isDefined) {p.disabled = disabled}
+    if (focusRipple.isDefined) {p.focusRipple = focusRipple}
+    if (focusVisibleClassName.isDefined) {p.focusVisibleClassName = focusVisibleClassName}
+    if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
+    if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}
+    if (onFocus.isDefined) {p.onFocus = onFocus.map(v => (e: ReactFocusEvent) => v(e).runNow())}
+    if (onFocusVisible.isDefined) {p.onFocusVisible = onFocusVisible.map(v => v.toJsFn)}
+    if (onKeyDown.isDefined) {p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
+    if (onKeyUp.isDefined) {p.onKeyUp = onKeyUp.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
+    if (onMouseDown.isDefined) {p.onMouseDown = onMouseDown.map(v => (e: ReactMouseEvent) => v(e).runNow())}
+    if (onMouseLeave.isDefined) {p.onMouseLeave = onMouseLeave.map(v => (e: ReactMouseEvent) => v(e).runNow())}
+    if (onMouseUp.isDefined) {p.onMouseUp = onMouseUp.map(v => (e: ReactMouseEvent) => v(e).runNow())}
+    if (onTouchEnd.isDefined) {p.onTouchEnd = onTouchEnd.map(v => (e: ReactTouchEvent) => v(e).runNow())}
+    if (onTouchMove.isDefined) {p.onTouchMove = onTouchMove.map(v => (e: ReactTouchEvent) => v(e).runNow())}
+    if (onTouchStart.isDefined) {p.onTouchStart = onTouchStart.map(v => (e: ReactTouchEvent) => v(e).runNow())}
+    if (role.isDefined) {p.role = role}
+    if (tabIndex.isDefined) {p.tabIndex = tabIndex}
+    if (`type`.isDefined) {p.`type` = `type`}
 
     jsFnComponent(p)(children: _*)
   }

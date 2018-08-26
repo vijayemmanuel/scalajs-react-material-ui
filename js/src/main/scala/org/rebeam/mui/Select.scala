@@ -265,50 +265,50 @@ object Select {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.IconComponent = IconComponent
-    p.MenuProps = MenuProps
-    p.SelectDisplayProps = SelectDisplayProps
-    p.autoComplete = autoComplete
-    p.autoFocus = autoFocus
-    p.autoWidth = autoWidth
-    p.className = className
-    p.classes = classes
-    p.defaultValue = defaultValue
-    p.disableUnderline = disableUnderline
-    p.disabled = disabled
-    p.displayEmpty = displayEmpty
-    p.endAdornment = endAdornment.map(v => v.rawNode)
-    p.error = error
-    p.fullWidth = fullWidth
-    p.id = id
-    p.input = input.map(v => v.rawElement)
-    p.inputComponent = inputComponent
-    p.inputProps = inputProps
-    p.inputRef = inputRef
-    p.margin = margin.map(v => v.value)
-    p.multiline = multiline
-    p.multiple = multiple
-    p.name = name
-    p.native = native
-    p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())
-    p.onChange = onChange.map(v => v.toJsFn)
-    p.onClose = onClose.map(v => v.toJsFn)
-    p.onEmpty = onEmpty.map(v => v.toJsFn)
-    p.onFilled = onFilled.map(v => v.toJsFn)
-    p.onFocus = onFocus.map(v => (e: ReactFocusEvent) => v(e).runNow())
-    p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())
-    p.onKeyUp = onKeyUp.map(v => (e: ReactKeyboardEvent) => v(e).runNow())
-    p.onOpen = onOpen.map(v => v.toJsFn)
-    p.open = open
-    p.placeholder = placeholder
-    p.readOnly = readOnly
-    p.renderValue = renderValue
-    p.required = required
-    p.rows = rows
-    p.rowsMax = rowsMax
-    p.startAdornment = startAdornment.map(v => v.rawNode)
-    p.`type` = `type`
-    p.value = value
+    if (IconComponent.isDefined) {p.IconComponent = IconComponent}
+    if (MenuProps.isDefined) {p.MenuProps = MenuProps}
+    if (SelectDisplayProps.isDefined) {p.SelectDisplayProps = SelectDisplayProps}
+    if (autoComplete.isDefined) {p.autoComplete = autoComplete}
+    if (autoFocus.isDefined) {p.autoFocus = autoFocus}
+    if (autoWidth.isDefined) {p.autoWidth = autoWidth}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (defaultValue.isDefined) {p.defaultValue = defaultValue}
+    if (disableUnderline.isDefined) {p.disableUnderline = disableUnderline}
+    if (disabled.isDefined) {p.disabled = disabled}
+    if (displayEmpty.isDefined) {p.displayEmpty = displayEmpty}
+    if (endAdornment.isDefined) {p.endAdornment = endAdornment.map(v => v.rawNode)}
+    if (error.isDefined) {p.error = error}
+    if (fullWidth.isDefined) {p.fullWidth = fullWidth}
+    if (id.isDefined) {p.id = id}
+    if (input.isDefined) {p.input = input.map(v => v.rawElement)}
+    if (inputComponent.isDefined) {p.inputComponent = inputComponent}
+    if (inputProps.isDefined) {p.inputProps = inputProps}
+    if (inputRef.isDefined) {p.inputRef = inputRef}
+    if (margin.isDefined) {p.margin = margin.map(v => v.value)}
+    if (multiline.isDefined) {p.multiline = multiline}
+    if (multiple.isDefined) {p.multiple = multiple}
+    if (name.isDefined) {p.name = name}
+    if (native.isDefined) {p.native = native}
+    if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (onClose.isDefined) {p.onClose = onClose.map(v => v.toJsFn)}
+    if (onEmpty.isDefined) {p.onEmpty = onEmpty.map(v => v.toJsFn)}
+    if (onFilled.isDefined) {p.onFilled = onFilled.map(v => v.toJsFn)}
+    if (onFocus.isDefined) {p.onFocus = onFocus.map(v => (e: ReactFocusEvent) => v(e).runNow())}
+    if (onKeyDown.isDefined) {p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
+    if (onKeyUp.isDefined) {p.onKeyUp = onKeyUp.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
+    if (onOpen.isDefined) {p.onOpen = onOpen.map(v => v.toJsFn)}
+    if (open.isDefined) {p.open = open}
+    if (placeholder.isDefined) {p.placeholder = placeholder}
+    if (readOnly.isDefined) {p.readOnly = readOnly}
+    if (renderValue.isDefined) {p.renderValue = renderValue}
+    if (required.isDefined) {p.required = required}
+    if (rows.isDefined) {p.rows = rows}
+    if (rowsMax.isDefined) {p.rowsMax = rowsMax}
+    if (startAdornment.isDefined) {p.startAdornment = startAdornment.map(v => v.rawNode)}
+    if (`type`.isDefined) {p.`type` = `type`}
+    if (value.isDefined) {p.value = value}
 
     jsFnComponent(p)(children: _*)
   }

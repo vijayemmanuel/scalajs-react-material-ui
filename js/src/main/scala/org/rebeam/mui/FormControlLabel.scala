@@ -83,17 +83,17 @@ object FormControlLabel {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.checked = checked
-    p.className = className
-    p.classes = classes
-    p.control = control.map(v => v.rawElement)
-    p.disabled = disabled
-    p.inputRef = inputRef
-    p.label = label.map(v => v.rawNode)
-    p.labelPlacement = labelPlacement.map(v => v.value)
-    p.name = name
-    p.onChange = onChange.map(v => v.toJsFn)
-    p.value = value
+    if (checked.isDefined) {p.checked = checked}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (control.isDefined) {p.control = control.map(v => v.rawElement)}
+    if (disabled.isDefined) {p.disabled = disabled}
+    if (inputRef.isDefined) {p.inputRef = inputRef}
+    if (label.isDefined) {p.label = label.map(v => v.rawNode)}
+    if (labelPlacement.isDefined) {p.labelPlacement = labelPlacement.map(v => v.value)}
+    if (name.isDefined) {p.name = name}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (value.isDefined) {p.value = value}
 
     jsFnComponent(p)()
   }

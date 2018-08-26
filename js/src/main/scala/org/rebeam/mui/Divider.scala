@@ -52,12 +52,12 @@ object Divider {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.absolute = absolute
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.inset = inset
-    p.light = light
+    if (absolute.isDefined) {p.absolute = absolute}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (inset.isDefined) {p.inset = inset}
+    if (light.isDefined) {p.light = light}
 
     jsFnComponent(p)()
   }

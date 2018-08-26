@@ -66,14 +66,14 @@ object RadioGroup {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.name = name
-    p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())
-    p.onChange = onChange.map(v => v.toJsFn)
-    p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())
-    p.row = row
-    p.value = value
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (name.isDefined) {p.name = name}
+    if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (onKeyDown.isDefined) {p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
+    if (row.isDefined) {p.row = row}
+    if (value.isDefined) {p.value = value}
 
     jsFnComponent(p)(children: _*)
   }

@@ -43,9 +43,9 @@ object Portal {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.container = container
-    p.disablePortal = disablePortal
-    p.onRendered = onRendered.map(v => v.toJsFn)
+    if (container.isDefined) {p.container = container}
+    if (disablePortal.isDefined) {p.disablePortal = disablePortal}
+    if (onRendered.isDefined) {p.onRendered = onRendered.map(v => v.toJsFn)}
 
     jsFnComponent(p)(children: _*)
   }

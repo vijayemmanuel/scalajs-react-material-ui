@@ -87,18 +87,18 @@ object Chip {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.avatar = avatar.map(v => v.rawElement)
-    p.className = className
-    p.classes = classes
-    p.clickable = clickable
-    p.color = color.map(v => v.value)
-    p.component = component
-    p.deleteIcon = deleteIcon.map(v => v.rawElement)
-    p.label = label.map(v => v.rawNode)
-    p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())
-    p.onDelete = onDelete.map(v => v.toJsFn)
-    p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())
-    p.tabIndex = tabIndex
+    if (avatar.isDefined) {p.avatar = avatar.map(v => v.rawElement)}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (clickable.isDefined) {p.clickable = clickable}
+    if (color.isDefined) {p.color = color.map(v => v.value)}
+    if (component.isDefined) {p.component = component}
+    if (deleteIcon.isDefined) {p.deleteIcon = deleteIcon.map(v => v.rawElement)}
+    if (label.isDefined) {p.label = label.map(v => v.rawNode)}
+    if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}
+    if (onDelete.isDefined) {p.onDelete = onDelete.map(v => v.toJsFn)}
+    if (onKeyDown.isDefined) {p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
+    if (tabIndex.isDefined) {p.tabIndex = tabIndex}
 
     jsFnComponent(p)()
   }

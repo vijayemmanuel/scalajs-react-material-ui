@@ -86,18 +86,18 @@ object StepLabel {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.StepIconProps = StepIconProps
-    p.active = active
-    p.alternativeLabel = alternativeLabel
-    p.className = className
-    p.classes = classes
-    p.completed = completed
-    p.disabled = disabled
-    p.error = error
-    p.icon = icon.map(v => v.rawNode)
-    p.last = last
-    p.optional = optional.map(v => v.rawNode)
-    p.orientation = orientation.map(v => v.value)
+    if (StepIconProps.isDefined) {p.StepIconProps = StepIconProps}
+    if (active.isDefined) {p.active = active}
+    if (alternativeLabel.isDefined) {p.alternativeLabel = alternativeLabel}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (completed.isDefined) {p.completed = completed}
+    if (disabled.isDefined) {p.disabled = disabled}
+    if (error.isDefined) {p.error = error}
+    if (icon.isDefined) {p.icon = icon.map(v => v.rawNode)}
+    if (last.isDefined) {p.last = last}
+    if (optional.isDefined) {p.optional = optional.map(v => v.rawNode)}
+    if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
 
     jsFnComponent(p)(children: _*)
   }

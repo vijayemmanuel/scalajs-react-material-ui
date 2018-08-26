@@ -78,16 +78,16 @@ object Step {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.active = active
-    p.alternativeLabel = alternativeLabel
-    p.className = className
-    p.classes = classes
-    p.completed = completed
-    p.connector = connector.map(v => v.rawElement)
-    p.disabled = disabled
-    p.index = index
-    p.last = last
-    p.orientation = orientation.map(v => v.value)
+    if (active.isDefined) {p.active = active}
+    if (alternativeLabel.isDefined) {p.alternativeLabel = alternativeLabel}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (completed.isDefined) {p.completed = completed}
+    if (connector.isDefined) {p.connector = connector.map(v => v.rawElement)}
+    if (disabled.isDefined) {p.disabled = disabled}
+    if (index.isDefined) {p.index = index}
+    if (last.isDefined) {p.last = last}
+    if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
 
     jsFnComponent(p)(children: _*)
   }

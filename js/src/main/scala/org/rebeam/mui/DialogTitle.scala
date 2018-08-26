@@ -40,9 +40,9 @@ object DialogTitle {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.disableTypography = disableTypography
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (disableTypography.isDefined) {p.disableTypography = disableTypography}
 
     jsFnComponent(p)(children: _*)
   }

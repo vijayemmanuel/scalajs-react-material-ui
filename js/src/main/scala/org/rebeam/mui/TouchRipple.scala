@@ -40,9 +40,9 @@ object TouchRipple {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.center = center
-    p.className = className
-    p.classes = classes
+    if (center.isDefined) {p.center = center}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
 
     jsFnComponent(p)()
   }

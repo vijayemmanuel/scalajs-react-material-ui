@@ -39,9 +39,9 @@ object DialogActions {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.disableActionSpacing = disableActionSpacing
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (disableActionSpacing.isDefined) {p.disableActionSpacing = disableActionSpacing}
 
     jsFnComponent(p)(children: _*)
   }

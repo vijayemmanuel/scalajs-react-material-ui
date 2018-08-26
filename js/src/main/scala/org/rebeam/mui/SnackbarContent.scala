@@ -60,13 +60,13 @@ object SnackbarContent {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.action = action.map(v => v.rawNode)
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.elevation = elevation
-    p.message = message.map(v => v.rawNode)
-    p.square = square
+    if (action.isDefined) {p.action = action.map(v => v.rawNode)}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (elevation.isDefined) {p.elevation = elevation}
+    if (message.isDefined) {p.message = message.map(v => v.rawNode)}
+    if (square.isDefined) {p.square = square}
 
     jsFnComponent(p)()
   }

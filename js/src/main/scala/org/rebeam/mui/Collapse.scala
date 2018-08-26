@@ -85,19 +85,19 @@ object Collapse {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.collapsedHeight = collapsedHeight
-    p.component = component
-    p.in = in
-    p.onEnter = onEnter.map(v => v.toJsFn)
-    p.onEntered = onEntered.map(v => v.toJsFn)
-    p.onEntering = onEntering.map(v => v.toJsFn)
-    p.onExit = onExit.map(v => v.toJsFn)
-    p.onExiting = onExiting.map(v => v.toJsFn)
-    p.style = style
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (collapsedHeight.isDefined) {p.collapsedHeight = collapsedHeight}
+    if (component.isDefined) {p.component = component}
+    if (in.isDefined) {p.in = in}
+    if (onEnter.isDefined) {p.onEnter = onEnter.map(v => v.toJsFn)}
+    if (onEntered.isDefined) {p.onEntered = onEntered.map(v => v.toJsFn)}
+    if (onEntering.isDefined) {p.onEntering = onEntering.map(v => v.toJsFn)}
+    if (onExit.isDefined) {p.onExit = onExit.map(v => v.toJsFn)}
+    if (onExiting.isDefined) {p.onExiting = onExiting.map(v => v.toJsFn)}
+    if (style.isDefined) {p.style = style}
     p.theme = theme
-    p.timeout = timeout
+    if (timeout.isDefined) {p.timeout = timeout}
 
     jsFnComponent(p)(children: _*)
   }

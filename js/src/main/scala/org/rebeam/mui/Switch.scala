@@ -99,21 +99,21 @@ object Switch {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.checked = checked
-    p.checkedIcon = checkedIcon.map(v => v.rawNode)
-    p.className = className
-    p.classes = classes
-    p.color = color.map(v => v.value)
-    p.defaultChecked = defaultChecked
-    p.disableRipple = disableRipple
-    p.disabled = disabled
-    p.icon = icon.map(v => v.rawNode)
-    p.id = id
-    p.inputProps = inputProps
-    p.inputRef = inputRef
-    p.onChange = onChange.map(v => v.toJsFn)
-    p.`type` = `type`
-    p.value = value
+    if (checked.isDefined) {p.checked = checked}
+    if (checkedIcon.isDefined) {p.checkedIcon = checkedIcon.map(v => v.rawNode)}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (color.isDefined) {p.color = color.map(v => v.value)}
+    if (defaultChecked.isDefined) {p.defaultChecked = defaultChecked}
+    if (disableRipple.isDefined) {p.disableRipple = disableRipple}
+    if (disabled.isDefined) {p.disabled = disabled}
+    if (icon.isDefined) {p.icon = icon.map(v => v.rawNode)}
+    if (id.isDefined) {p.id = id}
+    if (inputProps.isDefined) {p.inputProps = inputProps}
+    if (inputRef.isDefined) {p.inputRef = inputRef}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (`type`.isDefined) {p.`type` = `type`}
+    if (value.isDefined) {p.value = value}
 
     jsFnComponent(p)()
   }

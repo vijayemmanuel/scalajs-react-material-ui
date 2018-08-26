@@ -56,9 +56,9 @@ object ClickAwayListener {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.mouseEvent = mouseEvent.map(v => v.value)
+    if (mouseEvent.isDefined) {p.mouseEvent = mouseEvent.map(v => v.value)}
     p.onClickAway = onClickAway.toJsFn
-    p.touchEvent = touchEvent.map(v => v.value)
+    if (touchEvent.isDefined) {p.touchEvent = touchEvent.map(v => v.value)}
 
     jsFnComponent(p)(children: _*)
   }

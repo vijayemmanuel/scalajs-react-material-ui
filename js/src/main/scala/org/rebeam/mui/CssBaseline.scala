@@ -30,7 +30,7 @@ object CssBaseline {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.classes = classes
+    if (classes.isDefined) {p.classes = classes}
 
     jsFnComponent(p)(children: _*)
   }

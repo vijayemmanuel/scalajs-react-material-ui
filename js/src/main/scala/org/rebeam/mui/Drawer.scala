@@ -96,18 +96,18 @@ object Drawer {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.ModalProps = ModalProps
-    p.PaperProps = PaperProps
-    p.SlideProps = SlideProps
-    p.anchor = anchor.map(v => v.value)
-    p.className = className
-    p.classes = classes
-    p.elevation = elevation
-    p.onClose = onClose.map(v => v.toJsFn)
-    p.open = open
+    if (ModalProps.isDefined) {p.ModalProps = ModalProps}
+    if (PaperProps.isDefined) {p.PaperProps = PaperProps}
+    if (SlideProps.isDefined) {p.SlideProps = SlideProps}
+    if (anchor.isDefined) {p.anchor = anchor.map(v => v.value)}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (elevation.isDefined) {p.elevation = elevation}
+    if (onClose.isDefined) {p.onClose = onClose.map(v => v.toJsFn)}
+    if (open.isDefined) {p.open = open}
     p.theme = theme
-    p.transitionDuration = transitionDuration
-    p.variant = variant.map(v => v.value)
+    if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     jsFnComponent(p)(children: _*)
   }

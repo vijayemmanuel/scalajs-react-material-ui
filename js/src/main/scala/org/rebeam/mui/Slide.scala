@@ -73,15 +73,15 @@ object Slide {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.direction = direction.map(v => v.value)
-    p.in = in
-    p.onEnter = onEnter.map(v => v.toJsFn)
-    p.onEntering = onEntering.map(v => v.toJsFn)
-    p.onExit = onExit.map(v => v.toJsFn)
-    p.onExited = onExited.map(v => v.toJsFn)
-    p.style = style
+    if (direction.isDefined) {p.direction = direction.map(v => v.value)}
+    if (in.isDefined) {p.in = in}
+    if (onEnter.isDefined) {p.onEnter = onEnter.map(v => v.toJsFn)}
+    if (onEntering.isDefined) {p.onEntering = onEntering.map(v => v.toJsFn)}
+    if (onExit.isDefined) {p.onExit = onExit.map(v => v.toJsFn)}
+    if (onExited.isDefined) {p.onExited = onExited.map(v => v.toJsFn)}
+    if (style.isDefined) {p.style = style}
     p.theme = theme
-    p.timeout = timeout
+    if (timeout.isDefined) {p.timeout = timeout}
 
     jsFnComponent(p)(children: _*)
   }

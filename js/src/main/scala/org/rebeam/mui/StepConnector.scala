@@ -51,10 +51,10 @@ object StepConnector {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.alternativeLabel = alternativeLabel
-    p.className = className
-    p.classes = classes
-    p.orientation = orientation.map(v => v.value)
+    if (alternativeLabel.isDefined) {p.alternativeLabel = alternativeLabel}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
 
     jsFnComponent(p)()
   }

@@ -56,12 +56,12 @@ object CardMedia {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.image = image
-    p.src = src
-    p.style = style
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (image.isDefined) {p.image = image}
+    if (src.isDefined) {p.src = src}
+    if (style.isDefined) {p.style = style}
 
     jsFnComponent(p)()
   }

@@ -270,23 +270,23 @@ object Grid {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.alignContent = alignContent.map(v => v.value)
-    p.alignItems = alignItems.map(v => v.value)
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.container = container
-    p.direction = direction.map(v => v.value)
-    p.item = item
-    p.justify = justify.map(v => v.value)
-    p.lg = lg.map(v => v.value)
-    p.md = md.map(v => v.value)
-    p.sm = sm.map(v => v.value)
-    p.spacing = spacing.map(v => v.value)
-    p.wrap = wrap.map(v => v.value)
-    p.xl = xl.map(v => v.value)
-    p.xs = xs.map(v => v.value)
-    p.zeroMinWidth = zeroMinWidth
+    if (alignContent.isDefined) {p.alignContent = alignContent.map(v => v.value)}
+    if (alignItems.isDefined) {p.alignItems = alignItems.map(v => v.value)}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (container.isDefined) {p.container = container}
+    if (direction.isDefined) {p.direction = direction.map(v => v.value)}
+    if (item.isDefined) {p.item = item}
+    if (justify.isDefined) {p.justify = justify.map(v => v.value)}
+    if (lg.isDefined) {p.lg = lg.map(v => v.value)}
+    if (md.isDefined) {p.md = md.map(v => v.value)}
+    if (sm.isDefined) {p.sm = sm.map(v => v.value)}
+    if (spacing.isDefined) {p.spacing = spacing.map(v => v.value)}
+    if (wrap.isDefined) {p.wrap = wrap.map(v => v.value)}
+    if (xl.isDefined) {p.xl = xl.map(v => v.value)}
+    if (xs.isDefined) {p.xs = xs.map(v => v.value)}
+    if (zeroMinWidth.isDefined) {p.zeroMinWidth = zeroMinWidth}
 
     jsFnComponent(p)(children: _*)
   }

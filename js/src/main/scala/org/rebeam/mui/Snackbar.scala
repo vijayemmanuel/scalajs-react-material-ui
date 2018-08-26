@@ -136,29 +136,29 @@ object Snackbar {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.ContentProps = ContentProps
-    p.TransitionComponent = TransitionComponent
-    p.TransitionProps = TransitionProps
-    p.action = action.map(v => v.rawNode)
-    p.anchorOrigin = anchorOrigin
-    p.autoHideDuration = autoHideDuration
-    p.className = className
-    p.classes = classes
-    p.disableWindowBlurListener = disableWindowBlurListener
-    p.key = key
-    p.message = message.map(v => v.rawNode)
-    p.onClose = onClose.map(v => v.toJsFn)
-    p.onEnter = onEnter.map(v => v.toJsFn)
-    p.onEntered = onEntered.map(v => v.toJsFn)
-    p.onEntering = onEntering.map(v => v.toJsFn)
-    p.onExit = onExit.map(v => v.toJsFn)
-    p.onExited = onExited.map(v => v.toJsFn)
-    p.onExiting = onExiting.map(v => v.toJsFn)
-    p.onMouseEnter = onMouseEnter.map(v => (e: ReactMouseEvent) => v(e).runNow())
-    p.onMouseLeave = onMouseLeave.map(v => (e: ReactMouseEvent) => v(e).runNow())
-    p.open = open
-    p.resumeHideDuration = resumeHideDuration
-    p.transitionDuration = transitionDuration
+    if (ContentProps.isDefined) {p.ContentProps = ContentProps}
+    if (TransitionComponent.isDefined) {p.TransitionComponent = TransitionComponent}
+    if (TransitionProps.isDefined) {p.TransitionProps = TransitionProps}
+    if (action.isDefined) {p.action = action.map(v => v.rawNode)}
+    if (anchorOrigin.isDefined) {p.anchorOrigin = anchorOrigin}
+    if (autoHideDuration.isDefined) {p.autoHideDuration = autoHideDuration}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (disableWindowBlurListener.isDefined) {p.disableWindowBlurListener = disableWindowBlurListener}
+    if (key.isDefined) {p.key = key}
+    if (message.isDefined) {p.message = message.map(v => v.rawNode)}
+    if (onClose.isDefined) {p.onClose = onClose.map(v => v.toJsFn)}
+    if (onEnter.isDefined) {p.onEnter = onEnter.map(v => v.toJsFn)}
+    if (onEntered.isDefined) {p.onEntered = onEntered.map(v => v.toJsFn)}
+    if (onEntering.isDefined) {p.onEntering = onEntering.map(v => v.toJsFn)}
+    if (onExit.isDefined) {p.onExit = onExit.map(v => v.toJsFn)}
+    if (onExited.isDefined) {p.onExited = onExited.map(v => v.toJsFn)}
+    if (onExiting.isDefined) {p.onExiting = onExiting.map(v => v.toJsFn)}
+    if (onMouseEnter.isDefined) {p.onMouseEnter = onMouseEnter.map(v => (e: ReactMouseEvent) => v(e).runNow())}
+    if (onMouseLeave.isDefined) {p.onMouseLeave = onMouseLeave.map(v => (e: ReactMouseEvent) => v(e).runNow())}
+    if (open.isDefined) {p.open = open}
+    if (resumeHideDuration.isDefined) {p.resumeHideDuration = resumeHideDuration}
+    if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
 
     jsFnComponent(p)(children: _*)
   }

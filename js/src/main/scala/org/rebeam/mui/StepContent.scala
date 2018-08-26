@@ -84,17 +84,17 @@ object StepContent {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.TransitionComponent = TransitionComponent
-    p.TransitionProps = TransitionProps
-    p.active = active
-    p.alternativeLabel = alternativeLabel
-    p.className = className
-    p.classes = classes
-    p.completed = completed
-    p.last = last
-    p.optional = optional
-    p.orientation = orientation.map(v => v.value)
-    p.transitionDuration = transitionDuration
+    if (TransitionComponent.isDefined) {p.TransitionComponent = TransitionComponent}
+    if (TransitionProps.isDefined) {p.TransitionProps = TransitionProps}
+    if (active.isDefined) {p.active = active}
+    if (alternativeLabel.isDefined) {p.alternativeLabel = alternativeLabel}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (completed.isDefined) {p.completed = completed}
+    if (last.isDefined) {p.last = last}
+    if (optional.isDefined) {p.optional = optional}
+    if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
+    if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
 
     jsFnComponent(p)(children: _*)
   }

@@ -74,12 +74,12 @@ object LinearProgress {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.color = color.map(v => v.value)
-    p.value = value
-    p.valueBuffer = valueBuffer
-    p.variant = variant.map(v => v.value)
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (color.isDefined) {p.color = color.map(v => v.value)}
+    if (value.isDefined) {p.value = value}
+    if (valueBuffer.isDefined) {p.valueBuffer = valueBuffer}
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     jsFnComponent(p)()
   }

@@ -64,13 +64,13 @@ object ListSubheader {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.color = color.map(v => v.value)
-    p.component = component
-    p.disableGutters = disableGutters
-    p.disableSticky = disableSticky
-    p.inset = inset
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (color.isDefined) {p.color = color.map(v => v.value)}
+    if (component.isDefined) {p.component = component}
+    if (disableGutters.isDefined) {p.disableGutters = disableGutters}
+    if (disableSticky.isDefined) {p.disableSticky = disableSticky}
+    if (inset.isDefined) {p.inset = inset}
 
     jsFnComponent(p)(children: _*)
   }

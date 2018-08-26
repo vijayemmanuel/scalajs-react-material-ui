@@ -195,37 +195,37 @@ object TextField {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.FormHelperTextProps = FormHelperTextProps
-    p.InputLabelProps = InputLabelProps
-    p.InputProps = InputProps
-    p.SelectProps = SelectProps
-    p.autoComplete = autoComplete
-    p.autoFocus = autoFocus
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.defaultValue = defaultValue
-    p.disabled = disabled
-    p.error = error
-    p.fullWidth = fullWidth
-    p.helperText = helperText.map(v => v.rawNode)
-    p.id = id
-    p.inputProps = inputProps
-    p.inputRef = inputRef
-    p.label = label.map(v => v.rawNode)
-    p.margin = margin.map(v => v.value)
-    p.multiline = multiline
-    p.name = name
-    p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())
-    p.onChange = onChange.map(v => v.toJsFn)
-    p.onFocus = onFocus.map(v => (e: ReactFocusEvent) => v(e).runNow())
-    p.placeholder = placeholder
-    p.required = required
-    p.rows = rows
-    p.rowsMax = rowsMax
-    p.select = select
-    p.`type` = `type`
-    p.value = value
+    if (FormHelperTextProps.isDefined) {p.FormHelperTextProps = FormHelperTextProps}
+    if (InputLabelProps.isDefined) {p.InputLabelProps = InputLabelProps}
+    if (InputProps.isDefined) {p.InputProps = InputProps}
+    if (SelectProps.isDefined) {p.SelectProps = SelectProps}
+    if (autoComplete.isDefined) {p.autoComplete = autoComplete}
+    if (autoFocus.isDefined) {p.autoFocus = autoFocus}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (defaultValue.isDefined) {p.defaultValue = defaultValue}
+    if (disabled.isDefined) {p.disabled = disabled}
+    if (error.isDefined) {p.error = error}
+    if (fullWidth.isDefined) {p.fullWidth = fullWidth}
+    if (helperText.isDefined) {p.helperText = helperText.map(v => v.rawNode)}
+    if (id.isDefined) {p.id = id}
+    if (inputProps.isDefined) {p.inputProps = inputProps}
+    if (inputRef.isDefined) {p.inputRef = inputRef}
+    if (label.isDefined) {p.label = label.map(v => v.rawNode)}
+    if (margin.isDefined) {p.margin = margin.map(v => v.value)}
+    if (multiline.isDefined) {p.multiline = multiline}
+    if (name.isDefined) {p.name = name}
+    if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (onFocus.isDefined) {p.onFocus = onFocus.map(v => (e: ReactFocusEvent) => v(e).runNow())}
+    if (placeholder.isDefined) {p.placeholder = placeholder}
+    if (required.isDefined) {p.required = required}
+    if (rows.isDefined) {p.rows = rows}
+    if (rowsMax.isDefined) {p.rowsMax = rowsMax}
+    if (select.isDefined) {p.select = select}
+    if (`type`.isDefined) {p.`type` = `type`}
+    if (value.isDefined) {p.value = value}
 
     jsFnComponent(p)()
   }

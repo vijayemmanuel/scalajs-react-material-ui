@@ -118,16 +118,16 @@ object DialogContentText {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.align = align.map(v => v.value)
-    p.className = className
-    p.classes = classes
-    p.color = color.map(v => v.value)
-    p.component = component
-    p.gutterBottom = gutterBottom
-    p.headlineMapping = headlineMapping
-    p.noWrap = noWrap
-    p.paragraph = paragraph
-    p.variant = variant.map(v => v.value)
+    if (align.isDefined) {p.align = align.map(v => v.value)}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (color.isDefined) {p.color = color.map(v => v.value)}
+    if (component.isDefined) {p.component = component}
+    if (gutterBottom.isDefined) {p.gutterBottom = gutterBottom}
+    if (headlineMapping.isDefined) {p.headlineMapping = headlineMapping}
+    if (noWrap.isDefined) {p.noWrap = noWrap}
+    if (paragraph.isDefined) {p.paragraph = paragraph}
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     jsFnComponent(p)(children: _*)
   }

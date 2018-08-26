@@ -50,10 +50,10 @@ object Toolbar {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.disableGutters = disableGutters
-    p.variant = variant.map(v => v.value)
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (disableGutters.isDefined) {p.disableGutters = disableGutters}
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     jsFnComponent(p)(children: _*)
   }

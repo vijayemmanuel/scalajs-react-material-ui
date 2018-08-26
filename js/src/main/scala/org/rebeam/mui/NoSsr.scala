@@ -41,8 +41,8 @@ object NoSsr {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.defer = defer
-    p.fallback = fallback.map(v => v.rawNode)
+    if (defer.isDefined) {p.defer = defer}
+    if (fallback.isDefined) {p.fallback = fallback.map(v => v.rawNode)}
 
     jsFnComponent(p)(children: _*)
   }

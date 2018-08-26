@@ -55,11 +55,11 @@ object InputAdornment {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.disableTypography = disableTypography
-    p.position = position.map(v => v.value)
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (disableTypography.isDefined) {p.disableTypography = disableTypography}
+    if (position.isDefined) {p.position = position.map(v => v.value)}
 
     jsFnComponent(p)(children: _*)
   }

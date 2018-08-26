@@ -76,16 +76,16 @@ object ExpansionPanel {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.CollapseProps = CollapseProps
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.defaultExpanded = defaultExpanded
-    p.disabled = disabled
-    p.elevation = elevation
-    p.expanded = expanded
-    p.onChange = onChange.map(v => v.toJsFn)
-    p.square = square
+    if (CollapseProps.isDefined) {p.CollapseProps = CollapseProps}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (defaultExpanded.isDefined) {p.defaultExpanded = defaultExpanded}
+    if (disabled.isDefined) {p.disabled = disabled}
+    if (elevation.isDefined) {p.elevation = elevation}
+    if (expanded.isDefined) {p.expanded = expanded}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (square.isDefined) {p.square = square}
 
     jsFnComponent(p)(children: _*)
   }

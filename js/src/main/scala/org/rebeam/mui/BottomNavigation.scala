@@ -51,11 +51,11 @@ object BottomNavigation {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.onChange = onChange.map(v => v.toJsFn)
-    p.showLabels = showLabels
-    p.value = value
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (showLabels.isDefined) {p.showLabels = showLabels}
+    if (value.isDefined) {p.value = value}
 
     jsFnComponent(p)(children: _*)
   }

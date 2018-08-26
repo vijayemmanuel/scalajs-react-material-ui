@@ -207,39 +207,39 @@ object Dialog {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.BackdropComponent = BackdropComponent
-    p.BackdropProps = BackdropProps
-    p.PaperProps = PaperProps
-    p.TransitionComponent = TransitionComponent
-    p.TransitionProps = TransitionProps
-    p.className = className
-    p.classes = classes
-    p.container = container
-    p.disableAutoFocus = disableAutoFocus
-    p.disableBackdropClick = disableBackdropClick
-    p.disableEnforceFocus = disableEnforceFocus
-    p.disableEscapeKeyDown = disableEscapeKeyDown
-    p.disablePortal = disablePortal
-    p.disableRestoreFocus = disableRestoreFocus
-    p.fullScreen = fullScreen
-    p.fullWidth = fullWidth
-    p.hideBackdrop = hideBackdrop
-    p.keepMounted = keepMounted
-    p.manager = manager
-    p.maxWidth = maxWidth.map(v => v.value)
-    p.onBackdropClick = onBackdropClick.map(v => v.toJsFn)
-    p.onClose = onClose.map(v => v.toJsFn)
-    p.onEnter = onEnter.map(v => v.toJsFn)
-    p.onEntered = onEntered.map(v => v.toJsFn)
-    p.onEntering = onEntering.map(v => v.toJsFn)
-    p.onEscapeKeyDown = onEscapeKeyDown.map(v => v.toJsFn)
-    p.onExit = onExit.map(v => v.toJsFn)
-    p.onExited = onExited.map(v => v.toJsFn)
-    p.onExiting = onExiting.map(v => v.toJsFn)
-    p.onRendered = onRendered.map(v => v.toJsFn)
+    if (BackdropComponent.isDefined) {p.BackdropComponent = BackdropComponent}
+    if (BackdropProps.isDefined) {p.BackdropProps = BackdropProps}
+    if (PaperProps.isDefined) {p.PaperProps = PaperProps}
+    if (TransitionComponent.isDefined) {p.TransitionComponent = TransitionComponent}
+    if (TransitionProps.isDefined) {p.TransitionProps = TransitionProps}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (container.isDefined) {p.container = container}
+    if (disableAutoFocus.isDefined) {p.disableAutoFocus = disableAutoFocus}
+    if (disableBackdropClick.isDefined) {p.disableBackdropClick = disableBackdropClick}
+    if (disableEnforceFocus.isDefined) {p.disableEnforceFocus = disableEnforceFocus}
+    if (disableEscapeKeyDown.isDefined) {p.disableEscapeKeyDown = disableEscapeKeyDown}
+    if (disablePortal.isDefined) {p.disablePortal = disablePortal}
+    if (disableRestoreFocus.isDefined) {p.disableRestoreFocus = disableRestoreFocus}
+    if (fullScreen.isDefined) {p.fullScreen = fullScreen}
+    if (fullWidth.isDefined) {p.fullWidth = fullWidth}
+    if (hideBackdrop.isDefined) {p.hideBackdrop = hideBackdrop}
+    if (keepMounted.isDefined) {p.keepMounted = keepMounted}
+    if (manager.isDefined) {p.manager = manager}
+    if (maxWidth.isDefined) {p.maxWidth = maxWidth.map(v => v.value)}
+    if (onBackdropClick.isDefined) {p.onBackdropClick = onBackdropClick.map(v => v.toJsFn)}
+    if (onClose.isDefined) {p.onClose = onClose.map(v => v.toJsFn)}
+    if (onEnter.isDefined) {p.onEnter = onEnter.map(v => v.toJsFn)}
+    if (onEntered.isDefined) {p.onEntered = onEntered.map(v => v.toJsFn)}
+    if (onEntering.isDefined) {p.onEntering = onEntering.map(v => v.toJsFn)}
+    if (onEscapeKeyDown.isDefined) {p.onEscapeKeyDown = onEscapeKeyDown.map(v => v.toJsFn)}
+    if (onExit.isDefined) {p.onExit = onExit.map(v => v.toJsFn)}
+    if (onExited.isDefined) {p.onExited = onExited.map(v => v.toJsFn)}
+    if (onExiting.isDefined) {p.onExiting = onExiting.map(v => v.toJsFn)}
+    if (onRendered.isDefined) {p.onRendered = onRendered.map(v => v.toJsFn)}
     p.open = open
-    p.scroll = scroll.map(v => v.value)
-    p.transitionDuration = transitionDuration
+    if (scroll.isDefined) {p.scroll = scroll.map(v => v.value)}
+    if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
 
     jsFnComponent(p)(children: _*)
   }

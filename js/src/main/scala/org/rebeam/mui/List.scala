@@ -54,12 +54,12 @@ object List {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.dense = dense
-    p.disablePadding = disablePadding
-    p.subheader = subheader.map(v => v.rawNode)
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (dense.isDefined) {p.dense = dense}
+    if (disablePadding.isDefined) {p.disablePadding = disablePadding}
+    if (subheader.isDefined) {p.subheader = subheader.map(v => v.rawNode)}
 
     jsFnComponent(p)(children: _*)
   }

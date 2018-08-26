@@ -73,16 +73,16 @@ object CardHeader {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.action = action.map(v => v.rawNode)
-    p.avatar = avatar.map(v => v.rawNode)
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.disableTypography = disableTypography
-    p.subheader = subheader.map(v => v.rawNode)
-    p.subheaderTypographyProps = subheaderTypographyProps
-    p.title = title.map(v => v.rawNode)
-    p.titleTypographyProps = titleTypographyProps
+    if (action.isDefined) {p.action = action.map(v => v.rawNode)}
+    if (avatar.isDefined) {p.avatar = avatar.map(v => v.rawNode)}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (disableTypography.isDefined) {p.disableTypography = disableTypography}
+    if (subheader.isDefined) {p.subheader = subheader.map(v => v.rawNode)}
+    if (subheaderTypographyProps.isDefined) {p.subheaderTypographyProps = subheaderTypographyProps}
+    if (title.isDefined) {p.title = title.map(v => v.rawNode)}
+    if (titleTypographyProps.isDefined) {p.titleTypographyProps = titleTypographyProps}
 
     jsFnComponent(p)()
   }

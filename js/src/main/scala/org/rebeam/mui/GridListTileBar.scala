@@ -70,13 +70,13 @@ object GridListTileBar {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.actionIcon = actionIcon.map(v => v.rawNode)
-    p.actionPosition = actionPosition.map(v => v.value)
-    p.className = className
-    p.classes = classes
-    p.subtitle = subtitle.map(v => v.rawNode)
-    p.title = title.map(v => v.rawNode)
-    p.titlePosition = titlePosition.map(v => v.value)
+    if (actionIcon.isDefined) {p.actionIcon = actionIcon.map(v => v.rawNode)}
+    if (actionPosition.isDefined) {p.actionPosition = actionPosition.map(v => v.value)}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (subtitle.isDefined) {p.subtitle = subtitle.map(v => v.rawNode)}
+    if (title.isDefined) {p.title = title.map(v => v.rawNode)}
+    if (titlePosition.isDefined) {p.titlePosition = titlePosition.map(v => v.value)}
 
     jsFnComponent(p)()
   }

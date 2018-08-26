@@ -124,22 +124,22 @@ object Tooltip {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.PopperProps = PopperProps
-    p.TransitionComponent = TransitionComponent
-    p.TransitionProps = TransitionProps
-    p.classes = classes
-    p.disableFocusListener = disableFocusListener
-    p.disableHoverListener = disableHoverListener
-    p.disableTouchListener = disableTouchListener
-    p.enterDelay = enterDelay
-    p.enterTouchDelay = enterTouchDelay
-    p.id = id
-    p.leaveDelay = leaveDelay
-    p.leaveTouchDelay = leaveTouchDelay
-    p.onClose = onClose.map(v => v.toJsFn)
-    p.onOpen = onOpen.map(v => v.toJsFn)
-    p.open = open
-    p.placement = placement.map(v => v.value)
+    if (PopperProps.isDefined) {p.PopperProps = PopperProps}
+    if (TransitionComponent.isDefined) {p.TransitionComponent = TransitionComponent}
+    if (TransitionProps.isDefined) {p.TransitionProps = TransitionProps}
+    if (classes.isDefined) {p.classes = classes}
+    if (disableFocusListener.isDefined) {p.disableFocusListener = disableFocusListener}
+    if (disableHoverListener.isDefined) {p.disableHoverListener = disableHoverListener}
+    if (disableTouchListener.isDefined) {p.disableTouchListener = disableTouchListener}
+    if (enterDelay.isDefined) {p.enterDelay = enterDelay}
+    if (enterTouchDelay.isDefined) {p.enterTouchDelay = enterTouchDelay}
+    if (id.isDefined) {p.id = id}
+    if (leaveDelay.isDefined) {p.leaveDelay = leaveDelay}
+    if (leaveTouchDelay.isDefined) {p.leaveTouchDelay = leaveTouchDelay}
+    if (onClose.isDefined) {p.onClose = onClose.map(v => v.toJsFn)}
+    if (onOpen.isDefined) {p.onOpen = onOpen.map(v => v.toJsFn)}
+    if (open.isDefined) {p.open = open}
+    if (placement.isDefined) {p.placement = placement.map(v => v.value)}
     p.theme = theme
     p.title = title.rawNode
 

@@ -80,13 +80,13 @@ object AppBar {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.color = color.map(v => v.value)
-    p.component = component
-    p.elevation = elevation
-    p.position = position.map(v => v.value)
-    p.square = square
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (color.isDefined) {p.color = color.map(v => v.value)}
+    if (component.isDefined) {p.component = component}
+    if (elevation.isDefined) {p.elevation = elevation}
+    if (position.isDefined) {p.position = position.map(v => v.value)}
+    if (square.isDefined) {p.square = square}
 
     jsFnComponent(p)(children: _*)
   }

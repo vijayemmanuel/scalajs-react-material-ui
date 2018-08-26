@@ -98,16 +98,16 @@ object Popper {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.anchorEl = anchorEl
-    p.container = container
-    p.disablePortal = disablePortal
-    p.keepMounted = keepMounted
-    p.modifiers = modifiers
+    if (anchorEl.isDefined) {p.anchorEl = anchorEl}
+    if (container.isDefined) {p.container = container}
+    if (disablePortal.isDefined) {p.disablePortal = disablePortal}
+    if (keepMounted.isDefined) {p.keepMounted = keepMounted}
+    if (modifiers.isDefined) {p.modifiers = modifiers}
     p.open = open
-    p.placement = placement.map(v => v.value)
-    p.popperOptions = popperOptions
+    if (placement.isDefined) {p.placement = placement.map(v => v.value)}
+    if (popperOptions.isDefined) {p.popperOptions = popperOptions}
     p.theme = theme
-    p.transition = transition
+    if (transition.isDefined) {p.transition = transition}
 
     jsFnComponent(p)(children: _*)
   }

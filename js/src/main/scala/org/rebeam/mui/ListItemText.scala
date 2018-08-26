@@ -65,14 +65,14 @@ object ListItemText {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.disableTypography = disableTypography
-    p.inset = inset
-    p.primary = primary.map(v => v.rawNode)
-    p.primaryTypographyProps = primaryTypographyProps
-    p.secondary = secondary.map(v => v.rawNode)
-    p.secondaryTypographyProps = secondaryTypographyProps
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (disableTypography.isDefined) {p.disableTypography = disableTypography}
+    if (inset.isDefined) {p.inset = inset}
+    if (primary.isDefined) {p.primary = primary.map(v => v.rawNode)}
+    if (primaryTypographyProps.isDefined) {p.primaryTypographyProps = primaryTypographyProps}
+    if (secondary.isDefined) {p.secondary = secondary.map(v => v.rawNode)}
+    if (secondaryTypographyProps.isDefined) {p.secondaryTypographyProps = secondaryTypographyProps}
 
     jsFnComponent(p)(children: _*)
   }

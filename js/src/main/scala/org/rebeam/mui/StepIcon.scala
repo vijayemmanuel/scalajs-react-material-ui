@@ -47,10 +47,10 @@ object StepIcon {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.active = active
-    p.classes = classes
-    p.completed = completed
-    p.error = error
+    if (active.isDefined) {p.active = active}
+    if (classes.isDefined) {p.classes = classes}
+    if (completed.isDefined) {p.completed = completed}
+    if (error.isDefined) {p.error = error}
     p.icon = icon.rawNode
 
     jsFnComponent(p)()

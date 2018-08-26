@@ -49,11 +49,11 @@ object Paper {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.elevation = elevation
-    p.square = square
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (elevation.isDefined) {p.elevation = elevation}
+    if (square.isDefined) {p.square = square}
 
     jsFnComponent(p)(children: _*)
   }

@@ -68,15 +68,15 @@ object Avatar {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.alt = alt
-    p.childrenClassName = childrenClassName
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.imgProps = imgProps
-    p.sizes = sizes
-    p.src = src
-    p.srcSet = srcSet
+    if (alt.isDefined) {p.alt = alt}
+    if (childrenClassName.isDefined) {p.childrenClassName = childrenClassName}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (imgProps.isDefined) {p.imgProps = imgProps}
+    if (sizes.isDefined) {p.sizes = sizes}
+    if (src.isDefined) {p.src = src}
+    if (srcSet.isDefined) {p.srcSet = srcSet}
 
     jsFnComponent(p)(children: _*)
   }

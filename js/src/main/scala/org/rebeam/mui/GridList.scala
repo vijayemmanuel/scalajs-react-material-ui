@@ -57,13 +57,13 @@ object GridList {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.cellHeight = cellHeight
-    p.className = className
-    p.classes = classes
-    p.cols = cols
-    p.component = component
-    p.spacing = spacing
-    p.style = style
+    if (cellHeight.isDefined) {p.cellHeight = cellHeight}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (cols.isDefined) {p.cols = cols}
+    if (component.isDefined) {p.component = component}
+    if (spacing.isDefined) {p.spacing = spacing}
+    if (style.isDefined) {p.style = style}
 
     jsFnComponent(p)(children: _*)
   }

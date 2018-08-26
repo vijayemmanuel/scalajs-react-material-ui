@@ -108,20 +108,20 @@ object Hidden {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.implementation = implementation.map(v => v.value)
-    p.initialWidth = initialWidth.map(v => v.value)
-    p.lgDown = lgDown
-    p.lgUp = lgUp
-    p.mdDown = mdDown
-    p.mdUp = mdUp
-    p.only = only
-    p.smDown = smDown
-    p.smUp = smUp
-    p.xlDown = xlDown
-    p.xlUp = xlUp
-    p.xsDown = xsDown
-    p.xsUp = xsUp
+    if (className.isDefined) {p.className = className}
+    if (implementation.isDefined) {p.implementation = implementation.map(v => v.value)}
+    if (initialWidth.isDefined) {p.initialWidth = initialWidth.map(v => v.value)}
+    if (lgDown.isDefined) {p.lgDown = lgDown}
+    if (lgUp.isDefined) {p.lgUp = lgUp}
+    if (mdDown.isDefined) {p.mdDown = mdDown}
+    if (mdUp.isDefined) {p.mdUp = mdUp}
+    if (only.isDefined) {p.only = only}
+    if (smDown.isDefined) {p.smDown = smDown}
+    if (smUp.isDefined) {p.smUp = smUp}
+    if (xlDown.isDefined) {p.xlDown = xlDown}
+    if (xlUp.isDefined) {p.xlUp = xlUp}
+    if (xsDown.isDefined) {p.xsDown = xsDown}
+    if (xsUp.isDefined) {p.xsUp = xsUp}
 
     jsFnComponent(p)(children: _*)
   }

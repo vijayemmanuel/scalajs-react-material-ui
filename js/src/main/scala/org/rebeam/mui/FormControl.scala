@@ -75,14 +75,14 @@ object FormControl {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.disabled = disabled
-    p.error = error
-    p.fullWidth = fullWidth
-    p.margin = margin.map(v => v.value)
-    p.required = required
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (disabled.isDefined) {p.disabled = disabled}
+    if (error.isDefined) {p.error = error}
+    if (fullWidth.isDefined) {p.fullWidth = fullWidth}
+    if (margin.isDefined) {p.margin = margin.map(v => v.value)}
+    if (required.isDefined) {p.required = required}
 
     jsFnComponent(p)(children: _*)
   }

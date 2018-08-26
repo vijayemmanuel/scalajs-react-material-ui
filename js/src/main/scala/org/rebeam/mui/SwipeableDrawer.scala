@@ -125,23 +125,23 @@ object SwipeableDrawer {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.ModalProps = ModalProps
-    p.PaperProps = PaperProps
-    p.SlideProps = SlideProps
-    p.anchor = anchor.map(v => v.value)
-    p.className = className
-    p.classes = classes
-    p.disableBackdropTransition = disableBackdropTransition
-    p.disableDiscovery = disableDiscovery
-    p.disableSwipeToOpen = disableSwipeToOpen
-    p.elevation = elevation
+    if (ModalProps.isDefined) {p.ModalProps = ModalProps}
+    if (PaperProps.isDefined) {p.PaperProps = PaperProps}
+    if (SlideProps.isDefined) {p.SlideProps = SlideProps}
+    if (anchor.isDefined) {p.anchor = anchor.map(v => v.value)}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (disableBackdropTransition.isDefined) {p.disableBackdropTransition = disableBackdropTransition}
+    if (disableDiscovery.isDefined) {p.disableDiscovery = disableDiscovery}
+    if (disableSwipeToOpen.isDefined) {p.disableSwipeToOpen = disableSwipeToOpen}
+    if (elevation.isDefined) {p.elevation = elevation}
     p.onClose = onClose.toJsFn
     p.onOpen = onOpen.toJsFn
     p.open = open
-    p.swipeAreaWidth = swipeAreaWidth
+    if (swipeAreaWidth.isDefined) {p.swipeAreaWidth = swipeAreaWidth}
     p.theme = theme
-    p.transitionDuration = transitionDuration
-    p.variant = variant.map(v => v.value)
+    if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     jsFnComponent(p)()
   }

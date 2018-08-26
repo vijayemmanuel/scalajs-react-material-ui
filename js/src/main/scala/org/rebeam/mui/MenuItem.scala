@@ -22,6 +22,7 @@ object MenuItem {
     var disabled: js.UndefOr[Boolean] = js.native
     var divider: js.UndefOr[Boolean] = js.native
     var focusVisibleClassName: js.UndefOr[String] = js.native
+    var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
     var role: js.UndefOr[String] = js.native
     var selected: js.UndefOr[Boolean] = js.native
   }
@@ -67,6 +68,9 @@ object MenuItem {
    * @param focusVisibleClassName
    *        Property spread to root element
    *        Passed to ListItem
+   * @param onClick
+   *        ReactMouseEvent on click
+   *        Passed to DOCGEN_OnClickBase
    * @param role
    *        Property spread to root element
    * @param selected
@@ -84,24 +88,26 @@ object MenuItem {
     disabled: js.UndefOr[Boolean] = js.undefined,
     divider: js.UndefOr[Boolean] = js.undefined,
     focusVisibleClassName: js.UndefOr[String] = js.undefined,
+    onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
     role: js.UndefOr[String] = js.undefined,
     selected: js.UndefOr[Boolean] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.ContainerComponent = ContainerComponent
-    p.ContainerProps = ContainerProps
-    p.button = button
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.dense = dense
-    p.disableGutters = disableGutters
-    p.disabled = disabled
-    p.divider = divider
-    p.focusVisibleClassName = focusVisibleClassName
-    p.role = role
-    p.selected = selected
+    if (ContainerComponent.isDefined) {p.ContainerComponent = ContainerComponent}
+    if (ContainerProps.isDefined) {p.ContainerProps = ContainerProps}
+    if (button.isDefined) {p.button = button}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (dense.isDefined) {p.dense = dense}
+    if (disableGutters.isDefined) {p.disableGutters = disableGutters}
+    if (disabled.isDefined) {p.disabled = disabled}
+    if (divider.isDefined) {p.divider = divider}
+    if (focusVisibleClassName.isDefined) {p.focusVisibleClassName = focusVisibleClassName}
+    if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}
+    if (role.isDefined) {p.role = role}
+    if (selected.isDefined) {p.selected = selected}
 
     jsFnComponent(p)(children: _*)
   }

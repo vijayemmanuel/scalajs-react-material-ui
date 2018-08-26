@@ -97,18 +97,18 @@ object MobileStepper {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.LinearProgressProps = LinearProgressProps
-    p.activeStep = activeStep
-    p.backButton = backButton.map(v => v.rawNode)
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.elevation = elevation
-    p.nextButton = nextButton.map(v => v.rawNode)
-    p.position = position.map(v => v.value)
-    p.square = square
+    if (LinearProgressProps.isDefined) {p.LinearProgressProps = LinearProgressProps}
+    if (activeStep.isDefined) {p.activeStep = activeStep}
+    if (backButton.isDefined) {p.backButton = backButton.map(v => v.rawNode)}
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (elevation.isDefined) {p.elevation = elevation}
+    if (nextButton.isDefined) {p.nextButton = nextButton.map(v => v.rawNode)}
+    if (position.isDefined) {p.position = position.map(v => v.value)}
+    if (square.isDefined) {p.square = square}
     p.steps = steps
-    p.variant = variant.map(v => v.value)
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     jsFnComponent(p)()
   }

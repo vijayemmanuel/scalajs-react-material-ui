@@ -53,10 +53,10 @@ object Table {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.component = component
-    p.padding = padding.map(v => v.value)
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (component.isDefined) {p.component = component}
+    if (padding.isDefined) {p.padding = padding.map(v => v.value)}
 
     jsFnComponent(p)(children: _*)
   }

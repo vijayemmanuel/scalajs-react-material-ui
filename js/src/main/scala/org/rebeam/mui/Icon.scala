@@ -61,10 +61,10 @@ object Icon {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.color = color.map(v => v.value)
-    p.fontSize = fontSize.map(v => v.value)
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (color.isDefined) {p.color = color.map(v => v.value)}
+    if (fontSize.isDefined) {p.fontSize = fontSize.map(v => v.value)}
 
     jsFnComponent(p)(children: _*)
   }

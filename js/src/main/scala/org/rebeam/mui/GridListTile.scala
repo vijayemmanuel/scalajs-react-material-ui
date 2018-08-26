@@ -48,11 +48,11 @@ object GridListTile {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
-    p.className = className
-    p.classes = classes
-    p.cols = cols
-    p.component = component
-    p.rows = rows
+    if (className.isDefined) {p.className = className}
+    if (classes.isDefined) {p.classes = classes}
+    if (cols.isDefined) {p.cols = cols}
+    if (component.isDefined) {p.component = component}
+    if (rows.isDefined) {p.rows = rows}
 
     jsFnComponent(p)(children: _*)
   }

@@ -40,10 +40,25 @@ object DocGenContext {
 
     def propsIncludingInheritance(all: Map[String, Component], c: Component): List[(String, Prop)] = {
 
+      val allPlusDocgen: Map[String, Component] = all ++ Map(
+        "DOCGEN_OnClickBase" -> Component (
+          "DocGen component to add onClick event",
+          "DOCGEN_OnClickBase",
+          List(
+            "onClick" -> Prop(
+              FuncType,
+              false,
+              "ReactMouseEvent on click",
+              None
+            )
+          )
+        )
+      )
+
       def additionalPropsFrom(components: String *): List[(String, Prop)] = {
         val existingProps = Map(c.props: _*)
 
-        val additionalProps = components.toList.flatMap(component => all.values.find(_.displayName == component).map(_.props.map{case (n, p) => (component, n, p)}).getOrElse(Nil))
+        val additionalProps = components.toList.flatMap(component => allPlusDocgen.values.find(_.displayName == component).map(_.props.map{case (n, p) => (component, n, p)}).getOrElse(Nil))
 
         val updatedProps = additionalProps
           .foldLeft(existingProps){
@@ -81,7 +96,10 @@ object DocGenContext {
         //Popover, but Popover inerits from Modal
         case Component(_, "Menu", _) => additionalPropsFrom("Popover", "Modal")
 
-        case Component(_, "MenuItem", _) => additionalPropsFrom("ListItem")
+        case Component(_, "MenuItem", _) => additionalPropsFrom("ListItem", "DOCGEN_OnClickBase")
+
+        case Component(_, "ListItem", _) => additionalPropsFrom("DOCGEN_OnClickBase")
+        
 
         case Component(_, "MenuList", _) => additionalPropsFrom("List")
 
@@ -124,6 +142,10 @@ object DocGenContext {
       //     I think the only exception may be for children, where we probably want to treat this as not having children.
       // } else if (prop.required == false && prop.description.trim.toLowerCase == "@ignore") {
       //   false
+
+      // Not sure what's up with this one - marked as ignore so get rid of it
+      } else if (c.displayName == "Menu" && name == "theme") {
+        false
       } else {
         true
       }
