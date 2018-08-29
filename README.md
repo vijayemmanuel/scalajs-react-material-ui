@@ -15,6 +15,8 @@ Project is in a very early state:
 
 ## Building
 
+Until this is published properly, you will need to clone the project, run `sbt`, then `publishLocal`. The generated facade is checked in so you don't need to run the code generation unless you want to work on the generator itself.
+
 Code generation is not done the right way - .scala files are just generated directly into the js src folder, under package `org.rebeam.mui`, by running `scalajsReactMaterialUIJVM/run` from sbt.
 
 To regenerate the `muiapi.json` data describing the components, check out the material-ui project, then in the mateerial-ui project root, run react-docgen:
