@@ -17,6 +17,7 @@ object Avatar {
     var classes: js.UndefOr[js.Any] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var imgProps: js.UndefOr[js.Any] = js.native
+    var key: js.UndefOr[String] = js.native
     var sizes: js.UndefOr[String] = js.native
     var src: js.UndefOr[String] = js.native
     var srcSet: js.UndefOr[String] = js.native
@@ -48,6 +49,8 @@ object Avatar {
    * @param imgProps
    *        Attributes applied to the `img` element if the component
    *        is used to display an image.
+   * @param key
+   *        React key
    * @param sizes
    *        The `sizes` attribute for the `img` element.
    * @param src
@@ -62,6 +65,7 @@ object Avatar {
     classes: js.UndefOr[js.Any] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     imgProps: js.UndefOr[js.Any] = js.undefined,
+    key: js.UndefOr[String] = js.undefined,
     sizes: js.UndefOr[String] = js.undefined,
     src: js.UndefOr[String] = js.undefined,
     srcSet: js.UndefOr[String] = js.undefined
@@ -74,6 +78,7 @@ object Avatar {
     if (classes.isDefined) {p.classes = classes}
     if (component.isDefined) {p.component = component}
     if (imgProps.isDefined) {p.imgProps = imgProps}
+    if (key.isDefined) {p.key = key}
     if (sizes.isDefined) {p.sizes = sizes}
     if (src.isDefined) {p.src = src}
     if (srcSet.isDefined) {p.srcSet = srcSet}
