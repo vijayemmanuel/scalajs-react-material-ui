@@ -82,6 +82,14 @@ object Checkbox {
    *        The input component property `type`.
    * @param value
    *        The value of the component.
+   * @param additionalProps
+   *        Optional parameter - if specified, this must be a js.Object containing additional props
+   *        to pass to the underlying JS component. Each field of additionalProps will be added to the
+   *        JS props object, if a field with the same name is not already present (from one of the other
+   *        parameters of this function). This functions like `...additionalProps` at the beginning of the
+   *        component in JS. Used for e.g. Downshift integration, where Downshift will provide properties
+   *        in this format to be added to rendered components.
+   *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
     checked: js.UndefOr[js.Any] = js.undefined,
@@ -99,7 +107,8 @@ object Checkbox {
     key: js.UndefOr[String] = js.undefined,
     onChange: js.UndefOr[Callback] = js.undefined,
     `type`: js.UndefOr[String] = js.undefined,
-    value: js.UndefOr[String] = js.undefined
+    value: js.UndefOr[String] = js.undefined,
+    additionalProps: js.UndefOr[js.Object] = js.undefined
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
@@ -120,6 +129,16 @@ object Checkbox {
     if (`type`.isDefined) {p.`type` = `type`}
     if (value.isDefined) {p.value = value}
 
+    additionalProps.foreach {
+      a => {
+        val dict = a.asInstanceOf[js.Dictionary[js.Any]]
+        val pDict = p.asInstanceOf[js.Dictionary[js.Any]]
+        for ((prop, value) <- dict) {
+          if (!p.hasOwnProperty(prop)) pDict(prop) = value
+        }
+      }
+    }
+    
     jsFnComponent(p)()
   }
 

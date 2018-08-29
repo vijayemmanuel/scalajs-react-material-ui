@@ -42,6 +42,14 @@ object Paper {
    *        React key
    * @param square
    *        If `true`, rounded corners are disabled.
+   * @param additionalProps
+   *        Optional parameter - if specified, this must be a js.Object containing additional props
+   *        to pass to the underlying JS component. Each field of additionalProps will be added to the
+   *        JS props object, if a field with the same name is not already present (from one of the other
+   *        parameters of this function). This functions like `...additionalProps` at the beginning of the
+   *        component in JS. Used for e.g. Downshift integration, where Downshift will provide properties
+   *        in this format to be added to rendered components.
+   *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
@@ -49,7 +57,8 @@ object Paper {
     component: js.UndefOr[js.Any] = js.undefined,
     elevation: js.UndefOr[Double] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
-    square: js.UndefOr[Boolean] = js.undefined
+    square: js.UndefOr[Boolean] = js.undefined,
+    additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
@@ -60,6 +69,16 @@ object Paper {
     if (key.isDefined) {p.key = key}
     if (square.isDefined) {p.square = square}
 
+    additionalProps.foreach {
+      a => {
+        val dict = a.asInstanceOf[js.Dictionary[js.Any]]
+        val pDict = p.asInstanceOf[js.Dictionary[js.Any]]
+        for ((prop, value) <- dict) {
+          if (!p.hasOwnProperty(prop)) pDict(prop) = value
+        }
+      }
+    }
+    
     jsFnComponent(p)(children: _*)
   }
 

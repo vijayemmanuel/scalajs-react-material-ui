@@ -233,7 +233,17 @@ object DocGenGen {
           List(s"@param $n"),
           lines(p.description).map("       " + _)
         ).flatten
-      }
+      } ++ 
+      List(
+        "@param additionalProps",
+        "       Optional parameter - if specified, this must be a js.Object containing additional props",
+        "       to pass to the underlying JS component. Each field of additionalProps will be added to the",
+        "       JS props object, if a field with the same name is not already present (from one of the other",
+        "       parameters of this function). This functions like `...additionalProps` at the beginning of the",
+        "       component in JS. Used for e.g. Downshift integration, where Downshift will provide properties",
+        "       in this format to be added to rendered components.",
+        "       Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components"
+      )
     ).mkString("\n   * ")
   }
 
@@ -272,10 +282,10 @@ object DocGenGen {
             s"var $name: ${propTypeJS(name, prop)} = js.native"
         }.mkString("\n    ")
 
-        val propParams = usedProps.map { 
+        val propParams = (usedProps.map { 
           case (name, prop) =>
             s"$name: ${propTypeScala(name, prop)}${defaultValue(prop)}"
-        }.mkString(",\n    ")
+        } :+ "additionalProps: js.UndefOr[js.Object] = js.undefined").mkString(",\n    ")
 
         val propAssignments = usedProps.map { 
           case (name, prop) =>
@@ -322,6 +332,16 @@ object DocGenGen {
         |    val p = (new js.Object).asInstanceOf[Props]
         |    $propAssignments
         |
+        |    additionalProps.foreach {
+        |      a => {
+        |        val dict = a.asInstanceOf[js.Dictionary[js.Any]]
+        |        val pDict = p.asInstanceOf[js.Dictionary[js.Any]]
+        |        for ((prop, value) <- dict) {
+        |          if (!p.hasOwnProperty(prop)) pDict(prop) = value
+        |        }
+        |      }
+        |    }
+        |    
         |    jsFnComponent(p)$childrenArgumentGroup
         |  }
         |
