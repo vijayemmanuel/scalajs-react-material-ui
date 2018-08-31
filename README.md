@@ -65,7 +65,7 @@ mui.IconButton(
 3. Colors
 4. Icons
 5. More testing/demos
-6. Check all components are included
+6. Check all components are included - see https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/index.js
 7. ExpansionPanel onChange parameters
 8. Any other missing events from native elements? E.g. onClick on MenuItem is not documented.
 9. Aria properties
@@ -73,3 +73,4 @@ mui.IconButton(
 11. Detect `classes` prop and accept a Map[String, String]?
 12. Consider changing PascalCase prop names to camelCase to be more idiomatic. Consider typing these based on a map from prop names to the Component name of the sub element. This would still allow use of a `js.Object` containing props, in an `additionalProps` field.
 13. Support component methods
+14. Support for withStyles?
