@@ -12,11 +12,12 @@ object List {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var dense: js.UndefOr[Boolean] = js.native
     var disablePadding: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var subheader: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
   }
 
@@ -44,6 +45,8 @@ object List {
    *        If `true`, vertical padding will be removed from the list.
    * @param key
    *        React key
+   * @param style
+   *        React element CSS style
    * @param subheader
    *        The content of the subheader, normally `ListSubheader`.
    * @param additionalProps
@@ -57,11 +60,12 @@ object List {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     dense: js.UndefOr[Boolean] = js.undefined,
     disablePadding: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     subheader: js.UndefOr[VdomNode] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -73,6 +77,7 @@ object List {
     if (dense.isDefined) {p.dense = dense}
     if (disablePadding.isDefined) {p.disablePadding = disablePadding}
     if (key.isDefined) {p.key = key}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (subheader.isDefined) {p.subheader = subheader.map(v => v.rawNode)}
 
     additionalProps.foreach {

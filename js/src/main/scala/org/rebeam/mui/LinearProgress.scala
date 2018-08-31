@@ -28,9 +28,10 @@ object LinearProgress {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var color: js.UndefOr[String] = js.native
     var key: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var value: js.UndefOr[Double] = js.native
     var valueBuffer: js.UndefOr[Double] = js.native
     var variant: js.UndefOr[String] = js.native
@@ -57,6 +58,8 @@ object LinearProgress {
    *        The color of the component. It supports those theme colors that make sense for this component.
    * @param key
    *        React key
+   * @param style
+   *        React element CSS style
    * @param value
    *        The value of the progress indicator for the determinate and buffer variants.
    *        Value between 0 and 100.
@@ -77,9 +80,10 @@ object LinearProgress {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     value: js.UndefOr[Double] = js.undefined,
     valueBuffer: js.UndefOr[Double] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined,
@@ -91,6 +95,7 @@ object LinearProgress {
     if (classes.isDefined) {p.classes = classes}
     if (color.isDefined) {p.color = color.map(v => v.value)}
     if (key.isDefined) {p.key = key}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (value.isDefined) {p.value = value}
     if (valueBuffer.isDefined) {p.valueBuffer = valueBuffer}
     if (variant.isDefined) {p.variant = variant.map(v => v.value)}
@@ -105,7 +110,7 @@ object LinearProgress {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

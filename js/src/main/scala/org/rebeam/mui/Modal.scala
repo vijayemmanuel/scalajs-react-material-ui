@@ -12,9 +12,9 @@ object Modal {
   @js.native
   trait Props extends js.Object {
     var BackdropComponent: js.UndefOr[js.Any] = js.native
-    var BackdropProps: js.UndefOr[js.Any] = js.native
+    var BackdropProps: js.UndefOr[js.Object] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var container: js.UndefOr[js.Any] = js.native
     var disableAutoFocus: js.UndefOr[Boolean] = js.native
     var disableBackdropClick: js.UndefOr[Boolean] = js.native
@@ -25,12 +25,13 @@ object Modal {
     var hideBackdrop: js.UndefOr[Boolean] = js.native
     var keepMounted: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
-    var manager: js.UndefOr[js.Any] = js.native
+    var manager: js.UndefOr[js.Object] = js.native
     var onBackdropClick: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onClose: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onEscapeKeyDown: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onRendered: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var open: Boolean = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/Modal", JSImport.Default)
@@ -102,6 +103,8 @@ object Modal {
    *        It signals that the `open={true}` property took effect.
    * @param open
    *        If `true`, the modal is open.
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -113,9 +116,9 @@ object Modal {
    */
   def apply(
     BackdropComponent: js.UndefOr[js.Any] = js.undefined,
-    BackdropProps: js.UndefOr[js.Any] = js.undefined,
+    BackdropProps: js.UndefOr[js.Object] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     container: js.UndefOr[js.Any] = js.undefined,
     disableAutoFocus: js.UndefOr[Boolean] = js.undefined,
     disableBackdropClick: js.UndefOr[Boolean] = js.undefined,
@@ -126,12 +129,13 @@ object Modal {
     hideBackdrop: js.UndefOr[Boolean] = js.undefined,
     keepMounted: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
-    manager: js.UndefOr[js.Any] = js.undefined,
+    manager: js.UndefOr[js.Object] = js.undefined,
     onBackdropClick: js.UndefOr[Callback] = js.undefined,
     onClose: js.UndefOr[Callback] = js.undefined,
     onEscapeKeyDown: js.UndefOr[Callback] = js.undefined,
     onRendered: js.UndefOr[Callback] = js.undefined,
     open: Boolean,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -156,6 +160,7 @@ object Modal {
     if (onEscapeKeyDown.isDefined) {p.onEscapeKeyDown = onEscapeKeyDown.map(v => v.toJsFn)}
     if (onRendered.isDefined) {p.onRendered = onRendered.map(v => v.toJsFn)}
     p.open = open
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

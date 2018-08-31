@@ -37,17 +37,17 @@ object TablePagination {
   @js.native
   trait Props extends js.Object {
     var ActionsComponent: js.UndefOr[js.Any] = js.native
-    var SelectProps: js.UndefOr[js.Any] = js.native
-    var backIconButtonProps: js.UndefOr[js.Any] = js.native
+    var SelectProps: js.UndefOr[js.Object] = js.native
+    var backIconButtonProps: js.UndefOr[js.Object] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var colSpan: js.UndefOr[Double] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var count: Double = js.native
     var key: js.UndefOr[String] = js.native
     var labelDisplayedRows: js.UndefOr[js.Any] = js.native
     var labelRowsPerPage: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
-    var nextIconButtonProps: js.UndefOr[js.Any] = js.native
+    var nextIconButtonProps: js.UndefOr[js.Object] = js.native
     var numeric: js.UndefOr[Boolean] = js.native
     var onChangePage: scalajs.js.Function0[Unit] = js.native
     var onChangeRowsPerPage: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -57,6 +57,7 @@ object TablePagination {
     var rowsPerPageOptions: js.UndefOr[List[js.Any]] = js.native
     var scope: js.UndefOr[String] = js.native
     var sortDirection: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var variant: js.UndefOr[String] = js.native
   }
 
@@ -126,6 +127,8 @@ object TablePagination {
    * @param sortDirection
    *        Set aria-sort direction.
    *        Passed to TableCell
+   * @param style
+   *        React element CSS style
    * @param variant
    *        Specify the cell type.
    *        By default, the TableHead, TableBody or TableFooter parent component set the value.
@@ -141,17 +144,17 @@ object TablePagination {
    */
   def apply(
     ActionsComponent: js.UndefOr[js.Any] = js.undefined,
-    SelectProps: js.UndefOr[js.Any] = js.undefined,
-    backIconButtonProps: js.UndefOr[js.Any] = js.undefined,
+    SelectProps: js.UndefOr[js.Object] = js.undefined,
+    backIconButtonProps: js.UndefOr[js.Object] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     colSpan: js.UndefOr[Double] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     count: Double,
     key: js.UndefOr[String] = js.undefined,
     labelDisplayedRows: js.UndefOr[js.Any] = js.undefined,
     labelRowsPerPage: js.UndefOr[VdomNode] = js.undefined,
-    nextIconButtonProps: js.UndefOr[js.Any] = js.undefined,
+    nextIconButtonProps: js.UndefOr[js.Object] = js.undefined,
     numeric: js.UndefOr[Boolean] = js.undefined,
     onChangePage: Callback,
     onChangeRowsPerPage: js.UndefOr[Callback] = js.undefined,
@@ -161,6 +164,7 @@ object TablePagination {
     rowsPerPageOptions: js.UndefOr[List[js.Any]] = js.undefined,
     scope: js.UndefOr[String] = js.undefined,
     sortDirection: js.UndefOr[SortDirection] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   ) = {
@@ -187,6 +191,7 @@ object TablePagination {
     if (rowsPerPageOptions.isDefined) {p.rowsPerPageOptions = rowsPerPageOptions}
     if (scope.isDefined) {p.scope = scope}
     if (sortDirection.isDefined) {p.sortDirection = sortDirection.map(v => v.value)}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     additionalProps.foreach {
@@ -199,7 +204,7 @@ object TablePagination {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

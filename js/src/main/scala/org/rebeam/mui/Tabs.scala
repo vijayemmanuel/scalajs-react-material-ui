@@ -35,20 +35,21 @@ object Tabs {
   @js.native
   trait Props extends js.Object {
     var ScrollButtonComponent: js.UndefOr[js.Any] = js.native
-    var TabIndicatorProps: js.UndefOr[js.Any] = js.native
+    var TabIndicatorProps: js.UndefOr[js.Object] = js.native
     var action: js.UndefOr[js.Any] = js.native
     var centered: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var fullWidth: js.UndefOr[Boolean] = js.native
     var indicatorColor: js.UndefOr[String] = js.native
     var key: js.UndefOr[String] = js.native
-    var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
+    var onChange: js.UndefOr[scalajs.js.Function1[ReactEvent, Unit]] = js.native
     var scrollButtons: js.UndefOr[String] = js.native
     var scrollable: js.UndefOr[Boolean] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var textColor: js.UndefOr[String] = js.native
-    var theme: js.Any = js.native
+    var theme: js.Object = js.native
     var value: js.UndefOr[js.Any] = js.native
   }
 
@@ -102,6 +103,8 @@ object Tabs {
    * @param scrollable
    *        True invokes scrolling properties and allow for horizontally scrolling
    *        (or swiping) the tab bar.
+   * @param style
+   *        React element CSS style
    * @param textColor
    *        Determines the color of the `Tab`.
    * @param theme
@@ -120,20 +123,21 @@ object Tabs {
    */
   def apply(
     ScrollButtonComponent: js.UndefOr[js.Any] = js.undefined,
-    TabIndicatorProps: js.UndefOr[js.Any] = js.undefined,
+    TabIndicatorProps: js.UndefOr[js.Object] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
     centered: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     fullWidth: js.UndefOr[Boolean] = js.undefined,
     indicatorColor: js.UndefOr[IndicatorColor] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
-    onChange: js.UndefOr[Callback] = js.undefined,
+    onChange: js.UndefOr[ReactEvent => Callback] = js.undefined,
     scrollButtons: js.UndefOr[ScrollButtons] = js.undefined,
     scrollable: js.UndefOr[Boolean] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     textColor: js.UndefOr[TextColor] = js.undefined,
-    theme: js.Any,
+    theme: js.Object,
     value: js.UndefOr[js.Any] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -149,9 +153,10 @@ object Tabs {
     if (fullWidth.isDefined) {p.fullWidth = fullWidth}
     if (indicatorColor.isDefined) {p.indicatorColor = indicatorColor.map(v => v.value)}
     if (key.isDefined) {p.key = key}
-    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEvent) => v(e).runNow())}
     if (scrollButtons.isDefined) {p.scrollButtons = scrollButtons.map(v => v.value)}
     if (scrollable.isDefined) {p.scrollable = scrollable}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (textColor.isDefined) {p.textColor = textColor.map(v => v.value)}
     p.theme = theme
     if (value.isDefined) {p.value = value}

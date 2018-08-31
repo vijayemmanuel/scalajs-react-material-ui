@@ -13,11 +13,12 @@ object Divider {
   trait Props extends js.Object {
     var absolute: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var inset: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
     var light: js.UndefOr[Boolean] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/Divider", JSImport.Default)
@@ -44,6 +45,8 @@ object Divider {
    *        React key
    * @param light
    *        If `true`, the divider will have a lighter color.
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -56,11 +59,12 @@ object Divider {
   def apply(
     absolute: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     inset: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     light: js.UndefOr[Boolean] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   ) = {
 
@@ -72,6 +76,7 @@ object Divider {
     if (inset.isDefined) {p.inset = inset}
     if (key.isDefined) {p.key = key}
     if (light.isDefined) {p.light = light}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {
@@ -83,7 +88,7 @@ object Divider {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

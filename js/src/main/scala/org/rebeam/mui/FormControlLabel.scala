@@ -20,7 +20,7 @@ object FormControlLabel {
   trait Props extends js.Object {
     var checked: js.UndefOr[js.Any] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var control: js.UndefOr[japgolly.scalajs.react.raw.React.Element] = js.native
     var disabled: js.UndefOr[Boolean] = js.native
     var inputRef: js.UndefOr[js.Any] = js.native
@@ -28,7 +28,8 @@ object FormControlLabel {
     var label: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var labelPlacement: js.UndefOr[String] = js.native
     var name: js.UndefOr[String] = js.native
-    var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
+    var onChange: js.UndefOr[scalajs.js.Function1[ReactEvent, Unit]] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var value: js.UndefOr[String] = js.native
   }
 
@@ -68,6 +69,8 @@ object FormControlLabel {
    *        parameter {object} event The event source of the callback.
    *        You can pull out the new value by accessing `event.target.checked`.
    *        parameter {boolean} checked The `checked` value of the switch
+   * @param style
+   *        React element CSS style
    * @param value
    *        The value of the component.
    * @param additionalProps
@@ -82,7 +85,7 @@ object FormControlLabel {
   def apply(
     checked: js.UndefOr[js.Any] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     control: js.UndefOr[VdomElement] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
     inputRef: js.UndefOr[js.Any] = js.undefined,
@@ -90,7 +93,8 @@ object FormControlLabel {
     label: js.UndefOr[VdomNode] = js.undefined,
     labelPlacement: js.UndefOr[LabelPlacement] = js.undefined,
     name: js.UndefOr[String] = js.undefined,
-    onChange: js.UndefOr[Callback] = js.undefined,
+    onChange: js.UndefOr[ReactEvent => Callback] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     value: js.UndefOr[String] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   ) = {
@@ -106,7 +110,8 @@ object FormControlLabel {
     if (label.isDefined) {p.label = label.map(v => v.rawNode)}
     if (labelPlacement.isDefined) {p.labelPlacement = labelPlacement.map(v => v.value)}
     if (name.isDefined) {p.name = name}
-    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEvent) => v(e).runNow())}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (value.isDefined) {p.value = value}
 
     additionalProps.foreach {
@@ -119,7 +124,7 @@ object FormControlLabel {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

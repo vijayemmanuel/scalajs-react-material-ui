@@ -37,13 +37,14 @@ object TableCell {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var key: js.UndefOr[String] = js.native
     var numeric: js.UndefOr[Boolean] = js.native
     var padding: js.UndefOr[String] = js.native
     var scope: js.UndefOr[String] = js.native
     var sortDirection: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var variant: js.UndefOr[String] = js.native
   }
 
@@ -74,6 +75,8 @@ object TableCell {
    *        Set scope attribute.
    * @param sortDirection
    *        Set aria-sort direction.
+   * @param style
+   *        React element CSS style
    * @param variant
    *        Specify the cell type.
    *        By default, the TableHead, TableBody or TableFooter parent component set the value.
@@ -88,13 +91,14 @@ object TableCell {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     numeric: js.UndefOr[Boolean] = js.undefined,
     padding: js.UndefOr[Padding] = js.undefined,
     scope: js.UndefOr[String] = js.undefined,
     sortDirection: js.UndefOr[SortDirection] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -108,6 +112,7 @@ object TableCell {
     if (padding.isDefined) {p.padding = padding.map(v => v.value)}
     if (scope.isDefined) {p.scope = scope}
     if (sortDirection.isDefined) {p.sortDirection = sortDirection.map(v => v.value)}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     additionalProps.foreach {

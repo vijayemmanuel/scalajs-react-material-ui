@@ -19,12 +19,12 @@ object Tab {
           
   @js.native
   trait Props extends js.Object {
-    var TouchRippleProps: js.UndefOr[js.Any] = js.native
+    var TouchRippleProps: js.UndefOr[js.Object] = js.native
     var action: js.UndefOr[js.Any] = js.native
     var buttonRef: js.UndefOr[js.Any] = js.native
     var centerRipple: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var disableRipple: js.UndefOr[Boolean] = js.native
     var disableTouchRipple: js.UndefOr[Boolean] = js.native
@@ -37,7 +37,7 @@ object Tab {
     var key: js.UndefOr[String] = js.native
     var label: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
-    var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
+    var onChange: js.UndefOr[scalajs.js.Function1[ReactEvent, Unit]] = js.native
     var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
     var onFocus: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
     var onFocusVisible: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -51,6 +51,7 @@ object Tab {
     var onTouchStart: js.UndefOr[scalajs.js.Function1[ReactTouchEvent, Unit]] = js.native
     var role: js.UndefOr[String] = js.native
     var selected: js.UndefOr[Boolean] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var tabIndex: js.UndefOr[js.Any] = js.native
     var textColor: js.UndefOr[String] = js.native
     var `type`: js.UndefOr[String] = js.native
@@ -165,6 +166,8 @@ object Tab {
    *        Passed to ButtonBase
    * @param selected
    *        Property spread to root element
+   * @param style
+   *        React element CSS style
    * @param tabIndex
    *        Property spread to root element
    *        Passed to ButtonBase
@@ -187,12 +190,12 @@ object Tab {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
-    TouchRippleProps: js.UndefOr[js.Any] = js.undefined,
+    TouchRippleProps: js.UndefOr[js.Object] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
     buttonRef: js.UndefOr[js.Any] = js.undefined,
     centerRipple: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     disableRipple: js.UndefOr[Boolean] = js.undefined,
     disableTouchRipple: js.UndefOr[Boolean] = js.undefined,
@@ -205,7 +208,7 @@ object Tab {
     key: js.UndefOr[String] = js.undefined,
     label: js.UndefOr[VdomNode] = js.undefined,
     onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
-    onChange: js.UndefOr[Callback] = js.undefined,
+    onChange: js.UndefOr[ReactEvent => Callback] = js.undefined,
     onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
     onFocus: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
     onFocusVisible: js.UndefOr[Callback] = js.undefined,
@@ -219,6 +222,7 @@ object Tab {
     onTouchStart: js.UndefOr[ReactTouchEvent => Callback] = js.undefined,
     role: js.UndefOr[String] = js.undefined,
     selected: js.UndefOr[Boolean] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     tabIndex: js.UndefOr[js.Any] = js.undefined,
     textColor: js.UndefOr[TextColor] = js.undefined,
     `type`: js.UndefOr[String] = js.undefined,
@@ -245,7 +249,7 @@ object Tab {
     if (key.isDefined) {p.key = key}
     if (label.isDefined) {p.label = label.map(v => v.rawNode)}
     if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
-    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEvent) => v(e).runNow())}
     if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}
     if (onFocus.isDefined) {p.onFocus = onFocus.map(v => (e: ReactFocusEvent) => v(e).runNow())}
     if (onFocusVisible.isDefined) {p.onFocusVisible = onFocusVisible.map(v => v.toJsFn)}
@@ -259,6 +263,7 @@ object Tab {
     if (onTouchStart.isDefined) {p.onTouchStart = onTouchStart.map(v => (e: ReactTouchEvent) => v(e).runNow())}
     if (role.isDefined) {p.role = role}
     if (selected.isDefined) {p.selected = selected}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (tabIndex.isDefined) {p.tabIndex = tabIndex}
     if (textColor.isDefined) {p.textColor = textColor.map(v => v.value)}
     if (`type`.isDefined) {p.`type` = `type`}
@@ -274,7 +279,7 @@ object Tab {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

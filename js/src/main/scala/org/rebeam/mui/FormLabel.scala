@@ -12,7 +12,7 @@ object FormLabel {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var disabled: js.UndefOr[Boolean] = js.native
     var error: js.UndefOr[Boolean] = js.native
@@ -20,6 +20,7 @@ object FormLabel {
     var focused: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
     var required: js.UndefOr[Boolean] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/FormLabel", JSImport.Default)
@@ -50,6 +51,8 @@ object FormLabel {
    *        React key
    * @param required
    *        If `true`, the label will indicate that the input is required.
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -61,7 +64,7 @@ object FormLabel {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
     error: js.UndefOr[Boolean] = js.undefined,
@@ -69,6 +72,7 @@ object FormLabel {
     focused: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     required: js.UndefOr[Boolean] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -82,6 +86,7 @@ object FormLabel {
     if (focused.isDefined) {p.focused = focused}
     if (key.isDefined) {p.key = key}
     if (required.isDefined) {p.required = required}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

@@ -21,7 +21,7 @@ object Checkbox {
   trait Props extends js.Object {
     var checked: js.UndefOr[js.Any] = js.native
     var checkedIcon: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var color: js.UndefOr[String] = js.native
     var disableRipple: js.UndefOr[Boolean] = js.native
     var disabled: js.UndefOr[Boolean] = js.native
@@ -29,10 +29,11 @@ object Checkbox {
     var id: js.UndefOr[String] = js.native
     var indeterminate: js.UndefOr[Boolean] = js.native
     var indeterminateIcon: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
-    var inputProps: js.UndefOr[js.Any] = js.native
+    var inputProps: js.UndefOr[js.Object] = js.native
     var inputRef: js.UndefOr[js.Any] = js.native
     var key: js.UndefOr[String] = js.native
-    var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
+    var onChange: js.UndefOr[scalajs.js.Function1[ReactEvent, Unit]] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var `type`: js.UndefOr[String] = js.native
     var value: js.UndefOr[String] = js.native
   }
@@ -78,6 +79,8 @@ object Checkbox {
    *        parameter {object} event The event source of the callback.
    *        You can pull out the new value by accessing `event.target.checked`.
    *        parameter {boolean} checked The `checked` value of the switch
+   * @param style
+   *        React element CSS style
    * @param `type`
    *        The input component property `type`.
    * @param value
@@ -94,7 +97,7 @@ object Checkbox {
   def apply(
     checked: js.UndefOr[js.Any] = js.undefined,
     checkedIcon: js.UndefOr[VdomNode] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
     disableRipple: js.UndefOr[Boolean] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
@@ -102,10 +105,11 @@ object Checkbox {
     id: js.UndefOr[String] = js.undefined,
     indeterminate: js.UndefOr[Boolean] = js.undefined,
     indeterminateIcon: js.UndefOr[VdomNode] = js.undefined,
-    inputProps: js.UndefOr[js.Any] = js.undefined,
+    inputProps: js.UndefOr[js.Object] = js.undefined,
     inputRef: js.UndefOr[js.Any] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
-    onChange: js.UndefOr[Callback] = js.undefined,
+    onChange: js.UndefOr[ReactEvent => Callback] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     `type`: js.UndefOr[String] = js.undefined,
     value: js.UndefOr[String] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
@@ -125,7 +129,8 @@ object Checkbox {
     if (inputProps.isDefined) {p.inputProps = inputProps}
     if (inputRef.isDefined) {p.inputRef = inputRef}
     if (key.isDefined) {p.key = key}
-    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEvent) => v(e).runNow())}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (`type`.isDefined) {p.`type` = `type`}
     if (value.isDefined) {p.value = value}
 
@@ -139,7 +144,7 @@ object Checkbox {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

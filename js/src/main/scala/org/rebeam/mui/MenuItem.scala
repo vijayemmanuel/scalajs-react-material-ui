@@ -12,10 +12,10 @@ object MenuItem {
   @js.native
   trait Props extends js.Object {
     var ContainerComponent: js.UndefOr[js.Any] = js.native
-    var ContainerProps: js.UndefOr[js.Any] = js.native
+    var ContainerProps: js.UndefOr[js.Object] = js.native
     var button: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var dense: js.UndefOr[Boolean] = js.native
     var disableGutters: js.UndefOr[Boolean] = js.native
@@ -26,6 +26,7 @@ object MenuItem {
     var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
     var role: js.UndefOr[String] = js.native
     var selected: js.UndefOr[Boolean] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/MenuItem", JSImport.Default)
@@ -78,6 +79,8 @@ object MenuItem {
    *        Property spread to root element
    * @param selected
    *        Use to apply selected styling.
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -89,10 +92,10 @@ object MenuItem {
    */
   def apply(
     ContainerComponent: js.UndefOr[js.Any] = js.undefined,
-    ContainerProps: js.UndefOr[js.Any] = js.undefined,
+    ContainerProps: js.UndefOr[js.Object] = js.undefined,
     button: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     dense: js.UndefOr[Boolean] = js.undefined,
     disableGutters: js.UndefOr[Boolean] = js.undefined,
@@ -103,6 +106,7 @@ object MenuItem {
     onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
     role: js.UndefOr[String] = js.undefined,
     selected: js.UndefOr[Boolean] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -122,6 +126,7 @@ object MenuItem {
     if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}
     if (role.isDefined) {p.role = role}
     if (selected.isDefined) {p.selected = selected}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

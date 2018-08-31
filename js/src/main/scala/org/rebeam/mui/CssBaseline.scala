@@ -11,8 +11,9 @@ object CssBaseline {
   
   @js.native
   trait Props extends js.Object {
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var key: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/CssBaseline", JSImport.Default)
@@ -27,6 +28,8 @@ object CssBaseline {
    *        Property spread to root element
    * @param key
    *        React key
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -37,14 +40,16 @@ object CssBaseline {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
     if (classes.isDefined) {p.classes = classes}
     if (key.isDefined) {p.key = key}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

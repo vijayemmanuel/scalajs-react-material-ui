@@ -39,6 +39,7 @@ object Hidden {
     var only: js.UndefOr[js.Any] = js.native
     var smDown: js.UndefOr[Boolean] = js.native
     var smUp: js.UndefOr[Boolean] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var xlDown: js.UndefOr[Boolean] = js.native
     var xlUp: js.UndefOr[Boolean] = js.native
     var xsDown: js.UndefOr[Boolean] = js.native
@@ -84,6 +85,8 @@ object Hidden {
    *        If true, screens this size and down will be hidden.
    * @param smUp
    *        If true, screens this size and up will be hidden.
+   * @param style
+   *        React element CSS style
    * @param xlDown
    *        If true, screens this size and down will be hidden.
    * @param xlUp
@@ -113,6 +116,7 @@ object Hidden {
     only: js.UndefOr[js.Any] = js.undefined,
     smDown: js.UndefOr[Boolean] = js.undefined,
     smUp: js.UndefOr[Boolean] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     xlDown: js.UndefOr[Boolean] = js.undefined,
     xlUp: js.UndefOr[Boolean] = js.undefined,
     xsDown: js.UndefOr[Boolean] = js.undefined,
@@ -132,6 +136,7 @@ object Hidden {
     if (only.isDefined) {p.only = only}
     if (smDown.isDefined) {p.smDown = smDown}
     if (smUp.isDefined) {p.smUp = smUp}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (xlDown.isDefined) {p.xlDown = xlDown}
     if (xlUp.isDefined) {p.xlUp = xlUp}
     if (xsDown.isDefined) {p.xsDown = xsDown}

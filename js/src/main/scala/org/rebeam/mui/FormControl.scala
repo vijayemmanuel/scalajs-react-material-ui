@@ -20,7 +20,7 @@ object FormControl {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var disabled: js.UndefOr[Boolean] = js.native
     var error: js.UndefOr[Boolean] = js.native
@@ -28,6 +28,7 @@ object FormControl {
     var key: js.UndefOr[String] = js.native
     var margin: js.UndefOr[String] = js.native
     var required: js.UndefOr[Boolean] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/FormControl", JSImport.Default)
@@ -65,6 +66,8 @@ object FormControl {
    *        If `dense` or `normal`, will adjust vertical spacing of this and contained components.
    * @param required
    *        If `true`, the label will indicate that the input is required.
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -76,7 +79,7 @@ object FormControl {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
     error: js.UndefOr[Boolean] = js.undefined,
@@ -84,6 +87,7 @@ object FormControl {
     key: js.UndefOr[String] = js.undefined,
     margin: js.UndefOr[Margin] = js.undefined,
     required: js.UndefOr[Boolean] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -97,6 +101,7 @@ object FormControl {
     if (key.isDefined) {p.key = key}
     if (margin.isDefined) {p.margin = margin.map(v => v.value)}
     if (required.isDefined) {p.required = required}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

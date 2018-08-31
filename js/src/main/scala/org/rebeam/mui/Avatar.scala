@@ -14,13 +14,14 @@ object Avatar {
     var alt: js.UndefOr[String] = js.native
     var childrenClassName: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
-    var imgProps: js.UndefOr[js.Any] = js.native
+    var imgProps: js.UndefOr[js.Object] = js.native
     var key: js.UndefOr[String] = js.native
     var sizes: js.UndefOr[String] = js.native
     var src: js.UndefOr[String] = js.native
     var srcSet: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/Avatar", JSImport.Default)
@@ -57,6 +58,8 @@ object Avatar {
    *        The `src` attribute for the `img` element.
    * @param srcSet
    *        The `srcSet` attribute for the `img` element.
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -70,13 +73,14 @@ object Avatar {
     alt: js.UndefOr[String] = js.undefined,
     childrenClassName: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
-    imgProps: js.UndefOr[js.Any] = js.undefined,
+    imgProps: js.UndefOr[js.Object] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     sizes: js.UndefOr[String] = js.undefined,
     src: js.UndefOr[String] = js.undefined,
     srcSet: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -91,6 +95,7 @@ object Avatar {
     if (sizes.isDefined) {p.sizes = sizes}
     if (src.isDefined) {p.src = src}
     if (srcSet.isDefined) {p.srcSet = srcSet}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

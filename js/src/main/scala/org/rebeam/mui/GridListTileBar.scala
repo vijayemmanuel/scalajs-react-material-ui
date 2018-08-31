@@ -28,8 +28,9 @@ object GridListTileBar {
     var actionIcon: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var actionPosition: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var key: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var subtitle: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var title: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var titlePosition: js.UndefOr[String] = js.native
@@ -55,6 +56,8 @@ object GridListTileBar {
    *        See [CSS API](#css-api) below for more details.
    * @param key
    *        React key
+   * @param style
+   *        React element CSS style
    * @param subtitle
    *        String or element serving as subtitle (support text).
    * @param title
@@ -74,8 +77,9 @@ object GridListTileBar {
     actionIcon: js.UndefOr[VdomNode] = js.undefined,
     actionPosition: js.UndefOr[ActionPosition] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     subtitle: js.UndefOr[VdomNode] = js.undefined,
     title: js.UndefOr[VdomNode] = js.undefined,
     titlePosition: js.UndefOr[TitlePosition] = js.undefined,
@@ -88,6 +92,7 @@ object GridListTileBar {
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (key.isDefined) {p.key = key}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (subtitle.isDefined) {p.subtitle = subtitle.map(v => v.rawNode)}
     if (title.isDefined) {p.title = title.map(v => v.rawNode)}
     if (titlePosition.isDefined) {p.titlePosition = titlePosition.map(v => v.value)}
@@ -102,7 +107,7 @@ object GridListTileBar {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

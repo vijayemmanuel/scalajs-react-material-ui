@@ -12,10 +12,11 @@ object BottomNavigation {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var key: js.UndefOr[String] = js.native
-    var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
+    var onChange: js.UndefOr[scalajs.js.Function1[ReactEvent, Unit]] = js.native
     var showLabels: js.UndefOr[Boolean] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var value: js.UndefOr[js.Any] = js.native
   }
 
@@ -42,6 +43,8 @@ object BottomNavigation {
    * @param showLabels
    *        If `true`, all `BottomNavigationAction`s will show their labels.
    *        By default, only the selected `BottomNavigationAction` will show its label.
+   * @param style
+   *        React element CSS style
    * @param value
    *        The value of the currently selected `BottomNavigationAction`.
    * @param additionalProps
@@ -55,10 +58,11 @@ object BottomNavigation {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
-    onChange: js.UndefOr[Callback] = js.undefined,
+    onChange: js.UndefOr[ReactEvent => Callback] = js.undefined,
     showLabels: js.UndefOr[Boolean] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     value: js.UndefOr[js.Any] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -67,8 +71,9 @@ object BottomNavigation {
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (key.isDefined) {p.key = key}
-    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEvent) => v(e).runNow())}
     if (showLabels.isDefined) {p.showLabels = showLabels}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (value.isDefined) {p.value = value}
 
     additionalProps.foreach {

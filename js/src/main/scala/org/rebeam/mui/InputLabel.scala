@@ -17,9 +17,9 @@ object InputLabel {
           
   @js.native
   trait Props extends js.Object {
-    var FormLabelClasses: js.UndefOr[js.Any] = js.native
+    var FormLabelClasses: js.UndefOr[js.Object] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var disableAnimation: js.UndefOr[Boolean] = js.native
     var disabled: js.UndefOr[Boolean] = js.native
@@ -30,6 +30,7 @@ object InputLabel {
     var margin: js.UndefOr[String] = js.native
     var required: js.UndefOr[Boolean] = js.native
     var shrink: js.UndefOr[Boolean] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/InputLabel", JSImport.Default)
@@ -71,6 +72,8 @@ object InputLabel {
    *        if `true`, the label will indicate that the input is required.
    * @param shrink
    *        If `true`, the label is shrunk.
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -81,9 +84,9 @@ object InputLabel {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
-    FormLabelClasses: js.UndefOr[js.Any] = js.undefined,
+    FormLabelClasses: js.UndefOr[js.Object] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     disableAnimation: js.UndefOr[Boolean] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
@@ -94,6 +97,7 @@ object InputLabel {
     margin: js.UndefOr[Margin] = js.undefined,
     required: js.UndefOr[Boolean] = js.undefined,
     shrink: js.UndefOr[Boolean] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -111,6 +115,7 @@ object InputLabel {
     if (margin.isDefined) {p.margin = margin.map(v => v.value)}
     if (required.isDefined) {p.required = required}
     if (shrink.isDefined) {p.shrink = shrink}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

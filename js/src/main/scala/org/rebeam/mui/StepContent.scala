@@ -19,16 +19,17 @@ object StepContent {
   @js.native
   trait Props extends js.Object {
     var TransitionComponent: js.UndefOr[js.Any] = js.native
-    var TransitionProps: js.UndefOr[js.Any] = js.native
+    var TransitionProps: js.UndefOr[js.Object] = js.native
     var active: js.UndefOr[Boolean] = js.native
     var alternativeLabel: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var completed: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
     var last: js.UndefOr[Boolean] = js.native
     var optional: js.UndefOr[Boolean] = js.native
     var orientation: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var transitionDuration: js.UndefOr[js.Any] = js.native
   }
 
@@ -66,6 +67,8 @@ object StepContent {
    *        Set internally by Step when it's supplied with the optional property.
    * @param orientation
    *        Property spread to root element
+   * @param style
+   *        React element CSS style
    * @param transitionDuration
    *        Adjust the duration of the content expand transition.
    *        Passed as a property to the transition component.
@@ -82,16 +85,17 @@ object StepContent {
    */
   def apply(
     TransitionComponent: js.UndefOr[js.Any] = js.undefined,
-    TransitionProps: js.UndefOr[js.Any] = js.undefined,
+    TransitionProps: js.UndefOr[js.Object] = js.undefined,
     active: js.UndefOr[Boolean] = js.undefined,
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     completed: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     last: js.UndefOr[Boolean] = js.undefined,
     optional: js.UndefOr[Boolean] = js.undefined,
     orientation: js.UndefOr[Orientation] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     transitionDuration: js.UndefOr[js.Any] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -108,6 +112,7 @@ object StepContent {
     if (last.isDefined) {p.last = last}
     if (optional.isDefined) {p.optional = optional}
     if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
 
     additionalProps.foreach {

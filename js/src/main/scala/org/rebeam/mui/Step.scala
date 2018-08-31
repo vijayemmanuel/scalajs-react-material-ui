@@ -21,7 +21,7 @@ object Step {
     var active: js.UndefOr[Boolean] = js.native
     var alternativeLabel: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var completed: js.UndefOr[Boolean] = js.native
     var connector: js.UndefOr[japgolly.scalajs.react.raw.React.Element] = js.native
     var disabled: js.UndefOr[Boolean] = js.native
@@ -29,6 +29,7 @@ object Step {
     var key: js.UndefOr[String] = js.native
     var last: js.UndefOr[Boolean] = js.native
     var orientation: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/Step", JSImport.Default)
@@ -66,6 +67,8 @@ object Step {
    *        Property spread to root element
    * @param orientation
    *        Property spread to root element
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -79,7 +82,7 @@ object Step {
     active: js.UndefOr[Boolean] = js.undefined,
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     completed: js.UndefOr[Boolean] = js.undefined,
     connector: js.UndefOr[VdomElement] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
@@ -87,6 +90,7 @@ object Step {
     key: js.UndefOr[String] = js.undefined,
     last: js.UndefOr[Boolean] = js.undefined,
     orientation: js.UndefOr[Orientation] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -102,6 +106,7 @@ object Step {
     if (key.isDefined) {p.key = key}
     if (last.isDefined) {p.last = last}
     if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

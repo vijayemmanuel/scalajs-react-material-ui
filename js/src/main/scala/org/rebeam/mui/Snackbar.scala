@@ -11,14 +11,14 @@ object Snackbar {
   
   @js.native
   trait Props extends js.Object {
-    var ContentProps: js.UndefOr[js.Any] = js.native
+    var ContentProps: js.UndefOr[js.Object] = js.native
     var TransitionComponent: js.UndefOr[js.Any] = js.native
-    var TransitionProps: js.UndefOr[js.Any] = js.native
+    var TransitionProps: js.UndefOr[js.Object] = js.native
     var action: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var anchorOrigin: js.UndefOr[js.Any] = js.native
     var autoHideDuration: js.UndefOr[Double] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var disableWindowBlurListener: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[js.Any] = js.native
     var message: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
@@ -33,6 +33,7 @@ object Snackbar {
     var onMouseLeave: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
     var open: js.UndefOr[Boolean] = js.native
     var resumeHideDuration: js.UndefOr[Double] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var transitionDuration: js.UndefOr[js.Any] = js.native
   }
 
@@ -105,6 +106,8 @@ object Snackbar {
    *        If `autoHideDuration` property isn't specified, it does nothing.
    *        If `autoHideDuration` property is specified but `resumeHideDuration` isn't,
    *        we default to `autoHideDuration / 2` ms.
+   * @param style
+   *        React element CSS style
    * @param transitionDuration
    *        The duration for the transition, in milliseconds.
    *        You may specify a single timeout for all transitions, or individually with an object.
@@ -118,14 +121,14 @@ object Snackbar {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
-    ContentProps: js.UndefOr[js.Any] = js.undefined,
+    ContentProps: js.UndefOr[js.Object] = js.undefined,
     TransitionComponent: js.UndefOr[js.Any] = js.undefined,
-    TransitionProps: js.UndefOr[js.Any] = js.undefined,
+    TransitionProps: js.UndefOr[js.Object] = js.undefined,
     action: js.UndefOr[VdomNode] = js.undefined,
     anchorOrigin: js.UndefOr[js.Any] = js.undefined,
     autoHideDuration: js.UndefOr[Double] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     disableWindowBlurListener: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[js.Any] = js.undefined,
     message: js.UndefOr[VdomNode] = js.undefined,
@@ -140,6 +143,7 @@ object Snackbar {
     onMouseLeave: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
     open: js.UndefOr[Boolean] = js.undefined,
     resumeHideDuration: js.UndefOr[Double] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     transitionDuration: js.UndefOr[js.Any] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -167,6 +171,7 @@ object Snackbar {
     if (onMouseLeave.isDefined) {p.onMouseLeave = onMouseLeave.map(v => (e: ReactMouseEvent) => v(e).runNow())}
     if (open.isDefined) {p.open = open}
     if (resumeHideDuration.isDefined) {p.resumeHideDuration = resumeHideDuration}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
 
     additionalProps.foreach {

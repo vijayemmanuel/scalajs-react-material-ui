@@ -12,10 +12,11 @@ object Backdrop {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var invisible: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
     var open: Boolean = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var transitionDuration: js.UndefOr[js.Any] = js.native
   }
 
@@ -39,6 +40,8 @@ object Backdrop {
    *        React key
    * @param open
    *        If `true`, the backdrop is open.
+   * @param style
+   *        React element CSS style
    * @param transitionDuration
    *        The duration for the transition, in milliseconds.
    *        You may specify a single timeout for all transitions, or individually with an object.
@@ -53,10 +56,11 @@ object Backdrop {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     invisible: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     open: Boolean,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     transitionDuration: js.UndefOr[js.Any] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   ) = {
@@ -67,6 +71,7 @@ object Backdrop {
     if (invisible.isDefined) {p.invisible = invisible}
     if (key.isDefined) {p.key = key}
     p.open = open
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
 
     additionalProps.foreach {
@@ -79,7 +84,7 @@ object Backdrop {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

@@ -21,7 +21,7 @@ object Chip {
   trait Props extends js.Object {
     var avatar: js.UndefOr[japgolly.scalajs.react.raw.React.Element] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var clickable: js.UndefOr[Boolean] = js.native
     var color: js.UndefOr[String] = js.native
     var component: js.UndefOr[js.Any] = js.native
@@ -31,6 +31,7 @@ object Chip {
     var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
     var onDelete: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onKeyDown: js.UndefOr[scalajs.js.Function1[ReactKeyboardEvent, Unit]] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var tabIndex: js.UndefOr[js.Any] = js.native
   }
 
@@ -71,6 +72,8 @@ object Chip {
    *        If set, the delete icon will be shown.
    * @param onKeyDown
    *        Property spread to root element
+   * @param style
+   *        React element CSS style
    * @param tabIndex
    *        Property spread to root element
    * @param additionalProps
@@ -85,7 +88,7 @@ object Chip {
   def apply(
     avatar: js.UndefOr[VdomElement] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     clickable: js.UndefOr[Boolean] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
@@ -95,6 +98,7 @@ object Chip {
     onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
     onDelete: js.UndefOr[Callback] = js.undefined,
     onKeyDown: js.UndefOr[ReactKeyboardEvent => Callback] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     tabIndex: js.UndefOr[js.Any] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   ) = {
@@ -112,6 +116,7 @@ object Chip {
     if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}
     if (onDelete.isDefined) {p.onDelete = onDelete.map(v => v.toJsFn)}
     if (onKeyDown.isDefined) {p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (tabIndex.isDefined) {p.tabIndex = tabIndex}
 
     additionalProps.foreach {
@@ -124,7 +129,7 @@ object Chip {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

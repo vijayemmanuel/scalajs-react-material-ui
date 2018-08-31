@@ -12,11 +12,12 @@ object GridListTile {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var cols: js.UndefOr[Double] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var key: js.UndefOr[String] = js.native
     var rows: js.UndefOr[Double] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/GridListTile", JSImport.Default)
@@ -41,6 +42,8 @@ object GridListTile {
    *        React key
    * @param rows
    *        Height of the tile in number of grid cells.
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -52,11 +55,12 @@ object GridListTile {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     cols: js.UndefOr[Double] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     rows: js.UndefOr[Double] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -67,6 +71,7 @@ object GridListTile {
     if (component.isDefined) {p.component = component}
     if (key.isDefined) {p.key = key}
     if (rows.isDefined) {p.rows = rows}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

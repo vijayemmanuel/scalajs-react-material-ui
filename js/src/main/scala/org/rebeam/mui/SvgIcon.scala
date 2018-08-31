@@ -30,12 +30,13 @@ object SvgIcon {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var color: js.UndefOr[String] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var fontSize: js.UndefOr[String] = js.native
     var key: js.UndefOr[String] = js.native
     var nativeColor: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var titleAccess: js.UndefOr[String] = js.native
     var viewBox: js.UndefOr[String] = js.native
   }
@@ -65,6 +66,8 @@ object SvgIcon {
    *        React key
    * @param nativeColor
    *        Applies a color attribute to the SVG element.
+   * @param style
+   *        React element CSS style
    * @param titleAccess
    *        Provides a human-readable title for the element that contains it.
    *        https://www.w3.org/TR/SVG-access/#Equivalent
@@ -85,12 +88,13 @@ object SvgIcon {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     fontSize: js.UndefOr[FontSize] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     nativeColor: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     titleAccess: js.UndefOr[String] = js.undefined,
     viewBox: js.UndefOr[String] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
@@ -104,6 +108,7 @@ object SvgIcon {
     if (fontSize.isDefined) {p.fontSize = fontSize.map(v => v.value)}
     if (key.isDefined) {p.key = key}
     if (nativeColor.isDefined) {p.nativeColor = nativeColor}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (titleAccess.isDefined) {p.titleAccess = titleAccess}
     if (viewBox.isDefined) {p.viewBox = viewBox}
 

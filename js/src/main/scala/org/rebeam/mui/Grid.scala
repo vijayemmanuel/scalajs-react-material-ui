@@ -174,7 +174,7 @@ object Grid {
     var alignContent: js.UndefOr[String] = js.native
     var alignItems: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var container: js.UndefOr[Boolean] = js.native
     var direction: js.UndefOr[String] = js.native
@@ -185,6 +185,7 @@ object Grid {
     var md: js.UndefOr[String] = js.native
     var sm: js.UndefOr[String] = js.native
     var spacing: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var wrap: js.UndefOr[String] = js.native
     var xl: js.UndefOr[String] = js.native
     var xs: js.UndefOr[String] = js.native
@@ -239,6 +240,8 @@ object Grid {
    * @param spacing
    *        Defines the space between the type `item` component.
    *        It can only be used on a type `container` component.
+   * @param style
+   *        React element CSS style
    * @param wrap
    *        Defines the `flex-wrap` style property.
    *        It's applied for all screen sizes.
@@ -264,7 +267,7 @@ object Grid {
     alignContent: js.UndefOr[AlignContent] = js.undefined,
     alignItems: js.UndefOr[AlignItems] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     container: js.UndefOr[Boolean] = js.undefined,
     direction: js.UndefOr[Direction] = js.undefined,
@@ -275,6 +278,7 @@ object Grid {
     md: js.UndefOr[Md] = js.undefined,
     sm: js.UndefOr[Sm] = js.undefined,
     spacing: js.UndefOr[Spacing] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     wrap: js.UndefOr[Wrap] = js.undefined,
     xl: js.UndefOr[Xl] = js.undefined,
     xs: js.UndefOr[Xs] = js.undefined,
@@ -297,6 +301,7 @@ object Grid {
     if (md.isDefined) {p.md = md.map(v => v.value)}
     if (sm.isDefined) {p.sm = sm.map(v => v.value)}
     if (spacing.isDefined) {p.spacing = spacing.map(v => v.value)}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (wrap.isDefined) {p.wrap = wrap.map(v => v.value)}
     if (xl.isDefined) {p.xl = xl.map(v => v.value)}
     if (xs.isDefined) {p.xs = xs.map(v => v.value)}

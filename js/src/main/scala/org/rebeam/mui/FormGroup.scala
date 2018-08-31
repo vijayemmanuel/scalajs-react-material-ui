@@ -12,9 +12,10 @@ object FormGroup {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var key: js.UndefOr[String] = js.native
     var row: js.UndefOr[Boolean] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/FormGroup", JSImport.Default)
@@ -36,6 +37,8 @@ object FormGroup {
    *        React key
    * @param row
    *        Display group of elements in a compact row.
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -47,9 +50,10 @@ object FormGroup {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     row: js.UndefOr[Boolean] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -58,6 +62,7 @@ object FormGroup {
     if (classes.isDefined) {p.classes = classes}
     if (key.isDefined) {p.key = key}
     if (row.isDefined) {p.row = row}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

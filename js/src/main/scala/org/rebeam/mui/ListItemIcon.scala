@@ -12,8 +12,9 @@ object ListItemIcon {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var key: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/ListItemIcon", JSImport.Default)
@@ -31,6 +32,8 @@ object ListItemIcon {
    *        See [CSS API](#css-api) below for more details.
    * @param key
    *        React key
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -42,8 +45,9 @@ object ListItemIcon {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -51,6 +55,7 @@ object ListItemIcon {
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (key.isDefined) {p.key = key}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

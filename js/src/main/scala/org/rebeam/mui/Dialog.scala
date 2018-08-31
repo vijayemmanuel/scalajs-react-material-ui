@@ -28,12 +28,12 @@ object Dialog {
   @js.native
   trait Props extends js.Object {
     var BackdropComponent: js.UndefOr[js.Any] = js.native
-    var BackdropProps: js.UndefOr[js.Any] = js.native
-    var PaperProps: js.UndefOr[js.Any] = js.native
+    var BackdropProps: js.UndefOr[js.Object] = js.native
+    var PaperProps: js.UndefOr[js.Object] = js.native
     var TransitionComponent: js.UndefOr[js.Any] = js.native
-    var TransitionProps: js.UndefOr[js.Any] = js.native
+    var TransitionProps: js.UndefOr[js.Object] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var container: js.UndefOr[js.Any] = js.native
     var disableAutoFocus: js.UndefOr[Boolean] = js.native
     var disableBackdropClick: js.UndefOr[Boolean] = js.native
@@ -46,7 +46,7 @@ object Dialog {
     var hideBackdrop: js.UndefOr[Boolean] = js.native
     var keepMounted: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
-    var manager: js.UndefOr[js.Any] = js.native
+    var manager: js.UndefOr[js.Object] = js.native
     var maxWidth: js.UndefOr[String] = js.native
     var onBackdropClick: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onClose: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -60,6 +60,7 @@ object Dialog {
     var onRendered: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var open: Boolean = js.native
     var scroll: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var transitionDuration: js.UndefOr[js.Any] = js.native
   }
 
@@ -169,6 +170,8 @@ object Dialog {
    *        If `true`, the Dialog is open.
    * @param scroll
    *        Determine the container for scrolling the dialog.
+   * @param style
+   *        React element CSS style
    * @param transitionDuration
    *        The duration for the transition, in milliseconds.
    *        You may specify a single timeout for all transitions, or individually with an object.
@@ -183,12 +186,12 @@ object Dialog {
    */
   def apply(
     BackdropComponent: js.UndefOr[js.Any] = js.undefined,
-    BackdropProps: js.UndefOr[js.Any] = js.undefined,
-    PaperProps: js.UndefOr[js.Any] = js.undefined,
+    BackdropProps: js.UndefOr[js.Object] = js.undefined,
+    PaperProps: js.UndefOr[js.Object] = js.undefined,
     TransitionComponent: js.UndefOr[js.Any] = js.undefined,
-    TransitionProps: js.UndefOr[js.Any] = js.undefined,
+    TransitionProps: js.UndefOr[js.Object] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     container: js.UndefOr[js.Any] = js.undefined,
     disableAutoFocus: js.UndefOr[Boolean] = js.undefined,
     disableBackdropClick: js.UndefOr[Boolean] = js.undefined,
@@ -201,7 +204,7 @@ object Dialog {
     hideBackdrop: js.UndefOr[Boolean] = js.undefined,
     keepMounted: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
-    manager: js.UndefOr[js.Any] = js.undefined,
+    manager: js.UndefOr[js.Object] = js.undefined,
     maxWidth: js.UndefOr[MaxWidth] = js.undefined,
     onBackdropClick: js.UndefOr[Callback] = js.undefined,
     onClose: js.UndefOr[Callback] = js.undefined,
@@ -215,6 +218,7 @@ object Dialog {
     onRendered: js.UndefOr[Callback] = js.undefined,
     open: Boolean,
     scroll: js.UndefOr[Scroll] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     transitionDuration: js.UndefOr[js.Any] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -253,6 +257,7 @@ object Dialog {
     if (onRendered.isDefined) {p.onRendered = onRendered.map(v => v.toJsFn)}
     p.open = open
     if (scroll.isDefined) {p.scroll = scroll.map(v => v.value)}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
 
     additionalProps.foreach {

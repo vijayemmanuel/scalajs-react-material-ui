@@ -20,20 +20,20 @@ object Menu {
   @js.native
   trait Props extends js.Object {
     var BackdropComponent: js.UndefOr[js.Any] = js.native
-    var BackdropProps: js.UndefOr[js.Any] = js.native
-    var MenuListProps: js.UndefOr[js.Any] = js.native
-    var ModalClasses: js.UndefOr[js.Any] = js.native
-    var PaperProps: js.UndefOr[js.Any] = js.native
-    var PopoverClasses: js.UndefOr[js.Any] = js.native
+    var BackdropProps: js.UndefOr[js.Object] = js.native
+    var MenuListProps: js.UndefOr[js.Object] = js.native
+    var ModalClasses: js.UndefOr[js.Object] = js.native
+    var PaperProps: js.UndefOr[js.Object] = js.native
+    var PopoverClasses: js.UndefOr[js.Object] = js.native
     var TransitionComponent: js.UndefOr[js.Any] = js.native
-    var TransitionProps: js.UndefOr[js.Any] = js.native
+    var TransitionProps: js.UndefOr[js.Object] = js.native
     var action: js.UndefOr[js.Any] = js.native
     var anchorEl: js.UndefOr[js.Any] = js.native
     var anchorOrigin: js.UndefOr[js.Any] = js.native
     var anchorPosition: js.UndefOr[js.Any] = js.native
     var anchorReference: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var container: js.UndefOr[js.Any] = js.native
     var disableAutoFocus: js.UndefOr[Boolean] = js.native
     var disableAutoFocusItem: js.UndefOr[Boolean] = js.native
@@ -47,7 +47,7 @@ object Menu {
     var hideBackdrop: js.UndefOr[Boolean] = js.native
     var keepMounted: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
-    var manager: js.UndefOr[js.Any] = js.native
+    var manager: js.UndefOr[js.Object] = js.native
     var marginThreshold: js.UndefOr[Double] = js.native
     var onBackdropClick: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onClose: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -61,6 +61,7 @@ object Menu {
     var onRendered: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var open: Boolean = js.native
     var role: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var transformOrigin: js.UndefOr[js.Any] = js.native
     var transitionDuration: js.UndefOr[js.Any] = js.native
   }
@@ -224,6 +225,8 @@ object Menu {
    * @param role
    *        Property spread to root element
    *        Passed to Popover
+   * @param style
+   *        React element CSS style
    * @param transformOrigin
    *        This is the point on the popover which
    *        will attach to the anchor's origin.
@@ -245,20 +248,20 @@ object Menu {
    */
   def apply(
     BackdropComponent: js.UndefOr[js.Any] = js.undefined,
-    BackdropProps: js.UndefOr[js.Any] = js.undefined,
-    MenuListProps: js.UndefOr[js.Any] = js.undefined,
-    ModalClasses: js.UndefOr[js.Any] = js.undefined,
-    PaperProps: js.UndefOr[js.Any] = js.undefined,
-    PopoverClasses: js.UndefOr[js.Any] = js.undefined,
+    BackdropProps: js.UndefOr[js.Object] = js.undefined,
+    MenuListProps: js.UndefOr[js.Object] = js.undefined,
+    ModalClasses: js.UndefOr[js.Object] = js.undefined,
+    PaperProps: js.UndefOr[js.Object] = js.undefined,
+    PopoverClasses: js.UndefOr[js.Object] = js.undefined,
     TransitionComponent: js.UndefOr[js.Any] = js.undefined,
-    TransitionProps: js.UndefOr[js.Any] = js.undefined,
+    TransitionProps: js.UndefOr[js.Object] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
     anchorEl: js.UndefOr[js.Any] = js.undefined,
     anchorOrigin: js.UndefOr[js.Any] = js.undefined,
     anchorPosition: js.UndefOr[js.Any] = js.undefined,
     anchorReference: js.UndefOr[AnchorReference] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     container: js.UndefOr[js.Any] = js.undefined,
     disableAutoFocus: js.UndefOr[Boolean] = js.undefined,
     disableAutoFocusItem: js.UndefOr[Boolean] = js.undefined,
@@ -272,7 +275,7 @@ object Menu {
     hideBackdrop: js.UndefOr[Boolean] = js.undefined,
     keepMounted: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
-    manager: js.UndefOr[js.Any] = js.undefined,
+    manager: js.UndefOr[js.Object] = js.undefined,
     marginThreshold: js.UndefOr[Double] = js.undefined,
     onBackdropClick: js.UndefOr[Callback] = js.undefined,
     onClose: js.UndefOr[Callback] = js.undefined,
@@ -286,6 +289,7 @@ object Menu {
     onRendered: js.UndefOr[Callback] = js.undefined,
     open: Boolean,
     role: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     transformOrigin: js.UndefOr[js.Any] = js.undefined,
     transitionDuration: js.UndefOr[js.Any] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
@@ -334,6 +338,7 @@ object Menu {
     if (onRendered.isDefined) {p.onRendered = onRendered.map(v => v.toJsFn)}
     p.open = open
     if (role.isDefined) {p.role = role}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (transformOrigin.isDefined) {p.transformOrigin = transformOrigin}
     if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
 

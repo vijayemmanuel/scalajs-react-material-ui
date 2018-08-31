@@ -19,13 +19,13 @@ object Select {
   @js.native
   trait Props extends js.Object {
     var IconComponent: js.UndefOr[js.Any] = js.native
-    var MenuProps: js.UndefOr[js.Any] = js.native
-    var SelectDisplayProps: js.UndefOr[js.Any] = js.native
+    var MenuProps: js.UndefOr[js.Object] = js.native
+    var SelectDisplayProps: js.UndefOr[js.Object] = js.native
     var autoComplete: js.UndefOr[String] = js.native
     var autoFocus: js.UndefOr[Boolean] = js.native
     var autoWidth: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var defaultValue: js.UndefOr[js.Any] = js.native
     var disableUnderline: js.UndefOr[Boolean] = js.native
     var disabled: js.UndefOr[Boolean] = js.native
@@ -36,7 +36,7 @@ object Select {
     var id: js.UndefOr[String] = js.native
     var input: js.UndefOr[japgolly.scalajs.react.raw.React.Element] = js.native
     var inputComponent: js.UndefOr[js.Any] = js.native
-    var inputProps: js.UndefOr[js.Any] = js.native
+    var inputProps: js.UndefOr[js.Object] = js.native
     var inputRef: js.UndefOr[js.Any] = js.native
     var key: js.UndefOr[String] = js.native
     var margin: js.UndefOr[String] = js.native
@@ -45,7 +45,7 @@ object Select {
     var name: js.UndefOr[String] = js.native
     var native: js.UndefOr[Boolean] = js.native
     var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
-    var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
+    var onChange: js.UndefOr[scalajs.js.Function1[ReactEvent, Unit]] = js.native
     var onClose: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onEmpty: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onFilled: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
@@ -61,6 +61,7 @@ object Select {
     var rows: js.UndefOr[js.Any] = js.native
     var rowsMax: js.UndefOr[js.Any] = js.native
     var startAdornment: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var `type`: js.UndefOr[String] = js.native
     var value: js.UndefOr[js.Any] = js.native
   }
@@ -213,6 +214,8 @@ object Select {
    * @param startAdornment
    *        Start `InputAdornment` for this component.
    *        Passed to Input
+   * @param style
+   *        React element CSS style
    * @param `type`
    *        Type of the input element. It should be a valid HTML5 input type.
    *        Passed to Input
@@ -230,13 +233,13 @@ object Select {
    */
   def apply(
     IconComponent: js.UndefOr[js.Any] = js.undefined,
-    MenuProps: js.UndefOr[js.Any] = js.undefined,
-    SelectDisplayProps: js.UndefOr[js.Any] = js.undefined,
+    MenuProps: js.UndefOr[js.Object] = js.undefined,
+    SelectDisplayProps: js.UndefOr[js.Object] = js.undefined,
     autoComplete: js.UndefOr[String] = js.undefined,
     autoFocus: js.UndefOr[Boolean] = js.undefined,
     autoWidth: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     defaultValue: js.UndefOr[js.Any] = js.undefined,
     disableUnderline: js.UndefOr[Boolean] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
@@ -247,7 +250,7 @@ object Select {
     id: js.UndefOr[String] = js.undefined,
     input: js.UndefOr[VdomElement] = js.undefined,
     inputComponent: js.UndefOr[js.Any] = js.undefined,
-    inputProps: js.UndefOr[js.Any] = js.undefined,
+    inputProps: js.UndefOr[js.Object] = js.undefined,
     inputRef: js.UndefOr[js.Any] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     margin: js.UndefOr[Margin] = js.undefined,
@@ -256,7 +259,7 @@ object Select {
     name: js.UndefOr[String] = js.undefined,
     native: js.UndefOr[Boolean] = js.undefined,
     onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
-    onChange: js.UndefOr[Callback] = js.undefined,
+    onChange: js.UndefOr[ReactEvent => Callback] = js.undefined,
     onClose: js.UndefOr[Callback] = js.undefined,
     onEmpty: js.UndefOr[Callback] = js.undefined,
     onFilled: js.UndefOr[Callback] = js.undefined,
@@ -272,6 +275,7 @@ object Select {
     rows: js.UndefOr[js.Any] = js.undefined,
     rowsMax: js.UndefOr[js.Any] = js.undefined,
     startAdornment: js.UndefOr[VdomNode] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     `type`: js.UndefOr[String] = js.undefined,
     value: js.UndefOr[js.Any] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
@@ -305,7 +309,7 @@ object Select {
     if (name.isDefined) {p.name = name}
     if (native.isDefined) {p.native = native}
     if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
-    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEvent) => v(e).runNow())}
     if (onClose.isDefined) {p.onClose = onClose.map(v => v.toJsFn)}
     if (onEmpty.isDefined) {p.onEmpty = onEmpty.map(v => v.toJsFn)}
     if (onFilled.isDefined) {p.onFilled = onFilled.map(v => v.toJsFn)}
@@ -321,6 +325,7 @@ object Select {
     if (rows.isDefined) {p.rows = rows}
     if (rowsMax.isDefined) {p.rowsMax = rowsMax}
     if (startAdornment.isDefined) {p.startAdornment = startAdornment.map(v => v.rawNode)}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (`type`.isDefined) {p.`type` = `type`}
     if (value.isDefined) {p.value = value}
 

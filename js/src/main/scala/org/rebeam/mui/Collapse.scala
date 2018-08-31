@@ -12,7 +12,7 @@ object Collapse {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var collapsedHeight: js.UndefOr[String] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var in: js.UndefOr[Boolean] = js.native
@@ -22,8 +22,8 @@ object Collapse {
     var onEntering: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onExit: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onExiting: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
-    var style: js.UndefOr[js.Any] = js.native
-    var theme: js.Any = js.native
+    var style: js.UndefOr[js.Object] = js.native
+    var theme: js.Object = js.native
     var timeout: js.UndefOr[js.Any] = js.native
   }
 
@@ -81,7 +81,7 @@ object Collapse {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     collapsedHeight: js.UndefOr[String] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     in: js.UndefOr[Boolean] = js.undefined,
@@ -91,8 +91,8 @@ object Collapse {
     onEntering: js.UndefOr[Callback] = js.undefined,
     onExit: js.UndefOr[Callback] = js.undefined,
     onExiting: js.UndefOr[Callback] = js.undefined,
-    style: js.UndefOr[js.Any] = js.undefined,
-    theme: js.Any,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
+    theme: js.Object,
     timeout: js.UndefOr[js.Any] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -109,7 +109,7 @@ object Collapse {
     if (onEntering.isDefined) {p.onEntering = onEntering.map(v => v.toJsFn)}
     if (onExit.isDefined) {p.onExit = onExit.map(v => v.toJsFn)}
     if (onExiting.isDefined) {p.onExiting = onExiting.map(v => v.toJsFn)}
-    if (style.isDefined) {p.style = style}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     p.theme = theme
     if (timeout.isDefined) {p.timeout = timeout}
 

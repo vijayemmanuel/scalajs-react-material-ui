@@ -51,14 +51,15 @@ object Typography {
   trait Props extends js.Object {
     var align: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var color: js.UndefOr[String] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var gutterBottom: js.UndefOr[Boolean] = js.native
-    var headlineMapping: js.UndefOr[js.Any] = js.native
+    var headlineMapping: js.UndefOr[js.Object] = js.native
     var key: js.UndefOr[String] = js.native
     var noWrap: js.UndefOr[Boolean] = js.native
     var paragraph: js.UndefOr[Boolean] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var variant: js.UndefOr[String] = js.native
   }
 
@@ -95,6 +96,8 @@ object Typography {
    *        If `true`, the text will not wrap, but instead will truncate with an ellipsis.
    * @param paragraph
    *        If `true`, the text will have a bottom margin.
+   * @param style
+   *        React element CSS style
    * @param variant
    *        Applies the theme typography styles.
    * @param additionalProps
@@ -109,14 +112,15 @@ object Typography {
   def apply(
     align: js.UndefOr[Align] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     gutterBottom: js.UndefOr[Boolean] = js.undefined,
-    headlineMapping: js.UndefOr[js.Any] = js.undefined,
+    headlineMapping: js.UndefOr[js.Object] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     noWrap: js.UndefOr[Boolean] = js.undefined,
     paragraph: js.UndefOr[Boolean] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -132,6 +136,7 @@ object Typography {
     if (key.isDefined) {p.key = key}
     if (noWrap.isDefined) {p.noWrap = noWrap}
     if (paragraph.isDefined) {p.paragraph = paragraph}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     additionalProps.foreach {

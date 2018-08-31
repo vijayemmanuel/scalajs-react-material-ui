@@ -27,11 +27,11 @@ object MobileStepper {
           
   @js.native
   trait Props extends js.Object {
-    var LinearProgressProps: js.UndefOr[js.Any] = js.native
+    var LinearProgressProps: js.UndefOr[js.Object] = js.native
     var activeStep: js.UndefOr[Double] = js.native
     var backButton: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var elevation: js.UndefOr[Double] = js.native
     var key: js.UndefOr[String] = js.native
@@ -39,6 +39,7 @@ object MobileStepper {
     var position: js.UndefOr[String] = js.native
     var square: js.UndefOr[Boolean] = js.native
     var steps: Double = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var variant: js.UndefOr[String] = js.native
   }
 
@@ -81,6 +82,8 @@ object MobileStepper {
    *        Passed to Paper
    * @param steps
    *        The total steps.
+   * @param style
+   *        React element CSS style
    * @param variant
    *        The variant to use.
    * @param additionalProps
@@ -93,11 +96,11 @@ object MobileStepper {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
-    LinearProgressProps: js.UndefOr[js.Any] = js.undefined,
+    LinearProgressProps: js.UndefOr[js.Object] = js.undefined,
     activeStep: js.UndefOr[Double] = js.undefined,
     backButton: js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     elevation: js.UndefOr[Double] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
@@ -105,6 +108,7 @@ object MobileStepper {
     position: js.UndefOr[Position] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined,
     steps: Double,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   ) = {
@@ -122,6 +126,7 @@ object MobileStepper {
     if (position.isDefined) {p.position = position.map(v => v.value)}
     if (square.isDefined) {p.square = square}
     p.steps = steps
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     additionalProps.foreach {
@@ -134,7 +139,7 @@ object MobileStepper {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

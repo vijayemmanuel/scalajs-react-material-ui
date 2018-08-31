@@ -55,6 +55,17 @@ object DocGenContext {
         )
       )
 
+      def withDefaultMappings(m: Map[String, Prop], d: List[(String, Prop)]): Map[String, Prop] = {
+        d.foldLeft(m){
+          case (c, (name, prop)) =>
+            if (c.isDefinedAt(name)) {
+              c
+            } else {
+              c.updated(name, prop)
+            }
+        }
+      }
+
       def additionalPropsFrom(components: String *): List[(String, Prop)] = {
         val existingProps = Map(c.props: _*)
 
@@ -82,14 +93,18 @@ object DocGenContext {
               } 
           }
 
-        val updatedPropsWithKey = 
-          if (updatedProps.isDefinedAt("key")) {
-            updatedProps 
-          } else {
-            updatedProps.updated("key", Prop(StringType, false, "React key", None))
-          }
+        val updatedPropsWithDefaults = 
+          withDefaultMappings(updatedProps, List(
+            "key" -> Prop(StringType, false, "React key", None),
+            "style" -> Prop(StyleType, false, "React element CSS style", None)
+          ))
+          // if (updatedProps.isDefinedAt("key")) {
+          //   updatedProps 
+          // } else {
+          //   updatedProps.updated("key", Prop(StringType, false, "React key", None))
+          // }
 
-        updatedPropsWithKey.toList.sortBy(_._1)
+        updatedPropsWithDefaults.toList.sortBy(_._1)
       }
 
       c match {
@@ -208,18 +223,34 @@ object DocGenContext {
 
       if (c.displayName == "TextField" && name == "value") {
         name -> prop.copy(propType = StringType)
-      
+
+      // Style properties use mui.style.Style type
+      } else if (name == "style" && prop.propType == ObjectType) {
+        name -> prop.copy(propType = StyleType)
+
       //These two are only needed to add a description
       } else if (c.displayName == "TextField" && name == "onBlur") {
         name -> eventProp("ReactFocusEvent")._2.copy(description = "Passed to underlying input element")
       } else if (c.displayName == "TextField" && name == "onFocus") {
         name -> eventProp("ReactFocusEvent")._2.copy(description = "Passed to underlying input element")
 
+      // Specific TextField events
+      } else if (c.displayName == "TextField" && namedFunc("onChange")) {
+        eventProp("ReactEventFromInput")
+
+      // Change event
+      } else if (namedFunc("onChange")) {
+        eventProp("ReactEvent")
 
       // Type events according to 
       // https://reactjs.org/docs/events.html and 
       // https://github.com/japgolly/scalajs-react/blob/master/doc/TYPES.md#events
 
+      //TODO Add a map from component names to underlying "EventSource" of the events,
+      // e.g. TextField would have event source "Input" - if we have one of these, we will
+      // add "FromSource" to the event type where appropriate, e.g. for ReactEventFromInput,
+      // ReactFocusEventFromInput etc.
+  
       // Focus Events
       } else if (namedFunc("onFocus")) {
         eventProp("ReactFocusEvent")

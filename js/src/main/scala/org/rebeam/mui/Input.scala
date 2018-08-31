@@ -21,7 +21,7 @@ object Input {
     var autoComplete: js.UndefOr[String] = js.native
     var autoFocus: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var defaultValue: js.UndefOr[js.Any] = js.native
     var disableUnderline: js.UndefOr[Boolean] = js.native
     var disabled: js.UndefOr[Boolean] = js.native
@@ -30,14 +30,14 @@ object Input {
     var fullWidth: js.UndefOr[Boolean] = js.native
     var id: js.UndefOr[String] = js.native
     var inputComponent: js.UndefOr[js.Any] = js.native
-    var inputProps: js.UndefOr[js.Any] = js.native
+    var inputProps: js.UndefOr[js.Object] = js.native
     var inputRef: js.UndefOr[js.Any] = js.native
     var key: js.UndefOr[String] = js.native
     var margin: js.UndefOr[String] = js.native
     var multiline: js.UndefOr[Boolean] = js.native
     var name: js.UndefOr[String] = js.native
     var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
-    var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
+    var onChange: js.UndefOr[scalajs.js.Function1[ReactEvent, Unit]] = js.native
     var onEmpty: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onFilled: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onFocus: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
@@ -49,6 +49,7 @@ object Input {
     var rows: js.UndefOr[js.Any] = js.native
     var rowsMax: js.UndefOr[js.Any] = js.native
     var startAdornment: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var `type`: js.UndefOr[String] = js.native
     var value: js.UndefOr[js.Any] = js.native
   }
@@ -134,6 +135,8 @@ object Input {
    *        Maximum number of rows to display when multiline option is set to true.
    * @param startAdornment
    *        Start `InputAdornment` for this component.
+   * @param style
+   *        React element CSS style
    * @param `type`
    *        Type of the input element. It should be a valid HTML5 input type.
    * @param value
@@ -151,7 +154,7 @@ object Input {
     autoComplete: js.UndefOr[String] = js.undefined,
     autoFocus: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     defaultValue: js.UndefOr[js.Any] = js.undefined,
     disableUnderline: js.UndefOr[Boolean] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
@@ -160,14 +163,14 @@ object Input {
     fullWidth: js.UndefOr[Boolean] = js.undefined,
     id: js.UndefOr[String] = js.undefined,
     inputComponent: js.UndefOr[js.Any] = js.undefined,
-    inputProps: js.UndefOr[js.Any] = js.undefined,
+    inputProps: js.UndefOr[js.Object] = js.undefined,
     inputRef: js.UndefOr[js.Any] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     margin: js.UndefOr[Margin] = js.undefined,
     multiline: js.UndefOr[Boolean] = js.undefined,
     name: js.UndefOr[String] = js.undefined,
     onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
-    onChange: js.UndefOr[Callback] = js.undefined,
+    onChange: js.UndefOr[ReactEvent => Callback] = js.undefined,
     onEmpty: js.UndefOr[Callback] = js.undefined,
     onFilled: js.UndefOr[Callback] = js.undefined,
     onFocus: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
@@ -179,6 +182,7 @@ object Input {
     rows: js.UndefOr[js.Any] = js.undefined,
     rowsMax: js.UndefOr[js.Any] = js.undefined,
     startAdornment: js.UndefOr[VdomNode] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     `type`: js.UndefOr[String] = js.undefined,
     value: js.UndefOr[js.Any] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
@@ -204,7 +208,7 @@ object Input {
     if (multiline.isDefined) {p.multiline = multiline}
     if (name.isDefined) {p.name = name}
     if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
-    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEvent) => v(e).runNow())}
     if (onEmpty.isDefined) {p.onEmpty = onEmpty.map(v => v.toJsFn)}
     if (onFilled.isDefined) {p.onFilled = onFilled.map(v => v.toJsFn)}
     if (onFocus.isDefined) {p.onFocus = onFocus.map(v => (e: ReactFocusEvent) => v(e).runNow())}
@@ -216,6 +220,7 @@ object Input {
     if (rows.isDefined) {p.rows = rows}
     if (rowsMax.isDefined) {p.rowsMax = rowsMax}
     if (startAdornment.isDefined) {p.startAdornment = startAdornment.map(v => v.rawNode)}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (`type`.isDefined) {p.`type` = `type`}
     if (value.isDefined) {p.value = value}
 
@@ -229,7 +234,7 @@ object Input {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

@@ -18,11 +18,11 @@ object StepLabel {
           
   @js.native
   trait Props extends js.Object {
-    var StepIconProps: js.UndefOr[js.Any] = js.native
+    var StepIconProps: js.UndefOr[js.Object] = js.native
     var active: js.UndefOr[Boolean] = js.native
     var alternativeLabel: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var completed: js.UndefOr[Boolean] = js.native
     var disabled: js.UndefOr[Boolean] = js.native
     var error: js.UndefOr[Boolean] = js.native
@@ -31,6 +31,7 @@ object StepLabel {
     var last: js.UndefOr[Boolean] = js.native
     var optional: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var orientation: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/StepLabel", JSImport.Default)
@@ -72,6 +73,8 @@ object StepLabel {
    *        The optional node to display.
    * @param orientation
    *        Property spread to root element
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -82,11 +85,11 @@ object StepLabel {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
-    StepIconProps: js.UndefOr[js.Any] = js.undefined,
+    StepIconProps: js.UndefOr[js.Object] = js.undefined,
     active: js.UndefOr[Boolean] = js.undefined,
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     completed: js.UndefOr[Boolean] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
     error: js.UndefOr[Boolean] = js.undefined,
@@ -95,6 +98,7 @@ object StepLabel {
     last: js.UndefOr[Boolean] = js.undefined,
     optional: js.UndefOr[VdomNode] = js.undefined,
     orientation: js.UndefOr[Orientation] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -112,6 +116,7 @@ object StepLabel {
     if (last.isDefined) {p.last = last}
     if (optional.isDefined) {p.optional = optional.map(v => v.rawNode)}
     if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

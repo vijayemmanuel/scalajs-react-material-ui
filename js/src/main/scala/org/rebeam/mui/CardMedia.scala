@@ -12,12 +12,12 @@ object CardMedia {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var image: js.UndefOr[String] = js.native
     var key: js.UndefOr[String] = js.native
     var src: js.UndefOr[String] = js.native
-    var style: js.UndefOr[js.Any] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/CardMedia", JSImport.Default)
@@ -59,12 +59,12 @@ object CardMedia {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     image: js.UndefOr[String] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     src: js.UndefOr[String] = js.undefined,
-    style: js.UndefOr[js.Any] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   ) = {
 
@@ -75,7 +75,7 @@ object CardMedia {
     if (image.isDefined) {p.image = image}
     if (key.isDefined) {p.key = key}
     if (src.isDefined) {p.src = src}
-    if (style.isDefined) {p.style = style}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {
@@ -87,7 +87,7 @@ object CardMedia {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

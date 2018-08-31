@@ -21,7 +21,7 @@ object Stepper {
     var activeStep: js.UndefOr[Double] = js.native
     var alternativeLabel: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var connector: js.UndefOr[japgolly.scalajs.react.raw.React.Element] = js.native
     var elevation: js.UndefOr[Double] = js.native
@@ -29,6 +29,7 @@ object Stepper {
     var nonLinear: js.UndefOr[Boolean] = js.native
     var orientation: js.UndefOr[String] = js.native
     var square: js.UndefOr[Boolean] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/Stepper", JSImport.Default)
@@ -68,6 +69,8 @@ object Stepper {
    * @param square
    *        If `true`, rounded corners are disabled.
    *        Passed to Paper
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -81,7 +84,7 @@ object Stepper {
     activeStep: js.UndefOr[Double] = js.undefined,
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     connector: js.UndefOr[VdomElement] = js.undefined,
     elevation: js.UndefOr[Double] = js.undefined,
@@ -89,6 +92,7 @@ object Stepper {
     nonLinear: js.UndefOr[Boolean] = js.undefined,
     orientation: js.UndefOr[Orientation] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -104,6 +108,7 @@ object Stepper {
     if (nonLinear.isDefined) {p.nonLinear = nonLinear}
     if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
     if (square.isDefined) {p.square = square}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

@@ -28,17 +28,18 @@ object Drawer {
           
   @js.native
   trait Props extends js.Object {
-    var ModalProps: js.UndefOr[js.Any] = js.native
-    var PaperProps: js.UndefOr[js.Any] = js.native
-    var SlideProps: js.UndefOr[js.Any] = js.native
+    var ModalProps: js.UndefOr[js.Object] = js.native
+    var PaperProps: js.UndefOr[js.Object] = js.native
+    var SlideProps: js.UndefOr[js.Object] = js.native
     var anchor: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var elevation: js.UndefOr[Double] = js.native
     var key: js.UndefOr[String] = js.native
     var onClose: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var open: js.UndefOr[Boolean] = js.native
-    var theme: js.Any = js.native
+    var style: js.UndefOr[js.Object] = js.native
+    var theme: js.Object = js.native
     var transitionDuration: js.UndefOr[js.Any] = js.native
     var variant: js.UndefOr[String] = js.native
   }
@@ -75,6 +76,8 @@ object Drawer {
    *        parameter {object} event The event source of the callback
    * @param open
    *        If `true`, the drawer is open.
+   * @param style
+   *        React element CSS style
    * @param theme
    *        Property spread to root element
    * @param transitionDuration
@@ -92,17 +95,18 @@ object Drawer {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
-    ModalProps: js.UndefOr[js.Any] = js.undefined,
-    PaperProps: js.UndefOr[js.Any] = js.undefined,
-    SlideProps: js.UndefOr[js.Any] = js.undefined,
+    ModalProps: js.UndefOr[js.Object] = js.undefined,
+    PaperProps: js.UndefOr[js.Object] = js.undefined,
+    SlideProps: js.UndefOr[js.Object] = js.undefined,
     anchor: js.UndefOr[Anchor] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     elevation: js.UndefOr[Double] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     onClose: js.UndefOr[Callback] = js.undefined,
     open: js.UndefOr[Boolean] = js.undefined,
-    theme: js.Any,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
+    theme: js.Object,
     transitionDuration: js.UndefOr[js.Any] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
@@ -119,6 +123,7 @@ object Drawer {
     if (key.isDefined) {p.key = key}
     if (onClose.isDefined) {p.onClose = onClose.map(v => v.toJsFn)}
     if (open.isDefined) {p.open = open}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     p.theme = theme
     if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
     if (variant.isDefined) {p.variant = variant.map(v => v.value)}

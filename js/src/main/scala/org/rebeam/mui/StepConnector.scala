@@ -20,9 +20,10 @@ object StepConnector {
   trait Props extends js.Object {
     var alternativeLabel: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var key: js.UndefOr[String] = js.native
     var orientation: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/StepConnector", JSImport.Default)
@@ -45,6 +46,8 @@ object StepConnector {
    *        React key
    * @param orientation
    *        Property spread to root element
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -57,9 +60,10 @@ object StepConnector {
   def apply(
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     orientation: js.UndefOr[Orientation] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   ) = {
 
@@ -69,6 +73,7 @@ object StepConnector {
     if (classes.isDefined) {p.classes = classes}
     if (key.isDefined) {p.key = key}
     if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {
@@ -80,7 +85,7 @@ object StepConnector {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

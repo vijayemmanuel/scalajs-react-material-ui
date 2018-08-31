@@ -18,14 +18,14 @@ object StepButton {
           
   @js.native
   trait Props extends js.Object {
-    var TouchRippleProps: js.UndefOr[js.Any] = js.native
+    var TouchRippleProps: js.UndefOr[js.Object] = js.native
     var action: js.UndefOr[js.Any] = js.native
     var active: js.UndefOr[Boolean] = js.native
     var alternativeLabel: js.UndefOr[Boolean] = js.native
     var buttonRef: js.UndefOr[js.Any] = js.native
     var centerRipple: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var completed: js.UndefOr[Boolean] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var disableRipple: js.UndefOr[Boolean] = js.native
@@ -51,6 +51,7 @@ object StepButton {
     var optional: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var orientation: js.UndefOr[String] = js.native
     var role: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var tabIndex: js.UndefOr[js.Any] = js.native
     var `type`: js.UndefOr[String] = js.native
   }
@@ -168,6 +169,8 @@ object StepButton {
    * @param role
    *        Property spread to root element
    *        Passed to ButtonBase
+   * @param style
+   *        React element CSS style
    * @param tabIndex
    *        Property spread to root element
    *        Passed to ButtonBase
@@ -186,14 +189,14 @@ object StepButton {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
-    TouchRippleProps: js.UndefOr[js.Any] = js.undefined,
+    TouchRippleProps: js.UndefOr[js.Object] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
     active: js.UndefOr[Boolean] = js.undefined,
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
     buttonRef: js.UndefOr[js.Any] = js.undefined,
     centerRipple: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     completed: js.UndefOr[Boolean] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     disableRipple: js.UndefOr[Boolean] = js.undefined,
@@ -219,6 +222,7 @@ object StepButton {
     optional: js.UndefOr[VdomNode] = js.undefined,
     orientation: js.UndefOr[Orientation] = js.undefined,
     role: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     tabIndex: js.UndefOr[js.Any] = js.undefined,
     `type`: js.UndefOr[String] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
@@ -258,6 +262,7 @@ object StepButton {
     if (optional.isDefined) {p.optional = optional.map(v => v.rawNode)}
     if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
     if (role.isDefined) {p.role = role}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (tabIndex.isDefined) {p.tabIndex = tabIndex}
     if (`type`.isDefined) {p.`type` = `type`}
 

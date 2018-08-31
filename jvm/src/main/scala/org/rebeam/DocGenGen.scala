@@ -107,7 +107,7 @@ object DocGenGen {
       case StringType => "String"
       case NumberType => "Double"
       case FuncType =>  "js.Any"
-      case ObjectType => "js.Any"
+      case ObjectType => "js.Object"
       case SymbolType => "js.Any" //What is this?
       case ElementType => "VdomElement"
       case NodeType => "VdomNode"
@@ -121,6 +121,7 @@ object DocGenGen {
       case CustomType(raw) => "js.Any"
 
       case KnownFuncType(scalaType, _, _) => scalaType
+      case StyleType => "org.rebeam.mui.styles.Style"
     }
     if (p.required) t else s"js.UndefOr[$t]"
   }
@@ -133,7 +134,7 @@ object DocGenGen {
       case StringType => "String"
       case NumberType => "Double"
       case FuncType =>  "js.Any"
-      case ObjectType => "js.Any"
+      case ObjectType => "js.Object"
       case SymbolType => "js.Any" //What is this?
       case ElementType => "japgolly.scalajs.react.raw.React.Element"
       case NodeType => "japgolly.scalajs.react.raw.React.Node"
@@ -144,6 +145,7 @@ object DocGenGen {
       case CustomType(raw) => "js.Any"
 
       case KnownFuncType(_, jsType, _) => jsType
+      case StyleType => "js.Object"
     }
     if (p.required) t else s"js.UndefOr[$t]"
   }
@@ -168,6 +170,7 @@ object DocGenGen {
       // case CustomType(raw) =>
 
       case KnownFuncType(_, _, assignment) => Some(assignment)
+      case StyleType => Some(n => s"$n.o")
 
       case _ => None
     }
@@ -183,6 +186,7 @@ object DocGenGen {
         s"if ($name.isDefined) {p.$name = $name}"
       )(
         f => s"if ($name.isDefined) {p.$name = $name.map(v => ${f("v")})}"
+        // f => s"$name.foreach(v => "
         // f => s"$name.map(v => ${f("v")})"
       )
     }
@@ -298,7 +302,7 @@ object DocGenGen {
 
         val childrenType = if (hc) "Children.Varargs" else "Children.None"
         val childrenParamGroup = if (hc) "(children: VdomNode *)" else ""
-        val childrenArgumentGroup = if (hc) "(children: _*)" else "()"
+        val childrenArgumentGroup = if (hc) "(children: _*)" else ""
 
         s"""
         |package org.rebeam.mui

@@ -27,8 +27,8 @@ object Slide {
     var onEntering: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onExit: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onExited: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
-    var style: js.UndefOr[js.Any] = js.native
-    var theme: js.Any = js.native
+    var style: js.UndefOr[js.Object] = js.native
+    var theme: js.Object = js.native
     var timeout: js.UndefOr[js.Any] = js.native
   }
 
@@ -79,8 +79,8 @@ object Slide {
     onEntering: js.UndefOr[Callback] = js.undefined,
     onExit: js.UndefOr[Callback] = js.undefined,
     onExited: js.UndefOr[Callback] = js.undefined,
-    style: js.UndefOr[js.Any] = js.undefined,
-    theme: js.Any,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
+    theme: js.Object,
     timeout: js.UndefOr[js.Any] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -93,7 +93,7 @@ object Slide {
     if (onEntering.isDefined) {p.onEntering = onEntering.map(v => v.toJsFn)}
     if (onExit.isDefined) {p.onExit = onExit.map(v => v.toJsFn)}
     if (onExited.isDefined) {p.onExited = onExited.map(v => v.toJsFn)}
-    if (style.isDefined) {p.style = style}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     p.theme = theme
     if (timeout.isDefined) {p.timeout = timeout}
 

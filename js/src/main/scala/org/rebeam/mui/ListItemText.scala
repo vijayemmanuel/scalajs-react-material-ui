@@ -12,14 +12,15 @@ object ListItemText {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var disableTypography: js.UndefOr[Boolean] = js.native
     var inset: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
     var primary: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
-    var primaryTypographyProps: js.UndefOr[js.Any] = js.native
+    var primaryTypographyProps: js.UndefOr[js.Object] = js.native
     var secondary: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
-    var secondaryTypographyProps: js.UndefOr[js.Any] = js.native
+    var secondaryTypographyProps: js.UndefOr[js.Object] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/ListItemText", JSImport.Default)
@@ -55,6 +56,8 @@ object ListItemText {
    * @param secondaryTypographyProps
    *        These props will be forwarded to the secondary typography component
    *        (as long as disableTypography is not `true`).
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -66,14 +69,15 @@ object ListItemText {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     disableTypography: js.UndefOr[Boolean] = js.undefined,
     inset: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     primary: js.UndefOr[VdomNode] = js.undefined,
-    primaryTypographyProps: js.UndefOr[js.Any] = js.undefined,
+    primaryTypographyProps: js.UndefOr[js.Object] = js.undefined,
     secondary: js.UndefOr[VdomNode] = js.undefined,
-    secondaryTypographyProps: js.UndefOr[js.Any] = js.undefined,
+    secondaryTypographyProps: js.UndefOr[js.Object] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -87,6 +91,7 @@ object ListItemText {
     if (primaryTypographyProps.isDefined) {p.primaryTypographyProps = primaryTypographyProps}
     if (secondary.isDefined) {p.secondary = secondary.map(v => v.rawNode)}
     if (secondaryTypographyProps.isDefined) {p.secondaryTypographyProps = secondaryTypographyProps}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

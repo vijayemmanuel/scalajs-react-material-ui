@@ -15,8 +15,8 @@ object Zoom {
     var key: js.UndefOr[String] = js.native
     var onEnter: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onExit: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
-    var style: js.UndefOr[js.Any] = js.native
-    var theme: js.Any = js.native
+    var style: js.UndefOr[js.Object] = js.native
+    var theme: js.Object = js.native
     var timeout: js.UndefOr[js.Any] = js.native
   }
 
@@ -59,8 +59,8 @@ object Zoom {
     key: js.UndefOr[String] = js.undefined,
     onEnter: js.UndefOr[Callback] = js.undefined,
     onExit: js.UndefOr[Callback] = js.undefined,
-    style: js.UndefOr[js.Any] = js.undefined,
-    theme: js.Any,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
+    theme: js.Object,
     timeout: js.UndefOr[js.Any] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -70,7 +70,7 @@ object Zoom {
     if (key.isDefined) {p.key = key}
     if (onEnter.isDefined) {p.onEnter = onEnter.map(v => v.toJsFn)}
     if (onExit.isDefined) {p.onExit = onExit.map(v => v.toJsFn)}
-    if (style.isDefined) {p.style = style}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     p.theme = theme
     if (timeout.isDefined) {p.timeout = timeout}
 

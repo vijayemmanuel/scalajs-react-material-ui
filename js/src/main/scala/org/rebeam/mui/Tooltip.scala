@@ -28,10 +28,10 @@ object Tooltip {
           
   @js.native
   trait Props extends js.Object {
-    var PopperProps: js.UndefOr[js.Any] = js.native
+    var PopperProps: js.UndefOr[js.Object] = js.native
     var TransitionComponent: js.UndefOr[js.Any] = js.native
-    var TransitionProps: js.UndefOr[js.Any] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var TransitionProps: js.UndefOr[js.Object] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var disableFocusListener: js.UndefOr[Boolean] = js.native
     var disableHoverListener: js.UndefOr[Boolean] = js.native
     var disableTouchListener: js.UndefOr[Boolean] = js.native
@@ -45,7 +45,8 @@ object Tooltip {
     var onOpen: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var open: js.UndefOr[Boolean] = js.native
     var placement: js.UndefOr[String] = js.native
-    var theme: js.Any = js.native
+    var style: js.UndefOr[js.Object] = js.native
+    var theme: js.Object = js.native
     var title: japgolly.scalajs.react.raw.React.Node = js.native
   }
 
@@ -100,6 +101,8 @@ object Tooltip {
    *        If `true`, the tooltip is shown.
    * @param placement
    *        Tooltip placement.
+   * @param style
+   *        React element CSS style
    * @param theme
    *        Property spread to root element
    * @param title
@@ -114,10 +117,10 @@ object Tooltip {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
-    PopperProps: js.UndefOr[js.Any] = js.undefined,
+    PopperProps: js.UndefOr[js.Object] = js.undefined,
     TransitionComponent: js.UndefOr[js.Any] = js.undefined,
-    TransitionProps: js.UndefOr[js.Any] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    TransitionProps: js.UndefOr[js.Object] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     disableFocusListener: js.UndefOr[Boolean] = js.undefined,
     disableHoverListener: js.UndefOr[Boolean] = js.undefined,
     disableTouchListener: js.UndefOr[Boolean] = js.undefined,
@@ -131,7 +134,8 @@ object Tooltip {
     onOpen: js.UndefOr[Callback] = js.undefined,
     open: js.UndefOr[Boolean] = js.undefined,
     placement: js.UndefOr[Placement] = js.undefined,
-    theme: js.Any,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
+    theme: js.Object,
     title: VdomNode,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -154,6 +158,7 @@ object Tooltip {
     if (onOpen.isDefined) {p.onOpen = onOpen.map(v => v.toJsFn)}
     if (open.isDefined) {p.open = open}
     if (placement.isDefined) {p.placement = placement.map(v => v.value)}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     p.theme = theme
     p.title = title.rawNode
 

@@ -28,12 +28,12 @@ object SwipeableDrawer {
           
   @js.native
   trait Props extends js.Object {
-    var ModalProps: js.UndefOr[js.Any] = js.native
-    var PaperProps: js.UndefOr[js.Any] = js.native
-    var SlideProps: js.UndefOr[js.Any] = js.native
+    var ModalProps: js.UndefOr[js.Object] = js.native
+    var PaperProps: js.UndefOr[js.Object] = js.native
+    var SlideProps: js.UndefOr[js.Object] = js.native
     var anchor: js.UndefOr[String] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var disableBackdropTransition: js.UndefOr[Boolean] = js.native
     var disableDiscovery: js.UndefOr[Boolean] = js.native
     var disableSwipeToOpen: js.UndefOr[Boolean] = js.native
@@ -42,8 +42,9 @@ object SwipeableDrawer {
     var onClose: scalajs.js.Function0[Unit] = js.native
     var onOpen: scalajs.js.Function0[Unit] = js.native
     var open: Boolean = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var swipeAreaWidth: js.UndefOr[Double] = js.native
-    var theme: js.Any = js.native
+    var theme: js.Object = js.native
     var transitionDuration: js.UndefOr[js.Any] = js.native
     var variant: js.UndefOr[String] = js.native
   }
@@ -96,6 +97,8 @@ object SwipeableDrawer {
    *        parameter {object} event The event source of the callback
    * @param open
    *        If `true`, the drawer is open.
+   * @param style
+   *        React element CSS style
    * @param swipeAreaWidth
    *        The width of the left most (or right most) area in pixels where the
    *        drawer can be swiped open from.
@@ -116,12 +119,12 @@ object SwipeableDrawer {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
-    ModalProps: js.UndefOr[js.Any] = js.undefined,
-    PaperProps: js.UndefOr[js.Any] = js.undefined,
-    SlideProps: js.UndefOr[js.Any] = js.undefined,
+    ModalProps: js.UndefOr[js.Object] = js.undefined,
+    PaperProps: js.UndefOr[js.Object] = js.undefined,
+    SlideProps: js.UndefOr[js.Object] = js.undefined,
     anchor: js.UndefOr[Anchor] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     disableBackdropTransition: js.UndefOr[Boolean] = js.undefined,
     disableDiscovery: js.UndefOr[Boolean] = js.undefined,
     disableSwipeToOpen: js.UndefOr[Boolean] = js.undefined,
@@ -130,8 +133,9 @@ object SwipeableDrawer {
     onClose: Callback,
     onOpen: Callback,
     open: Boolean,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     swipeAreaWidth: js.UndefOr[Double] = js.undefined,
-    theme: js.Any,
+    theme: js.Object,
     transitionDuration: js.UndefOr[js.Any] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
@@ -152,6 +156,7 @@ object SwipeableDrawer {
     p.onClose = onClose.toJsFn
     p.onOpen = onOpen.toJsFn
     p.open = open
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (swipeAreaWidth.isDefined) {p.swipeAreaWidth = swipeAreaWidth}
     p.theme = theme
     if (transitionDuration.isDefined) {p.transitionDuration = transitionDuration}
@@ -167,7 +172,7 @@ object SwipeableDrawer {
       }
     }
     
-    jsFnComponent(p)()
+    jsFnComponent(p)
   }
 
 }

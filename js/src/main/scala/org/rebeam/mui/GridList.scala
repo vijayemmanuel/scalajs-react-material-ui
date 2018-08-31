@@ -13,12 +13,12 @@ object GridList {
   trait Props extends js.Object {
     var cellHeight: js.UndefOr[js.Any] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var cols: js.UndefOr[Double] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var key: js.UndefOr[String] = js.native
     var spacing: js.UndefOr[Double] = js.native
-    var style: js.UndefOr[js.Any] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/GridList", JSImport.Default)
@@ -60,12 +60,12 @@ object GridList {
   def apply(
     cellHeight: js.UndefOr[js.Any] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     cols: js.UndefOr[Double] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     spacing: js.UndefOr[Double] = js.undefined,
-    style: js.UndefOr[js.Any] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -77,7 +77,7 @@ object GridList {
     if (component.isDefined) {p.component = component}
     if (key.isDefined) {p.key = key}
     if (spacing.isDefined) {p.spacing = spacing}
-    if (style.isDefined) {p.style = style}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

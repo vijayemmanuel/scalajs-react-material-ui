@@ -15,6 +15,7 @@ object Portal {
     var disablePortal: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
     var onRendered: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/Portal", JSImport.Default)
@@ -38,6 +39,8 @@ object Portal {
    *        React key
    * @param onRendered
    *        Callback fired once the children has been mounted into the `container`.
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -52,6 +55,7 @@ object Portal {
     disablePortal: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     onRendered: js.UndefOr[Callback] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -60,6 +64,7 @@ object Portal {
     if (disablePortal.isDefined) {p.disablePortal = disablePortal}
     if (key.isDefined) {p.key = key}
     if (onRendered.isDefined) {p.onRendered = onRendered.map(v => v.toJsFn)}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

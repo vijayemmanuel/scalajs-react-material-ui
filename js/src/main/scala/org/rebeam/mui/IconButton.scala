@@ -20,12 +20,12 @@ object IconButton {
           
   @js.native
   trait Props extends js.Object {
-    var TouchRippleProps: js.UndefOr[js.Any] = js.native
+    var TouchRippleProps: js.UndefOr[js.Object] = js.native
     var action: js.UndefOr[js.Any] = js.native
     var buttonRef: js.UndefOr[js.Any] = js.native
     var centerRipple: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var color: js.UndefOr[String] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var disableRipple: js.UndefOr[Boolean] = js.native
@@ -47,6 +47,7 @@ object IconButton {
     var onTouchMove: js.UndefOr[scalajs.js.Function1[ReactTouchEvent, Unit]] = js.native
     var onTouchStart: js.UndefOr[scalajs.js.Function1[ReactTouchEvent, Unit]] = js.native
     var role: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var tabIndex: js.UndefOr[js.Any] = js.native
     var `type`: js.UndefOr[String] = js.native
   }
@@ -148,6 +149,8 @@ object IconButton {
    * @param role
    *        Property spread to root element
    *        Passed to ButtonBase
+   * @param style
+   *        React element CSS style
    * @param tabIndex
    *        Property spread to root element
    *        Passed to ButtonBase
@@ -166,12 +169,12 @@ object IconButton {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
-    TouchRippleProps: js.UndefOr[js.Any] = js.undefined,
+    TouchRippleProps: js.UndefOr[js.Object] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
     buttonRef: js.UndefOr[js.Any] = js.undefined,
     centerRipple: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     disableRipple: js.UndefOr[Boolean] = js.undefined,
@@ -193,6 +196,7 @@ object IconButton {
     onTouchMove: js.UndefOr[ReactTouchEvent => Callback] = js.undefined,
     onTouchStart: js.UndefOr[ReactTouchEvent => Callback] = js.undefined,
     role: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     tabIndex: js.UndefOr[js.Any] = js.undefined,
     `type`: js.UndefOr[String] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
@@ -226,6 +230,7 @@ object IconButton {
     if (onTouchMove.isDefined) {p.onTouchMove = onTouchMove.map(v => (e: ReactTouchEvent) => v(e).runNow())}
     if (onTouchStart.isDefined) {p.onTouchStart = onTouchStart.map(v => (e: ReactTouchEvent) => v(e).runNow())}
     if (role.isDefined) {p.role = role}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (tabIndex.isDefined) {p.tabIndex = tabIndex}
     if (`type`.isDefined) {p.`type` = `type`}
 

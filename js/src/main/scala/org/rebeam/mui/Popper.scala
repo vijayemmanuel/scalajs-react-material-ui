@@ -33,11 +33,12 @@ object Popper {
     var disablePortal: js.UndefOr[Boolean] = js.native
     var keepMounted: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
-    var modifiers: js.UndefOr[js.Any] = js.native
+    var modifiers: js.UndefOr[js.Object] = js.native
     var open: Boolean = js.native
     var placement: js.UndefOr[String] = js.native
-    var popperOptions: js.UndefOr[js.Any] = js.native
-    var theme: js.Any = js.native
+    var popperOptions: js.UndefOr[js.Object] = js.native
+    var style: js.UndefOr[js.Object] = js.native
+    var theme: js.Object = js.native
     var transition: js.UndefOr[Boolean] = js.native
   }
 
@@ -82,6 +83,8 @@ object Popper {
    *        Popper placement.
    * @param popperOptions
    *        Options provided to the [`popper.js`](https://github.com/FezVrasta/popper.js) instance.
+   * @param style
+   *        React element CSS style
    * @param theme
    *        Property spread to root element
    * @param transition
@@ -101,11 +104,12 @@ object Popper {
     disablePortal: js.UndefOr[Boolean] = js.undefined,
     keepMounted: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
-    modifiers: js.UndefOr[js.Any] = js.undefined,
+    modifiers: js.UndefOr[js.Object] = js.undefined,
     open: Boolean,
     placement: js.UndefOr[Placement] = js.undefined,
-    popperOptions: js.UndefOr[js.Any] = js.undefined,
-    theme: js.Any,
+    popperOptions: js.UndefOr[js.Object] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
+    theme: js.Object,
     transition: js.UndefOr[Boolean] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -120,6 +124,7 @@ object Popper {
     p.open = open
     if (placement.isDefined) {p.placement = placement.map(v => v.value)}
     if (popperOptions.isDefined) {p.popperOptions = popperOptions}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     p.theme = theme
     if (transition.isDefined) {p.transition = transition}
 

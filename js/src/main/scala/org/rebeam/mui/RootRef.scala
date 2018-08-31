@@ -13,6 +13,7 @@ object RootRef {
   trait Props extends js.Object {
     var key: js.UndefOr[String] = js.native
     var rootRef: js.Any = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/RootRef", JSImport.Default)
@@ -55,6 +56,8 @@ object RootRef {
    * @param rootRef
    *        Provide a way to access the DOM node of the wrapped element.
    *        You can provide a callback ref or a `React.createRef()` ref.
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -67,12 +70,14 @@ object RootRef {
   def apply(
     key: js.UndefOr[String] = js.undefined,
     rootRef: js.Any,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
     if (key.isDefined) {p.key = key}
     p.rootRef = rootRef
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

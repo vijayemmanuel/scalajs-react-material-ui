@@ -13,7 +13,8 @@ object MuiThemeProvider {
   trait Props extends js.Object {
     var disableStylesGeneration: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
-    var sheetsManager: js.UndefOr[js.Any] = js.native
+    var sheetsManager: js.UndefOr[js.Object] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var theme: js.Any = js.native
   }
 
@@ -40,6 +41,8 @@ object MuiThemeProvider {
    *        The sheetsManager is used to deduplicate style sheet injection in the page.
    *        It's deduplicating using the (theme, styles) couple.
    *        On the server, you should provide a new instance for each request.
+   * @param style
+   *        React element CSS style
    * @param theme
    *        A theme object.
    * @param additionalProps
@@ -54,7 +57,8 @@ object MuiThemeProvider {
   def apply(
     disableStylesGeneration: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
-    sheetsManager: js.UndefOr[js.Any] = js.undefined,
+    sheetsManager: js.UndefOr[js.Object] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     theme: js.Any,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -63,6 +67,7 @@ object MuiThemeProvider {
     if (disableStylesGeneration.isDefined) {p.disableStylesGeneration = disableStylesGeneration}
     if (key.isDefined) {p.key = key}
     if (sheetsManager.isDefined) {p.sheetsManager = sheetsManager}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     p.theme = theme
 
     additionalProps.foreach {

@@ -19,9 +19,10 @@ object Toolbar {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var disableGutters: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var variant: js.UndefOr[String] = js.native
   }
 
@@ -42,6 +43,8 @@ object Toolbar {
    *        If `true`, disables gutter padding.
    * @param key
    *        React key
+   * @param style
+   *        React element CSS style
    * @param variant
    *        The variant to use.
    * @param additionalProps
@@ -55,9 +58,10 @@ object Toolbar {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     disableGutters: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -67,6 +71,7 @@ object Toolbar {
     if (classes.isDefined) {p.classes = classes}
     if (disableGutters.isDefined) {p.disableGutters = disableGutters}
     if (key.isDefined) {p.key = key}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     additionalProps.foreach {

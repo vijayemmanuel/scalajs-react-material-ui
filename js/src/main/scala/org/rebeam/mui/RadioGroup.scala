@@ -12,13 +12,14 @@ object RadioGroup {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var key: js.UndefOr[String] = js.native
     var name: js.UndefOr[String] = js.native
     var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
-    var onChange: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
+    var onChange: js.UndefOr[scalajs.js.Function1[ReactEvent, Unit]] = js.native
     var onKeyDown: js.UndefOr[scalajs.js.Function1[ReactKeyboardEvent, Unit]] = js.native
     var row: js.UndefOr[Boolean] = js.native
+    var style: js.UndefOr[js.Object] = js.native
     var value: js.UndefOr[String] = js.native
   }
 
@@ -54,6 +55,8 @@ object RadioGroup {
    * @param row
    *        Display group of elements in a compact row.
    *        Passed to FormGroup
+   * @param style
+   *        React element CSS style
    * @param value
    *        Value of the selected radio button.
    * @param additionalProps
@@ -67,13 +70,14 @@ object RadioGroup {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     name: js.UndefOr[String] = js.undefined,
     onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
-    onChange: js.UndefOr[Callback] = js.undefined,
+    onChange: js.UndefOr[ReactEvent => Callback] = js.undefined,
     onKeyDown: js.UndefOr[ReactKeyboardEvent => Callback] = js.undefined,
     row: js.UndefOr[Boolean] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     value: js.UndefOr[String] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -84,9 +88,10 @@ object RadioGroup {
     if (key.isDefined) {p.key = key}
     if (name.isDefined) {p.name = name}
     if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
-    if (onChange.isDefined) {p.onChange = onChange.map(v => v.toJsFn)}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEvent) => v(e).runNow())}
     if (onKeyDown.isDefined) {p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
     if (row.isDefined) {p.row = row}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
     if (value.isDefined) {p.value = value}
 
     additionalProps.foreach {

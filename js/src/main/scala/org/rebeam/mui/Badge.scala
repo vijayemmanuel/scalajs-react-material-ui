@@ -22,10 +22,11 @@ object Badge {
   trait Props extends js.Object {
     var badgeContent: japgolly.scalajs.react.raw.React.Node = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var color: js.UndefOr[String] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var key: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/Badge", JSImport.Default)
@@ -50,6 +51,8 @@ object Badge {
    *        Either a string to use a DOM element or a component.
    * @param key
    *        React key
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -62,10 +65,11 @@ object Badge {
   def apply(
     badgeContent: VdomNode,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -76,6 +80,7 @@ object Badge {
     if (color.isDefined) {p.color = color.map(v => v.value)}
     if (component.isDefined) {p.component = component}
     if (key.isDefined) {p.key = key}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

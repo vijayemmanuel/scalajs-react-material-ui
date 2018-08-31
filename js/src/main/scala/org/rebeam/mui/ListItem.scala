@@ -12,10 +12,10 @@ object ListItem {
   @js.native
   trait Props extends js.Object {
     var ContainerComponent: js.UndefOr[js.Any] = js.native
-    var ContainerProps: js.UndefOr[js.Any] = js.native
+    var ContainerProps: js.UndefOr[js.Object] = js.native
     var button: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var dense: js.UndefOr[Boolean] = js.native
     var disableGutters: js.UndefOr[Boolean] = js.native
@@ -24,6 +24,7 @@ object ListItem {
     var focusVisibleClassName: js.UndefOr[String] = js.native
     var key: js.UndefOr[String] = js.native
     var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/ListItem", JSImport.Default)
@@ -65,6 +66,8 @@ object ListItem {
    * @param onClick
    *        ReactMouseEvent on click
    *        Passed to DOCGEN_OnClickBase
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -76,10 +79,10 @@ object ListItem {
    */
   def apply(
     ContainerComponent: js.UndefOr[js.Any] = js.undefined,
-    ContainerProps: js.UndefOr[js.Any] = js.undefined,
+    ContainerProps: js.UndefOr[js.Object] = js.undefined,
     button: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     dense: js.UndefOr[Boolean] = js.undefined,
     disableGutters: js.UndefOr[Boolean] = js.undefined,
@@ -88,6 +91,7 @@ object ListItem {
     focusVisibleClassName: js.UndefOr[String] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -105,6 +109,7 @@ object ListItem {
     if (focusVisibleClassName.isDefined) {p.focusVisibleClassName = focusVisibleClassName}
     if (key.isDefined) {p.key = key}
     if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {

@@ -12,9 +12,10 @@ object DialogTitle {
   @js.native
   trait Props extends js.Object {
     var className: js.UndefOr[String] = js.native
-    var classes: js.UndefOr[js.Any] = js.native
+    var classes: js.UndefOr[js.Object] = js.native
     var disableTypography: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
+    var style: js.UndefOr[js.Object] = js.native
   }
 
   @JSImport("@material-ui/core/DialogTitle", JSImport.Default)
@@ -35,6 +36,8 @@ object DialogTitle {
    *        For instance, this can be useful to render an h4 instead of the default h2.
    * @param key
    *        React key
+   * @param style
+   *        React element CSS style
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -46,9 +49,10 @@ object DialogTitle {
    */
   def apply(
     className: js.UndefOr[String] = js.undefined,
-    classes: js.UndefOr[js.Any] = js.undefined,
+    classes: js.UndefOr[js.Object] = js.undefined,
     disableTypography: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
+    style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -57,6 +61,7 @@ object DialogTitle {
     if (classes.isDefined) {p.classes = classes}
     if (disableTypography.isDefined) {p.disableTypography = disableTypography}
     if (key.isDefined) {p.key = key}
+    if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {
       a => {
