@@ -20,7 +20,7 @@ object RootRef {
   @js.native
   object RootRefJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](RootRefJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](RootRefJS)
   
   /**
    * Helper component to allow attaching a ref to a
@@ -89,7 +89,7 @@ object RootRef {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

@@ -52,7 +52,7 @@ object BottomNavigationAction {
   @js.native
   object BottomNavigationActionJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](BottomNavigationActionJS)
+  val jsComponent = JsFnComponent[Props, Children.None](BottomNavigationActionJS)
   
   /**
    * 
@@ -262,7 +262,7 @@ object BottomNavigationAction {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

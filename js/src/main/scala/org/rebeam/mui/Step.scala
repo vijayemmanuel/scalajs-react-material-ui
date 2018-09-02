@@ -36,7 +36,7 @@ object Step {
   @js.native
   object StepJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](StepJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](StepJS)
   
   /**
    * 
@@ -118,7 +118,7 @@ object Step {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

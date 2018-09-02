@@ -37,7 +37,7 @@ object FormControlLabel {
   @js.native
   object FormControlLabelJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](FormControlLabelJS)
+  val jsComponent = JsFnComponent[Props, Children.None](FormControlLabelJS)
   
   /**
    * Drop in replacement of the `Radio`, `Switch` and `Checkbox` component.
@@ -124,7 +124,7 @@ object FormControlLabel {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

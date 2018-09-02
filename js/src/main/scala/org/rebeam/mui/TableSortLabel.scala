@@ -55,7 +55,7 @@ object TableSortLabel {
   @js.native
   object TableSortLabelJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](TableSortLabelJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](TableSortLabelJS)
   
   /**
    * A button based label for placing inside `TableCell` for column sorting.
@@ -248,7 +248,7 @@ object TableSortLabel {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

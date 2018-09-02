@@ -21,7 +21,7 @@ object ListItemSecondaryAction {
   @js.native
   object ListItemSecondaryActionJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](ListItemSecondaryActionJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](ListItemSecondaryActionJS)
   
   /**
    * 
@@ -67,7 +67,7 @@ object ListItemSecondaryAction {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

@@ -18,11 +18,11 @@ object MuiThemeProvider {
     var theme: js.Any = js.native
   }
 
-  @JSImport("@material-ui/core/MuiThemeProvider", JSImport.Default)
+  @JSImport("@material-ui/core/styles", "MuiThemeProvider")
   @js.native
   object MuiThemeProviderJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](MuiThemeProviderJS)
+  val jsComponent = JsComponent[Props, Children.Varargs, Null](MuiThemeProviderJS)
   
   /**
    * This component takes a `theme` property.
@@ -80,7 +80,7 @@ object MuiThemeProvider {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

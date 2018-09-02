@@ -25,7 +25,7 @@ object List {
   @js.native
   object ListJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](ListJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](ListJS)
   
   /**
    * 
@@ -90,7 +90,7 @@ object List {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

@@ -38,7 +38,7 @@ object Modal {
   @js.native
   object ModalJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](ModalJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](ModalJS)
   
   /**
    * This component shares many concepts with [react-overlays](https://react-bootstrap.github.io/react-overlays/#modals).
@@ -172,7 +172,7 @@ object Modal {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

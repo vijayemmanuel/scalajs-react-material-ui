@@ -38,7 +38,7 @@ object StepLabel {
   @js.native
   object StepLabelJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](StepLabelJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](StepLabelJS)
   
   /**
    * 
@@ -128,7 +128,7 @@ object StepLabel {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

@@ -53,7 +53,7 @@ object SwipeableDrawer {
   @js.native
   object SwipeableDrawerJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](SwipeableDrawerJS)
+  val jsComponent = JsFnComponent[Props, Children.None](SwipeableDrawerJS)
   
   /**
    * 
@@ -172,7 +172,7 @@ object SwipeableDrawer {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

@@ -21,7 +21,7 @@ object ListItemAvatar {
   @js.native
   object ListItemAvatarJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](ListItemAvatarJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](ListItemAvatarJS)
   
   /**
    * This is a simple wrapper to apply the `dense` mode styles to `Avatar`.
@@ -67,7 +67,7 @@ object ListItemAvatar {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

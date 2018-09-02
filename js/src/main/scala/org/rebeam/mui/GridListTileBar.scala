@@ -40,7 +40,7 @@ object GridListTileBar {
   @js.native
   object GridListTileBarJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](GridListTileBarJS)
+  val jsComponent = JsFnComponent[Props, Children.None](GridListTileBarJS)
   
   /**
    * 
@@ -107,7 +107,7 @@ object GridListTileBar {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

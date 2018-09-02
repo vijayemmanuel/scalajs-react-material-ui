@@ -33,7 +33,7 @@ object MenuItem {
   @js.native
   object MenuItemJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](MenuItemJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](MenuItemJS)
   
   /**
    * 
@@ -138,7 +138,7 @@ object MenuItem {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

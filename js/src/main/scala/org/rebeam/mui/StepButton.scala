@@ -60,7 +60,7 @@ object StepButton {
   @js.native
   object StepButtonJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](StepButtonJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](StepButtonJS)
   
   /**
    * 
@@ -276,7 +276,7 @@ object StepButton {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

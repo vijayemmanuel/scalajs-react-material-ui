@@ -29,7 +29,7 @@ object ExpansionPanel {
   @js.native
   object ExpansionPanelJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](ExpansionPanelJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](ExpansionPanelJS)
   
   /**
    * 
@@ -116,7 +116,7 @@ object ExpansionPanel {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

@@ -52,7 +52,7 @@ object TableCell {
   @js.native
   object TableCellJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](TableCellJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](TableCellJS)
   
   /**
    * 
@@ -125,7 +125,7 @@ object TableCell {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

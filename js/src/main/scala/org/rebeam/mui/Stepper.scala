@@ -36,7 +36,7 @@ object Stepper {
   @js.native
   object StepperJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](StepperJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](StepperJS)
   
   /**
    * 
@@ -120,7 +120,7 @@ object Stepper {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

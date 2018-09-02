@@ -24,7 +24,7 @@ object Zoom {
   @js.native
   object ZoomJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](ZoomJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](ZoomJS)
   
   /**
    * The Zoom transition can be used for the floating variant of the
@@ -84,7 +84,7 @@ object Zoom {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

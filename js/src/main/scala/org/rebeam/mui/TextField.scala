@@ -58,7 +58,7 @@ object TextField {
   @js.native
   object TextFieldJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](TextFieldJS)
+  val jsComponent = JsFnComponent[Props, Children.None](TextFieldJS)
   
   /**
    * The `TextField` is a convenience wrapper for the most common cases (80%).
@@ -256,7 +256,7 @@ object TextField {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

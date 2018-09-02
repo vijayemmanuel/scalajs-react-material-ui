@@ -27,7 +27,7 @@ object RadioGroup {
   @js.native
   object RadioGroupJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](RadioGroupJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](RadioGroupJS)
   
   /**
    * 
@@ -104,7 +104,7 @@ object RadioGroup {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

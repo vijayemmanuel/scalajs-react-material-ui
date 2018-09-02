@@ -54,7 +54,7 @@ object Tooltip {
   @js.native
   object TooltipJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](TooltipJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](TooltipJS)
   
   /**
    * 
@@ -172,7 +172,7 @@ object Tooltip {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

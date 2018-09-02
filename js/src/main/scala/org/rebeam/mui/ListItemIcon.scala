@@ -21,7 +21,7 @@ object ListItemIcon {
   @js.native
   object ListItemIconJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](ListItemIconJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](ListItemIconJS)
   
   /**
    * A simple wrapper to apply `List` styles to an `Icon` or `SvgIcon`.
@@ -67,7 +67,7 @@ object ListItemIcon {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

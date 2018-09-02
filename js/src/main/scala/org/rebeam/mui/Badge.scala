@@ -33,7 +33,7 @@ object Badge {
   @js.native
   object BadgeJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](BadgeJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](BadgeJS)
   
   /**
    * 
@@ -92,7 +92,7 @@ object Badge {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

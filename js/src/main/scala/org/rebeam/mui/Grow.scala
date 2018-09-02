@@ -24,7 +24,7 @@ object Grow {
   @js.native
   object GrowJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](GrowJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](GrowJS)
   
   /**
    * The Grow transition is used by the [Tooltip](/demos/tooltips) and
@@ -86,7 +86,7 @@ object Grow {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

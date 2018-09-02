@@ -24,7 +24,7 @@ object CardMedia {
   @js.native
   object CardMediaJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](CardMediaJS)
+  val jsComponent = JsFnComponent[Props, Children.None](CardMediaJS)
   
   /**
    * 
@@ -87,7 +87,7 @@ object CardMedia {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

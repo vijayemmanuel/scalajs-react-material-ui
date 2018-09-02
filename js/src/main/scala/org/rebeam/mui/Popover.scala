@@ -67,7 +67,7 @@ object Popover {
   @js.native
   object PopoverJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](PopoverJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](PopoverJS)
   
   /**
    * 
@@ -325,7 +325,7 @@ object Popover {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

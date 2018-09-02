@@ -268,13 +268,14 @@ object DocGenGen {
     }.mkString("  ")
   }
 
-  def genComponent(all: Map[String, Component], cRaw: Component)(implicit context: DocGenContext): Option[String] = {
+  def genComponent(all: Map[String, Component], path: String, cRaw: Component)(implicit context: DocGenContext): Option[String] = {
 
     // println(cRaw.props.map(_._1))
 
-    context.processComponent(all, cRaw).map(
-      c => {
+    context.processComponent(all, path, cRaw).map(
+      cd => {
 
+        val c = cd.component
         // println(c.props.map(_._1))
 
         val componentName = c.displayName
@@ -304,6 +305,12 @@ object DocGenGen {
         val childrenParamGroup = if (hc) "(children: VdomNode *)" else ""
         val childrenArgumentGroup = if (hc) "(children: _*)" else ""
 
+        val jsComponentType = if (cd.functional) {
+          s"JsFnComponent[Props, $childrenType]"
+        } else {
+          s"JsComponent[Props, $childrenType, Null]"
+        }
+
         s"""
         |package org.rebeam.mui
         |
@@ -320,11 +327,11 @@ object DocGenGen {
         |    $propFields
         |  }
         |
-        |  @JSImport("@material-ui/core/$componentName", JSImport.Default)
+        |  @JSImport("${cd.importData.module}", ${cd.importData.name})
         |  @js.native
         |  object ${componentName}JS extends js.Object
         |
-        |  val jsFnComponent = JsFnComponent[Props, $childrenType](${componentName}JS)
+        |  val jsComponent = $jsComponentType(${componentName}JS)
         |  
         |  /**
         |   * $docs
@@ -346,7 +353,7 @@ object DocGenGen {
         |      }
         |    }
         |    
-        |    jsFnComponent(p)$childrenArgumentGroup
+        |    jsComponent(p)$childrenArgumentGroup
         |  }
         |
         |}

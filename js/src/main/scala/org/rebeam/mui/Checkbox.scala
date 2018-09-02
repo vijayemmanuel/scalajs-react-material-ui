@@ -42,7 +42,7 @@ object Checkbox {
   @js.native
   object CheckboxJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](CheckboxJS)
+  val jsComponent = JsFnComponent[Props, Children.None](CheckboxJS)
   
   /**
    * 
@@ -144,7 +144,7 @@ object Checkbox {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

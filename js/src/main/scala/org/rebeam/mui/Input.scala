@@ -58,7 +58,7 @@ object Input {
   @js.native
   object InputJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](InputJS)
+  val jsComponent = JsFnComponent[Props, Children.None](InputJS)
   
   /**
    * 
@@ -234,7 +234,7 @@ object Input {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

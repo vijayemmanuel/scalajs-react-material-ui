@@ -68,7 +68,7 @@ object Dialog {
   @js.native
   object DialogJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](DialogJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](DialogJS)
   
   /**
    * Dialogs are overlaid modal paper based components with a backdrop.
@@ -270,7 +270,7 @@ object Dialog {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

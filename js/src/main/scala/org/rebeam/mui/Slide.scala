@@ -36,7 +36,7 @@ object Slide {
   @js.native
   object SlideJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](SlideJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](SlideJS)
   
   /**
    * The Slide transition is used by the [Snackbar](/demos/snackbars) component.
@@ -107,7 +107,7 @@ object Slide {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

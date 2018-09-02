@@ -41,7 +41,7 @@ object Snackbar {
   @js.native
   object SnackbarJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](SnackbarJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](SnackbarJS)
   
   /**
    * 
@@ -184,7 +184,7 @@ object Snackbar {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

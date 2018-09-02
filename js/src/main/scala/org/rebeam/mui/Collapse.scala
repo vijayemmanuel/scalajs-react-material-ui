@@ -31,7 +31,7 @@ object Collapse {
   @js.native
   object CollapseJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](CollapseJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](CollapseJS)
   
   /**
    * The Collapse transition is used by the
@@ -123,7 +123,7 @@ object Collapse {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

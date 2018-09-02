@@ -41,7 +41,7 @@ object Icon {
   @js.native
   object IconJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](IconJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](IconJS)
   
   /**
    * 
@@ -95,7 +95,7 @@ object Icon {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

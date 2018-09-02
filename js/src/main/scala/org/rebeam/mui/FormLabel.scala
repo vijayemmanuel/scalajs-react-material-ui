@@ -27,7 +27,7 @@ object FormLabel {
   @js.native
   object FormLabelJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](FormLabelJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](FormLabelJS)
   
   /**
    * 
@@ -98,7 +98,7 @@ object FormLabel {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

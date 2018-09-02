@@ -25,7 +25,7 @@ object Card {
   @js.native
   object CardJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](CardJS)
+  val jsComponent = JsFnComponent[Props, Children.None](CardJS)
   
   /**
    * 
@@ -92,7 +92,7 @@ object Card {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

@@ -30,7 +30,7 @@ object Toolbar {
   @js.native
   object ToolbarJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](ToolbarJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](ToolbarJS)
   
   /**
    * 
@@ -84,7 +84,7 @@ object Toolbar {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

@@ -24,7 +24,7 @@ object StepIcon {
   @js.native
   object StepIconJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](StepIconJS)
+  val jsComponent = JsFnComponent[Props, Children.None](StepIconJS)
   
   /**
    * 
@@ -82,7 +82,7 @@ object StepIcon {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

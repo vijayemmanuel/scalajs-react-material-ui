@@ -50,7 +50,7 @@ object Hidden {
   @js.native
   object HiddenJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](HiddenJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](HiddenJS)
   
   /**
    * Responsively hides children based on the selected implementation.
@@ -152,7 +152,7 @@ object Hidden {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

@@ -70,7 +70,7 @@ object Select {
   @js.native
   object SelectJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](SelectJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](SelectJS)
   
   /**
    * 
@@ -339,7 +339,7 @@ object Select {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

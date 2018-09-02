@@ -30,7 +30,7 @@ object StepConnector {
   @js.native
   object StepConnectorJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](StepConnectorJS)
+  val jsComponent = JsFnComponent[Props, Children.None](StepConnectorJS)
   
   /**
    * 
@@ -85,7 +85,7 @@ object StepConnector {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

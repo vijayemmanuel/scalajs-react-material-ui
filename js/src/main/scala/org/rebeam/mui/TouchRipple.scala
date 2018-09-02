@@ -22,7 +22,7 @@ object TouchRipple {
   @js.native
   object TouchRippleJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](TouchRippleJS)
+  val jsComponent = JsFnComponent[Props, Children.None](TouchRippleJS)
   
   /**
    * 
@@ -73,7 +73,7 @@ object TouchRipple {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

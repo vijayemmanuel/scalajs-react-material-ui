@@ -24,7 +24,7 @@ object Fade {
   @js.native
   object FadeJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](FadeJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](FadeJS)
   
   /**
    * The Fade transition is used by the [Modal](/utils/modal) component.
@@ -83,7 +83,7 @@ object Fade {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

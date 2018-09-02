@@ -40,7 +40,7 @@ object Radio {
   @js.native
   object RadioJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](RadioJS)
+  val jsComponent = JsFnComponent[Props, Children.None](RadioJS)
   
   /**
    * 
@@ -134,7 +134,7 @@ object Radio {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

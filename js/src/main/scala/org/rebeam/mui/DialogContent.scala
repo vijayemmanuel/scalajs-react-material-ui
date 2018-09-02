@@ -21,7 +21,7 @@ object DialogContent {
   @js.native
   object DialogContentJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](DialogContentJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](DialogContentJS)
   
   /**
    * 
@@ -67,7 +67,7 @@ object DialogContent {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

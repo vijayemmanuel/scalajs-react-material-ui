@@ -21,7 +21,7 @@ object NoSsr {
   @js.native
   object NoSsrJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](NoSsrJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](NoSsrJS)
   
   /**
    * NoSsr purposely removes components from the subject of Server Side Rendering (SSR).
@@ -73,7 +73,7 @@ object NoSsr {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

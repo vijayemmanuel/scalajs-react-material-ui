@@ -48,7 +48,7 @@ object Drawer {
   @js.native
   object DrawerJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](DrawerJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](DrawerJS)
   
   /**
    * The properties of the [Modal](/api/modal) component are available
@@ -138,7 +138,7 @@ object Drawer {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

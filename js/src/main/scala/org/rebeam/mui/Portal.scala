@@ -22,7 +22,7 @@ object Portal {
   @js.native
   object PortalJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](PortalJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](PortalJS)
   
   /**
    * Portals provide a first-class way to render children into a DOM node
@@ -76,7 +76,7 @@ object Portal {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

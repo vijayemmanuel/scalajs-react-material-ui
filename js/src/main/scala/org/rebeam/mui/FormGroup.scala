@@ -22,7 +22,7 @@ object FormGroup {
   @js.native
   object FormGroupJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](FormGroupJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](FormGroupJS)
   
   /**
    * `FormGroup` wraps controls such as `Checkbox` and `Switch`.
@@ -74,7 +74,7 @@ object FormGroup {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

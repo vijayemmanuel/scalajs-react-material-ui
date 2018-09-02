@@ -39,7 +39,7 @@ object ClickAwayListener {
   @js.native
   object ClickAwayListenerJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](ClickAwayListenerJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](ClickAwayListenerJS)
   
   /**
    * Listen for click events that occur somewhere in the document, outside of the element itself.
@@ -89,7 +89,7 @@ object ClickAwayListener {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

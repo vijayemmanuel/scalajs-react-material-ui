@@ -60,7 +60,7 @@ object NativeSelect {
   @js.native
   object NativeSelectJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](NativeSelectJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](NativeSelectJS)
   
   /**
    * An alternative to `<Select native />` with a much smaller dependency graph.
@@ -272,7 +272,7 @@ object NativeSelect {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

@@ -35,7 +35,7 @@ object FormControl {
   @js.native
   object FormControlJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](FormControlJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](FormControlJS)
   
   /**
    * Provides context such as filled/focused/error/required for form inputs.
@@ -113,7 +113,7 @@ object FormControl {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

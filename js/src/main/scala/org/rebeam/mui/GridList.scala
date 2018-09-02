@@ -25,7 +25,7 @@ object GridList {
   @js.native
   object GridListJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](GridListJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](GridListJS)
   
   /**
    * 
@@ -89,7 +89,7 @@ object GridList {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

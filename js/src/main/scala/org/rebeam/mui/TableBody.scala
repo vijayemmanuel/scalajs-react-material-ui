@@ -22,7 +22,7 @@ object TableBody {
   @js.native
   object TableBodyJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](TableBodyJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](TableBodyJS)
   
   /**
    * 
@@ -73,7 +73,7 @@ object TableBody {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

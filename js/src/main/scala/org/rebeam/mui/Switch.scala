@@ -42,7 +42,7 @@ object Switch {
   @js.native
   object SwitchJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](SwitchJS)
+  val jsComponent = JsFnComponent[Props, Children.None](SwitchJS)
   
   /**
    * 
@@ -144,7 +144,7 @@ object Switch {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

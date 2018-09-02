@@ -82,7 +82,7 @@ object Button {
   @js.native
   object ButtonJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](ButtonJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](ButtonJS)
   
   /**
    * 
@@ -288,7 +288,7 @@ object Button {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

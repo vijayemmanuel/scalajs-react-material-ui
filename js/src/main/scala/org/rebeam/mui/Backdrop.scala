@@ -24,7 +24,7 @@ object Backdrop {
   @js.native
   object BackdropJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](BackdropJS)
+  val jsComponent = JsFnComponent[Props, Children.None](BackdropJS)
   
   /**
    * 
@@ -84,7 +84,7 @@ object Backdrop {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

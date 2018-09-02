@@ -34,7 +34,7 @@ object ListSubheader {
   @js.native
   object ListSubheaderJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](ListSubheaderJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](ListSubheaderJS)
   
   /**
    * 
@@ -101,7 +101,7 @@ object ListSubheader {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

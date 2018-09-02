@@ -143,4 +143,15 @@ object ComponentModel {
     defaultValue: Option[Value]
   )
 
+  case class ImportData(
+    module: String,
+    name: String
+  )
+
+  case class ComponentData(
+    component: Component,
+    importData: ImportData,
+    functional: Boolean
+  )
+
 }

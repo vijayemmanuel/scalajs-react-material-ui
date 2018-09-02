@@ -41,7 +41,7 @@ object LinearProgress {
   @js.native
   object LinearProgressJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](LinearProgressJS)
+  val jsComponent = JsFnComponent[Props, Children.None](LinearProgressJS)
   
   /**
    * ## ARIA
@@ -110,7 +110,7 @@ object LinearProgress {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

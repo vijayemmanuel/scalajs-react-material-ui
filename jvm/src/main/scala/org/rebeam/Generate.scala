@@ -20,8 +20,8 @@ object Generate {
 
     implicit val context = DocGenContext.MaterialUI
 
-    def component(all: Map[String, Component], c: Component): Unit = {
-      val code = genComponent(all, c)
+    def component(all: Map[String, Component], path: String, c: Component): Unit = {
+      val code = genComponent(all, path, c)
       val name = c.displayName
       code.foreach(s => writeToFile(s"./js/src/main/scala/org/rebeam/mui/$name.scala", s))
     }
@@ -34,8 +34,8 @@ object Generate {
     //   c => component(d, c._2)
     // }
 
-    d.map(_._2).foreach{
-      c => component(d, c)
+    d.foreach{
+      case (path, c) => component(d, path, c)
     }
 
   }

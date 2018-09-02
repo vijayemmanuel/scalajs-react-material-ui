@@ -47,7 +47,7 @@ object MobileStepper {
   @js.native
   object MobileStepperJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](MobileStepperJS)
+  val jsComponent = JsFnComponent[Props, Children.None](MobileStepperJS)
   
   /**
    * 
@@ -139,7 +139,7 @@ object MobileStepper {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

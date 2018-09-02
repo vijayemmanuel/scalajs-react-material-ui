@@ -46,7 +46,7 @@ object ButtonBase {
   @js.native
   object ButtonBaseJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](ButtonBaseJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](ButtonBaseJS)
   
   /**
    * `ButtonBase` contains as few styles as possible.
@@ -208,7 +208,7 @@ object ButtonBase {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

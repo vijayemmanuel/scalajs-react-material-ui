@@ -28,7 +28,7 @@ object Avatar {
   @js.native
   object AvatarJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](AvatarJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](AvatarJS)
   
   /**
    * 
@@ -107,7 +107,7 @@ object Avatar {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

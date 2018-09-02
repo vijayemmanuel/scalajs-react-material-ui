@@ -39,7 +39,7 @@ object Chip {
   @js.native
   object ChipJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](ChipJS)
+  val jsComponent = JsFnComponent[Props, Children.None](ChipJS)
   
   /**
    * Chips represent complex entities in small blocks, such as a contact.
@@ -129,7 +129,7 @@ object Chip {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

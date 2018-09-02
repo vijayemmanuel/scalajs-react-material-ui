@@ -3,7 +3,7 @@ package org.rebeam
 import ComponentModel._
 
 trait DocGenContext {
-  def processComponent(all: Map[String, Component], c: Component): Option[Component]
+  def processComponent(all: Map[String, Component], path: String, c: Component): Option[ComponentData]
 }
 
 object DocGenContext {
@@ -19,24 +19,64 @@ object DocGenContext {
 
   object MaterialUI extends DocGenContext {
 
-    def processComponent(all: Map[String, Component], c: Component): Option[Component] =
+    def extractImportData(pathRaw: String, c: Component): ImportData = {
+
+      //TODO this might be more general, but for now the only special case 
+      //for a public component is MuiThemeProvider
+      // // Get rid of windows paths, split up
+      // List[String] path = pathRaw.replaceAllLiterally("\\", "/").split("/").toList
+
+      // path match {
+      //   // Ingore internal components
+      //   case "packages" :: "material-ui" :: "src" :: "internal" :: _ => None
+
+      //   // Many components are in their own folder
+      //   case "packages" :: "material-ui" :: "src" :: c.displayName :: s"${c.displayName}.js"
+      //     => Some(s"@material-ui/core/${c.displayName}")
+
+      //   // Some components are in another module - e.g. styles for MuitThemeProvider
+      //   case "packages" :: "material-ui" :: "src" :: module :: s"${c.displayName}.js"
+      //     => Some(s"@material-ui/core/$module/${c.displayName}")
+
+      // }
+
+      if (c.displayName == "MuiThemeProvider") {
+        ImportData(s"@material-ui/core/styles", s""""${c.displayName}"""")
+      } else {
+        ImportData(s"@material-ui/core/${c.displayName}", "JSImport.Default")
+      }
+    }
+
+    def isFunctional(pathRaw: String, c: Component): Boolean = c.displayName != "MuiThemeProvider"
+
+    def processComponent(all: Map[String, Component], path: String, c: Component): Option[ComponentData] = {
+
+      val importData = extractImportData(path, c)
+
+      val functional = isFunctional(path, c)
+
       if(c.description.contains("@ignore")) {
         println("Ignoring " + c.displayName)
         None
       } else {
         Some(
-          c.copy(
-            props = propsIncludingInheritance(all, c)
-              .map {
-                case (name, prop) => transformProp(c, name, prop)
-              }.map {
-                case (name, prop) => sanitiseProp(c, name, prop)
-              }.filter {
-                case (name, prop) => useProp(c, name, prop)
-              }
+          ComponentData(
+            component = c.copy(
+              props = propsIncludingInheritance(all, c)
+                .map {
+                  case (name, prop) => transformProp(c, name, prop)
+                }.map {
+                  case (name, prop) => sanitiseProp(c, name, prop)
+                }.filter {
+                  case (name, prop) => useProp(c, name, prop)
+                }
+              ),
+            importData = importData,
+            functional = functional
           )
         )
       }
+    }
 
     def propsIncludingInheritance(all: Map[String, Component], c: Component): List[(String, Prop)] = {
 
@@ -250,7 +290,7 @@ object DocGenContext {
       // e.g. TextField would have event source "Input" - if we have one of these, we will
       // add "FromSource" to the event type where appropriate, e.g. for ReactEventFromInput,
       // ReactFocusEventFromInput etc.
-  
+
       // Focus Events
       } else if (namedFunc("onFocus")) {
         eventProp("ReactFocusEvent")

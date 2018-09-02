@@ -42,7 +42,7 @@ object CircularProgress {
   @js.native
   object CircularProgressJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](CircularProgressJS)
+  val jsComponent = JsFnComponent[Props, Children.None](CircularProgressJS)
   
   /**
    * ## ARIA
@@ -114,7 +114,7 @@ object CircularProgress {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

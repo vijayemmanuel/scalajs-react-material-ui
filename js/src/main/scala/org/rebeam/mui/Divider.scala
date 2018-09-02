@@ -25,7 +25,7 @@ object Divider {
   @js.native
   object DividerJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](DividerJS)
+  val jsComponent = JsFnComponent[Props, Children.None](DividerJS)
   
   /**
    * 
@@ -88,7 +88,7 @@ object Divider {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

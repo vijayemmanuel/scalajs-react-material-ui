@@ -24,7 +24,7 @@ object Paper {
   @js.native
   object PaperJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](PaperJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](PaperJS)
   
   /**
    * 
@@ -84,7 +84,7 @@ object Paper {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

@@ -24,7 +24,7 @@ object GridListTile {
   @js.native
   object GridListTileJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](GridListTileJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](GridListTileJS)
   
   /**
    * 
@@ -83,7 +83,7 @@ object GridListTile {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

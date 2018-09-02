@@ -37,7 +37,7 @@ object InputLabel {
   @js.native
   object InputLabelJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](InputLabelJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](InputLabelJS)
   
   /**
    * 
@@ -127,7 +127,7 @@ object InputLabel {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

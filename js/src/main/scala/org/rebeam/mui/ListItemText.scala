@@ -27,7 +27,7 @@ object ListItemText {
   @js.native
   object ListItemTextJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](ListItemTextJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](ListItemTextJS)
   
   /**
    * 
@@ -103,7 +103,7 @@ object ListItemText {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

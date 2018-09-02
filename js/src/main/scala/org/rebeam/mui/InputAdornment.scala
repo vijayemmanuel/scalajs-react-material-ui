@@ -31,7 +31,7 @@ object InputAdornment {
   @js.native
   object InputAdornmentJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](InputAdornmentJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](InputAdornmentJS)
   
   /**
    * 
@@ -90,7 +90,7 @@ object InputAdornment {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

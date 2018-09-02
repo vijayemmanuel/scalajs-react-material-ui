@@ -46,7 +46,7 @@ object Popper {
   @js.native
   object PopperJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](PopperJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](PopperJS)
   
   /**
    * Poppers rely on the 3rd party library [Popper.js](https://github.com/FezVrasta/popper.js) for positioning.
@@ -138,7 +138,7 @@ object Popper {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

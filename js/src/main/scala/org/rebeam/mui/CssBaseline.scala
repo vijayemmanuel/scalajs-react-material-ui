@@ -20,7 +20,7 @@ object CssBaseline {
   @js.native
   object CssBaselineJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](CssBaselineJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](CssBaselineJS)
   
   /**
    * Kickstart an elegant, consistent, and simple baseline to build upon.
@@ -61,7 +61,7 @@ object CssBaseline {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

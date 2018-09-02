@@ -24,7 +24,7 @@ object TableRow {
   @js.native
   object TableRowJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](TableRowJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](TableRowJS)
   
   /**
    * Will automatically set dynamic row height
@@ -84,7 +84,7 @@ object TableRow {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

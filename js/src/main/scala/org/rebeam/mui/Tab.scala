@@ -62,7 +62,7 @@ object Tab {
   @js.native
   object TabJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](TabJS)
+  val jsComponent = JsFnComponent[Props, Children.None](TabJS)
   
   /**
    * 
@@ -279,7 +279,7 @@ object Tab {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

@@ -34,7 +34,7 @@ object FormHelperText {
   @js.native
   object FormHelperTextJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](FormHelperTextJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](FormHelperTextJS)
   
   /**
    * 
@@ -110,7 +110,7 @@ object FormHelperText {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }

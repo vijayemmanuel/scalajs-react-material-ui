@@ -65,7 +65,7 @@ object TablePagination {
   @js.native
   object TablePaginationJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.None](TablePaginationJS)
+  val jsComponent = JsFnComponent[Props, Children.None](TablePaginationJS)
   
   /**
    * A `TableCell` based component for placing inside `TableFooter` for pagination.
@@ -204,7 +204,7 @@ object TablePagination {
       }
     }
     
-    jsFnComponent(p)
+    jsComponent(p)
   }
 
 }

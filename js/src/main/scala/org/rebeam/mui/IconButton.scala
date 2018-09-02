@@ -56,7 +56,7 @@ object IconButton {
   @js.native
   object IconButtonJS extends js.Object
 
-  val jsFnComponent = JsFnComponent[Props, Children.Varargs](IconButtonJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](IconButtonJS)
   
   /**
    * Refer to the [Icons](/style/icons) section of the documentation
@@ -244,7 +244,7 @@ object IconButton {
       }
     }
     
-    jsFnComponent(p)(children: _*)
+    jsComponent(p)(children: _*)
   }
 
 }
