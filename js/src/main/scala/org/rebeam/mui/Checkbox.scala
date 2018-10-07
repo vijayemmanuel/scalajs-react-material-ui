@@ -21,6 +21,7 @@ object Checkbox {
   trait Props extends js.Object {
     var checked: js.UndefOr[js.Any] = js.native
     var checkedIcon: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
+    var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Object] = js.native
     var color: js.UndefOr[String] = js.native
     var disableRipple: js.UndefOr[Boolean] = js.native
@@ -50,6 +51,8 @@ object Checkbox {
    *        If `true`, the component is checked.
    * @param checkedIcon
    *        The icon to display when the component is checked.
+   * @param className
+   *        Property spread to root element
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
@@ -65,6 +68,9 @@ object Checkbox {
    *        The id of the `input` element.
    * @param indeterminate
    *        If `true`, the component appears indeterminate.
+   *        This does not set the native input element to indeterminate due
+   *        to inconsistent behavior across browsers.
+   *        However, we set a `data-indeterminate` attribute on the input.
    * @param indeterminateIcon
    *        The icon to display when the component is indeterminate.
    * @param inputProps
@@ -97,6 +103,7 @@ object Checkbox {
   def apply(
     checked: js.UndefOr[js.Any] = js.undefined,
     checkedIcon: js.UndefOr[VdomNode] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Object] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
     disableRipple: js.UndefOr[Boolean] = js.undefined,
@@ -118,6 +125,7 @@ object Checkbox {
     val p = (new js.Object).asInstanceOf[Props]
     if (checked.isDefined) {p.checked = checked}
     if (checkedIcon.isDefined) {p.checkedIcon = checkedIcon.map(v => v.rawNode)}
+    if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (color.isDefined) {p.color = color.map(v => v.value)}
     if (disableRipple.isDefined) {p.disableRipple = disableRipple}

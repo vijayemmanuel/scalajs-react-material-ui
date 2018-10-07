@@ -73,6 +73,10 @@
             {
               "value": "'static'",
               "computed": false
+            },
+            {
+              "value": "'relative'",
+              "computed": false
             }
           ]
         },
@@ -684,7 +688,7 @@
           ]
         },
         "required": false,
-        "description": "The variant to use.",
+        "description": "The variant to use. __WARNING__: `flat` and `raised` are deprecated. Instead use\r\n`text` and `contained` respectively.",
         "defaultValue": {
           "value": "'text'",
           "computed": false
@@ -1217,6 +1221,41 @@
       }
     }
   },
+  "packages\\material-ui\\src\\CardActionArea\\CardActionArea.js": {
+    "description": "",
+    "displayName": "CardActionArea",
+    "methods": [],
+    "props": {
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The content of the component."
+      },
+      "classes": {
+        "type": {
+          "name": "object"
+        },
+        "required": true,
+        "description": "Override or extend the styles applied to the component.\r\nSee [CSS API](#css-api) below for more details."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "@ignore"
+      },
+      "focusVisibleClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "@ignore"
+      }
+    }
+  },
   "packages\\material-ui\\src\\CardActions\\CardActions.js": {
     "description": "",
     "displayName": "CardActions",
@@ -1497,6 +1536,13 @@
         "required": true,
         "description": "Override or extend the styles applied to the component.\r\nSee [CSS API](#css-api) below for more details."
       },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "@ignore"
+      },
       "color": {
         "type": {
           "name": "enum",
@@ -1559,7 +1605,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "If `true`, the component appears indeterminate.",
+        "description": "If `true`, the component appears indeterminate.\r\nThis does not set the native input element to indeterminate due\r\nto inconsistent behavior across browsers.\r\nHowever, we set a `data-indeterminate` attribute on the input.",
         "defaultValue": {
           "value": "false",
           "computed": false
@@ -1639,6 +1685,18 @@
       },
       {
         "name": "handleKeyDown",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "event",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleKeyUp",
         "docblock": null,
         "modifiers": [],
         "params": [
@@ -1745,6 +1803,13 @@
         "required": false,
         "description": "Override the default delete icon element. Shown only if `onDelete` is set."
       },
+      "icon": {
+        "type": {
+          "name": "element"
+        },
+        "required": false,
+        "description": "Icon element."
+      },
       "label": {
         "type": {
           "name": "node"
@@ -1773,6 +1838,13 @@
         "required": false,
         "description": "@ignore"
       },
+      "onKeyUp": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "@ignore"
+      },
       "tabIndex": {
         "type": {
           "name": "union",
@@ -1787,6 +1859,27 @@
         },
         "required": false,
         "description": "@ignore"
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'outlined'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "The variant to use.",
+        "defaultValue": {
+          "value": "'default'",
+          "computed": false
+        }
       }
     }
   },
@@ -1998,7 +2091,7 @@
     }
   },
   "packages\\material-ui\\src\\Collapse\\Collapse.js": {
-    "description": "The Collapse transition is used by the\r\n[Vertical Stepper](/demos/steppers#vertical-stepper) StepContent component.\r\nIt uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.",
+    "description": "The Collapse transition is used by the\r\n[Vertical Stepper](/demos/steppers/#vertical-stepper) StepContent component.\r\nIt uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.",
     "displayName": "Collapse",
     "methods": [
       {
@@ -2348,6 +2441,10 @@
               "computed": false
             },
             {
+              "value": "'lg'",
+              "computed": false
+            },
+            {
               "value": "false",
               "computed": false
             }
@@ -2435,7 +2532,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`Paper`](/api/paper) element."
+        "description": "Properties applied to the [`Paper`](/api/paper/) element."
       },
       "scroll": {
         "type": {
@@ -2722,7 +2819,7 @@
     }
   },
   "packages\\material-ui\\src\\Drawer\\Drawer.js": {
-    "description": "The properties of the [Modal](/api/modal) component are available\r\nwhen `variant=\"temporary\"` is set.",
+    "description": "The properties of the [Modal](/api/modal/) component are available\r\nwhen `variant=\"temporary\"` is set.",
     "displayName": "Drawer",
     "methods": [],
     "props": {
@@ -2792,7 +2889,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`Modal`](/api/modal) element."
+        "description": "Properties applied to the [`Modal`](/api/modal/) element."
       },
       "onClose": {
         "type": {
@@ -2817,14 +2914,14 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`Paper`](/api/paper) element."
+        "description": "Properties applied to the [`Paper`](/api/paper/) element."
       },
       "SlideProps": {
         "type": {
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`Slide`](/api/slide) element."
+        "description": "Properties applied to the [`Slide`](/api/slide/) element."
       },
       "theme": {
         "type": {
@@ -2933,7 +3030,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`Collapse`](/api/collapse) element."
+        "description": "Properties applied to the [`Collapse`](/api/collapse/) element."
       },
       "defaultExpanded": {
         "type": {
@@ -3131,7 +3228,7 @@
     }
   },
   "packages\\material-ui\\src\\Fade\\Fade.js": {
-    "description": "The Fade transition is used by the [Modal](/utils/modal) component.\r\nIt uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.",
+    "description": "The Fade transition is used by the [Modal](/utils/modal/) component.\r\nIt uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.",
     "displayName": "Fade",
     "methods": [
       {
@@ -3241,8 +3338,271 @@
       }
     }
   },
+  "packages\\material-ui\\src\\FilledInput\\FilledInput.js": {
+    "description": "",
+    "displayName": "FilledInput",
+    "methods": [],
+    "props": {
+      "autoComplete": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "This property helps users to fill forms faster, especially on mobile devices.\r\nThe name can be confusing, as it's more like an autofill.\r\nYou can learn more about it here:\r\nhttps://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill"
+      },
+      "autoFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will be focused during the first mount."
+      },
+      "classes": {
+        "type": {
+          "name": "object"
+        },
+        "required": true,
+        "description": "Override or extend the styles applied to the component.\r\nSee [CSS API](#css-api) below for more details."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The CSS class name of the wrapper element."
+      },
+      "defaultValue": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The default input value, useful when not controlling the component."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will be disabled."
+      },
+      "endAdornment": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "End `InputAdornment` for this component."
+      },
+      "error": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will indicate an error. This is normally obtained via context from\r\nFormControl."
+      },
+      "fullWidth": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will take up the full width of its container."
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The id of the `input` element."
+      },
+      "inputComponent": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "func"
+            },
+            {
+              "name": "object"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The component used for the native input.\r\nEither a string to use a DOM element or a component."
+      },
+      "inputProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Attributes applied to the `input` element."
+      },
+      "inputRef": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "func"
+            },
+            {
+              "name": "object"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Use that property to pass a ref callback to the native input component."
+      },
+      "margin": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'dense'",
+              "computed": false
+            },
+            {
+              "value": "'none'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "If `dense`, will adjust vertical spacing. This is normally obtained via context from\r\nFormControl."
+      },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, a textarea element will be rendered."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name attribute of the `input` element."
+      },
+      "onChange": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Callback fired when the value is changed.\r\n\n@param {object} event The event source of the callback.\r\nYou can pull out the new value by accessing `event.target.value`."
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The short hint displayed in the input before the user enters a value."
+      },
+      "readOnly": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "It prevents the user from changing the value of the field\r\n(not from interacting with the field)."
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will be required."
+      },
+      "rows": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Number of rows to display when multiline option is set to true."
+      },
+      "rowsMax": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Maximum number of rows to display when multiline option is set to true."
+      },
+      "startAdornment": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Start `InputAdornment` for this component."
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Type of the input element. It should be a valid HTML5 input type."
+      },
+      "value": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            },
+            {
+              "name": "bool"
+            },
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "union",
+                "value": [
+                  {
+                    "name": "string"
+                  },
+                  {
+                    "name": "number"
+                  },
+                  {
+                    "name": "bool"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "required": false,
+        "description": "The input value, required for a controlled component."
+      }
+    }
+  },
   "packages\\material-ui\\src\\FormControl\\FormControl.js": {
-    "description": "Provides context such as filled/focused/error/required for form inputs.\r\nRelying on the context provides high flexibilty and ensures that the state always stays\r\nconsistent across the children of the `FormControl`.\r\nThis context is used by the following components:\r\n - FormLabel\r\n - FormHelperText\r\n - Input\r\n - InputLabel",
+    "description": "Provides context such as filled/focused/error/required for form inputs.\r\nRelying on the context provides high flexibilty and ensures that the state always stays\r\nconsistent across the children of the `FormControl`.\r\nThis context is used by the following components:\r\n - FormLabel\r\n - FormHelperText\r\n - Input\r\n - InputLabel\r\n\n⚠️ Only one input can be used within a FormControl.",
     "displayName": "FormControl",
     "methods": [
       {
@@ -3384,6 +3744,31 @@
         "description": "If `true`, the label will indicate that the input is required.",
         "defaultValue": {
           "value": "false",
+          "computed": false
+        }
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'standard'",
+              "computed": false
+            },
+            {
+              "value": "'outlined'",
+              "computed": false
+            },
+            {
+              "value": "'filled'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "The variant to use.",
+        "defaultValue": {
+          "value": "'standard'",
           "computed": false
         }
       }
@@ -3653,6 +4038,27 @@
         },
         "required": false,
         "description": "If `true`, the helper text should use required classes key."
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'standard'",
+              "computed": false
+            },
+            {
+              "value": "'outlined'",
+              "computed": false
+            },
+            {
+              "value": "'filled'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "The variant to use."
       }
     },
     "context": {
@@ -4679,7 +5085,7 @@
     }
   },
   "packages\\material-ui\\src\\Grow\\Grow.js": {
-    "description": "The Grow transition is used by the [Tooltip](/demos/tooltips) and\r\n[Popover](/utils/popover) components.\r\nIt uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.",
+    "description": "The Grow transition is used by the [Tooltip](/demos/tooltips/) and\r\n[Popover](/utils/popover/) components.\r\nIt uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.",
     "displayName": "Grow",
     "methods": [
       {
@@ -4881,7 +5287,7 @@
           ]
         },
         "required": false,
-        "description": "You can use this property when choosing the `js` implementation with server side rendering.\r\n\nAs `window.innerWidth` is unavailable on the server,\r\nwe default to rendering an empty componenent during the first mount.\r\nIn some situation you might want to use an heristic to approximate\r\nthe screen width of the client browser screen width.\r\n\nFor instance, you could be using the user-agent or the client-hints.\r\nhttp://caniuse.com/#search=client%20hint"
+        "description": "You can use this property when choosing the `js` implementation with server side rendering.\r\n\nAs `window.innerWidth` is unavailable on the server,\r\nwe default to rendering an empty componenent during the first mount.\r\nIn some situation you might want to use an heristic to approximate\r\nthe screen width of the client browser screen width.\r\n\nFor instance, you could be using the user-agent or the client-hints.\r\nhttps://caniuse.com/#search=client%20hint"
       },
       "lgDown": {
         "type": {
@@ -5297,6 +5703,28 @@
           "computed": false
         }
       },
+      "component": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "func"
+            },
+            {
+              "name": "object"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The component used for the root node.\r\nEither a string to use a DOM element or a component.",
+        "defaultValue": {
+          "value": "'span'",
+          "computed": false
+        }
+      },
       "fontSize": {
         "type": {
           "name": "enum",
@@ -5307,6 +5735,14 @@
             },
             {
               "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'small'",
+              "computed": false
+            },
+            {
+              "value": "'large'",
               "computed": false
             }
           ]
@@ -5321,7 +5757,7 @@
     }
   },
   "packages\\material-ui\\src\\IconButton\\IconButton.js": {
-    "description": "Refer to the [Icons](/style/icons) section of the documentation\r\nregarding the available icon options.",
+    "description": "Refer to the [Icons](/style/icons/) section of the documentation\r\nregarding the available icon options.",
     "displayName": "IconButton",
     "methods": [],
     "props": {
@@ -5398,6 +5834,375 @@
   "packages\\material-ui\\src\\Input\\Input.js": {
     "description": "",
     "displayName": "Input",
+    "methods": [],
+    "props": {
+      "autoComplete": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "This property helps users to fill forms faster, especially on mobile devices.\r\nThe name can be confusing, as it's more like an autofill.\r\nYou can learn more about it here:\r\nhttps://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill"
+      },
+      "autoFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will be focused during the first mount."
+      },
+      "classes": {
+        "type": {
+          "name": "object"
+        },
+        "required": true,
+        "description": "Override or extend the styles applied to the component.\r\nSee [CSS API](#css-api) below for more details."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The CSS class name of the wrapper element."
+      },
+      "defaultValue": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The default input value, useful when not controlling the component."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will be disabled."
+      },
+      "disableUnderline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will not have an underline."
+      },
+      "endAdornment": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "End `InputAdornment` for this component."
+      },
+      "error": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will indicate an error. This is normally obtained via context from\r\nFormControl."
+      },
+      "fullWidth": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will take up the full width of its container."
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The id of the `input` element."
+      },
+      "inputComponent": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "func"
+            },
+            {
+              "name": "object"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The component used for the native input.\r\nEither a string to use a DOM element or a component."
+      },
+      "inputProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Attributes applied to the `input` element."
+      },
+      "inputRef": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "func"
+            },
+            {
+              "name": "object"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Use that property to pass a ref callback to the native input component."
+      },
+      "margin": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'dense'",
+              "computed": false
+            },
+            {
+              "value": "'none'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "If `dense`, will adjust vertical spacing. This is normally obtained via context from\r\nFormControl."
+      },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, a textarea element will be rendered."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name attribute of the `input` element."
+      },
+      "onChange": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Callback fired when the value is changed.\r\n\n@param {object} event The event source of the callback.\r\nYou can pull out the new value by accessing `event.target.value`."
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The short hint displayed in the input before the user enters a value."
+      },
+      "readOnly": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "It prevents the user from changing the value of the field\r\n(not from interacting with the field)."
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will be required."
+      },
+      "rows": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Number of rows to display when multiline option is set to true."
+      },
+      "rowsMax": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Maximum number of rows to display when multiline option is set to true."
+      },
+      "startAdornment": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Start `InputAdornment` for this component."
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Type of the input element. It should be a valid HTML5 input type."
+      },
+      "value": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            },
+            {
+              "name": "bool"
+            },
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "union",
+                "value": [
+                  {
+                    "name": "string"
+                  },
+                  {
+                    "name": "number"
+                  },
+                  {
+                    "name": "bool"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "required": false,
+        "description": "The input value, required for a controlled component."
+      }
+    }
+  },
+  "packages\\material-ui\\src\\InputAdornment\\InputAdornment.js": {
+    "description": "",
+    "displayName": "InputAdornment",
+    "methods": [],
+    "props": {
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": true,
+        "description": "The content of the component, normally an `IconButton` or string."
+      },
+      "classes": {
+        "type": {
+          "name": "object"
+        },
+        "required": true,
+        "description": "Override or extend the styles applied to the component.\r\nSee [CSS API](#css-api) below for more details."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "@ignore"
+      },
+      "component": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "func"
+            },
+            {
+              "name": "object"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The component used for the root node.\r\nEither a string to use a DOM element or a component.",
+        "defaultValue": {
+          "value": "'div'",
+          "computed": false
+        }
+      },
+      "disableTypography": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If children is a string then disable wrapping in a Typography component.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "position": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'start'",
+              "computed": false
+            },
+            {
+              "value": "'end'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "The position this adornment should appear relative to the `Input`."
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'standard'",
+              "computed": false
+            },
+            {
+              "value": "'outlined'",
+              "computed": false
+            },
+            {
+              "value": "'filled'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "The variant to use."
+      }
+    }
+  },
+  "packages\\material-ui\\src\\InputBase\\InputBase.js": {
+    "description": "`InputBase` contains as few styles as possible.\r\nIt aims to be a simple building block for creating an input.\r\nIt contains a load of style reset and some state logic.",
+    "displayName": "InputBase",
     "methods": [
       {
         "name": "handleFocus",
@@ -5429,7 +6234,7 @@
         "modifiers": [],
         "params": [
           {
-            "name": "event",
+            "name": "...args",
             "type": null
           }
         ],
@@ -5442,6 +6247,18 @@
         "params": [
           {
             "name": "ref",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "event",
             "type": null
           }
         ],
@@ -5511,17 +6328,6 @@
         "required": false,
         "description": "If `true`, the input will be disabled."
       },
-      "disableUnderline": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "If `true`, the input will not have an underline.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
       "endAdornment": {
         "type": {
           "name": "node"
@@ -5570,7 +6376,11 @@
           ]
         },
         "required": false,
-        "description": "The component used for the native input.\r\nEither a string to use a DOM element or a component."
+        "description": "The component used for the native input.\r\nEither a string to use a DOM element or a component.",
+        "defaultValue": {
+          "value": "'input'",
+          "computed": false
+        }
       },
       "inputProps": {
         "type": {
@@ -5692,6 +6502,13 @@
         "required": false,
         "description": "It prevents the user from changing the value of the field\r\n(not from interacting with the field)."
       },
+      "renderPrefix": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "@ignore"
+      },
       "required": {
         "type": {
           "name": "bool"
@@ -5800,7 +6617,7 @@
       }
     }
   },
-  "packages\\material-ui\\src\\Input\\Textarea.js": {
+  "packages\\material-ui\\src\\InputBase\\Textarea.js": {
     "description": "@ignore - internal component.",
     "displayName": "Textarea",
     "methods": [
@@ -5970,84 +6787,6 @@
       }
     }
   },
-  "packages\\material-ui\\src\\InputAdornment\\InputAdornment.js": {
-    "description": "",
-    "displayName": "InputAdornment",
-    "methods": [],
-    "props": {
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": true,
-        "description": "The content of the component, normally an `IconButton` or string."
-      },
-      "classes": {
-        "type": {
-          "name": "object"
-        },
-        "required": true,
-        "description": "Override or extend the styles applied to the component.\r\nSee [CSS API](#css-api) below for more details."
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "@ignore"
-      },
-      "component": {
-        "type": {
-          "name": "union",
-          "value": [
-            {
-              "name": "string"
-            },
-            {
-              "name": "func"
-            },
-            {
-              "name": "object"
-            }
-          ]
-        },
-        "required": false,
-        "description": "The component used for the root node.\r\nEither a string to use a DOM element or a component.",
-        "defaultValue": {
-          "value": "'div'",
-          "computed": false
-        }
-      },
-      "disableTypography": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "If children is a string then disable wrapping in a Typography component.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "position": {
-        "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "'start'",
-              "computed": false
-            },
-            {
-              "value": "'end'",
-              "computed": false
-            }
-          ]
-        },
-        "required": false,
-        "description": "The position this adornment should appear relative to the `Input`."
-      }
-    }
-  },
   "packages\\material-ui\\src\\InputLabel\\InputLabel.js": {
     "description": "",
     "displayName": "InputLabel",
@@ -6111,7 +6850,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "`classes` property applied to the [`FormLabel`](/api/form-label) element."
+        "description": "`classes` property applied to the [`FormLabel`](/api/form-label/) element."
       },
       "margin": {
         "type": {
@@ -6139,6 +6878,27 @@
         },
         "required": false,
         "description": "If `true`, the label is shrunk."
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'standard'",
+              "computed": false
+            },
+            {
+              "value": "'outlined'",
+              "computed": false
+            },
+            {
+              "value": "'filled'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "The variant to use."
       }
     },
     "context": {
@@ -6456,6 +7216,17 @@
         },
         "required": false,
         "description": "@ignore"
+      },
+      "selected": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Use to apply selected styling.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       }
     },
     "context": {
@@ -6854,7 +7625,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`MenuList`](/api/menu-list) element."
+        "description": "Properties applied to the [`MenuList`](/api/menu-list/) element."
       },
       "onClose": {
         "type": {
@@ -6924,7 +7695,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "`classes` property applied to the [`Popover`](/api/popover) element."
+        "description": "`classes` property applied to the [`Popover`](/api/popover/) element."
       },
       "theme": {
         "type": {
@@ -7037,11 +7808,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Use to apply selected styling.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
+        "description": "@ignore"
       }
     }
   },
@@ -7387,7 +8154,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`Backdrop`](/api/backdrop) element."
+        "description": "Properties applied to the [`Backdrop`](/api/backdrop/) element."
       },
       "children": {
         "type": {
@@ -7562,7 +8329,7 @@
     }
   },
   "packages\\material-ui\\src\\NativeSelect\\NativeSelect.js": {
-    "description": "An alternative to `<Select native />` with a much smaller dependency graph.",
+    "description": "An alternative to `<Select native />` with a much smaller bundle size footprint.",
     "displayName": "NativeSelect",
     "methods": [],
     "props": {
@@ -7644,6 +8411,35 @@
         },
         "required": false,
         "description": "The input value."
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'standard'",
+              "computed": false
+            },
+            {
+              "value": "'outlined'",
+              "computed": false
+            },
+            {
+              "value": "'filled'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "The variant to use."
+      }
+    },
+    "context": {
+      "muiFormControl": {
+        "type": {
+          "name": "object"
+        },
+        "required": false
       }
     }
   },
@@ -7744,6 +8540,27 @@
         },
         "required": false,
         "description": "The input value."
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'standard'",
+              "computed": false
+            },
+            {
+              "value": "'outlined'",
+              "computed": false
+            },
+            {
+              "value": "'filled'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "The variant to use."
       }
     }
   },
@@ -7780,6 +8597,353 @@
           "value": "null",
           "computed": false
         }
+      }
+    }
+  },
+  "packages\\material-ui\\src\\OutlinedInput\\NotchedOutline.js": {
+    "description": "@ignore - internal component.",
+    "displayName": "NotchedOutline",
+    "methods": [],
+    "props": {
+      "classes": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Override or extend the styles applied to the component.\r\nSee [CSS API](#css-api) below for more details."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "@ignore"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the outline should be displayed in a disabled state."
+      },
+      "error": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the outline should be displayed in an error state."
+      },
+      "focused": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the outline should be displayed in a focused state."
+      },
+      "labelWidth": {
+        "type": {
+          "name": "number"
+        },
+        "required": true,
+        "description": "The width of the legend."
+      },
+      "notched": {
+        "type": {
+          "name": "bool"
+        },
+        "required": true,
+        "description": "If `true`, the outline is notched to accommodate the label."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "@ignore"
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "@ignore"
+      }
+    }
+  },
+  "packages\\material-ui\\src\\OutlinedInput\\OutlinedInput.js": {
+    "description": "",
+    "displayName": "OutlinedInput",
+    "methods": [],
+    "props": {
+      "autoComplete": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "This property helps users to fill forms faster, especially on mobile devices.\r\nThe name can be confusing, as it's more like an autofill.\r\nYou can learn more about it here:\r\nhttps://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill"
+      },
+      "autoFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will be focused during the first mount."
+      },
+      "classes": {
+        "type": {
+          "name": "object"
+        },
+        "required": true,
+        "description": "Override or extend the styles applied to the component.\r\nSee [CSS API](#css-api) below for more details."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The CSS class name of the wrapper element."
+      },
+      "defaultValue": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The default input value, useful when not controlling the component."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will be disabled."
+      },
+      "endAdornment": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "End `InputAdornment` for this component."
+      },
+      "error": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will indicate an error. This is normally obtained via context from\r\nFormControl."
+      },
+      "fullWidth": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will take up the full width of its container."
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The id of the `input` element."
+      },
+      "inputComponent": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "func"
+            },
+            {
+              "name": "object"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The component used for the native input.\r\nEither a string to use a DOM element or a component."
+      },
+      "inputProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Attributes applied to the `input` element."
+      },
+      "inputRef": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "func"
+            },
+            {
+              "name": "object"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Use that property to pass a ref callback to the native input component."
+      },
+      "labelWidth": {
+        "type": {
+          "name": "number"
+        },
+        "required": true,
+        "description": "The width of the legend."
+      },
+      "margin": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'dense'",
+              "computed": false
+            },
+            {
+              "value": "'none'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "If `dense`, will adjust vertical spacing. This is normally obtained via context from\r\nFormControl."
+      },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, a textarea element will be rendered."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name attribute of the `input` element."
+      },
+      "notched": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the outline is notched to accommodate the label."
+      },
+      "onChange": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Callback fired when the value is changed.\r\n\n@param {object} event The event source of the callback.\r\nYou can pull out the new value by accessing `event.target.value`."
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The short hint displayed in the input before the user enters a value."
+      },
+      "readOnly": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "It prevents the user from changing the value of the field\r\n(not from interacting with the field)."
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the input will be required."
+      },
+      "rows": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Number of rows to display when multiline option is set to true."
+      },
+      "rowsMax": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Maximum number of rows to display when multiline option is set to true."
+      },
+      "startAdornment": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Start `InputAdornment` for this component."
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Type of the input element. It should be a valid HTML5 input type."
+      },
+      "value": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            },
+            {
+              "name": "bool"
+            },
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "union",
+                "value": [
+                  {
+                    "name": "string"
+                  },
+                  {
+                    "name": "number"
+                  },
+                  {
+                    "name": "bool"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "required": false,
+        "description": "The input value, required for a controlled component."
       }
     }
   },
@@ -8136,7 +9300,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "`classes` property applied to the [`Modal`](/api/modal) element."
+        "description": "`classes` property applied to the [`Modal`](/api/modal/) element."
       },
       "onClose": {
         "type": {
@@ -8199,7 +9363,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`Paper`](/api/paper) element."
+        "description": "Properties applied to the [`Paper`](/api/paper/) element."
       },
       "role": {
         "type": {
@@ -8948,7 +10112,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`Menu`](/api/menu) element."
+        "description": "Properties applied to the [`Menu`](/api/menu/) element."
       },
       "multiple": {
         "type": {
@@ -9048,6 +10212,35 @@
         },
         "required": false,
         "description": "The input value.\r\nThis property is required when the `native` property is `false` (default)."
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'standard'",
+              "computed": false
+            },
+            {
+              "value": "'outlined'",
+              "computed": false
+            },
+            {
+              "value": "'filled'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "The variant to use."
+      }
+    },
+    "context": {
+      "muiFormControl": {
+        "type": {
+          "name": "object"
+        },
+        "required": false
       }
     }
   },
@@ -9240,7 +10433,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`Menu`](/api/menu) element."
+        "description": "Properties applied to the [`Menu`](/api/menu/) element."
       },
       "multiple": {
         "type": {
@@ -9382,11 +10575,32 @@
         },
         "required": true,
         "description": "The input value."
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'standard'",
+              "computed": false
+            },
+            {
+              "value": "'outlined'",
+              "computed": false
+            },
+            {
+              "value": "'filled'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "The variant to use."
       }
     }
   },
   "packages\\material-ui\\src\\Slide\\Slide.js": {
-    "description": "The Slide transition is used by the [Snackbar](/demos/snackbars) component.\r\nIt uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.",
+    "description": "The Slide transition is used by the [Snackbar](/demos/snackbars/) component.\r\nIt uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.",
     "displayName": "Slide",
     "methods": [
       {
@@ -9747,12 +10961,19 @@
         "required": false,
         "description": "@ignore"
       },
+      "ClickAwayListenerProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Properties applied to the `ClickAwayListener` element."
+      },
       "ContentProps": {
         "type": {
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`SnackbarContent`](/api/snackbar-content) element."
+        "description": "Properties applied to the [`SnackbarContent`](/api/snackbar-content/) element."
       },
       "disableWindowBlurListener": {
         "type": {
@@ -10156,6 +11377,13 @@
     "displayName": "StepConnector",
     "methods": [],
     "props": {
+      "active": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "@ignore"
+      },
       "alternativeLabel": {
         "type": {
           "name": "bool"
@@ -10177,6 +11405,27 @@
       "className": {
         "type": {
           "name": "string"
+        },
+        "required": false,
+        "description": "@ignore"
+      },
+      "completed": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "@ignore"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "@ignore"
+      },
+      "index": {
+        "type": {
+          "name": "number"
         },
         "required": false,
         "description": "@ignore"
@@ -10521,12 +11770,30 @@
           "computed": false
         }
       },
+      "StepIconComponent": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "func"
+            },
+            {
+              "name": "object"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The component to render in place of the [`StepIcon`](/api/step-icon/)."
+      },
       "StepIconProps": {
         "type": {
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`StepIcon`](/api/step-icon) element."
+        "description": "Properties applied to the [`StepIcon`](/api/step-icon/) element."
       }
     }
   },
@@ -10719,6 +11986,14 @@
             {
               "value": "'default'",
               "computed": false
+            },
+            {
+              "value": "'small'",
+              "computed": false
+            },
+            {
+              "value": "'large'",
+              "computed": false
             }
           ]
         },
@@ -10901,7 +12176,7 @@
         "modifiers": [],
         "params": [
           {
-            "name": "node",
+            "name": "ref",
             "type": null
           }
         ],
@@ -10913,7 +12188,7 @@
         "modifiers": [],
         "params": [
           {
-            "name": "node",
+            "name": "ref",
             "type": null
           }
         ],
@@ -11001,6 +12276,28 @@
         "description": "If `true`, swipe to open is disabled. This is useful in browsers where swiping triggers\r\nnavigation actions. Swipe to open is disabled on iOS browsers by default.",
         "defaultValue": {
           "value": "typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent)",
+          "computed": false
+        }
+      },
+      "hysteresis": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Affects how far the drawer must be opened/closed to change his state.\r\nSpecified as percent (0-1) of the width of the drawer",
+        "defaultValue": {
+          "value": "0.55",
+          "computed": false
+        }
+      },
+      "minFlingVelocity": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Defines, from which (average) velocity on, the swipe is\r\ndefined as complete although hysteresis isn't reached.\r\nGood threshold is between 250 - 1000 px/s",
+        "defaultValue": {
+          "value": "400",
           "computed": false
         }
       },
@@ -11838,7 +13135,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the back arrow [`IconButton`](/api/icon-button) component."
+        "description": "Properties applied to the back arrow [`IconButton`](/api/icon-button/) component."
       },
       "classes": {
         "type": {
@@ -11910,7 +13207,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the next arrow [`IconButton`](/api/icon-button) element."
+        "description": "Properties applied to the next arrow [`IconButton`](/api/icon-button/) element."
       },
       "onChangePage": {
         "type": {
@@ -11956,7 +13253,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the rows per page [`Select`](/api/select) element."
+        "description": "Properties applied to the rows per page [`Select`](/api/select/) element."
       }
     }
   },
@@ -11995,7 +13292,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the back arrow [`IconButton`](/api/icon-button) element."
+        "description": "Properties applied to the back arrow [`IconButton`](/api/icon-button/) element."
       },
       "count": {
         "type": {
@@ -12009,7 +13306,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the next arrow [`IconButton`](/api/icon-button) element."
+        "description": "Properties applied to the next arrow [`IconButton`](/api/icon-button/) element."
       },
       "onChangePage": {
         "type": {
@@ -12177,6 +13474,28 @@
         "defaultValue": {
           "value": "'desc'",
           "computed": false
+        }
+      },
+      "hideSortIcon": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Hide sort icon when active is false.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "IconComponent": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Sort icon to use.",
+        "defaultValue": {
+          "value": "ArrowDownwardIcon",
+          "computed": true
         }
       }
     }
@@ -12616,7 +13935,7 @@
     }
   },
   "packages\\material-ui\\src\\TextField\\TextField.js": {
-    "description": "The `TextField` is a convenience wrapper for the most common cases (80%).\r\nIt cannot be all things to all people, otherwise the API would grow out of control.\r\n\n## Advanced Configuration\r\n\nIt's important to understand that the text field is a simple abstraction\r\non top of the following components:\r\n- [FormControl](/api/form-control)\r\n- [InputLabel](/api/input-label)\r\n- [Input](/api/input)\r\n- [FormHelperText](/api/form-helper-text)\r\n\nIf you wish to alter the properties applied to the native input, you can do so as follows:\r\n\n```jsx\r\nconst inputProps = {\r\n  step: 300,\r\n};\r\n\nreturn <TextField id=\"time\" type=\"time\" inputProps={inputProps} />;\r\n```\r\n\nFor advanced cases, please look at the source of TextField by clicking on the\r\n\"Edit this page\" button above. Consider either:\r\n- using the upper case props for passing values directly to the components\r\n- using the underlying components directly as shown in the demos",
+    "description": "The `TextField` is a convenience wrapper for the most common cases (80%).\r\nIt cannot be all things to all people, otherwise the API would grow out of control.\r\n\n## Advanced Configuration\r\n\nIt's important to understand that the text field is a simple abstraction\r\non top of the following components:\r\n- [FormControl](/api/form-control/)\r\n- [InputLabel](/api/input-label/)\r\n- [Input](/api/input/)\r\n- [FormHelperText](/api/form-helper-text/)\r\n\nIf you wish to alter the properties applied to the native input, you can do so as follows:\r\n\n```jsx\r\nconst inputProps = {\r\n  step: 300,\r\n};\r\n\nreturn <TextField id=\"time\" type=\"time\" inputProps={inputProps} />;\r\n```\r\n\nFor advanced cases, please look at the source of TextField by clicking on the\r\n\"Edit this page\" button above. Consider either:\r\n- using the upper case props for passing values directly to the components\r\n- using the underlying components directly as shown in the demos",
     "displayName": "TextField",
     "methods": [],
     "props": {
@@ -12682,7 +14001,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`FormHelperText`](/api/form-helper-text) element."
+        "description": "Properties applied to the [`FormHelperText`](/api/form-helper-text/) element."
       },
       "fullWidth": {
         "type": {
@@ -12710,7 +14029,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`InputLabel`](/api/input-label) element."
+        "description": "Properties applied to the [`InputLabel`](/api/input-label/) element."
       },
       "InputProps": {
         "type": {
@@ -12868,7 +14187,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`Select`](/api/select) element."
+        "description": "Properties applied to the [`Select`](/api/select/) element."
       },
       "type": {
         "type": {
@@ -12911,6 +14230,31 @@
         },
         "required": false,
         "description": "The value of the `Input` element, required for a controlled component."
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'standard'",
+              "computed": false
+            },
+            {
+              "value": "'outlined'",
+              "computed": false
+            },
+            {
+              "value": "'filled'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "The variant to use.",
+        "defaultValue": {
+          "value": "'standard'",
+          "computed": false
+        }
       }
     }
   },
@@ -13261,7 +14605,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Properties applied to the [`Popper`](/api/popper) element."
+        "description": "Properties applied to the [`Popper`](/api/popper/) element."
       },
       "theme": {
         "type": {
@@ -13442,11 +14786,18 @@
           "name": "object"
         },
         "required": false,
-        "description": "We are empirically mapping the variant property to a range of different DOM element types.\r\nFor instance, h1 to h6. If you wish to change that mapping, you can provide your own.\r\nAlternatively, you can use the `component` property.",
+        "description": "We are empirically mapping the variant property to a range of different DOM element types.\r\nFor instance, subtitle1 to `<h6>`.\r\nIf you wish to change that mapping, you can provide your own.\r\nAlternatively, you can use the `component` property.\r\nThe default mapping is the following:",
         "defaultValue": {
-          "value": "{\r\n  display4: 'h1',\r\n  display3: 'h1',\r\n  display2: 'h1',\r\n  display1: 'h1',\r\n  headline: 'h1',\r\n  title: 'h2',\r\n  subheading: 'h3',\r\n  body2: 'aside',\r\n  body1: 'p',\r\n}",
+          "value": "{\r\n  h1: 'h1',\r\n  h2: 'h2',\r\n  h3: 'h3',\r\n  h4: 'h4',\r\n  h5: 'h5',\r\n  h6: 'h6',\r\n  subtitle1: 'h6',\r\n  subtitle2: 'h6',\r\n  body1: 'p',\r\n  body2: 'p',\r\n  // deprecated\r\n  display4: 'h1',\r\n  display3: 'h1',\r\n  display2: 'h1',\r\n  display1: 'h1',\r\n  headline: 'h1',\r\n  title: 'h2',\r\n  subheading: 'h3',\r\n}",
           "computed": false
         }
+      },
+      "internalDeprecatedVariant": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "A deprecated variant is used from an internal component. Users don't need\r\na deprecation warning here if they switched to the v2 theme. They already\r\nget the mapping that will be applied in the next major release.\r\n@internal"
       },
       "noWrap": {
         "type": {
@@ -13475,7 +14826,67 @@
           "name": "enum",
           "value": [
             {
-              "value": "'display4'",
+              "value": "'h1'",
+              "computed": false
+            },
+            {
+              "value": "'h2'",
+              "computed": false
+            },
+            {
+              "value": "'h3'",
+              "computed": false
+            },
+            {
+              "value": "'h4'",
+              "computed": false
+            },
+            {
+              "value": "'h5'",
+              "computed": false
+            },
+            {
+              "value": "'h6'",
+              "computed": false
+            },
+            {
+              "value": "'subtitle1'",
+              "computed": false
+            },
+            {
+              "value": "'subtitle2'",
+              "computed": false
+            },
+            {
+              "value": "'body1'",
+              "computed": false
+            },
+            {
+              "value": "'body2'",
+              "computed": false
+            },
+            {
+              "value": "'caption'",
+              "computed": false
+            },
+            {
+              "value": "'button'",
+              "computed": false
+            },
+            {
+              "value": "'overline'",
+              "computed": false
+            },
+            {
+              "value": "'srOnly'",
+              "computed": false
+            },
+            {
+              "value": "'inherit'",
+              "computed": false
+            },
+            {
+              "value": "\"display4\"",
               "computed": false
             },
             {
@@ -13500,22 +14911,6 @@
             },
             {
               "value": "'subheading'",
-              "computed": false
-            },
-            {
-              "value": "'body2'",
-              "computed": false
-            },
-            {
-              "value": "'body1'",
-              "computed": false
-            },
-            {
-              "value": "'caption'",
-              "computed": false
-            },
-            {
-              "value": "'button'",
               "computed": false
             }
           ]
@@ -13759,20 +15154,6 @@
         },
         "required": false,
         "description": "The id of the `input` element."
-      },
-      "indeterminate": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "If `true`, the component appears indeterminate."
-      },
-      "indeterminateIcon": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The icon to display when the component is indeterminate."
       },
       "inputProps": {
         "type": {

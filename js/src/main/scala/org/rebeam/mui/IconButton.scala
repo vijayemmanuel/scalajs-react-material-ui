@@ -59,7 +59,7 @@ object IconButton {
   val jsComponent = JsFnComponent[Props, Children.Varargs](IconButtonJS)
   
   /**
-   * Refer to the [Icons](/style/icons) section of the documentation
+   * Refer to the [Icons](/style/icons/) section of the documentation
    * regarding the available icon options.
    * @param TouchRippleProps
    *        Properties applied to the `TouchRipple` element.

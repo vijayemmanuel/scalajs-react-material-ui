@@ -18,9 +18,13 @@ object StepConnector {
           
   @js.native
   trait Props extends js.Object {
+    var active: js.UndefOr[Boolean] = js.native
     var alternativeLabel: js.UndefOr[Boolean] = js.native
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Object] = js.native
+    var completed: js.UndefOr[Boolean] = js.native
+    var disabled: js.UndefOr[Boolean] = js.native
+    var index: js.UndefOr[Double] = js.native
     var key: js.UndefOr[String] = js.native
     var orientation: js.UndefOr[String] = js.native
     var style: js.UndefOr[js.Object] = js.native
@@ -34,6 +38,8 @@ object StepConnector {
   
   /**
    * 
+   * @param active
+   *        Property spread to root element
    * @param alternativeLabel
    *        Property spread to root element
    *        Set internally by Step when it's supplied with the alternativeLabel property.
@@ -42,6 +48,12 @@ object StepConnector {
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.
+   * @param completed
+   *        Property spread to root element
+   * @param disabled
+   *        Property spread to root element
+   * @param index
+   *        Property spread to root element
    * @param key
    *        React key
    * @param orientation
@@ -58,9 +70,13 @@ object StepConnector {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
+    active: js.UndefOr[Boolean] = js.undefined,
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Object] = js.undefined,
+    completed: js.UndefOr[Boolean] = js.undefined,
+    disabled: js.UndefOr[Boolean] = js.undefined,
+    index: js.UndefOr[Double] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     orientation: js.UndefOr[Orientation] = js.undefined,
     style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
@@ -68,9 +84,13 @@ object StepConnector {
   ) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (active.isDefined) {p.active = active}
     if (alternativeLabel.isDefined) {p.alternativeLabel = alternativeLabel}
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
+    if (completed.isDefined) {p.completed = completed}
+    if (disabled.isDefined) {p.disabled = disabled}
+    if (index.isDefined) {p.index = index}
     if (key.isDefined) {p.key = key}
     if (orientation.isDefined) {p.orientation = orientation.map(v => v.value)}
     if (style.isDefined) {p.style = style.map(v => v.o)}

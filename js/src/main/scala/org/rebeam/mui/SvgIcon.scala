@@ -25,6 +25,8 @@ object SvgIcon {
   object FontSize {
     case object Inherit extends FontSize { val value: String = "inherit" }
     case object Default extends FontSize { val value: String = "default" }
+    case object Small extends FontSize { val value: String = "small" }
+    case object Large extends FontSize { val value: String = "large" }
   }
           
   @js.native

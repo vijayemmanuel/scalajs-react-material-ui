@@ -75,12 +75,12 @@ object Popover {
    *        A backdrop component. This property enables custom backdrop rendering.
    *        Passed to Modal
    * @param BackdropProps
-   *        Properties applied to the [`Backdrop`](/api/backdrop) element.
+   *        Properties applied to the [`Backdrop`](/api/backdrop/) element.
    *        Passed to Modal
    * @param ModalClasses
-   *        `classes` property applied to the [`Modal`](/api/modal) element.
+   *        `classes` property applied to the [`Modal`](/api/modal/) element.
    * @param PaperProps
-   *        Properties applied to the [`Paper`](/api/paper) element.
+   *        Properties applied to the [`Paper`](/api/paper/) element.
    * @param TransitionComponent
    *        Transition component.
    * @param TransitionProps

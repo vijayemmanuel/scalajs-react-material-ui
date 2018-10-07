@@ -18,6 +18,7 @@ object StepLabel {
           
   @js.native
   trait Props extends js.Object {
+    var StepIconComponent: js.UndefOr[js.Any] = js.native
     var StepIconProps: js.UndefOr[js.Object] = js.native
     var active: js.UndefOr[Boolean] = js.native
     var alternativeLabel: js.UndefOr[Boolean] = js.native
@@ -42,8 +43,10 @@ object StepLabel {
   
   /**
    * 
+   * @param StepIconComponent
+   *        The component to render in place of the [`StepIcon`](/api/step-icon/).
    * @param StepIconProps
-   *        Properties applied to the [`StepIcon`](/api/step-icon) element.
+   *        Properties applied to the [`StepIcon`](/api/step-icon/) element.
    * @param active
    *        Property spread to root element
    *        Sets the step as active. Is passed to child components.
@@ -85,6 +88,7 @@ object StepLabel {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
+    StepIconComponent: js.UndefOr[js.Any] = js.undefined,
     StepIconProps: js.UndefOr[js.Object] = js.undefined,
     active: js.UndefOr[Boolean] = js.undefined,
     alternativeLabel: js.UndefOr[Boolean] = js.undefined,
@@ -103,6 +107,7 @@ object StepLabel {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (StepIconComponent.isDefined) {p.StepIconComponent = StepIconComponent}
     if (StepIconProps.isDefined) {p.StepIconProps = StepIconProps}
     if (active.isDefined) {p.active = active}
     if (alternativeLabel.isDefined) {p.alternativeLabel = alternativeLabel}

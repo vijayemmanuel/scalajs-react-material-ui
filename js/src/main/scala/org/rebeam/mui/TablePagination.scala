@@ -73,9 +73,9 @@ object TablePagination {
    *        The component used for displaying the actions.
    *        Either a string to use a DOM element or a component.
    * @param SelectProps
-   *        Properties applied to the rows per page [`Select`](/api/select) element.
+   *        Properties applied to the rows per page [`Select`](/api/select/) element.
    * @param backIconButtonProps
-   *        Properties applied to the back arrow [`IconButton`](/api/icon-button) component.
+   *        Properties applied to the back arrow [`IconButton`](/api/icon-button/) component.
    * @param className
    *        Property spread to root element
    *        Passed to TableCell
@@ -97,7 +97,7 @@ object TablePagination {
    *        Customize the rows per page label. Invoked with a `{ from, to, count, page }`
    *        object.
    * @param nextIconButtonProps
-   *        Properties applied to the next arrow [`IconButton`](/api/icon-button) element.
+   *        Properties applied to the next arrow [`IconButton`](/api/icon-button/) element.
    * @param numeric
    *        If `true`, content will align to the right.
    *        Passed to TableCell

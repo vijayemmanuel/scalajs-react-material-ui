@@ -15,6 +15,14 @@ object NativeSelect {
     case object Dense extends Margin { val value: String = "dense" }
     case object None extends Margin { val value: String = "none" }
   }
+            
+  sealed trait Variant{ val value: String }
+
+  object Variant {
+    case object Standard extends Variant { val value: String = "standard" }
+    case object Outlined extends Variant { val value: String = "outlined" }
+    case object Filled extends Variant { val value: String = "filled" }
+  }
           
   @js.native
   trait Props extends js.Object {
@@ -38,13 +46,7 @@ object NativeSelect {
     var margin: js.UndefOr[String] = js.native
     var multiline: js.UndefOr[Boolean] = js.native
     var name: js.UndefOr[String] = js.native
-    var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
     var onChange: js.UndefOr[scalajs.js.Function1[ReactEvent, Unit]] = js.native
-    var onEmpty: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
-    var onFilled: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
-    var onFocus: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
-    var onKeyDown: js.UndefOr[scalajs.js.Function1[ReactKeyboardEvent, Unit]] = js.native
-    var onKeyUp: js.UndefOr[scalajs.js.Function1[ReactKeyboardEvent, Unit]] = js.native
     var placeholder: js.UndefOr[String] = js.native
     var readOnly: js.UndefOr[Boolean] = js.native
     var required: js.UndefOr[Boolean] = js.native
@@ -54,6 +56,7 @@ object NativeSelect {
     var style: js.UndefOr[js.Object] = js.native
     var `type`: js.UndefOr[String] = js.native
     var value: js.UndefOr[js.Any] = js.native
+    var variant: js.UndefOr[String] = js.native
   }
 
   @JSImport("@material-ui/core/NativeSelect", JSImport.Default)
@@ -63,7 +66,7 @@ object NativeSelect {
   val jsComponent = JsFnComponent[Props, Children.Varargs](NativeSelectJS)
   
   /**
-   * An alternative to `<Select native />` with a much smaller dependency graph.
+   * An alternative to `<Select native />` with a much smaller bundle size footprint.
    * @param IconComponent
    *        The icon that displays the arrow.
    * @param autoComplete
@@ -126,29 +129,11 @@ object NativeSelect {
    * @param name
    *        Name attribute of the `input` element.
    *        Passed to Input
-   * @param onBlur
-   *        Property spread to root element
-   *        Passed to Input
    * @param onChange
    *        Callback function fired when a menu item is selected.
    *        
    *        parameter {object} event The event source of the callback.
    *        You can pull out the new value by accessing `event.target.value`.
-   * @param onEmpty
-   *        Property spread to root element
-   *        Passed to Input
-   * @param onFilled
-   *        Property spread to root element
-   *        Passed to Input
-   * @param onFocus
-   *        Property spread to root element
-   *        Passed to Input
-   * @param onKeyDown
-   *        Property spread to root element
-   *        Passed to Input
-   * @param onKeyUp
-   *        Property spread to root element
-   *        Passed to Input
    * @param placeholder
    *        The short hint displayed in the input before the user enters a value.
    *        Passed to Input
@@ -175,6 +160,8 @@ object NativeSelect {
    *        Passed to Input
    * @param value
    *        The input value.
+   * @param variant
+   *        The variant to use.
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -205,13 +192,7 @@ object NativeSelect {
     margin: js.UndefOr[Margin] = js.undefined,
     multiline: js.UndefOr[Boolean] = js.undefined,
     name: js.UndefOr[String] = js.undefined,
-    onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
     onChange: js.UndefOr[ReactEvent => Callback] = js.undefined,
-    onEmpty: js.UndefOr[Callback] = js.undefined,
-    onFilled: js.UndefOr[Callback] = js.undefined,
-    onFocus: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
-    onKeyDown: js.UndefOr[ReactKeyboardEvent => Callback] = js.undefined,
-    onKeyUp: js.UndefOr[ReactKeyboardEvent => Callback] = js.undefined,
     placeholder: js.UndefOr[String] = js.undefined,
     readOnly: js.UndefOr[Boolean] = js.undefined,
     required: js.UndefOr[Boolean] = js.undefined,
@@ -221,6 +202,7 @@ object NativeSelect {
     style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     `type`: js.UndefOr[String] = js.undefined,
     value: js.UndefOr[js.Any] = js.undefined,
+    variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -245,13 +227,7 @@ object NativeSelect {
     if (margin.isDefined) {p.margin = margin.map(v => v.value)}
     if (multiline.isDefined) {p.multiline = multiline}
     if (name.isDefined) {p.name = name}
-    if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
     if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEvent) => v(e).runNow())}
-    if (onEmpty.isDefined) {p.onEmpty = onEmpty.map(v => v.toJsFn)}
-    if (onFilled.isDefined) {p.onFilled = onFilled.map(v => v.toJsFn)}
-    if (onFocus.isDefined) {p.onFocus = onFocus.map(v => (e: ReactFocusEvent) => v(e).runNow())}
-    if (onKeyDown.isDefined) {p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
-    if (onKeyUp.isDefined) {p.onKeyUp = onKeyUp.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
     if (placeholder.isDefined) {p.placeholder = placeholder}
     if (readOnly.isDefined) {p.readOnly = readOnly}
     if (required.isDefined) {p.required = required}
@@ -261,6 +237,7 @@ object NativeSelect {
     if (style.isDefined) {p.style = style.map(v => v.o)}
     if (`type`.isDefined) {p.`type` = `type`}
     if (value.isDefined) {p.value = value}
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     additionalProps.foreach {
       a => {

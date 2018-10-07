@@ -14,6 +14,14 @@ object InputLabel {
   object Margin {
     case object Dense extends Margin { val value: String = "dense" }
   }
+            
+  sealed trait Variant{ val value: String }
+
+  object Variant {
+    case object Standard extends Variant { val value: String = "standard" }
+    case object Outlined extends Variant { val value: String = "outlined" }
+    case object Filled extends Variant { val value: String = "filled" }
+  }
           
   @js.native
   trait Props extends js.Object {
@@ -31,6 +39,7 @@ object InputLabel {
     var required: js.UndefOr[Boolean] = js.native
     var shrink: js.UndefOr[Boolean] = js.native
     var style: js.UndefOr[js.Object] = js.native
+    var variant: js.UndefOr[String] = js.native
   }
 
   @JSImport("@material-ui/core/InputLabel", JSImport.Default)
@@ -42,7 +51,7 @@ object InputLabel {
   /**
    * 
    * @param FormLabelClasses
-   *        `classes` property applied to the [`FormLabel`](/api/form-label) element.
+   *        `classes` property applied to the [`FormLabel`](/api/form-label/) element.
    * @param className
    *        Property spread to root element
    * @param classes
@@ -74,6 +83,8 @@ object InputLabel {
    *        If `true`, the label is shrunk.
    * @param style
    *        React element CSS style
+   * @param variant
+   *        The variant to use.
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -98,6 +109,7 @@ object InputLabel {
     required: js.UndefOr[Boolean] = js.undefined,
     shrink: js.UndefOr[Boolean] = js.undefined,
     style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
+    variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -116,6 +128,7 @@ object InputLabel {
     if (required.isDefined) {p.required = required}
     if (shrink.isDefined) {p.shrink = shrink}
     if (style.isDefined) {p.style = style.map(v => v.o)}
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     additionalProps.foreach {
       a => {

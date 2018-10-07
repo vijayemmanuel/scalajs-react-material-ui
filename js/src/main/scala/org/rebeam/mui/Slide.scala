@@ -39,7 +39,7 @@ object Slide {
   val jsComponent = JsFnComponent[Props, Children.Varargs](SlideJS)
   
   /**
-   * The Slide transition is used by the [Snackbar](/demos/snackbars) component.
+   * The Slide transition is used by the [Snackbar](/demos/snackbars/) component.
    * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
    * @param direction
    *        Direction the child node will enter from.

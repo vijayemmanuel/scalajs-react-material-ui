@@ -78,17 +78,17 @@ object Menu {
    *        A backdrop component. This property enables custom backdrop rendering.
    *        Passed to Modal
    * @param BackdropProps
-   *        Properties applied to the [`Backdrop`](/api/backdrop) element.
+   *        Properties applied to the [`Backdrop`](/api/backdrop/) element.
    *        Passed to Modal
    * @param MenuListProps
-   *        Properties applied to the [`MenuList`](/api/menu-list) element.
+   *        Properties applied to the [`MenuList`](/api/menu-list/) element.
    * @param ModalClasses
-   *        `classes` property applied to the [`Modal`](/api/modal) element.
+   *        `classes` property applied to the [`Modal`](/api/modal/) element.
    *        Passed to Popover
    * @param PaperProps
    *        Property spread to root element
    * @param PopoverClasses
-   *        `classes` property applied to the [`Popover`](/api/popover) element.
+   *        `classes` property applied to the [`Popover`](/api/popover/) element.
    * @param TransitionComponent
    *        Transition component.
    *        Passed to Popover

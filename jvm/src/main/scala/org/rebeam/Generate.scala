@@ -26,7 +26,7 @@ object Generate {
       code.foreach(s => writeToFile(s"./js/src/main/scala/org/rebeam/mui/$name.scala", s))
     }
 
-    val s = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/muiapi.json")).mkString
+    val s = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/muiapi.json"), "utf-8").mkString
 
     val d = decode[Map[String, Component]](s).toOption.get
 

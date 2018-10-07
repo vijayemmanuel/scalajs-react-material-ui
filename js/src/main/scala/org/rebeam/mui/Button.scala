@@ -190,7 +190,8 @@ object Button {
    * @param `type`
    *        Property spread to root element
    * @param variant
-   *        The variant to use.
+   *        The variant to use. __WARNING__: `flat` and `raised` are deprecated. Instead use
+   *        `text` and `contained` respectively.
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the

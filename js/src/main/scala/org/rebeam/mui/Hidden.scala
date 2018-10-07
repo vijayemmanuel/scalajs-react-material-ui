@@ -68,7 +68,7 @@ object Hidden {
    *        the screen width of the client browser screen width.
    *        
    *        For instance, you could be using the user-agent or the client-hints.
-   *        http://caniuse.com/#search=client%20hint
+   *        https://caniuse.com/#search=client%20hint
    * @param key
    *        React key
    * @param lgDown

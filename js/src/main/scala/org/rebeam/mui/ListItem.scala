@@ -24,6 +24,7 @@ object ListItem {
     var focusVisibleClassName: js.UndefOr[String] = js.native
     var key: js.UndefOr[String] = js.native
     var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
+    var selected: js.UndefOr[Boolean] = js.native
     var style: js.UndefOr[js.Object] = js.native
   }
 
@@ -66,6 +67,8 @@ object ListItem {
    * @param onClick
    *        ReactMouseEvent on click
    *        Passed to DOCGEN_OnClickBase
+   * @param selected
+   *        Use to apply selected styling.
    * @param style
    *        React element CSS style
    * @param additionalProps
@@ -91,6 +94,7 @@ object ListItem {
     focusVisibleClassName: js.UndefOr[String] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
+    selected: js.UndefOr[Boolean] = js.undefined,
     style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
@@ -109,6 +113,7 @@ object ListItem {
     if (focusVisibleClassName.isDefined) {p.focusVisibleClassName = focusVisibleClassName}
     if (key.isDefined) {p.key = key}
     if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}
+    if (selected.isDefined) {p.selected = selected}
     if (style.isDefined) {p.style = style.map(v => v.o)}
 
     additionalProps.foreach {

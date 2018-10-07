@@ -15,6 +15,14 @@ object Select {
     case object Dense extends Margin { val value: String = "dense" }
     case object None extends Margin { val value: String = "none" }
   }
+            
+  sealed trait Variant{ val value: String }
+
+  object Variant {
+    case object Standard extends Variant { val value: String = "standard" }
+    case object Outlined extends Variant { val value: String = "outlined" }
+    case object Filled extends Variant { val value: String = "filled" }
+  }
           
   @js.native
   trait Props extends js.Object {
@@ -44,14 +52,8 @@ object Select {
     var multiple: js.UndefOr[Boolean] = js.native
     var name: js.UndefOr[String] = js.native
     var native: js.UndefOr[Boolean] = js.native
-    var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
     var onChange: js.UndefOr[scalajs.js.Function1[ReactEvent, Unit]] = js.native
     var onClose: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
-    var onEmpty: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
-    var onFilled: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
-    var onFocus: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
-    var onKeyDown: js.UndefOr[scalajs.js.Function1[ReactKeyboardEvent, Unit]] = js.native
-    var onKeyUp: js.UndefOr[scalajs.js.Function1[ReactKeyboardEvent, Unit]] = js.native
     var onOpen: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var open: js.UndefOr[Boolean] = js.native
     var placeholder: js.UndefOr[String] = js.native
@@ -64,6 +66,7 @@ object Select {
     var style: js.UndefOr[js.Object] = js.native
     var `type`: js.UndefOr[String] = js.native
     var value: js.UndefOr[js.Any] = js.native
+    var variant: js.UndefOr[String] = js.native
   }
 
   @JSImport("@material-ui/core/Select", JSImport.Default)
@@ -77,7 +80,7 @@ object Select {
    * @param IconComponent
    *        The icon that displays the arrow.
    * @param MenuProps
-   *        Properties applied to the [`Menu`](/api/menu) element.
+   *        Properties applied to the [`Menu`](/api/menu/) element.
    * @param SelectDisplayProps
    *        Properties applied to the clickable div element.
    * @param autoComplete
@@ -152,9 +155,6 @@ object Select {
    *        Passed to Input
    * @param native
    *        If `true`, the component will be using a native `select` element.
-   * @param onBlur
-   *        Property spread to root element
-   *        Passed to Input
    * @param onChange
    *        Callback function fired when a menu item is selected.
    *        
@@ -166,21 +166,6 @@ object Select {
    *        Use in controlled mode (see open).
    *        
    *        parameter {object} event The event source of the callback
-   * @param onEmpty
-   *        Property spread to root element
-   *        Passed to Input
-   * @param onFilled
-   *        Property spread to root element
-   *        Passed to Input
-   * @param onFocus
-   *        Property spread to root element
-   *        Passed to Input
-   * @param onKeyDown
-   *        Property spread to root element
-   *        Passed to Input
-   * @param onKeyUp
-   *        Property spread to root element
-   *        Passed to Input
    * @param onOpen
    *        Callback fired when the component requests to be opened.
    *        Use in controlled mode (see open).
@@ -222,6 +207,8 @@ object Select {
    * @param value
    *        The input value.
    *        This property is required when the `native` property is `false` (default).
+   * @param variant
+   *        The variant to use.
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -258,14 +245,8 @@ object Select {
     multiple: js.UndefOr[Boolean] = js.undefined,
     name: js.UndefOr[String] = js.undefined,
     native: js.UndefOr[Boolean] = js.undefined,
-    onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
     onChange: js.UndefOr[ReactEvent => Callback] = js.undefined,
     onClose: js.UndefOr[Callback] = js.undefined,
-    onEmpty: js.UndefOr[Callback] = js.undefined,
-    onFilled: js.UndefOr[Callback] = js.undefined,
-    onFocus: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
-    onKeyDown: js.UndefOr[ReactKeyboardEvent => Callback] = js.undefined,
-    onKeyUp: js.UndefOr[ReactKeyboardEvent => Callback] = js.undefined,
     onOpen: js.UndefOr[Callback] = js.undefined,
     open: js.UndefOr[Boolean] = js.undefined,
     placeholder: js.UndefOr[String] = js.undefined,
@@ -278,6 +259,7 @@ object Select {
     style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     `type`: js.UndefOr[String] = js.undefined,
     value: js.UndefOr[js.Any] = js.undefined,
+    variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -308,14 +290,8 @@ object Select {
     if (multiple.isDefined) {p.multiple = multiple}
     if (name.isDefined) {p.name = name}
     if (native.isDefined) {p.native = native}
-    if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
     if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEvent) => v(e).runNow())}
     if (onClose.isDefined) {p.onClose = onClose.map(v => v.toJsFn)}
-    if (onEmpty.isDefined) {p.onEmpty = onEmpty.map(v => v.toJsFn)}
-    if (onFilled.isDefined) {p.onFilled = onFilled.map(v => v.toJsFn)}
-    if (onFocus.isDefined) {p.onFocus = onFocus.map(v => (e: ReactFocusEvent) => v(e).runNow())}
-    if (onKeyDown.isDefined) {p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
-    if (onKeyUp.isDefined) {p.onKeyUp = onKeyUp.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
     if (onOpen.isDefined) {p.onOpen = onOpen.map(v => v.toJsFn)}
     if (open.isDefined) {p.open = open}
     if (placeholder.isDefined) {p.placeholder = placeholder}
@@ -328,6 +304,7 @@ object Select {
     if (style.isDefined) {p.style = style.map(v => v.o)}
     if (`type`.isDefined) {p.`type` = `type`}
     if (value.isDefined) {p.value = value}
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     additionalProps.foreach {
       a => {

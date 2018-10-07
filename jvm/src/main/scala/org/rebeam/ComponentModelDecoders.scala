@@ -21,8 +21,8 @@ object ComponentModelDecoders {
   implicit val elementTypeDecoder:  Decoder[ElementType.type] = pDecoder("element", ElementType)
   implicit val nodeTypeDecoder:     Decoder[NodeType.type]    = pDecoder("node", NodeType)
 
-  private def withoutSingleQuotes(s: String): String = 
-    if (s.length > 1 && s.startsWith("'") && s.endsWith("'")) {
+  private def withoutQuotes(s: String): String = 
+    if (s.length > 1 && (s.startsWith("'") && s.endsWith("'")) || (s.startsWith("\"") && s.endsWith("\""))) {
       s.substring(1, s.length - 1) 
     } else{
       s
@@ -33,7 +33,7 @@ object ComponentModelDecoders {
       value <- c.downField("value").as[String]
       computed <- c.downField("computed").as[Boolean]
     } yield {
-      EnumValue(withoutSingleQuotes(value), computed)
+      EnumValue(withoutQuotes(value), computed)
     }
   )
 
@@ -113,7 +113,7 @@ object ComponentModelDecoders {
 
   lazy implicit val valueDecoder: Decoder[Value] = Decoder.instance( c => 
     for {
-      v <- c.downField("value").as[String].map(withoutSingleQuotes)
+      v <- c.downField("value").as[String].map(withoutQuotes)
       c <- c.downField("computed").as[Boolean]
     } yield {
       Value(v, c)

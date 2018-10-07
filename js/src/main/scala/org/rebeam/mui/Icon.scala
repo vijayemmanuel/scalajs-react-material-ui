@@ -25,6 +25,8 @@ object Icon {
   object FontSize {
     case object Inherit extends FontSize { val value: String = "inherit" }
     case object Default extends FontSize { val value: String = "default" }
+    case object Small extends FontSize { val value: String = "small" }
+    case object Large extends FontSize { val value: String = "large" }
   }
           
   @js.native
@@ -32,6 +34,7 @@ object Icon {
     var className: js.UndefOr[String] = js.native
     var classes: js.UndefOr[js.Object] = js.native
     var color: js.UndefOr[String] = js.native
+    var component: js.UndefOr[js.Any] = js.native
     var fontSize: js.UndefOr[String] = js.native
     var key: js.UndefOr[String] = js.native
     var style: js.UndefOr[js.Object] = js.native
@@ -52,6 +55,9 @@ object Icon {
    *        See [CSS API](#css-api) below for more details.
    * @param color
    *        The color of the component. It supports those theme colors that make sense for this component.
+   * @param component
+   *        The component used for the root node.
+   *        Either a string to use a DOM element or a component.
    * @param fontSize
    *        The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size.
    * @param key
@@ -71,6 +77,7 @@ object Icon {
     className: js.UndefOr[String] = js.undefined,
     classes: js.UndefOr[js.Object] = js.undefined,
     color: js.UndefOr[Color] = js.undefined,
+    component: js.UndefOr[js.Any] = js.undefined,
     fontSize: js.UndefOr[FontSize] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
@@ -81,6 +88,7 @@ object Icon {
     if (className.isDefined) {p.className = className}
     if (classes.isDefined) {p.classes = classes}
     if (color.isDefined) {p.color = color.map(v => v.value)}
+    if (component.isDefined) {p.component = component}
     if (fontSize.isDefined) {p.fontSize = fontSize.map(v => v.value)}
     if (key.isDefined) {p.key = key}
     if (style.isDefined) {p.style = style.map(v => v.o)}

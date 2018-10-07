@@ -21,8 +21,9 @@ object AppBar {
   sealed trait Position{ val value: String }
 
   object Position {
-    case object Fixed extends Position { val value: String = "fixed" }
+    case object Relative extends Position { val value: String = "relative" }
     case object Absolute extends Position { val value: String = "absolute" }
+    case object Fixed extends Position { val value: String = "fixed" }
     case object Sticky extends Position { val value: String = "sticky" }
     case object Static extends Position { val value: String = "static" }
   }

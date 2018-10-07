@@ -18,6 +18,7 @@ object TableSortLabel {
           
   @js.native
   trait Props extends js.Object {
+    var IconComponent: js.UndefOr[js.Any] = js.native
     var TouchRippleProps: js.UndefOr[js.Object] = js.native
     var action: js.UndefOr[js.Any] = js.native
     var active: js.UndefOr[Boolean] = js.native
@@ -32,6 +33,7 @@ object TableSortLabel {
     var disabled: js.UndefOr[Boolean] = js.native
     var focusRipple: js.UndefOr[Boolean] = js.native
     var focusVisibleClassName: js.UndefOr[String] = js.native
+    var hideSortIcon: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
     var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
     var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
@@ -59,6 +61,8 @@ object TableSortLabel {
   
   /**
    * A button based label for placing inside `TableCell` for column sorting.
+   * @param IconComponent
+   *        Sort icon to use.
    * @param TouchRippleProps
    *        Properties applied to the `TouchRipple` element.
    *        Passed to ButtonBase
@@ -109,6 +113,8 @@ object TableSortLabel {
    *        It's a polyfill for the [CSS :focus-visible feature](https://drafts.csswg.org/selectors-4/#the-focus-visible-pseudo).
    *        The rational for using this feature [is explain here](https://github.com/WICG/focus-visible/blob/master/explainer.md).
    *        Passed to ButtonBase
+   * @param hideSortIcon
+   *        Hide sort icon when active is false.
    * @param key
    *        React key
    * @param onBlur
@@ -171,6 +177,7 @@ object TableSortLabel {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
+    IconComponent: js.UndefOr[js.Any] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Object] = js.undefined,
     action: js.UndefOr[js.Any] = js.undefined,
     active: js.UndefOr[Boolean] = js.undefined,
@@ -185,6 +192,7 @@ object TableSortLabel {
     disabled: js.UndefOr[Boolean] = js.undefined,
     focusRipple: js.UndefOr[Boolean] = js.undefined,
     focusVisibleClassName: js.UndefOr[String] = js.undefined,
+    hideSortIcon: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
     onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
@@ -206,6 +214,7 @@ object TableSortLabel {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (IconComponent.isDefined) {p.IconComponent = IconComponent}
     if (TouchRippleProps.isDefined) {p.TouchRippleProps = TouchRippleProps}
     if (action.isDefined) {p.action = action}
     if (active.isDefined) {p.active = active}
@@ -220,6 +229,7 @@ object TableSortLabel {
     if (disabled.isDefined) {p.disabled = disabled}
     if (focusRipple.isDefined) {p.focusRipple = focusRipple}
     if (focusVisibleClassName.isDefined) {p.focusVisibleClassName = focusVisibleClassName}
+    if (hideSortIcon.isDefined) {p.hideSortIcon = hideSortIcon}
     if (key.isDefined) {p.key = key}
     if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
     if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}

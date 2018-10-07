@@ -11,6 +11,7 @@ object Snackbar {
   
   @js.native
   trait Props extends js.Object {
+    var ClickAwayListenerProps: js.UndefOr[js.Object] = js.native
     var ContentProps: js.UndefOr[js.Object] = js.native
     var TransitionComponent: js.UndefOr[js.Any] = js.native
     var TransitionProps: js.UndefOr[js.Object] = js.native
@@ -45,8 +46,10 @@ object Snackbar {
   
   /**
    * 
+   * @param ClickAwayListenerProps
+   *        Properties applied to the `ClickAwayListener` element.
    * @param ContentProps
-   *        Properties applied to the [`SnackbarContent`](/api/snackbar-content) element.
+   *        Properties applied to the [`SnackbarContent`](/api/snackbar-content/) element.
    * @param TransitionComponent
    *        Transition component.
    * @param TransitionProps
@@ -69,8 +72,8 @@ object Snackbar {
    *        If `true`, the `autoHideDuration` timer will expire even if the window is not focused.
    * @param key
    *        When displaying multiple consecutive Snackbars from a parent rendering a single
-   *        <Snackbar/>, add the key property to ensure independent treatment of each message.
-   *        e.g. <Snackbar key={message} />, otherwise, the message may update-in-place and
+   *        &lt;Snackbar/&gt;, add the key property to ensure independent treatment of each message.
+   *        e.g. &lt;Snackbar key={message} /&gt;, otherwise, the message may update-in-place and
    *        features such as autoHideDuration may be canceled.
    * @param message
    *        The message to display.
@@ -121,6 +124,7 @@ object Snackbar {
    *        Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components
    */
   def apply(
+    ClickAwayListenerProps: js.UndefOr[js.Object] = js.undefined,
     ContentProps: js.UndefOr[js.Object] = js.undefined,
     TransitionComponent: js.UndefOr[js.Any] = js.undefined,
     TransitionProps: js.UndefOr[js.Object] = js.undefined,
@@ -149,6 +153,7 @@ object Snackbar {
   )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
+    if (ClickAwayListenerProps.isDefined) {p.ClickAwayListenerProps = ClickAwayListenerProps}
     if (ContentProps.isDefined) {p.ContentProps = ContentProps}
     if (TransitionComponent.isDefined) {p.TransitionComponent = TransitionComponent}
     if (TransitionProps.isDefined) {p.TransitionProps = TransitionProps}

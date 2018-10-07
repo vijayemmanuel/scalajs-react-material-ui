@@ -36,13 +36,7 @@ object Input {
     var margin: js.UndefOr[String] = js.native
     var multiline: js.UndefOr[Boolean] = js.native
     var name: js.UndefOr[String] = js.native
-    var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
     var onChange: js.UndefOr[scalajs.js.Function1[ReactEvent, Unit]] = js.native
-    var onEmpty: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
-    var onFilled: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
-    var onFocus: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
-    var onKeyDown: js.UndefOr[scalajs.js.Function1[ReactKeyboardEvent, Unit]] = js.native
-    var onKeyUp: js.UndefOr[scalajs.js.Function1[ReactKeyboardEvent, Unit]] = js.native
     var placeholder: js.UndefOr[String] = js.native
     var readOnly: js.UndefOr[Boolean] = js.native
     var required: js.UndefOr[Boolean] = js.native
@@ -105,23 +99,11 @@ object Input {
    *        If `true`, a textarea element will be rendered.
    * @param name
    *        Name attribute of the `input` element.
-   * @param onBlur
-   *        Property spread to root element
    * @param onChange
    *        Callback fired when the value is changed.
    *        
    *        parameter {object} event The event source of the callback.
    *        You can pull out the new value by accessing `event.target.value`.
-   * @param onEmpty
-   *        Property spread to root element
-   * @param onFilled
-   *        Property spread to root element
-   * @param onFocus
-   *        Property spread to root element
-   * @param onKeyDown
-   *        Property spread to root element
-   * @param onKeyUp
-   *        Property spread to root element
    * @param placeholder
    *        The short hint displayed in the input before the user enters a value.
    * @param readOnly
@@ -169,13 +151,7 @@ object Input {
     margin: js.UndefOr[Margin] = js.undefined,
     multiline: js.UndefOr[Boolean] = js.undefined,
     name: js.UndefOr[String] = js.undefined,
-    onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
     onChange: js.UndefOr[ReactEvent => Callback] = js.undefined,
-    onEmpty: js.UndefOr[Callback] = js.undefined,
-    onFilled: js.UndefOr[Callback] = js.undefined,
-    onFocus: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
-    onKeyDown: js.UndefOr[ReactKeyboardEvent => Callback] = js.undefined,
-    onKeyUp: js.UndefOr[ReactKeyboardEvent => Callback] = js.undefined,
     placeholder: js.UndefOr[String] = js.undefined,
     readOnly: js.UndefOr[Boolean] = js.undefined,
     required: js.UndefOr[Boolean] = js.undefined,
@@ -207,13 +183,7 @@ object Input {
     if (margin.isDefined) {p.margin = margin.map(v => v.value)}
     if (multiline.isDefined) {p.multiline = multiline}
     if (name.isDefined) {p.name = name}
-    if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
     if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEvent) => v(e).runNow())}
-    if (onEmpty.isDefined) {p.onEmpty = onEmpty.map(v => v.toJsFn)}
-    if (onFilled.isDefined) {p.onFilled = onFilled.map(v => v.toJsFn)}
-    if (onFocus.isDefined) {p.onFocus = onFocus.map(v => (e: ReactFocusEvent) => v(e).runNow())}
-    if (onKeyDown.isDefined) {p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
-    if (onKeyUp.isDefined) {p.onKeyUp = onKeyUp.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
     if (placeholder.isDefined) {p.placeholder = placeholder}
     if (readOnly.isDefined) {p.readOnly = readOnly}
     if (required.isDefined) {p.required = required}

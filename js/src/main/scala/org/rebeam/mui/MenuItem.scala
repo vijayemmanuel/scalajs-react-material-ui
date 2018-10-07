@@ -78,7 +78,7 @@ object MenuItem {
    * @param role
    *        Property spread to root element
    * @param selected
-   *        Use to apply selected styling.
+   *        Property spread to root element
    * @param style
    *        React element CSS style
    * @param additionalProps

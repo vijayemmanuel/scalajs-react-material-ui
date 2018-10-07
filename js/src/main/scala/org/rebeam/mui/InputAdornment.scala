@@ -15,6 +15,14 @@ object InputAdornment {
     case object Start extends Position { val value: String = "start" }
     case object End extends Position { val value: String = "end" }
   }
+            
+  sealed trait Variant{ val value: String }
+
+  object Variant {
+    case object Standard extends Variant { val value: String = "standard" }
+    case object Outlined extends Variant { val value: String = "outlined" }
+    case object Filled extends Variant { val value: String = "filled" }
+  }
           
   @js.native
   trait Props extends js.Object {
@@ -25,6 +33,7 @@ object InputAdornment {
     var key: js.UndefOr[String] = js.native
     var position: js.UndefOr[String] = js.native
     var style: js.UndefOr[js.Object] = js.native
+    var variant: js.UndefOr[String] = js.native
   }
 
   @JSImport("@material-ui/core/InputAdornment", JSImport.Default)
@@ -51,6 +60,8 @@ object InputAdornment {
    *        The position this adornment should appear relative to the `Input`.
    * @param style
    *        React element CSS style
+   * @param variant
+   *        The variant to use.
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -68,6 +79,7 @@ object InputAdornment {
     key: js.UndefOr[String] = js.undefined,
     position: js.UndefOr[Position] = js.undefined,
     style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
+    variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   )(children: VdomNode *) = {
 
@@ -79,6 +91,7 @@ object InputAdornment {
     if (key.isDefined) {p.key = key}
     if (position.isDefined) {p.position = position.map(v => v.value)}
     if (style.isDefined) {p.style = style.map(v => v.o)}
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     additionalProps.foreach {
       a => {

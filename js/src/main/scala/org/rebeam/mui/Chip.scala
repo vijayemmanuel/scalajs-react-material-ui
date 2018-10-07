@@ -16,6 +16,13 @@ object Chip {
     case object Primary extends Color { val value: String = "primary" }
     case object Secondary extends Color { val value: String = "secondary" }
   }
+            
+  sealed trait Variant{ val value: String }
+
+  object Variant {
+    case object Default extends Variant { val value: String = "default" }
+    case object Outlined extends Variant { val value: String = "outlined" }
+  }
           
   @js.native
   trait Props extends js.Object {
@@ -26,13 +33,16 @@ object Chip {
     var color: js.UndefOr[String] = js.native
     var component: js.UndefOr[js.Any] = js.native
     var deleteIcon: js.UndefOr[japgolly.scalajs.react.raw.React.Element] = js.native
+    var icon: js.UndefOr[japgolly.scalajs.react.raw.React.Element] = js.native
     var key: js.UndefOr[String] = js.native
     var label: js.UndefOr[japgolly.scalajs.react.raw.React.Node] = js.native
     var onClick: js.UndefOr[scalajs.js.Function1[ReactMouseEvent, Unit]] = js.native
     var onDelete: js.UndefOr[scalajs.js.Function0[Unit]] = js.native
     var onKeyDown: js.UndefOr[scalajs.js.Function1[ReactKeyboardEvent, Unit]] = js.native
+    var onKeyUp: js.UndefOr[scalajs.js.Function1[ReactKeyboardEvent, Unit]] = js.native
     var style: js.UndefOr[js.Object] = js.native
     var tabIndex: js.UndefOr[js.Any] = js.native
+    var variant: js.UndefOr[String] = js.native
   }
 
   @JSImport("@material-ui/core/Chip", JSImport.Default)
@@ -61,6 +71,8 @@ object Chip {
    *        Either a string to use a DOM element or a component.
    * @param deleteIcon
    *        Override the default delete icon element. Shown only if `onDelete` is set.
+   * @param icon
+   *        Icon element.
    * @param key
    *        React key
    * @param label
@@ -72,10 +84,14 @@ object Chip {
    *        If set, the delete icon will be shown.
    * @param onKeyDown
    *        Property spread to root element
+   * @param onKeyUp
+   *        Property spread to root element
    * @param style
    *        React element CSS style
    * @param tabIndex
    *        Property spread to root element
+   * @param variant
+   *        The variant to use.
    * @param additionalProps
    *        Optional parameter - if specified, this must be a js.Object containing additional props
    *        to pass to the underlying JS component. Each field of additionalProps will be added to the
@@ -93,13 +109,16 @@ object Chip {
     color: js.UndefOr[Color] = js.undefined,
     component: js.UndefOr[js.Any] = js.undefined,
     deleteIcon: js.UndefOr[VdomElement] = js.undefined,
+    icon: js.UndefOr[VdomElement] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     label: js.UndefOr[VdomNode] = js.undefined,
     onClick: js.UndefOr[ReactMouseEvent => Callback] = js.undefined,
     onDelete: js.UndefOr[Callback] = js.undefined,
     onKeyDown: js.UndefOr[ReactKeyboardEvent => Callback] = js.undefined,
+    onKeyUp: js.UndefOr[ReactKeyboardEvent => Callback] = js.undefined,
     style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     tabIndex: js.UndefOr[js.Any] = js.undefined,
+    variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
   ) = {
 
@@ -111,13 +130,16 @@ object Chip {
     if (color.isDefined) {p.color = color.map(v => v.value)}
     if (component.isDefined) {p.component = component}
     if (deleteIcon.isDefined) {p.deleteIcon = deleteIcon.map(v => v.rawElement)}
+    if (icon.isDefined) {p.icon = icon.map(v => v.rawElement)}
     if (key.isDefined) {p.key = key}
     if (label.isDefined) {p.label = label.map(v => v.rawNode)}
     if (onClick.isDefined) {p.onClick = onClick.map(v => (e: ReactMouseEvent) => v(e).runNow())}
     if (onDelete.isDefined) {p.onDelete = onDelete.map(v => v.toJsFn)}
     if (onKeyDown.isDefined) {p.onKeyDown = onKeyDown.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
+    if (onKeyUp.isDefined) {p.onKeyUp = onKeyUp.map(v => (e: ReactKeyboardEvent) => v(e).runNow())}
     if (style.isDefined) {p.style = style.map(v => v.o)}
     if (tabIndex.isDefined) {p.tabIndex = tabIndex}
+    if (variant.isDefined) {p.variant = variant.map(v => v.value)}
 
     additionalProps.foreach {
       a => {

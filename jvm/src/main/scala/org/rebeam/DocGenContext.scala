@@ -249,7 +249,10 @@ object DocGenContext {
     def sanitiseDescription(s: String): String = s
       .replaceAllLiterally("@ignore", "Property spread to root element")
       .replaceAllLiterally("@param", "parameter")
+      .replaceAllLiterally("@internal", "internal")
       .replaceAllLiterally("@returns", "returns")
+      .replaceAllLiterally("<", "&lt;")
+      .replaceAllLiterally(">", "&gt;")
 
     def sanitiseProp(c: Component, name: String, prop: Prop): (String, Prop) = {
       name -> prop.copy(description = sanitiseDescription(prop.description))

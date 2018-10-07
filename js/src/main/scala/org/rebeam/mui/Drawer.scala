@@ -51,14 +51,14 @@ object Drawer {
   val jsComponent = JsFnComponent[Props, Children.Varargs](DrawerJS)
   
   /**
-   * The properties of the [Modal](/api/modal) component are available
+   * The properties of the [Modal](/api/modal/) component are available
    * when `variant="temporary"` is set.
    * @param ModalProps
-   *        Properties applied to the [`Modal`](/api/modal) element.
+   *        Properties applied to the [`Modal`](/api/modal/) element.
    * @param PaperProps
-   *        Properties applied to the [`Paper`](/api/paper) element.
+   *        Properties applied to the [`Paper`](/api/paper/) element.
    * @param SlideProps
-   *        Properties applied to the [`Slide`](/api/slide) element.
+   *        Properties applied to the [`Slide`](/api/slide/) element.
    * @param anchor
    *        Side from which the drawer will appear.
    * @param className

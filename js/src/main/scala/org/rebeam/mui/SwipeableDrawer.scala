@@ -38,7 +38,9 @@ object SwipeableDrawer {
     var disableDiscovery: js.UndefOr[Boolean] = js.native
     var disableSwipeToOpen: js.UndefOr[Boolean] = js.native
     var elevation: js.UndefOr[Double] = js.native
+    var hysteresis: js.UndefOr[Double] = js.native
     var key: js.UndefOr[String] = js.native
+    var minFlingVelocity: js.UndefOr[Double] = js.native
     var onClose: scalajs.js.Function0[Unit] = js.native
     var onOpen: scalajs.js.Function0[Unit] = js.native
     var open: Boolean = js.native
@@ -62,7 +64,7 @@ object SwipeableDrawer {
    * @param PaperProps
    *        Property spread to root element
    * @param SlideProps
-   *        Properties applied to the [`Slide`](/api/slide) element.
+   *        Properties applied to the [`Slide`](/api/slide/) element.
    *        Passed to Drawer
    * @param anchor
    *        Property spread to root element
@@ -85,8 +87,15 @@ object SwipeableDrawer {
    * @param elevation
    *        The elevation of the drawer.
    *        Passed to Drawer
+   * @param hysteresis
+   *        Affects how far the drawer must be opened/closed to change his state.
+   *        Specified as percent (0-1) of the width of the drawer
    * @param key
    *        React key
+   * @param minFlingVelocity
+   *        Defines, from which (average) velocity on, the swipe is
+   *        defined as complete although hysteresis isn't reached.
+   *        Good threshold is between 250 - 1000 px/s
    * @param onClose
    *        Callback fired when the component requests to be closed.
    *        
@@ -129,7 +138,9 @@ object SwipeableDrawer {
     disableDiscovery: js.UndefOr[Boolean] = js.undefined,
     disableSwipeToOpen: js.UndefOr[Boolean] = js.undefined,
     elevation: js.UndefOr[Double] = js.undefined,
+    hysteresis: js.UndefOr[Double] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
+    minFlingVelocity: js.UndefOr[Double] = js.undefined,
     onClose: Callback,
     onOpen: Callback,
     open: Boolean,
@@ -152,7 +163,9 @@ object SwipeableDrawer {
     if (disableDiscovery.isDefined) {p.disableDiscovery = disableDiscovery}
     if (disableSwipeToOpen.isDefined) {p.disableSwipeToOpen = disableSwipeToOpen}
     if (elevation.isDefined) {p.elevation = elevation}
+    if (hysteresis.isDefined) {p.hysteresis = hysteresis}
     if (key.isDefined) {p.key = key}
+    if (minFlingVelocity.isDefined) {p.minFlingVelocity = minFlingVelocity}
     p.onClose = onClose.toJsFn
     p.onOpen = onOpen.toJsFn
     p.open = open

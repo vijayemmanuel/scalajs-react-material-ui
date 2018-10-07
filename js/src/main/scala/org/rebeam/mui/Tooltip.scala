@@ -59,7 +59,7 @@ object Tooltip {
   /**
    * 
    * @param PopperProps
-   *        Properties applied to the [`Popper`](/api/popper) element.
+   *        Properties applied to the [`Popper`](/api/popper/) element.
    * @param TransitionComponent
    *        Transition component.
    * @param TransitionProps

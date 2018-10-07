@@ -34,17 +34,28 @@ object Typography {
   sealed trait Variant{ val value: String }
 
   object Variant {
+    case object H5 extends Variant { val value: String = "h5" }
+    case object SrOnly extends Variant { val value: String = "srOnly" }
     case object Button extends Variant { val value: String = "button" }
+    case object H2 extends Variant { val value: String = "h2" }
     case object Display2 extends Variant { val value: String = "display2" }
+    case object H6 extends Variant { val value: String = "h6" }
     case object Display3 extends Variant { val value: String = "display3" }
     case object Display1 extends Variant { val value: String = "display1" }
     case object Title extends Variant { val value: String = "title" }
+    case object Inherit extends Variant { val value: String = "inherit" }
+    case object H1 extends Variant { val value: String = "h1" }
+    case object Subtitle1 extends Variant { val value: String = "subtitle1" }
     case object Body1 extends Variant { val value: String = "body1" }
     case object Subheading extends Variant { val value: String = "subheading" }
     case object Headline extends Variant { val value: String = "headline" }
     case object Display4 extends Variant { val value: String = "display4" }
+    case object Subtitle2 extends Variant { val value: String = "subtitle2" }
     case object Body2 extends Variant { val value: String = "body2" }
+    case object H3 extends Variant { val value: String = "h3" }
     case object Caption extends Variant { val value: String = "caption" }
+    case object Overline extends Variant { val value: String = "overline" }
+    case object H4 extends Variant { val value: String = "h4" }
   }
           
   @js.native
@@ -56,6 +67,7 @@ object Typography {
     var component: js.UndefOr[js.Any] = js.native
     var gutterBottom: js.UndefOr[Boolean] = js.native
     var headlineMapping: js.UndefOr[js.Object] = js.native
+    var internalDeprecatedVariant: js.UndefOr[Boolean] = js.native
     var key: js.UndefOr[String] = js.native
     var noWrap: js.UndefOr[Boolean] = js.native
     var paragraph: js.UndefOr[Boolean] = js.native
@@ -88,8 +100,15 @@ object Typography {
    *        If `true`, the text will have a bottom margin.
    * @param headlineMapping
    *        We are empirically mapping the variant property to a range of different DOM element types.
-   *        For instance, h1 to h6. If you wish to change that mapping, you can provide your own.
+   *        For instance, subtitle1 to `&lt;h6&gt;`.
+   *        If you wish to change that mapping, you can provide your own.
    *        Alternatively, you can use the `component` property.
+   *        The default mapping is the following:
+   * @param internalDeprecatedVariant
+   *        A deprecated variant is used from an internal component. Users don't need
+   *        a deprecation warning here if they switched to the v2 theme. They already
+   *        get the mapping that will be applied in the next major release.
+   *        internal
    * @param key
    *        React key
    * @param noWrap
@@ -117,6 +136,7 @@ object Typography {
     component: js.UndefOr[js.Any] = js.undefined,
     gutterBottom: js.UndefOr[Boolean] = js.undefined,
     headlineMapping: js.UndefOr[js.Object] = js.undefined,
+    internalDeprecatedVariant: js.UndefOr[Boolean] = js.undefined,
     key: js.UndefOr[String] = js.undefined,
     noWrap: js.UndefOr[Boolean] = js.undefined,
     paragraph: js.UndefOr[Boolean] = js.undefined,
@@ -133,6 +153,7 @@ object Typography {
     if (component.isDefined) {p.component = component}
     if (gutterBottom.isDefined) {p.gutterBottom = gutterBottom}
     if (headlineMapping.isDefined) {p.headlineMapping = headlineMapping}
+    if (internalDeprecatedVariant.isDefined) {p.internalDeprecatedVariant = internalDeprecatedVariant}
     if (key.isDefined) {p.key = key}
     if (noWrap.isDefined) {p.noWrap = noWrap}
     if (paragraph.isDefined) {p.paragraph = paragraph}

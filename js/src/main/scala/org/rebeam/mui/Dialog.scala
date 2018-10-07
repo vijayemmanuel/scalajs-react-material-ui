@@ -12,10 +12,11 @@ object Dialog {
   sealed trait MaxWidth{ val value: String }
 
   object MaxWidth {
+    case object Lg extends MaxWidth { val value: String = "lg" }
     case object Xs extends MaxWidth { val value: String = "xs" }
+    case object False extends MaxWidth { val value: String = "false" }
     case object Sm extends MaxWidth { val value: String = "sm" }
     case object Md extends MaxWidth { val value: String = "md" }
-    case object False extends MaxWidth { val value: String = "false" }
   }
             
   sealed trait Scroll{ val value: String }
@@ -78,7 +79,7 @@ object Dialog {
    * @param BackdropProps
    *        Property spread to root element
    * @param PaperProps
-   *        Properties applied to the [`Paper`](/api/paper) element.
+   *        Properties applied to the [`Paper`](/api/paper/) element.
    * @param TransitionComponent
    *        Transition component.
    * @param TransitionProps
