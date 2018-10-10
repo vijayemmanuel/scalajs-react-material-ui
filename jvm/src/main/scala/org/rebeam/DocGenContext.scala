@@ -166,6 +166,7 @@ object DocGenContext {
         case Component(_, "ExpansionPanelSummary", _) => additionalPropsFrom("ButtonBase")
         case Component(_, "Tab", _) => additionalPropsFrom("ButtonBase")
         case Component(_, "TableSortLabel", _) => additionalPropsFrom("ButtonBase")
+        case Component(_, "CardActionArea", _) => additionalPropsFrom("ButtonBase")
 
         case Component(_, "AppBar", _) => additionalPropsFrom("Paper")
         case Component(_, "Card", _) => additionalPropsFrom("Paper", "DOCGEN_Children")
