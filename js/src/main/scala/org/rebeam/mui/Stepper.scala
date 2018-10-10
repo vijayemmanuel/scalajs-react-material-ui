@@ -45,6 +45,8 @@ object Stepper {
    * @param alternativeLabel
    *        If set to 'true' and orientation is horizontal,
    *        then the step label will be positioned under the icon.
+   * @param children
+   *        Two or more `&lt;Step /&gt;` components.
    * @param className
    *        Property spread to root element
    * @param classes

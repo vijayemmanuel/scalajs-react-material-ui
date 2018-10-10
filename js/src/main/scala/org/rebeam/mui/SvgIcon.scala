@@ -51,6 +51,8 @@ object SvgIcon {
   
   /**
    * 
+   * @param children
+   *        Node passed into the SVG element.
    * @param className
    *        Property spread to root element
    * @param classes

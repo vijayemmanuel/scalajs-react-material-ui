@@ -46,6 +46,8 @@ object Modal {
    *        A backdrop component. This property enables custom backdrop rendering.
    * @param BackdropProps
    *        Properties applied to the [`Backdrop`](/api/backdrop/) element.
+   * @param children
+   *        A single child content element.
    * @param className
    *        Property spread to root element
    * @param classes

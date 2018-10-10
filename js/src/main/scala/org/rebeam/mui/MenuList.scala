@@ -31,6 +31,8 @@ object MenuList {
   
   /**
    * 
+   * @param children
+   *        MenuList contents, normally `MenuItem`s.
    * @param className
    *        Property spread to root element
    * @param classes

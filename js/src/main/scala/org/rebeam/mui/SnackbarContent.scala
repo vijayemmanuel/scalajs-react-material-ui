@@ -26,12 +26,15 @@ object SnackbarContent {
   @js.native
   object SnackbarContentJS extends js.Object
 
-  val jsComponent = JsFnComponent[Props, Children.None](SnackbarContentJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](SnackbarContentJS)
   
   /**
    * 
    * @param action
    *        The action to display.
+   * @param children
+   *        The content of the component.
+   *        Passed to Paper
    * @param className
    *        Property spread to root element
    * @param classes
@@ -74,7 +77,7 @@ object SnackbarContent {
     square: js.UndefOr[Boolean] = js.undefined,
     style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
-  ) = {
+  )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
     if (action.isDefined) {p.action = action.map(v => v.rawNode)}
@@ -97,7 +100,7 @@ object SnackbarContent {
       }
     }
     
-    jsComponent(p)
+    jsComponent(p)(children: _*)
   }
 
 }

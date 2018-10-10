@@ -41,6 +41,8 @@ object Slide {
   /**
    * The Slide transition is used by the [Snackbar](/demos/snackbars/) component.
    * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
+   * @param children
+   *        A single child content element.
    * @param direction
    *        Direction the child node will enter from.
    * @param in

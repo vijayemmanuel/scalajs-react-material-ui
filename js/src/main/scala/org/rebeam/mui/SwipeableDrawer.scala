@@ -55,7 +55,7 @@ object SwipeableDrawer {
   @js.native
   object SwipeableDrawerJS extends js.Object
 
-  val jsComponent = JsFnComponent[Props, Children.None](SwipeableDrawerJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](SwipeableDrawerJS)
   
   /**
    * 
@@ -68,6 +68,9 @@ object SwipeableDrawer {
    *        Passed to Drawer
    * @param anchor
    *        Property spread to root element
+   * @param children
+   *        The contents of the drawer.
+   *        Passed to Drawer
    * @param className
    *        Property spread to root element
    *        Passed to Drawer
@@ -150,7 +153,7 @@ object SwipeableDrawer {
     transitionDuration: js.UndefOr[js.Any] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
-  ) = {
+  )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
     if (ModalProps.isDefined) {p.ModalProps = ModalProps}
@@ -185,7 +188,7 @@ object SwipeableDrawer {
       }
     }
     
-    jsComponent(p)
+    jsComponent(p)(children: _*)
   }
 
 }

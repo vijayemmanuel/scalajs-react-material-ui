@@ -79,6 +79,8 @@ object IconButton {
    *        If `true`, the ripples will be centered.
    *        They won't start at the cursor interaction position.
    *        Passed to ButtonBase
+   * @param children
+   *        The icon element.
    * @param className
    *        Property spread to root element
    * @param classes

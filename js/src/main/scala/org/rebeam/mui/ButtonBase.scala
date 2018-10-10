@@ -66,6 +66,8 @@ object ButtonBase {
    * @param centerRipple
    *        If `true`, the ripples will be centered.
    *        They won't start at the cursor interaction position.
+   * @param children
+   *        The content of the component.
    * @param className
    *        Property spread to root element
    * @param classes

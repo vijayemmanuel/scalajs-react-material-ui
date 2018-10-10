@@ -25,6 +25,8 @@ object ListItemAvatar {
   
   /**
    * This is a simple wrapper to apply the `dense` mode styles to `Avatar`.
+   * @param children
+   *        The content of the component – normally `Avatar`.
    * @param className
    *        Property spread to root element
    * @param classes

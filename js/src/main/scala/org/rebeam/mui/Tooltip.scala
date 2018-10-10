@@ -64,6 +64,8 @@ object Tooltip {
    *        Transition component.
    * @param TransitionProps
    *        Properties applied to the `Transition` element.
+   * @param children
+   *        Tooltip reference element.
    * @param classes
    *        Override or extend the styles applied to the component.
    *        See [CSS API](#css-api) below for more details.

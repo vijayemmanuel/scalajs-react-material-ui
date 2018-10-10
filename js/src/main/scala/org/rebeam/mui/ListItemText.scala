@@ -31,6 +31,8 @@ object ListItemText {
   
   /**
    * 
+   * @param children
+   *        Alias for the `primary` property.
    * @param className
    *        Property spread to root element
    * @param classes

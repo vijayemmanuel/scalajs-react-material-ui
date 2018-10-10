@@ -37,6 +37,8 @@ object Collapse {
    * The Collapse transition is used by the
    * [Vertical Stepper](/demos/steppers/#vertical-stepper) StepContent component.
    * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
+   * @param children
+   *        The content node to be collapsed.
    * @param className
    *        Property spread to root element
    * @param classes

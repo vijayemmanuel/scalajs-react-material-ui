@@ -83,6 +83,8 @@ object TableSortLabel {
    *        If `true`, the ripples will be centered.
    *        They won't start at the cursor interaction position.
    *        Passed to ButtonBase
+   * @param children
+   *        Label contents, the arrow will be appended automatically.
    * @param className
    *        Property spread to root element
    * @param classes

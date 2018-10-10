@@ -24,6 +24,8 @@ object CssBaseline {
   
   /**
    * Kickstart an elegant, consistent, and simple baseline to build upon.
+   * @param children
+   *        You can wrap a node.
    * @param classes
    *        Property spread to root element
    * @param key

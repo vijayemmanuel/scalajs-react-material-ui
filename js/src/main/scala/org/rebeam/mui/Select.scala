@@ -95,6 +95,9 @@ object Select {
    * @param autoWidth
    *        If true, the width of the popover will automatically be set according to the items inside the
    *        menu, otherwise it will be at least the width of the select input.
+   * @param children
+   *        The option elements to populate the select with.
+   *        Can be some `MenuItem` when `native` is false and `option` when `native` is true.
    * @param className
    *        The CSS class name of the wrapper element.
    *        Passed to Input

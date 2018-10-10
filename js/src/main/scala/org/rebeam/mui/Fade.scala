@@ -29,6 +29,8 @@ object Fade {
   /**
    * The Fade transition is used by the [Modal](/utils/modal/) component.
    * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
+   * @param children
+   *        A single child content element.
    * @param in
    *        If `true`, the component will transition in.
    * @param key

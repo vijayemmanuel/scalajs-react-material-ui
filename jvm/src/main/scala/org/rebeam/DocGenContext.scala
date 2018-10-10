@@ -65,8 +65,6 @@ object DocGenContext {
               props = propsIncludingInheritance(all, c)
                 .map {
                   case (name, prop) => transformProp(c, name, prop)
-                }.map {
-                  case (name, prop) => sanitiseProp(c, name, prop)
                 }.filter {
                   case (name, prop) => useProp(c, name, prop)
                 }
@@ -89,6 +87,18 @@ object DocGenContext {
               FuncType,
               false,
               "ReactMouseEvent on click",
+              None
+            )
+          )
+        ),
+        "DOCGEN_children" -> Component (
+          "DocGen component to add children",
+          "DOCGEN_Children",
+          List(
+            "children" -> Prop(
+              NodeType,
+              false,
+              "React children",
               None
             )
           )
@@ -158,7 +168,7 @@ object DocGenContext {
         case Component(_, "TableSortLabel", _) => additionalPropsFrom("ButtonBase")
 
         case Component(_, "AppBar", _) => additionalPropsFrom("Paper")
-        case Component(_, "Card", _) => additionalPropsFrom("Paper")
+        case Component(_, "Card", _) => additionalPropsFrom("Paper", "DOCGEN_Children")
         case Component(_, "ExpansionPanel", _) => additionalPropsFrom("Paper")
         case Component(_, "MobileStepper", _) => additionalPropsFrom("Paper")
         case Component(_, "SnackbarContent", _) => additionalPropsFrom("Paper")
@@ -203,13 +213,13 @@ object DocGenContext {
 
         case Component(_, "TextField", _) => additionalPropsFrom("FormControl")
 
+        case Component(_, "CardContent", _) => additionalPropsFrom("DOCGEN_Children")
+
         case Component(_, _, props) => additionalPropsFrom()
       } 
     }
 
     def useProp(c: Component, name: String, prop: Prop): Boolean =
-      if (name == "children") {
-        false
       //TODO have a closer look at this - assuming that these are not meant to be used, but some of them look useful...  
       //     In fact, it looks a lot like these are real properties that are passed through to underlying elements
       //     but that material-ui doesn't want to document (confusingly), and so we should use these properties.
@@ -218,7 +228,7 @@ object DocGenContext {
       //   false
 
       // Not sure what's up with this one - marked as ignore so get rid of it
-      } else if (c.displayName == "Menu" && name == "theme") {
+      if (c.displayName == "Menu" && name == "theme") {
         false
       } else {
         true
@@ -245,18 +255,6 @@ object DocGenContext {
     val compositionEventNames: Set[String] = Set(
       "onCompositionEnd", "onCompositionStart", "onCompositionUpdate"
     )
-
-    def sanitiseDescription(s: String): String = s
-      .replaceAllLiterally("@ignore", "Property spread to root element")
-      .replaceAllLiterally("@param", "parameter")
-      .replaceAllLiterally("@internal", "internal")
-      .replaceAllLiterally("@returns", "returns")
-      .replaceAllLiterally("<", "&lt;")
-      .replaceAllLiterally(">", "&gt;")
-
-    def sanitiseProp(c: Component, name: String, prop: Prop): (String, Prop) = {
-      name -> prop.copy(description = sanitiseDescription(prop.description))
-    }
 
     def transformProp(c: Component, name: String, prop: Prop): (String, Prop) = {
 

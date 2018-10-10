@@ -28,6 +28,10 @@ object GridListTile {
   
   /**
    * 
+   * @param children
+   *        Theoretically you can pass any node as children, but the main use case is to pass an img,
+   *        in which case GridListTile takes care of making the image "cover" available space
+   *        (similar to `background-size: cover` or to `object-fit: cover`).
    * @param className
    *        Property spread to root element
    * @param classes

@@ -30,6 +30,8 @@ object Grow {
    * The Grow transition is used by the [Tooltip](/demos/tooltips/) and
    * [Popover](/utils/popover/) components.
    * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
+   * @param children
+   *        A single child content element.
    * @param in
    *        If `true`, show the component; triggers the enter or exit animation.
    * @param key

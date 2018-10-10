@@ -206,6 +206,8 @@ object Grid {
    * @param alignItems
    *        Defines the `align-items` style property.
    *        It's applied for all screen sizes.
+   * @param children
+   *        The content of the component.
    * @param className
    *        Property spread to root element
    * @param classes

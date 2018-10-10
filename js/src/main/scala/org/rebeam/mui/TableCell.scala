@@ -56,6 +56,8 @@ object TableCell {
   
   /**
    * 
+   * @param children
+   *        The table cell contents.
    * @param className
    *        Property spread to root element
    * @param classes

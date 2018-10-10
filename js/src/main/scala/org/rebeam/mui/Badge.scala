@@ -39,6 +39,8 @@ object Badge {
    * 
    * @param badgeContent
    *        The content rendered within the badge.
+   * @param children
+   *        The badge will be added relative to this node.
    * @param className
    *        Property spread to root element
    * @param classes

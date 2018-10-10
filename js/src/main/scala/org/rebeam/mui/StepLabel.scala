@@ -53,6 +53,8 @@ object StepLabel {
    * @param alternativeLabel
    *        Property spread to root element
    *        Set internally by Stepper when it's supplied with the alternativeLabel property.
+   * @param children
+   *        In most cases will simply be a string containing a title for the label.
    * @param className
    *        Property spread to root element
    * @param classes

@@ -25,6 +25,8 @@ object ListItemSecondaryAction {
   
   /**
    * 
+   * @param children
+   *        The content of the component, normally an `IconButton` or selection control.
    * @param className
    *        Property spread to root element
    * @param classes

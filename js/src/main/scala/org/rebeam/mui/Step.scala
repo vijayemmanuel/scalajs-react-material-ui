@@ -45,6 +45,8 @@ object Step {
    * @param alternativeLabel
    *        Property spread to root element
    *        Set internally by Stepper when it's supplied with the alternativeLabel property.
+   * @param children
+   *        Should be `Step` sub-components such as `StepLabel`, `StepContent`.
    * @param className
    *        Property spread to root element
    * @param classes

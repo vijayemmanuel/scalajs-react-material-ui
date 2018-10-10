@@ -57,6 +57,8 @@ object FormControl {
    *  - InputLabel
    * 
    * ⚠️ Only one input can be used within a FormControl.
+   * @param children
+   *        The contents of the form control.
    * @param className
    *        Property spread to root element
    * @param classes

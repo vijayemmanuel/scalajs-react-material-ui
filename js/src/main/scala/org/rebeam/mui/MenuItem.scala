@@ -47,6 +47,8 @@ object MenuItem {
    * @param button
    *        If `true`, the list item will be a button (using `ButtonBase`).
    *        Passed to ListItem
+   * @param children
+   *        Menu item contents.
    * @param className
    *        Property spread to root element
    * @param classes

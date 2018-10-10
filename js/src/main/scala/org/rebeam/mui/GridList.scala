@@ -32,6 +32,8 @@ object GridList {
    * @param cellHeight
    *        Number of px for one cell height.
    *        You can set `'auto'` if you want to let the children determine the height.
+   * @param children
+   *        Grid Tiles that will be in Grid List.
    * @param className
    *        Property spread to root element
    * @param classes

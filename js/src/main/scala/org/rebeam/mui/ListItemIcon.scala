@@ -25,6 +25,9 @@ object ListItemIcon {
   
   /**
    * A simple wrapper to apply `List` styles to an `Icon` or `SvgIcon`.
+   * @param children
+   *        The content of the component, normally `Icon`, `SvgIcon`,
+   *        or a `@material-ui/icons` SVG icon element.
    * @param className
    *        Property spread to root element
    * @param classes

@@ -88,6 +88,8 @@ object StepButton {
    *        If `true`, the ripples will be centered.
    *        They won't start at the cursor interaction position.
    *        Passed to ButtonBase
+   * @param children
+   *        Can be a `StepLabel` or a node to place inside `StepLabel` as children.
    * @param className
    *        Property spread to root element
    * @param classes

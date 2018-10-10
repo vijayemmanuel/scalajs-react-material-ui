@@ -58,6 +58,32 @@ mui.IconButton(
 )
 ```
 
+## Debugging
+
+If the code generation is incorrect, several issues can occur when attempting to use the components:
+
+### Children not detected
+Some components are not correctly detected by react-docgen as having children. This results in an error like the following (for `CardContent` component):
+
+```
+[error]  found   : japgolly.scalajs.react.vdom.TagMod
+[error]  required: japgolly.scalajs.react.vdom.html_<^.VdomNode
+[error]     (which expands to)  japgolly.scalajs.react.vdom.VdomNode
+[error]             mui.CardContent()(
+```  
+
+The fix for this is to add an entry in `DocGenContext.MaterialUI` in `propsIncludingInheritance`, for example:
+
+```scala
+        case Component(_, "CardContent", _) => additionalPropsFrom("DOCGEN_Children")
+```
+
+This makes `CardContent` inherit props from `DOCGEN_Children` - this is a virtual component that exists just to provide this prop conveniently. If the component already inherits from another component, just add `DOCGEN_Children` to the list.
+
+### Missing props
+
+Some components are missing props because they "inherit" from another component in material-ui - this can be modelled by adding that component to `DocGenContext.MaterialUI` as described above for "Children not detected". Other components simply have a missing prop in the API (e.g. a built-in react prop), and this can be added by making a new `DOCGEN_Foo` component in the `allPlusDocgen` method, and then inheriting from that. 
+
 ## Todo
 
 1. Support `PropTypes.oneOfType`

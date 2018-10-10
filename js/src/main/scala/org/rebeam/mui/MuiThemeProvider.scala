@@ -28,6 +28,8 @@ object MuiThemeProvider {
    * This component takes a `theme` property.
    * It makes the `theme` available down the React tree thanks to React context.
    * This component should preferably be used at **the root of your component tree**.
+   * @param children
+   *        You can wrap a node.
    * @param disableStylesGeneration
    *        You can disable the generation of the styles with this option.
    *        It can be useful when traversing the React tree outside of the HTML

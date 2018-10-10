@@ -48,6 +48,8 @@ object Icon {
   
   /**
    * 
+   * @param children
+   *        The name of the icon font ligature.
    * @param className
    *        Property spread to root element
    * @param classes

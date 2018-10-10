@@ -47,7 +47,7 @@ object MobileStepper {
   @js.native
   object MobileStepperJS extends js.Object
 
-  val jsComponent = JsFnComponent[Props, Children.None](MobileStepperJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](MobileStepperJS)
   
   /**
    * 
@@ -58,6 +58,9 @@ object MobileStepper {
    *        Defines which dot is highlighted when the variant is 'dots'.
    * @param backButton
    *        A back button element. For instance, it can be be a `Button` or a `IconButton`.
+   * @param children
+   *        The content of the component.
+   *        Passed to Paper
    * @param className
    *        Property spread to root element
    * @param classes
@@ -111,7 +114,7 @@ object MobileStepper {
     style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
-  ) = {
+  )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
     if (LinearProgressProps.isDefined) {p.LinearProgressProps = LinearProgressProps}
@@ -139,7 +142,7 @@ object MobileStepper {
       }
     }
     
-    jsComponent(p)
+    jsComponent(p)(children: _*)
   }
 
 }

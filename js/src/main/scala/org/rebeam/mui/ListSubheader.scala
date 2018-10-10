@@ -38,6 +38,8 @@ object ListSubheader {
   
   /**
    * 
+   * @param children
+   *        The content of the component.
    * @param className
    *        Property spread to root element
    * @param classes

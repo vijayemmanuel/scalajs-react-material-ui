@@ -110,6 +110,8 @@ object Popover {
    *        the application's client area.
    * @param anchorReference
    *        
+   * @param children
+   *        The content of the component.
    * @param className
    *        Property spread to root element
    *        Passed to Modal

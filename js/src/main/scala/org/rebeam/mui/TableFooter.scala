@@ -26,6 +26,8 @@ object TableFooter {
   
   /**
    * 
+   * @param children
+   *        The content of the component, normally `TableRow`.
    * @param className
    *        Property spread to root element
    * @param classes

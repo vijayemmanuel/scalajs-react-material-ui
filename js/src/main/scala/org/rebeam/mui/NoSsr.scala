@@ -31,6 +31,8 @@ object NoSsr {
    * - Improve the time-to-first paint on the client by only rendering above the fold.
    * - Reduce the rendering time on the server.
    * - Under too heavy server load, you can turn on service degradation.
+   * @param children
+   *        
    * @param defer
    *        If `true`, the component will not only prevent server side rendering.
    *        It will also defer the rendering of the children into a different screen frame.

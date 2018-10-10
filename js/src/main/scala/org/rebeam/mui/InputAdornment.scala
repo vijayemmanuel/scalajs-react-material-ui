@@ -44,6 +44,8 @@ object InputAdornment {
   
   /**
    * 
+   * @param children
+   *        The content of the component, normally an `IconButton` or string.
    * @param className
    *        Property spread to root element
    * @param classes

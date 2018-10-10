@@ -85,6 +85,7 @@ object DocGenGen {
     )(
       p => propChildren(p).isSupportedChildren
     )
+
     // c.props.exists(_._1 == "children")
   }
 
@@ -227,15 +228,22 @@ object DocGenGen {
 
   def lines(s: String): List[String] = s.split("\\r?\\n").toList
 
+  def sanitiseDescription(s: String): String = s
+    .replaceAllLiterally("@ignore", "Property spread to root element")
+    .replaceAllLiterally("@param", "parameter")
+    .replaceAllLiterally("@internal", "internal")
+    .replaceAllLiterally("@returns", "returns")
+    .replaceAllLiterally("<", "&lt;")
+    .replaceAllLiterally(">", "&gt;")
 
-  def applyDocs(c: Component): String = {
-    val usedProps = c.props
+
+  def applyDocs(c: Component, usedProps: List[(String, Prop)]): String = 
     (
       lines(c.description) ++
       usedProps.flatMap {
         case (n, p) => List(
           List(s"@param $n"),
-          lines(p.description).map("       " + _)
+          lines(sanitiseDescription(p.description)).map("       " + _)
         ).flatten
       } ++ 
       List(
@@ -248,8 +256,7 @@ object DocGenGen {
         "       in this format to be added to rendered components.",
         "       Since this is untyped, use with care - e.g. make sure props are in the correct format for JS components"
       )
-    ).mkString("\n   * ")
-  }
+    ).mkString("\n   * ")  
 
   def enumDefinition(c: Component): String = {
     c.props.collect {
@@ -280,7 +287,8 @@ object DocGenGen {
 
         val componentName = c.displayName
 
-        val usedProps = c.props
+        // Children prop is handled specially
+        val usedProps = c.props.filter(_._1 != "children")
 
         val propFields = usedProps.map { 
           case (name, prop) =>
@@ -297,9 +305,9 @@ object DocGenGen {
             propAssignment(name, prop)
         }.mkString("\n    ")
 
-        val docs = applyDocs(c)
+        val hc = hasChildren(c)
 
-        val hc = hasChildren(cRaw)
+        val docs = applyDocs(c, if (hc) c.props else usedProps)
 
         val childrenType = if (hc) "Children.Varargs" else "Children.None"
         val childrenParamGroup = if (hc) "(children: VdomNode *)" else ""

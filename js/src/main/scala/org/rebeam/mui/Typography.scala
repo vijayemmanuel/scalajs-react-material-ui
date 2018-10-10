@@ -85,6 +85,8 @@ object Typography {
    * 
    * @param align
    *        Set the text-align on the component.
+   * @param children
+   *        The content of the component.
    * @param className
    *        Property spread to root element
    * @param classes

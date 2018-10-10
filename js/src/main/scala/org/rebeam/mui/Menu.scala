@@ -123,6 +123,8 @@ object Menu {
    * @param anchorReference
    *        
    *        Passed to Popover
+   * @param children
+   *        Menu contents, normally `MenuItem`s.
    * @param className
    *        Property spread to root element
    *        Passed to Modal

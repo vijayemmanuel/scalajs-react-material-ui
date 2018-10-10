@@ -25,6 +25,8 @@ object ExpansionPanelDetails {
   
   /**
    * 
+   * @param children
+   *        The content of the expansion panel details.
    * @param className
    *        Property spread to root element
    * @param classes

@@ -35,6 +35,12 @@ object Avatar {
    * @param alt
    *        Used in combination with `src` or `srcSet` to
    *        provide an alt attribute for the rendered `img` element.
+   * @param children
+   *        Used to render icon or text elements inside the Avatar.
+   *        `src` and `alt` props will not be used and no `img` will
+   *        be rendered by default.
+   *        
+   *        This can be an element, or just a string.
    * @param childrenClassName
    *        Property spread to root element
    *        The className of the child element.

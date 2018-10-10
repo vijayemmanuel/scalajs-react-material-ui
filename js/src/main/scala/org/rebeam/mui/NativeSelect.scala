@@ -78,6 +78,9 @@ object NativeSelect {
    * @param autoFocus
    *        If `true`, the input will be focused during the first mount.
    *        Passed to Input
+   * @param children
+   *        The option elements to populate the select with.
+   *        Can be some `&lt;option&gt;` elements.
    * @param className
    *        The CSS class name of the wrapper element.
    *        Passed to Input

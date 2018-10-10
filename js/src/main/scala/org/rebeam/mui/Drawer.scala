@@ -61,6 +61,8 @@ object Drawer {
    *        Properties applied to the [`Slide`](/api/slide/) element.
    * @param anchor
    *        Side from which the drawer will appear.
+   * @param children
+   *        The contents of the drawer.
    * @param className
    *        Property spread to root element
    * @param classes

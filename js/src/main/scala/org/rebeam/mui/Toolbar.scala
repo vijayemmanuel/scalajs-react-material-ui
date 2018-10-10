@@ -34,6 +34,8 @@ object Toolbar {
   
   /**
    * 
+   * @param children
+   *        Toolbar children, usually a mixture of `IconButton`, `Button` and `Typography`.
    * @param className
    *        Property spread to root element
    * @param classes

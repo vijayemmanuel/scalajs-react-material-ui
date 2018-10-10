@@ -27,6 +27,8 @@ object Portal {
   /**
    * Portals provide a first-class way to render children into a DOM node
    * that exists outside the DOM hierarchy of the parent component.
+   * @param children
+   *        The children to render into the `container`.
    * @param container
    *        A node, component instance, or function that returns either.
    *        The `container` will have the portal children appended to it.

@@ -65,7 +65,7 @@ object TablePagination {
   @js.native
   object TablePaginationJS extends js.Object
 
-  val jsComponent = JsFnComponent[Props, Children.None](TablePaginationJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](TablePaginationJS)
   
   /**
    * A `TableCell` based component for placing inside `TableFooter` for pagination.
@@ -76,6 +76,9 @@ object TablePagination {
    *        Properties applied to the rows per page [`Select`](/api/select/) element.
    * @param backIconButtonProps
    *        Properties applied to the back arrow [`IconButton`](/api/icon-button/) component.
+   * @param children
+   *        The table cell contents.
+   *        Passed to TableCell
    * @param className
    *        Property spread to root element
    *        Passed to TableCell
@@ -167,7 +170,7 @@ object TablePagination {
     style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     variant: js.UndefOr[Variant] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
-  ) = {
+  )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
     if (ActionsComponent.isDefined) {p.ActionsComponent = ActionsComponent}
@@ -204,7 +207,7 @@ object TablePagination {
       }
     }
     
-    jsComponent(p)
+    jsComponent(p)(children: _*)
   }
 
 }

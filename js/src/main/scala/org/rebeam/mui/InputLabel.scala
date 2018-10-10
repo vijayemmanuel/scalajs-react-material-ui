@@ -52,6 +52,8 @@ object InputLabel {
    * 
    * @param FormLabelClasses
    *        `classes` property applied to the [`FormLabel`](/api/form-label/) element.
+   * @param children
+   *        The contents of the `InputLabel`.
    * @param className
    *        Property spread to root element
    * @param classes

@@ -25,10 +25,13 @@ object Card {
   @js.native
   object CardJS extends js.Object
 
-  val jsComponent = JsFnComponent[Props, Children.None](CardJS)
+  val jsComponent = JsFnComponent[Props, Children.Varargs](CardJS)
   
   /**
    * 
+   * @param children
+   *        The content of the component.
+   *        Passed to Paper
    * @param className
    *        Property spread to root element
    * @param classes
@@ -70,7 +73,7 @@ object Card {
     square: js.UndefOr[Boolean] = js.undefined,
     style: js.UndefOr[org.rebeam.mui.styles.Style] = js.undefined,
     additionalProps: js.UndefOr[js.Object] = js.undefined
-  ) = {
+  )(children: VdomNode *) = {
 
     val p = (new js.Object).asInstanceOf[Props]
     if (className.isDefined) {p.className = className}
@@ -92,7 +95,7 @@ object Card {
       }
     }
     
-    jsComponent(p)
+    jsComponent(p)(children: _*)
   }
 
 }

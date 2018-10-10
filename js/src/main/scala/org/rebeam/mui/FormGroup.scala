@@ -28,6 +28,8 @@ object FormGroup {
    * `FormGroup` wraps controls such as `Checkbox` and `Switch`.
    * It provides compact row layout.
    * For the `Radio`, you should be using the `RadioGroup` component instead of this one.
+   * @param children
+   *        The content of the component.
    * @param className
    *        Property spread to root element
    * @param classes

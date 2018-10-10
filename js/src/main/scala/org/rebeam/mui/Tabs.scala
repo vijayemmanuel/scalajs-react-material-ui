@@ -75,6 +75,8 @@ object Tabs {
    * @param centered
    *        If `true`, the tabs will be centered.
    *        This property is intended for large views.
+   * @param children
+   *        The content of the component.
    * @param className
    *        Property spread to root element
    * @param classes

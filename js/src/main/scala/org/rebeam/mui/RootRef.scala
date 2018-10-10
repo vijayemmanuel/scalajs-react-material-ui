@@ -51,6 +51,8 @@ object RootRef {
    *   }
    * }
    * ```
+   * @param children
+   *        The wrapped element.
    * @param key
    *        React key
    * @param rootRef

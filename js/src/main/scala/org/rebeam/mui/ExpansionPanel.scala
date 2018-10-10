@@ -35,6 +35,8 @@ object ExpansionPanel {
    * 
    * @param CollapseProps
    *        Properties applied to the [`Collapse`](/api/collapse/) element.
+   * @param children
+   *        The content of the expansion panel.
    * @param className
    *        Property spread to root element
    * @param classes

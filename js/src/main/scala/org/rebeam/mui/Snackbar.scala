@@ -63,6 +63,9 @@ object Snackbar {
    *        `onClose` function. `onClose` should then set the state of the `open`
    *        prop to hide the Snackbar. This behavior is disabled by default with
    *        the `null` value.
+   * @param children
+   *        If you wish the take control over the children of the component you can use this property.
+   *        When used, you replace the `SnackbarContent` component with the children.
    * @param className
    *        Property spread to root element
    * @param classes

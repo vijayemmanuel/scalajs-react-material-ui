@@ -84,6 +84,8 @@ object Dialog {
    *        Transition component.
    * @param TransitionProps
    *        Properties applied to the `Transition` element.
+   * @param children
+   *        Dialog children, usually the included sub-components.
    * @param className
    *        Property spread to root element
    * @param classes

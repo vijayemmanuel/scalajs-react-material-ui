@@ -51,6 +51,8 @@ object StepContent {
    * @param alternativeLabel
    *        Property spread to root element
    *        Set internally by Step when it's supplied with the alternativeLabel property.
+   * @param children
+   *        Step content.
    * @param className
    *        Property spread to root element
    * @param classes

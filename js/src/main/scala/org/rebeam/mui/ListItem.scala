@@ -43,6 +43,8 @@ object ListItem {
    *        is used to display a `ListItemSecondaryAction`.
    * @param button
    *        If `true`, the list item will be a button (using `ButtonBase`).
+   * @param children
+   *        The content of the component.
    * @param className
    *        Property spread to root element
    * @param classes

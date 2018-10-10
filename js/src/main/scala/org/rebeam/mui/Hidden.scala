@@ -54,6 +54,8 @@ object Hidden {
   
   /**
    * Responsively hides children based on the selected implementation.
+   * @param children
+   *        The content of the component.
    * @param className
    *        Property spread to root element
    * @param implementation

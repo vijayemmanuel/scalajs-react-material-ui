@@ -55,6 +55,8 @@ object Popper {
    *        that may be used to set the position of the popover.
    *        The return value will passed as the reference object of the Popper
    *        instance.
+   * @param children
+   *        Popper render function or node.
    * @param container
    *        A node, component instance, or function that returns either.
    *        The `container` will passed to the Modal component.
