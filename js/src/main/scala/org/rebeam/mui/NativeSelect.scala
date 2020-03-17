@@ -46,7 +46,7 @@ object NativeSelect {
     var margin: js.UndefOr[String] = js.native
     var multiline: js.UndefOr[Boolean] = js.native
     var name: js.UndefOr[String] = js.native
-    var onChange: js.UndefOr[scalajs.js.Function1[ReactEvent, Unit]] = js.native
+    var onChange: js.UndefOr[scalajs.js.Function1[ReactEventFromInput, Unit]] = js.native
     var placeholder: js.UndefOr[String] = js.native
     var readOnly: js.UndefOr[Boolean] = js.native
     var required: js.UndefOr[Boolean] = js.native
@@ -195,7 +195,7 @@ object NativeSelect {
     margin: js.UndefOr[Margin] = js.undefined,
     multiline: js.UndefOr[Boolean] = js.undefined,
     name: js.UndefOr[String] = js.undefined,
-    onChange: js.UndefOr[ReactEvent => Callback] = js.undefined,
+    onChange: js.UndefOr[ReactEventFromInput => Callback] = js.undefined,
     placeholder: js.UndefOr[String] = js.undefined,
     readOnly: js.UndefOr[Boolean] = js.undefined,
     required: js.UndefOr[Boolean] = js.undefined,
@@ -230,7 +230,7 @@ object NativeSelect {
     if (margin.isDefined) {p.margin = margin.map(v => v.value)}
     if (multiline.isDefined) {p.multiline = multiline}
     if (name.isDefined) {p.name = name}
-    if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEvent) => v(e).runNow())}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEventFromInput) => v(e).runNow())}
     if (placeholder.isDefined) {p.placeholder = placeholder}
     if (readOnly.isDefined) {p.readOnly = readOnly}
     if (required.isDefined) {p.required = required}

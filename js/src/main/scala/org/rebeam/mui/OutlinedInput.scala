@@ -37,7 +37,8 @@ object OutlinedInput {
     var multiline: js.UndefOr[Boolean] = js.native
     var name: js.UndefOr[String] = js.native
     var notched: js.UndefOr[Boolean] = js.native
-    var onChange: js.UndefOr[scalajs.js.Function1[ReactEvent, Unit]] = js.native
+    var onChange: js.UndefOr[scalajs.js.Function1[ReactEventFromInput, Unit]] = js.native
+    var onBlur: js.UndefOr[scalajs.js.Function1[ReactFocusEvent, Unit]] = js.native
     var placeholder: js.UndefOr[String] = js.native
     var readOnly: js.UndefOr[Boolean] = js.native
     var required: js.UndefOr[Boolean] = js.native
@@ -107,6 +108,8 @@ object OutlinedInput {
    *        
    *        parameter {object} event The event source of the callback.
    *        You can pull out the new value by accessing `event.target.value`.
+   * @param onBlur
+   *        Property spread to root element
    * @param placeholder
    *        The short hint displayed in the input before the user enters a value.
    * @param readOnly
@@ -155,7 +158,8 @@ object OutlinedInput {
     multiline: js.UndefOr[Boolean] = js.undefined,
     name: js.UndefOr[String] = js.undefined,
     notched: js.UndefOr[Boolean] = js.undefined,
-    onChange: js.UndefOr[ReactEvent => Callback] = js.undefined,
+    onChange: js.UndefOr[ReactEventFromInput => Callback] = js.undefined,
+    onBlur: js.UndefOr[ReactFocusEvent => Callback] = js.undefined,
     placeholder: js.UndefOr[String] = js.undefined,
     readOnly: js.UndefOr[Boolean] = js.undefined,
     required: js.UndefOr[Boolean] = js.undefined,
@@ -188,7 +192,8 @@ object OutlinedInput {
     if (multiline.isDefined) {p.multiline = multiline}
     if (name.isDefined) {p.name = name}
     if (notched.isDefined) {p.notched = notched}
-    if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEvent) => v(e).runNow())}
+    if (onChange.isDefined) {p.onChange = onChange.map(v => (e: ReactEventFromInput) => v(e).runNow())}
+    if (onBlur.isDefined) {p.onBlur = onBlur.map(v => (e: ReactFocusEvent) => v(e).runNow())}
     if (placeholder.isDefined) {p.placeholder = placeholder}
     if (readOnly.isDefined) {p.readOnly = readOnly}
     if (required.isDefined) {p.required = required}

@@ -2,13 +2,15 @@
 package org.rebeam.mui
 
 import japgolly.scalajs.react._
+
 import scalajs.js
 import scalajs.js.annotation.JSImport
-
 import japgolly.scalajs.react.vdom.html_<^._
 
+import scala.scalajs.js.|
+
 object Grid {
-  
+
   sealed trait AlignContent{ val value: String }
 
   object AlignContent {
@@ -19,7 +21,7 @@ object Grid {
     case object Stretch extends AlignContent { val value: String = "stretch" }
     case object SpaceAround extends AlignContent { val value: String = "space-around" }
   }
-            
+
   sealed trait AlignItems{ val value: String }
 
   object AlignItems {
@@ -29,7 +31,7 @@ object Grid {
     case object FlexStart extends AlignItems { val value: String = "flex-start" }
     case object Baseline extends AlignItems { val value: String = "baseline" }
   }
-            
+
   sealed trait Direction{ val value: String }
 
   object Direction {
@@ -38,7 +40,7 @@ object Grid {
     case object Column extends Direction { val value: String = "column" }
     case object ColumnReverse extends Direction { val value: String = "column-reverse" }
   }
-            
+
   sealed trait Justify{ val value: String }
 
   object Justify {
@@ -49,78 +51,78 @@ object Grid {
     case object SpaceAround extends Justify { val value: String = "space-around" }
     case object SpaceEvenly extends Justify { val value: String = "space-evenly" }
   }
-            
-  sealed trait Lg{ val value: String }
+
+  sealed trait Lg{ val value: Int | String}
 
   object Lg {
-    case object _5 extends Lg { val value: String = "5" }
-    case object _11 extends Lg { val value: String = "11" }
-    case object _2 extends Lg { val value: String = "2" }
-    case object _6 extends Lg { val value: String = "6" }
-    case object False extends Lg { val value: String = "false" }
-    case object Auto extends Lg { val value: String = "auto" }
-    case object _4 extends Lg { val value: String = "4" }
-    case object _3 extends Lg { val value: String = "3" }
-    case object _8 extends Lg { val value: String = "8" }
-    case object _12 extends Lg { val value: String = "12" }
-    case object _10 extends Lg { val value: String = "10" }
-    case object _7 extends Lg { val value: String = "7" }
-    case object True extends Lg { val value: String = "true" }
-    case object _9 extends Lg { val value: String = "9" }
-    case object _1 extends Lg { val value: String = "1" }
+    case object _5 extends Lg { val value: Int | String = 5 }
+    case object _11 extends Lg { val value: Int | String = 11 }
+    case object _2 extends Lg { val value: Int | String = 2 }
+    case object _6 extends Lg { val value: Int | String = 6 }
+    case object False extends Lg { val value: Int | String = "false" }
+    case object Auto extends Lg { val value: Int | String = "auto" }
+    case object _4 extends Lg { val value: Int | String = 4 }
+    case object _3 extends Lg { val value: Int | String = 3 }
+    case object _8 extends Lg { val value: Int | String = 8 }
+    case object _12 extends Lg { val value: Int | String = 12 }
+    case object _10 extends Lg { val value: Int | String = 10 }
+    case object _7 extends Lg { val value: Int | String = 7 }
+    case object True extends Lg { val value: Int | String = "true" }
+    case object _9 extends Lg { val value: Int | String = 9 }
+    case object _1 extends Lg { val value: Int | String = 1 }
   }
-            
-  sealed trait Md{ val value: String }
+
+  sealed trait Md{ val value: Int | String }
 
   object Md {
-    case object Auto extends Md { val value: String = "auto" }
-    case object _12 extends Md { val value: String = "12" }
-    case object _1 extends Md { val value: String = "1" }
-    case object _11 extends Md { val value: String = "11" }
-    case object True extends Md { val value: String = "true" }
-    case object _7 extends Md { val value: String = "7" }
-    case object _8 extends Md { val value: String = "8" }
-    case object _4 extends Md { val value: String = "4" }
-    case object _10 extends Md { val value: String = "10" }
-    case object False extends Md { val value: String = "false" }
-    case object _2 extends Md { val value: String = "2" }
-    case object _6 extends Md { val value: String = "6" }
-    case object _3 extends Md { val value: String = "3" }
-    case object _9 extends Md { val value: String = "9" }
-    case object _5 extends Md { val value: String = "5" }
+    case object Auto extends Md { val value: Int | String = "auto" }
+    case object _12 extends Md { val value: Int | String = 12 }
+    case object _1 extends Md { val value: Int | String = 1 }
+    case object _11 extends Md { val value: Int | String = 11 }
+    case object True extends Md { val value: Int | String = "true" }
+    case object _7 extends Md { val value: Int | String = 7 }
+    case object _8 extends Md { val value: Int | String = 8 }
+    case object _4 extends Md { val value: Int | String = 4 }
+    case object _10 extends Md { val value: Int | String = 10 }
+    case object False extends Md { val value: Int | String = "false" }
+    case object _2 extends Md { val value: Int | String = 2}
+    case object _6 extends Md { val value: Int | String = 6 }
+    case object _3 extends Md { val value: Int | String = 3 }
+    case object _9 extends Md { val value: Int | String = 9 }
+    case object _5 extends Md { val value: Int | String = 5 }
   }
-            
-  sealed trait Sm{ val value: String }
+
+  sealed trait Sm{ val value: Int | String }
 
   object Sm {
-    case object True extends Sm { val value: String = "true" }
-    case object _3 extends Sm { val value: String = "3" }
-    case object _4 extends Sm { val value: String = "4" }
-    case object _2 extends Sm { val value: String = "2" }
-    case object False extends Sm { val value: String = "false" }
-    case object _7 extends Sm { val value: String = "7" }
-    case object _12 extends Sm { val value: String = "12" }
-    case object _10 extends Sm { val value: String = "10" }
-    case object _1 extends Sm { val value: String = "1" }
-    case object Auto extends Sm { val value: String = "auto" }
-    case object _6 extends Sm { val value: String = "6" }
-    case object _9 extends Sm { val value: String = "9" }
-    case object _5 extends Sm { val value: String = "5" }
-    case object _11 extends Sm { val value: String = "11" }
-    case object _8 extends Sm { val value: String = "8" }
+    case object True extends Sm { val value: Int | String = "true" }
+    case object _3 extends Sm { val value: Int | String = 3 }
+    case object _4 extends Sm { val value: Int | String = 4 }
+    case object _2 extends Sm { val value: Int | String = 2 }
+    case object False extends Sm { val value: Int | String = "false" }
+    case object _7 extends Sm { val value: Int | String = 7 }
+    case object _12 extends Sm { val value: Int | String = 12 }
+    case object _10 extends Sm { val value: Int | String = 10 }
+    case object _1 extends Sm { val value: Int | String = 1 }
+    case object Auto extends Sm { val value: Int | String = "auto" }
+    case object _6 extends Sm { val value: Int | String = 6 }
+    case object _9 extends Sm { val value: Int | String = 9 }
+    case object _5 extends Sm { val value: Int | String = 5 }
+    case object _11 extends Sm { val value: Int | String = 11 }
+    case object _8 extends Sm { val value: Int | String = 8 }
   }
-            
-  sealed trait Spacing{ val value: String }
+
+  sealed trait Spacing{ val value: Int | String }
 
   object Spacing {
-    case object _0 extends Spacing { val value: String = "0" }
-    case object _24 extends Spacing { val value: String = "24" }
-    case object _16 extends Spacing { val value: String = "16" }
-    case object _32 extends Spacing { val value: String = "32" }
-    case object _8 extends Spacing { val value: String = "8" }
-    case object _40 extends Spacing { val value: String = "40" }
+    case object _0 extends Spacing { val value: Int | String = 0 }
+    case object _24 extends Spacing { val value: Int | String = 24 }
+    case object _16 extends Spacing { val value: Int | String = 16 }
+    case object _32 extends Spacing { val value: Int | String = 32 }
+    case object _8 extends Spacing { val value: Int | String = 8 }
+    case object _40 extends Spacing { val value: Int | String = 40 }
   }
-            
+
   sealed trait Wrap{ val value: String }
 
   object Wrap {
@@ -128,47 +130,47 @@ object Grid {
     case object Wrap extends Wrap { val value: String = "wrap" }
     case object WrapReverse extends Wrap { val value: String = "wrap-reverse" }
   }
-            
-  sealed trait Xl{ val value: String }
+
+  sealed trait Xl{ val value: Int | String }
 
   object Xl {
-    case object _10 extends Xl { val value: String = "10" }
-    case object _8 extends Xl { val value: String = "8" }
-    case object Auto extends Xl { val value: String = "auto" }
-    case object _3 extends Xl { val value: String = "3" }
-    case object _1 extends Xl { val value: String = "1" }
-    case object _12 extends Xl { val value: String = "12" }
-    case object _4 extends Xl { val value: String = "4" }
-    case object _2 extends Xl { val value: String = "2" }
-    case object _6 extends Xl { val value: String = "6" }
-    case object True extends Xl { val value: String = "true" }
-    case object _11 extends Xl { val value: String = "11" }
-    case object False extends Xl { val value: String = "false" }
-    case object _7 extends Xl { val value: String = "7" }
-    case object _5 extends Xl { val value: String = "5" }
-    case object _9 extends Xl { val value: String = "9" }
+    case object _10 extends Xl { val value: Int | String = 10 }
+    case object _8 extends Xl { val value: Int | String = 8 }
+    case object Auto extends Xl { val value: Int | String = "auto" }
+    case object _3 extends Xl { val value: Int | String = 3 }
+    case object _1 extends Xl { val value: Int | String = 1 }
+    case object _12 extends Xl { val value: Int | String = 12 }
+    case object _4 extends Xl { val value: Int | String = 4 }
+    case object _2 extends Xl { val value: Int | String = 2 }
+    case object _6 extends Xl { val value: Int | String = 6 }
+    case object True extends Xl { val value: Int | String = "true" }
+    case object _11 extends Xl { val value: Int | String = 11 }
+    case object False extends Xl { val value: Int | String = "false" }
+    case object _7 extends Xl { val value: Int | String = 7 }
+    case object _5 extends Xl { val value: Int | String = 5 }
+    case object _9 extends Xl { val value: Int | String = 9 }
   }
-            
-  sealed trait Xs{ val value: String }
+
+  sealed trait Xs{ val value: Int | String }
 
   object Xs {
-    case object _11 extends Xs { val value: String = "11" }
-    case object _2 extends Xs { val value: String = "2" }
-    case object False extends Xs { val value: String = "false" }
-    case object _7 extends Xs { val value: String = "7" }
-    case object _10 extends Xs { val value: String = "10" }
-    case object _1 extends Xs { val value: String = "1" }
-    case object _3 extends Xs { val value: String = "3" }
-    case object _5 extends Xs { val value: String = "5" }
-    case object _9 extends Xs { val value: String = "9" }
-    case object _4 extends Xs { val value: String = "4" }
-    case object True extends Xs { val value: String = "true" }
-    case object _12 extends Xs { val value: String = "12" }
-    case object _6 extends Xs { val value: String = "6" }
-    case object Auto extends Xs { val value: String = "auto" }
-    case object _8 extends Xs { val value: String = "8" }
+    case object _11 extends Xs { val value: Int | String = 11 }
+    case object _2 extends Xs { val value: Int | String = 2 }
+    case object False extends Xs { val value: Int | String = "false" }
+    case object _7 extends Xs { val value: Int | String = 7 }
+    case object _10 extends Xs { val value: Int | String = 10 }
+    case object _1 extends Xs { val value: Int | String = 1 }
+    case object _3 extends Xs { val value: Int | String = 3 }
+    case object _5 extends Xs { val value: Int | String = 5 }
+    case object _9 extends Xs { val value: Int | String = 9 }
+    case object _4 extends Xs { val value: Int | String = 4 }
+    case object True extends Xs { val value: Int | String = "true" }
+    case object _12 extends Xs { val value: Int | String = 12 }
+    case object _6 extends Xs { val value: Int | String = 6 }
+    case object Auto extends Xs { val value: Int | String = "auto" }
+    case object _8 extends Xs { val value: Int | String = 8 }
   }
-          
+
   @js.native
   trait Props extends js.Object {
     var alignContent: js.UndefOr[String] = js.native
@@ -181,14 +183,14 @@ object Grid {
     var item: js.UndefOr[Boolean] = js.native
     var justify: js.UndefOr[String] = js.native
     var key: js.UndefOr[String] = js.native
-    var lg: js.UndefOr[String] = js.native
-    var md: js.UndefOr[String] = js.native
-    var sm: js.UndefOr[String] = js.native
-    var spacing: js.UndefOr[String] = js.native
+    var lg: js.UndefOr[Int | String] = js.native
+    var md: js.UndefOr[Int | String] = js.native
+    var sm: js.UndefOr[Int | String] = js.native
+    var spacing: js.UndefOr[Int | String] = js.native
     var style: js.UndefOr[js.Object] = js.native
     var wrap: js.UndefOr[String] = js.native
-    var xl: js.UndefOr[String] = js.native
-    var xs: js.UndefOr[String] = js.native
+    var xl: js.UndefOr[Int | String] = js.native
+    var xs: js.UndefOr[Int | String] = js.native
     var zeroMinWidth: js.UndefOr[Boolean] = js.native
   }
 
@@ -197,9 +199,9 @@ object Grid {
   object GridJS extends js.Object
 
   val jsComponent = JsFnComponent[Props, Children.Varargs](GridJS)
-  
+
   /**
-   * 
+   *
    * @param alignContent
    *        Defines the `align-content` style property.
    *        It's applied for all screen sizes.
@@ -318,9 +320,8 @@ object Grid {
         }
       }
     }
-    
+
     jsComponent(p)(children: _*)
   }
 
 }
-        

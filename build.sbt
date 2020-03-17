@@ -33,7 +33,7 @@ scalacOptions in ThisBuild ++= Seq(
 
 lazy val catsVersion                = "1.2.0"
 lazy val catsEffectVersion          = "0.10.1"
-lazy val scalajsReactVersion        = "1.2.3"
+lazy val scalajsReactVersion        = "1.6.0"
 lazy val circeVersion               = "0.9.3"
 
 lazy val root = project.in(file(".")).
